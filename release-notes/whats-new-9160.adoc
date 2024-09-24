@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9160.html 
+keywords:  
+summary:  
+---
+= Nouveautés de ONTAP 9.16.0 pour les systèmes ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.10 pour les systèmes ASA r2.
+
+
+
+== Plateformes
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| Nouvelles plateformes  a| 
+Les nouveaux systèmes NetApp ASA r2 suivants sont disponibles. Ces plateformes offrent une solution matérielle et logicielle unifiée qui offre une expérience simplifiée et adaptée aux besoins des clients qui utilisent uniquement un SAN.
+
+* ASA A1K
+* ASA A70
+* ASA A90
+
+
+|===
+
+
+== System Manager
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../get-started/learn-about.html["Prise en charge optimisée des clients SAN uniquement"] | System Manager est rationalisé pour prendre en charge les fonctionnalités SAN essentielles tout en supprimant la visibilité des fonctionnalités non prises en charge dans les environnements SAN. 
+|===
+
+
+== Gestion du stockage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../manage-data/provision-san-storage.html["Gestion du stockage simplifiée"]  a| 
+Pour une gestion du stockage simplifiée, les systèmes ASA r2 utilisent des unités de stockage avec des groupes de cohérence.
+
+* Une _unité de stockage_ permet à vos hôtes SAN de disposer de l'espace de stockage pour les opérations de données. Une unité de stockage désigne une LUN pour les hôtes SCSI ou un namespace NVMe pour les hôtes NVMe.
+* _Un groupe de cohérence_ est un ensemble d'unités de stockage gérées comme une seule unité.
+
+
+|===
+
+
+== Sécurité des données
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../secure-data/encrypt-data-at-rest.html["Gestionnaire de clés intégré et chiffrement double couche"]  a| 
+Les systèmes ASA r2 prennent en charge un gestionnaire de clés intégré et un chiffrement double couche (matériel et logiciel).
+
+|===

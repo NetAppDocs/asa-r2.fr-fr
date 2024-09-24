@@ -1,0 +1,187 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapshot-replication.html 
+keywords: snapshot replication, asa r2, protect data, data protection, replication, replicate data, remote cluster, destination cluster, source cluster, replication relationship, asynchronous replication, synchronous replication 
+summary: 'Utilisez ONTAP System Manager pour copier les données vers un site distant à des fins de sauvegarde et de reprise d"activité. La configuration nécessite la création d"une règle de réplication et d"une relation.' 
+searchtitle: 'Réplication de snapshots sur un cluster distant à l"aide de ONTAP System Manager| ASA r2' 
+---
+= Répliquez des snapshots sur un cluster distant à partir des systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La réplication Snapshot est un processus au cours duquel les groupes de cohérence de votre système ASA r2 sont copiés sur un site distant. Après la réplication initiale, les modifications apportées aux groupes de cohérence sont copiées vers l'emplacement distant en fonction d'une règle de réplication. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.
+
+
+NOTE: La réplication Snapshot à partir d'un système de stockage ASA r2 n'est prise en charge que sur un autre système de stockage ASA r2. Vous ne pouvez pas répliquer les snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS actuel.
+
+Pour configurer la réplication Snapshot, vous devez établir une relation de réplication entre votre système ASA r2 et l'emplacement distant. La relation de réplication est régie par une règle de réplication. Une règle par défaut permettant de répliquer tous les snapshots est créée lors de la configuration du cluster. Vous pouvez utiliser la règle par défaut ou, si vous le souhaitez, créer une nouvelle règle.
+
+
+
+== Étape 1 : créer une relation entre clusters
+
+Avant de pouvoir protéger vos données en les répliquant sur un cluster distant, vous devez créer une relation entre les pairs de cluster entre le cluster local et distant.
+
+.Étapes
+. Sur le cluster local, dans System Manager, sélectionnez *Cluster > Paramètres*.
+. Sous *intercluster Settings* en regard de *Cluster peers*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Ajouter un homologue de cluster*.
+. Sélectionnez *Lauch remote cluster* ; ceci génère une phrase de passe que vous utiliserez pour vous authentifier auprès du cluster distant.
+. Une fois la phrase de passe du cluster distant générée, collez-la sous *Passphrase* sur le cluster local.
+. Sélectionner image:icon_add.gif["signe plus bleu suivi du mot ajouter en lettres bleues"], puis entrer l'adresse IP de l'interface réseau intercluster.
+. Sélectionnez *Initiate cluster peering*.
+
+
+.Et la suite ?
+Vous avez effectué un peering pour le cluster ASA r2 local avec un cluster distant. Il est maintenant possible de créer une relation de réplication.
+
+
+
+== Étape 2 : vous pouvez éventuellement créer une règle de réplication
+
+La règle de réplication des snapshots définit le moment où les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > stratégies*, puis *règles de réplication*.
+. Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez un nom pour la règle de réplication ou acceptez le nom par défaut, puis entrez une description.
+. Sélectionnez *étendue de la stratégie*.
++
+Si vous souhaitez appliquer la règle de réplication à l'ensemble du cluster, sélectionnez *Cluster*. Si vous souhaitez que la règle de réplication s'applique uniquement aux unités de stockage d'une machine virtuelle de stockage spécifique, sélectionnez *Storage VM*.
+
+. Sélectionnez le *Type de stratégie*.
++
+[cols="2,6a"]
+|===
+| Option | Étapes 
+
+
+| Copiez les données sur le site distant une fois qu'elles ont été écrites sur la source.  a| 
+.. Sélectionnez *Asynchronous*.
+.. Sous *transférer des instantanés à partir de la source*, acceptez le programme de transfert par défaut ou sélectionnez un autre programme.
+.. Sélectionnez cette option pour transférer tous les instantanés ou pour créer des règles afin de déterminer les snapshots à transférer.
+.. Activez éventuellement la compression réseau.
+
+
+
+
+| Écrire simultanément les données sur les sites source et distant  a| 
+.. Sélectionnez *synchrone*.
+
+
+|===
+. Sélectionnez *Enregistrer*.
+
+
+.Et la suite ?
+Vous avez créé une règle de réplication et êtes maintenant prêt à créer une relation de réplication entre votre système ASA r2 et votre emplacement distant.
+
+.Pour en savoir plus
+En savoir plus sur link:../administer/manage-client-vm-access.html["Machines virtuelles de stockage pour l'accès client"].
+
+
+
+== Étape 3 : création d'une relation de réplication
+
+Une relation de réplication de snapshot établit une connexion entre le système ASA r2 et un emplacement distant afin que vous puissiez répliquer des groupes de cohérence vers un cluster distant. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.
+
+Pour une protection contre les attaques par ransomware, lorsque vous configurez votre relation de réplication, vous pouvez choisir de verrouiller les snapshots de destination. Les snapshots verrouillés ne peuvent pas être supprimés accidentellement ou de manière malveillante. Vous pouvez utiliser des snapshots verrouillés pour restaurer des données si une unité de stockage est compromise par une attaque par ransomware.
+
+.Avant de commencer
+Si vous souhaitez verrouiller vos snapshots de destination, vous devez d'link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Initialiser l'horloge de conformité de snapshot"]abord créer la relation de réplication.
+
+Créer une relation de réplication avec ou sans snapshots de destination verrouillés.
+
+[role="tabbed-block"]
+====
+.Avec instantanés verrouillés
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Sélectionnez un groupe de cohérence.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *protéger*.
+. Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
+. Sélectionnez la *règle de réplication*.
++
+Vous devez sélectionner une règle de réplication _vault_.
+
+. Sélectionnez *Paramètres de destination*.
+. Sélectionnez *Verrouiller les instantanés de destination pour empêcher la suppression*
+. Entrez la période de conservation maximale et minimale des données.
+. Pour retarder le début du transfert de données, désélectionnez *Démarrer immédiatement le transfert*.
++
+Le transfert de données initial commence immédiatement par défaut.
+
+. Si vous le souhaitez, sélectionnez *Paramètres de destination* pour remplacer le programme de transfert par défaut, puis *remplacer le programme de transfert*.
++
+Votre planning de transfert doit être d'au moins 30 minutes pour être pris en charge.
+
+. Sélectionnez *Enregistrer*.
+
+
+--
+.Sans snapshots verrouillés
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > réplication*.
+. Sélectionnez cette option pour créer la relation de réplication avec la destination locale ou la source locale.
++
+[cols="2,2"]
+|===
+| Option | Étapes 
+
+
+| Destinations locales  a| 
+.. Sélectionnez *destinations locales*, puis sélectionnez image:icon_replicate_blue_bg.png["rectangle avec fond bleu et le mot reproduit en lettres blanches"].
+.. Recherchez et sélectionnez le groupe de cohérence source.
++
+Le groupe de cohérence _source_ fait référence au groupe de cohérence de votre cluster local que vous souhaitez répliquer.
+
+
+
+
+
+| Sources locales  a| 
+.. Sélectionnez *sources locales*, puis sélectionnez image:icon_replicate_blue_bg.png["rectangle avec fond bleu et le mot reproduit en lettres blanches"] .
+.. Recherchez et sélectionnez le groupe de cohérence source.
++
+Le groupe de cohérence _source_ fait référence au groupe de cohérence de votre cluster local que vous souhaitez répliquer.
+
+.. Sous *destination de la réplication*, sélectionnez le cluster vers lequel effectuer la réplication, puis sélectionnez la machine virtuelle de stockage.
+
+
+|===
+. Sélectionnez une règle de réplication.
+. Pour retarder le début du transfert de données, sélectionnez *Paramètres de destination*, puis désélectionnez *Démarrer immédiatement le transfert*.
++
+Le transfert de données initial commence immédiatement par défaut.
+
+. Si vous le souhaitez, sélectionnez *Paramètres de destination* pour remplacer le programme de transfert par défaut, puis *remplacer le programme de transfert*.
++
+Votre planning de transfert doit être d'au moins 30 minutes pour être pris en charge.
+
+. Sélectionnez *Enregistrer*.
+
+
+--
+====
+.Et la suite ?
+Maintenant que vous avez créé une règle de réplication et une relation, votre transfert de données initial commence comme défini dans votre règle de réplication. Vous pouvez également tester votre basculement de réplication pour vérifier qu'il peut se produire si votre système ASA r2 est hors ligne.
+
+
+
+== Étape 4 : test du basculement de réplication
+
+Vous pouvez également vérifier que vous pouvez transmettre les données à partir d'unités de stockage répliquées sur un cluster distant si le cluster source est hors ligne.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > réplication*.
+. Passez le curseur sur la relation de réplication que vous souhaitez tester, puis sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
+. Sélectionnez *Test failover*.
+. Entrez les informations de basculement, puis sélectionnez *Test failover*.
+
+
+.Et la suite ?
+Maintenant que vos données sont protégées par la réplication Snapshot à des fins de reprise sur incident, vous devez link:../secure-data/encrypt-data-at-rest.html["chiffrement de vos données au repos"]empêcher leur lecture si un disque de votre système ASA r2 est requalifié, renvoyé, perdu ou volé.

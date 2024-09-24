@@ -1,0 +1,14 @@
+---
+section: learn-more
+title: En savoir plus >>
+entries:
+- title: ASA r2 pour utilisateurs intensifs ONTAP
+  entries:
+  - title: Comparer les systèmes matériels
+    url: "/learn-more/hardware-comparison.html"
+  - title: Prise en charge logicielle et limitations
+    url: "/learn-more/software-support-limitations.html"
+  - title: Prise en charge CLI
+    url: "/learn-more/cli-support.html"
+  - title: Prise en charge de REST API
+    url: "/learn-more/rest-api-support.html"

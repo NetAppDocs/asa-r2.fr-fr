@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: secure-data/nvme-tcp-connections.html 
+keywords: asa r2, secure data, data security, encrypt, data at rest, data-at-rest, encryption 
+summary: Renforcez la sécurité de vos données en configurant NVMe/TCP sur TLS de manière à chiffrer toutes les données envoyées sur le réseau entre votre hôte NVMe/TCP et ONTAP. 
+---
+= Sécurisez les connexions NVMe sur vos systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous utilisez le protocole NVMe, vous pouvez configurer l'authentification intrabande pour renforcer la sécurité de vos données. L'authentification intrabande permet une authentification bidirectionnelle et unidirectionnelle sécurisée entre vos hôtes NVMe et votre système ASA r2. L'authentification intrabande est disponible pour tous les hôtes NVMe. Si vous utilisez le protocole NVMe/TCP, vous pouvez renforcer encore la sécurité de vos données en configurant transport Layer Security (TLS) pour chiffrer toutes les données envoyées sur le réseau entre vos hôtes NVMe/TCP et votre système ASA r2.
+
+.Étapes
+. Sélectionnez *hosts*, puis *NVMe*.
+. Sélectionnez image:icon_add_blue_bg.png["Carré bleu avec un signe plus suivi du mot Ajouter en lettres blanches"] .
+. Entrez le nom d'hôte, puis sélectionnez le système d'exploitation hôte.
+. Entrez une description d'hôte, puis sélectionnez la VM de stockage à connecter à l'hôte.
+. Sélectionnez image:icon_dropdown_arrow.gif["flèche bleue orientée vers le bas"] en regard du nom d'hôte.
+. Sélectionnez *authentification intrabande*.
+. Si vous utilisez le protocole NVMe/TCP, sélectionnez *nécessite TLS (transport Layer Security)*.
+. Sélectionnez *Ajouter*.
+
+
+.Résultat
+La sécurité de vos données est renforcée par l'authentification intrabande et/ou TLS.

@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: administer/rename-nodes.html 
+keywords: rename, node, renaming, asa r2 
+summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conventions de nommage de votre entreprise ou pour d"autres raisons d"ordre administratif.' 
+---
+= Renommez un nœud sur un système de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager pour renommer un nœud sur votre système ASA r2. Vous devrez peut-être renommer un nœud pour l'aligner sur les conventions de nommage de votre entreprise ou pour d'autres raisons d'ordre administratif.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Présentation*.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] en regard du nœud que vous souhaitez renommer, puis sélectionnez *Renommer*.
+. Entrez le nouveau nom du nœud, puis sélectionnez *Renommer*.
+
+
+.Résultat
+Le nouveau nom est appliqué au nœud.

@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: monitor/monitor-storage.html 
+keywords: monitor, storage, cluster, utilization, usage 
+summary: 'Surveillez l"utilisation de votre stockage pour vous assurer de disposer de la capacité de stockage dont vous avez besoin pour gérer vos charges de travail actuelles et futures.' 
+searchtitle: 'Surveillez l"utilisation de l"espace à l"aide de ONTAP System Manager | ASA r2' 
+---
+= Surveillez l'utilisation du cluster et des unités de stockage sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilisez ONTAP System Manager pour surveiller l'utilisation du stockage et vous assurer que vous disposez de la capacité de stockage nécessaire pour gérer vos charges de travail actuelles et futures.
+
+
+
+== Surveillance de l'utilisation du cluster
+
+Surveillez régulièrement la quantité de stockage consommée par votre cluster afin de vous assurer que, si nécessaire, vous êtes prêt à étendre la capacité du cluster avant de manquer d'espace.
+
+.Étapes
+. Dans System Manager, sélectionnez *Dashboard*.
+. Sous *capacité*, affichez la quantité d'espace physique utilisé et la quantité d'espace disponible sur votre cluster.
++
+Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage.
+
+
+
+.Et la suite ?
+Si l'espace de votre cluster est insuffisant ou s'il ne dispose pas de la capacité nécessaire pour répondre à un nouveau besoin, envisagez d'link:../administer/increase-storage-capacity.html["ajouter de nouveaux lecteurs"]augmenter votre capacité de stockage avec votre système ASA r2.
+
+
+
+== Surveiller l'utilisation de l'unité de stockage
+
+Surveillez la quantité de stockage consommée par une unité de stockage afin d'augmenter de manière proactive la taille de l'unité de stockage en fonction des besoins de votre entreprise.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Sélectionnez l'unité de stockage que vous souhaitez surveiller, puis sélectionnez *Présentation*.
+. Sous *stockage*, affichez ce qui suit :
++
+** Taille de votre unité de stockage
+** Quantité d'espace utilisé
+** Ratio de réduction de données
++
+Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage
+
+** Snapshot utilisé
++
+Snapshot utilisé représente la quantité de stockage utilisée par les snapshots.
+
+
+
+
+
+.Et la suite ?
+Si votre unité de stockage approche de link:../manage-data/modify-storage-units.html["modifier l'unité de stockage"]sa capacité, vous devez augmenter sa taille.

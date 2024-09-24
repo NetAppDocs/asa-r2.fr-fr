@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: data-protection/restore-data.html 
+keywords: restore data, asa r2, data restoration 
+summary: 'Si les données d"un groupe de cohérence sont corrompues ou perdues, vous pouvez restaurer l"intégralité du groupe de cohérence à partir d"un snapshot distant.' 
+---
+= Restaurez les données sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les données d'un groupe de cohérence ou d'une unité de stockage protégé par des snapshots peuvent être restaurées en cas de perte ou de corruption.
+
+
+
+== Restaurez un groupe de cohérence
+
+La restauration d'un groupe de cohérence remplace les données de toutes les unités de stockage du groupe de cohérence par les données d'un snapshot. Les modifications apportées aux unités de stockage après la création de l'instantané ne sont pas restaurées.
+
+Vous pouvez restaurer un groupe de cohérence à partir d'un snapshot local ou distant.
+
+[role="tabbed-block"]
+====
+.Restauration à partir d'un snapshot local
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Double-cliquez sur le groupe de cohérence contenant les données à restaurer.
++
+La page d'informations sur les groupes de cohérence s'ouvre.
+
+. Sélectionnez *instantanés*.
+. Sélectionnez l'instantané à restaurer, puis sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
+. Sélectionnez *Restaurer le groupe de cohérence à partir de cet instantané*, puis sélectionnez *Restaurer*.
+
+
+--
+.Restauration à partir d'un snapshot distant
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > réplication*.
+. Sélectionnez *destinations locales*.
+. Sélectionnez la *Source* que vous souhaitez restaurer, puis sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
+. Sélectionnez *Restaurer*.
+. Sélectionnez le cluster, la machine virtuelle de stockage et le groupe de cohérence vers lesquels vous souhaitez restaurer les données.
+. Sélectionnez l'instantané à partir duquel vous souhaitez restaurer.
+. Lorsque vous y êtes invité, entrez "restaurer", puis sélectionnez *Restaurer*.
+
+
+--
+====
+.Résultat
+Votre groupe de cohérence est restauré à partir du point dans le temps du snapshot utilisé pour la restauration.
+
+
+
+== Restaurer une unité de stockage
+
+La restauration d'une unité de stockage remplace toutes les données de l'unité de stockage par les données d'un instantané. Les modifications apportées à l'unité de stockage après la création de l'instantané ne sont pas restaurées.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Double-cliquez sur l'unité de stockage contenant les données à restaurer.
++
+La page de détails de l'unité de stockage s'ouvre.
+
+. Sélectionnez *instantanés*.
+. Sélectionnez l'instantané à restaurer.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Restaurer*.
+. Sélectionnez *utiliser cet instantané pour restaurer l'unité de stockage*, puis sélectionnez *Restaurer*.
+
+
+.Résultat
+Votre unité de stockage est restaurée au point dans le temps de l'instantané utilisé pour la restauration.

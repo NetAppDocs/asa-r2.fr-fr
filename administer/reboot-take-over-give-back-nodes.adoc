@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: administer/reboot-take-over-give-back-nodes.html 
+keywords: reboot, take over, give back, nodes, asa r2, asa r2, asa a1k, asa 70, asa 90 
+summary: 'Vous devrez peut-être redémarrer un nœud pour effectuer des opérations de maintenance, de dépannage, de mise à jour logicielle ou d"autres tâches d"administration.' 
+---
+= Redémarrez un nœud sur un système de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devrez peut-être redémarrer un nœud pour effectuer des opérations de maintenance, de dépannage, de mise à jour logicielle ou d'autres tâches d'administration. Lorsqu'un nœud est redémarré, son partenaire haute disponibilité exécute automatiquement un basculement. Le nœud partenaire effectue ensuite un rétablissement automatique après la remise en ligne du nœud rebooté.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Présentation*.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] en regard du nœud que vous souhaitez redémarrer, puis sélectionnez *redémarrer*.
+. Entrez la raison pour laquelle vous redémarrez le nœud, puis sélectionnez *redémarrer*.
++
+La raison pour laquelle vous entrez pour le redémarrage est enregistrée dans le journal d'audit du système.
+
+
+
+.Et la suite ?
+Pendant le redémarrage du nœud, son partenaire haute disponibilité effectue un basculement afin qu'il n'y ait aucune interruption du service de données. Une fois le redémarrage terminé, le partenaire HA effectue un retour.

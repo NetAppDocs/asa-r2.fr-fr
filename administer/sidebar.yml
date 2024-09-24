@@ -1,0 +1,34 @@
+---
+section: administer
+title: Administration et contrôle
+entries:
+- title: Gestion de l'accès client aux machines virtuelles de stockage
+  url: "/administer/manage-client-vm-access.html"
+- title: Gestion de la mise en réseau des clusters
+  url: "/administer/manage-cluster-networking.html"
+- title: Surveillez l'utilisation et augmentez la capacité
+  entries:
+  - title: Contrôle des performances du stockage
+    url: "/monitor/monitor-performance.html"
+  - title: Surveillez l'utilisation du stockage
+    url: "/monitor/monitor-storage.html"
+  - title: Augmenter la capacité de stockage
+    url: "/administer/increase-storage-capacity.html"
+- title: Met à jour le micrologiciel
+  url: "/administer/update-firmware.html"
+- title: Afficher des informations exploitables
+  url: "/monitor/view-insights.html"
+- title: Afficher les événements et les tâches du cluster
+  url: "/monitor/view-events-jobs.html"
+- title: Gérer des nœuds
+  entries:
+  - title: Redémarrez, Takeover et back nœuds
+    url: "/administer/reboot-take-over-give-back-nodes.html"
+  - title: Renommer les nœuds
+    url: "/administer/rename-nodes.html"
+- title: Gestion des comptes et des rôles d'utilisateur
+  url: "/administer/user-accounts-roles.html"
+- title: Gérer les certificats de sécurité
+  url: "/administer/manage-certificates.html"
+- title: Vérifiez la connectivité hôte
+  url: "/administer/verify-host-connectivity.html"

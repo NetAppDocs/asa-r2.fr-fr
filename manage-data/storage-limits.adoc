@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: manage-data/storage-limits.html 
+keywords: storage limits, cluster limits, maximum lun size, supported protocols, asa r2, asa a1k, asa a70, asa a90 
+summary: Les configurations ASA r2 prennent en charge un maximum de 2 nœuds par cluster exécutant les protocoles FC, iSCSI, NVMe/FC ou NVMe/TCP. 
+---
+= Limites de stockage de ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour optimiser les performances, la configuration et le support, vous devez tenir compte des limites de stockage de ASA r2.
+
+Les systèmes ASA r2 prennent en charge les éléments suivants :
+
+[cols="1h, 1"]
+|===
+
+
+| Nombre max. De nœuds par cluster | 2 
+
+
+| Taille max. De l'unité de stockage | 128 TO 
+|===
+.Pour en savoir plus
+Pour obtenir la liste complète des limites de stockage ASA r2 les plus récentes, reportez-vous à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]la section .

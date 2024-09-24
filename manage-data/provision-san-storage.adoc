@@ -1,0 +1,264 @@
+---
+sidebar: sidebar 
+permalink: manage-data/provision-san-storage.html 
+keywords: provision storage,san, create storage units, luns, namespaces, nvme, add host, add host initiators, map host, host mapping, create, ontap 
+summary: 'Provisionnez le stockage ONTAP sur ASA r2 afin que les hôtes SAN (SCSI et NVMe) puissent lire et écrire des données sur les unités de stockage spécifiées (LUN et espaces de noms NVMe).' 
+searchtitle: 'Provisionnez le stockage SAN à l"aide de ONTAP System Manager | ASA r2' 
+---
+= Provisionnez le stockage SAN ONTAP sur les systèmes ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous provisionnez le stockage, vos hôtes SAN peuvent lire et écrire des données sur les systèmes de stockage ASA r2. Pour provisionner le stockage, vous pouvez utiliser ONTAP System Manager pour créer des unités de stockage, ajouter des initiateurs hôtes et mapper l'hôte sur une unité de stockage. Vous devez également effectuer des étapes sur l'hôte pour activer les opérations de lecture/écriture.
+
+
+
+== Créer des unités de stockage
+
+Sur un système ASA r2, une unité de stockage met à disposition de l'espace de stockage de vos hôtes SAN pour les opérations sur les données. Une unité de stockage désigne une LUN pour les hôtes SCSI ou un namespace NVMe pour les hôtes NVMe. Si votre cluster est configuré pour prendre en charge les hôtes SCSI, vous êtes invité à créer une LUN. Si votre cluster est configuré pour prendre en charge les hôtes NVMe, vous êtes invité à créer un namespace NVMe. Une unité de stockage ASA r2 a une capacité maximale de 128 To.
+
+Consultez le link:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour connaître les limites de stockage les plus récentes pour les systèmes ASA r2.
+
+Les initiateurs hôtes sont ajoutés et mappés sur l'unité de stockage dans le cadre du processus de création de l'unité de stockage. Vous pouvez également link:provision-san-storage.html#add-host-initiators["ajoutez des initiateurs hôtes"]link:provision-san-storage.html#map-the-storage-unit-to-a-host["carte"]les et sur vos unités de stockage une fois les unités de stockage créées.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*, puis sélectionnez image:icon_add_blue_bg.png["icône rectangulaire sur fond bleu et le mot se centre en lettres blanches"].
+. Entrez un nom pour la nouvelle unité de stockage.
+. Entrez le nombre d'unités que vous souhaitez créer.
++
+Si vous créez plusieurs unités de stockage, chaque unité est créée avec la même capacité, le même système d'exploitation hôte et le même mappage d'hôte.
+
+. Entrez la capacité de l'unité de stockage, puis sélectionnez le système d'exploitation hôte.
+. Acceptez le *mappage d'hôte* sélectionné automatiquement ou sélectionnez un autre groupe d'hôtes pour l'unité de stockage à mapper.
++
+*Host Mapping* fait référence au groupe d'hôtes auquel la nouvelle unité de stockage sera mappée. S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôtes. Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement pour votre mappage d'hôtes ou sélectionner un autre groupe d'hôtes.
+
++
+S'il n'existe aucun groupe d'hôtes préexistant pour les hôtes s'exécutant sur le système d'exploitation que vous avez spécifié, un nouveau groupe d'hôtes est automatiquement créé par ONTAP.
+
+. Si vous souhaitez effectuer l'une des opérations suivantes, sélectionnez *plus d'options* et suivez les étapes requises.
++
+[cols="2, 4a"]
+|===
+| Option | Étapes 
+
+
+ a| 
+Modifiez la règle de qualité de service (QoS) par défaut
+
+Si la stratégie QoS par défaut n'a pas été définie précédemment sur la machine virtuelle de stockage sur laquelle l'unité de stockage est créée, cette option n'est pas disponible.
+ a| 
+.. Sous *stockage et optimisation*, à côté de *qualité de service (QoS)*, sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"] .
+.. Sélectionnez une politique QoS existante.
+
+
+
+
+ a| 
+Création d'une règle de QoS
+ a| 
+.. Sous *stockage et optimisation*, à côté de *qualité de service (QoS)*, sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"] .
+.. Sélectionnez *définir une nouvelle stratégie*.
+.. Entrez un nom pour la nouvelle politique de QoS.
+.. Définissez une limite QoS, une garantie QoS, ou les deux.
++
+... Si vous le souhaitez, sous *Limit*, entrez une limite de débit maximal, une limite d'IOPS maximale ou les deux.
++
+La définition d'un débit et d'IOPS maximum pour une unité de stockage limite son impact sur les ressources système afin qu'elles ne dégradent pas les performances des charges de travail stratégiques.
+
+... Si vous le souhaitez, entrez un débit minimal, un nombre minimal d'IOPS ou les deux sous *Guarantee*.
++
+La définition d'un débit et d'IOPS minimaux pour une unité de stockage garantit qu'elle satisfait aux objectifs de performance minimaux, indépendamment de la demande des charges de travail concurrentes.
+
+
+
+.. Sélectionnez *Ajouter*.
+
+
+
+
+ a| 
+Ajoutez un nouvel hôte SCSI
+ a| 
+.. Sous *informations sur l'hôte*, sélectionnez *SCSI* pour le protocole de connexion.
+.. Sélectionnez le système d'exploitation hôte.
+.. Sous *Host Mapping*, sélectionnez *New hosts*.
+.. Sélectionnez *FC* ou *iSCSI*.
+.. Sélectionnez des initiateurs hôtes existants ou sélectionnez *Ajouter un initiateur* pour ajouter un nouvel initiateur hôte.
++
+Un WWPN FC valide est un exemple de WWPN « 01:02:03:04:0a:0b:0C:0d ». Les noms d'initiateurs iSCSI valides sont « iqn.1995-08.com.example:string" et « eui.0123456789abcdef ».
+
+
+
+
+
+ a| 
+Créez un nouveau groupe d'hôtes SCSI
+ a| 
+.. Sous *informations sur l'hôte*, sélectionnez *SCSI* pour le protocole de connexion.
+.. Sélectionnez le système d'exploitation hôte.
+.. Sous *Host Mapping*, sélectionnez *New host group*.
+.. Entrez un nom pour le groupe d'hôtes, puis sélectionnez les hôtes à ajouter au groupe.
+
+
+
+
+ a| 
+Ajoutez un nouveau sous-système NVMe
+ a| 
+.. Sous *informations sur l'hôte*, sélectionnez *NVMe* pour le protocole de connexion.
+.. Sélectionnez le système d'exploitation hôte.
+.. Sous *Host Mapping*, sélectionnez *Nouveau sous-système NVMe*.
+.. Entrez un nom pour le sous-système ou acceptez le nom par défaut.
+.. Entrez un nom pour l'initiateur.
+.. Si vous souhaitez activer l'authentification intrabande ou TLS (transport Layer Security), sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"], puis sélectionnez vos options.
++
+L'authentification intrabande permet une authentification bidirectionnelle et unidirectionnelle sécurisée entre vos hôtes NVMe et votre système ASA r2.
+
++
+TLS chiffre toutes les données envoyées sur le réseau entre vos hôtes NVMe/TCP et votre système ASA r2.
+
+.. Sélectionnez *Ajouter initiateur* pour ajouter d'autres initiateurs.
++
+Le NQN hôte doit être formaté en <nqn.yyyy-mm> suivi d'un nom de domaine complet. L'année doit être égale ou ultérieure à 1970. La longueur maximale totale doit être de 223. Exemple d'initiateur NVMe valide : nqn.2014-08.com.example:string
+
+
+
+|===
+. Sélectionnez *Ajouter*.
+
+
+.Et la suite ?
+Vos unités de stockage sont créées et mappées sur vos hôtes. Vous pouvez désormais link:../data-protection/create-snapshots.html["créer des instantanés"]protéger les données stockées sur votre système ASA r2.
+
+.Pour en savoir plus
+En savoir plus sur link:../administer/manage-client-vm-access.html["Utilisation des machines virtuelles de stockage par les systèmes ASA r2"].
+
+
+
+== Ajoutez des initiateurs hôtes
+
+Vous pouvez à tout moment ajouter de nouveaux initiateurs hôtes à votre système ASA r2. Les initiateurs rendent les hôtes éligibles pour accéder aux unités de stockage et effectuer des opérations sur les données.
+
+.Avant de commencer
+Si vous souhaitez répliquer la configuration hôte sur un cluster de destination pendant le processus d'ajout de vos initiateurs hôtes, votre cluster doit faire partie d'une relation de réplication. Si vous le souhaitez, vous pouvez link:../data-protection/snapshot-replication.html#step-3-create-a-replication-relationship["créer une relation de réplication"] une fois votre hôte ajouté.
+
+Ajoutez des initiateurs hôtes pour des hôtes SCSI ou NVMe.
+
+[role="tabbed-block"]
+====
+.Hôtes SCSI
+--
+.Étapes
+. Sélectionnez *hôte*.
+. Sélectionnez *SCSI*, puis image:icon_add_blue_bg.png["icône de rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez le nom d'hôte, sélectionnez le système d'exploitation hôte et entrez une description d'hôte.
+. Si vous souhaitez répliquer la configuration hôte vers un cluster de destination, sélectionnez *replicate host configuration*, puis sélectionnez le cluster de destination.
++
+Votre cluster doit faire partie d'une relation de réplication pour pouvoir répliquer la configuration hôte.
+
+. Ajouter des hôtes nouveaux ou existants.
++
+[cols="2"]
+|===
+| Ajouter de nouveaux hôtes | Ajouter des hôtes existants 
+
+
+ a| 
+.. Sélectionnez *nouveaux hôtes*.
+.. Sélectionnez *FC* ou *iSCSI*, puis sélectionnez les initiateurs hôtes.
+.. Si vous le souhaitez, sélectionnez *configurer la proximité de l'hôte*.
++
+La configuration de la proximité des hôtes permet à ONTAP d'identifier le contrôleur le plus proche de l'hôte pour optimiser le chemin d'accès aux données et réduire la latence. Ceci s'applique uniquement si vous avez répliqué des données vers un emplacement distant. Si vous n'avez pas configuré la réplication de snapshot, vous n'avez pas besoin de sélectionner cette option.
+
+.. Si vous devez ajouter de nouveaux initiateurs, sélectionnez *Ajouter des initiateurs*.
+
+ a| 
+.. Sélectionnez *hôtes existants*.
+.. Sélectionnez l'hôte à ajouter.
+.. Sélectionnez *Ajouter*.
+
+
+|===
+. Sélectionnez *Ajouter*.
+
+
+.Et la suite ?
+Vos hôtes SCSI sont ajoutés à votre système ASA r2 et vous êtes prêt à mapper vos hôtes à vos unités de stockage.
+
+--
+.Hôtes NVMe
+--
+.Étapes
+. Sélectionnez *hôte*.
+. Sélectionnez *NVMe*, puis image:icon_add_blue_bg.png["icône rectangulaire sur fond bleu et le mot se centre en lettres blanches"].
+. Entrez un nom pour le sous-système NVMe, sélectionnez le système d'exploitation hôte et entrez une description.
+. Sélectionnez *Ajouter initiateur*.
+
+
+.Et la suite ?
+Vos hôtes sont ajoutés au système ASA r2 et vous pouvez mapper vos hôtes sur vos unités de stockage.
+
+--
+====
+
+
+== Créer des groupes d'hôtes
+
+Sur un système ASA r2, un _groupe d'hôtes_ est le mécanisme utilisé pour donner aux hôtes l'accès aux unités de stockage. Un groupe d'hôtes désigne un groupe initiateur pour les hôtes SCSI ou un sous-système NVMe pour les hôtes NVMe. Un hôte ne peut voir que les unités de stockage qui sont mappées aux groupes d'hôtes auxquels il appartient. Lorsqu'un groupe d'hôtes est mappé sur une unité de stockage, les hôtes qui sont membres du groupe peuvent alors monter (créer des répertoires et des structures de fichiers sur) l'unité de stockage.
+
+Les groupes d'hôtes sont créés automatiquement ou manuellement lorsque vous créez vos unités de stockage. Vous pouvez éventuellement utiliser les étapes suivantes pour créer des groupes hôtes avant ou après la création de l'unité de stockage.
+
+.Étapes
+. Dans System Manager, sélectionnez *Host*.
+. Sélectionnez les hôtes que vous souhaitez ajouter au groupe d'hôtes.
++
+Après avoir sélectionné le premier hôte, l'option à ajouter à un groupe d'hôtes apparaît au-dessus de la liste des hôtes.
+
+. Sélectionnez *Ajouter au groupe d'hôtes*.
+. Recherchez et sélectionnez le groupe d'hôtes auquel vous souhaitez ajouter l'hôte.
+
+
+.Et la suite ?
+Vous avez créé un groupe d'hôtes et vous pouvez maintenant le mapper à une unité de stockage.
+
+
+
+== Mappez l'unité de stockage sur un hôte
+
+Après avoir créé vos unités de stockage ASA r2 et ajouté des initiateurs hôtes, vous devez mapper vos hôtes sur vos unités de stockage pour assurer le service des données. Les unités de stockage sont mappées aux hôtes dans le cadre du processus de création de l'unité de stockage. Vous pouvez également mapper les unités de stockage existantes à tout moment sur des hôtes nouveaux ou existants.
+
+.Étapes
+. Sélectionnez *stockage*.
+. Placez le pointeur de la souris sur le nom de l'unité de stockage à mapper.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Mapper sur les hôtes*.
+. Sélectionnez les hôtes que vous souhaitez mapper à l'unité de stockage, puis sélectionnez *Map*.
+
+
+.Et la suite ?
+Votre unité de stockage est mappée sur vos hôtes et vous êtes prêt à terminer le processus de provisionnement sur vos hôtes.
+
+
+
+== Provisionnement complet côté hôte
+
+Une fois que vous avez créé vos unités de stockage, ajouté vos initiateurs hôtes et mappé vos unités de stockage, vous devez effectuer certaines étapes sur vos hôtes avant de pouvoir lire et écrire des données sur votre système ASA r2.
+
+.Étapes
+. Pour les protocoles FC et FC/NVMe, indiquez vos commutateurs FC par WWPN.
++
+Utilisez une zone par initiateur et incluez tous les ports cibles dans chaque zone.
+
+. Découvrez la nouvelle unité de stockage.
+. Initialisez l'unité de stockage et un système de création de fichiers.
+. Vérifiez que votre hôte peut lire et écrire des données sur l'unité de stockage.
+
+
+.Et la suite ?
+Vous avez terminé le processus de provisionnement et êtes prêt à transférer des données. Vous pouvez désormais link:../data-protection/create-snapshots.html["créer des instantanés"]protéger les données stockées sur votre système ASA r2.
+
+.Pour en savoir plus
+Pour plus d'informations sur la configuration côté hôte, reportez-vous à link:https://docs.netapp.com/us-en/ontap-sanhost/["Documentation de l'hôte SAN ONTAP"^]la section correspondant à votre hôte spécifique.

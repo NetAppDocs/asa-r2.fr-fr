@@ -1,0 +1,47 @@
+---
+indexpage:
+  title: Documentation de ASA r2
+  summary: Les systèmes NetApp ASA r2 apportent une solution matérielle et logicielle
+    unifiée qui simplifie l'expérience et répond parfaitement aux besoins des clients
+    SAN.
+  keywords: asa r2, ontap, documentation, asa a1k, asa a70, asa a90
+  lead: Les nouveaux systèmes NetApp ASA r2 (ASA A1K, ASA A70 et ASA A90) proposent
+    une solution matérielle et logicielle unifiée qui simplifie l'expérience en fonction
+    des besoins des clients qui utilisent exclusivement SAN.
+  tiles:
+  - title: Commencez
+    links:
+    - title: En savoir plus >>
+      url: "/get-started/learn-about.html"
+    - title: Démarrage rapide
+      url: "/get-started/quick-start.html"
+  - title: Gérez vos données
+    links:
+    - title: Provisionnez le stockage SAN
+      url: "/manage-data/provision-san-storage.html"
+    - title: Clonage de données
+      url: "/manage-data/data-cloning.html"
+    - title: Modifier les unités de stockage
+      url: "/manage-data/modify-storage-units.html"
+  - title: Protégez et sécurisez les données
+    links:
+    - title: Créer des instantanés
+      url: "/data-protection/create-snapshots.html"
+    - title: Configuration de la réplication Snapshot
+      url: "/data-protection/snapshot-replication.html"
+    - title: Chiffrement des données au repos
+      url: "/secure-data/encrypt-data-at-rest.html"
+  - title: Plus de ressources ASA r2
+    links:
+    - title: Fiche technique ASA
+      url: https://www.netapp.com/data-storage/all-flash-san-storage-array/
+    - title: Référence des commandes ONTAP
+      url: https://docs.netapp.com/us-en/ontap-cli/
+    - title: Référence de l'API REST ONTAP
+      url: https://docs.netapp.com/us-en/ontap-restapi/index.html
+    - title: Référence EMS ONTAP
+      url: https://docs.netapp.com/us-en/ontap-ems/index.html
+  - title: Autres ressources ONTAP
+    links:
+    - title: Documentation pour les autres systèmes ONTAP
+      url: https://docs.netapp.com/us-en/ontap-family/

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: secure-data/ransomware-protection.html 
+keywords: asa r2, secure data, data security, ransomware, ransomware attacks, protection 
+summary: 'Sécurisez vos données à l"aide de snapshots inviolables. Les snapshots inviolables ne peuvent pas être supprimés et peuvent être utilisés pour restaurer les données compromises en cas d"attaque par ransomware.' 
+---
+= Protégez-vous contre les attaques par ransomware sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour une protection renforcée contre les attaques par ransomware, répliquez les snapshots sur un cluster distant, puis verrouillez les snapshots de destination pour les protéger contre toute tentative d'altération. Les snapshots verrouillés ne peuvent pas être supprimés accidentellement ou de manière malveillante. Vous pouvez utiliser des snapshots verrouillés pour restaurer des données si une unité de stockage n'est jamais compromise par une attaque par ransomware.
+
+
+
+== Initialiser l'horloge SnapLock Compliance
+
+Avant de pouvoir créer des instantanés inviolables, vous devez initialiser l'horloge SnapLock Compliance sur vos clusters locaux et de destination.
+
+.Étapes
+. Sélectionnez *Cluster > Présentation*.
+. Dans la section *nœuds*, sélectionnez *initialiser horloge SnapLock Compliance*.
+. Sélectionnez *initialiser*.
+. Vérifiez que l'horloge de conformité est initialisée.
++
+.. Sélectionnez *Cluster > Présentation*.
+.. Dans la section *nœuds*, sélectionnez image:icon_show_hide.png["trois colonnes bleues sur fond blanc"]; puis *SnapLock Compliance horloge*.
+
+
+
+
+.Et la suite ?
+Après avoir initialisé l'horloge SnapLock Compliance sur vos clusters locaux et de destination, vous êtes prêt à link:../data-protection/snapshot-replication.html#step-3-create-a-replication-relationship["créer une relation de réplication avec des snapshots verrouillés"].

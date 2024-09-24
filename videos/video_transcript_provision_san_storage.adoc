@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: videos/video_transcript_provision_san_storage.html 
+keywords: frontmatter, front matter 
+summary: Visionnez de courtes vidéos qui expliquent comment utiliser ONTAP System Manager pour effectuer rapidement et facilement des tâches courantes sur vos systèmes de stockage ASA r2. 
+---
+= Configurez le stockage SAN sur votre système ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La transcription suivante est fournie pour la vidéo `Provision SAN storage on your ASA r2 storage system`.
+
+link:videos-common-tasks.html#video_transcript_return_provision_san_storage["Retour à la page"]
+
+Vous pouvez utiliser ONTAP System Manager pour provisionner rapidement et facilement des unités de stockage pour les hôtes de votre système de stockage ASA r2.
+
+Dans cet exemple, nous allons créer six nouvelles unités de stockage pour un hôte VMware.
+
+Dans le menu System Manager, sélectionnez *Storage*, puis *Add*.
+
+Entrez un nom pour les unités de stockage, le nombre d'unités et la capacité de chaque unité, puis sélectionnez votre système d'exploitation hôte.
+
+Si vous créez plusieurs unités, par défaut, chaque unité est créée avec la même capacité.
+
+Sélectionnez *plus d'options* pour saisir les informations relatives à votre hôte. Dans cet exemple, nous allons sélectionner le protocole SCSI et ajouter un nouvel hôte iSCSI.
+
+Entrez le nom d'hôte, puis ajoutez les initiateurs hôtes et une description.
+
+Sélectionnez *planifier des instantanés* pour protéger vos unités de stockage avec des instantanés réguliers.
+
+Sélectionnez la protection à distance pour *répliquer vos unités vers un emplacement distant*.
+
+Sélectionnez une machine virtuelle de stockage et une règle de réplication ; sélectionnez *Add*.
+
+Les unités de stockage doivent faire partie d'un groupe de cohérence pour la réplication. Entrez un nom de groupe de cohérence et sélectionnez *Create*.
+
+Vous avez rapidement et facilement provisionné 6 unités de stockage pour les hôtes VMware avec une protection des données locale et distante.

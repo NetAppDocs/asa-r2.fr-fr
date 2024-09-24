@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: data-protection/policies-schedules.html 
+keywords: data protection, polices, schedules, protect data, snapshot policies, snapshot schedules, replication policies 
+summary: Utilisez des règles et des calendriers de protection des données pour protéger les données selon un calendrier automatisé. 
+---
+= Gérez les stratégies et les plannings de protection des données ONTAP sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilisez les règles de snapshot pour protéger les données de vos groupes de cohérence selon une planification automatisée. Utilisez les planifications de règles au sein des règles de snapshot pour déterminer la fréquence de création des snapshots.
+
+
+
+== Créez un nouveau planning de stratégie de protection
+
+Une planification de règle de protection définit la fréquence à laquelle une règle de snapshots est exécutée. Vous pouvez créer des horaires à exécuter à intervalles réguliers en fonction d'un certain nombre de jours, d'heures ou de minutes. Par exemple, vous pouvez créer un programme à exécuter toutes les heures ou une seule fois par jour. Vous pouvez également créer des horaires à exécuter à des heures spécifiques sur des jours spécifiques de la semaine ou du mois. Par exemple, vous pouvez créer un programme à exécuter à 12:15 le 20 de chaque mois.
+
+La définition de plusieurs plannings de règles de protection vous permet d'augmenter ou de diminuer la fréquence des snapshots pour différentes applications. Vous bénéficiez ainsi d'un niveau de protection supérieur et d'un risque moindre de perte de données pour vos workloads stratégiques par rapport à ce qui pourrait être nécessaire pour les workloads moins stratégiques.
+
+.Étapes
+. Sélectionnez *protection > politiques*, puis *Programme*.
+. Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez un nom pour le planning, puis sélectionnez les paramètres du planning.
+. Sélectionnez *Enregistrer*.
+
+
+.Et la suite ?
+Maintenant que vous avez créé une nouvelle planification de règles, vous pouvez utiliser la nouvelle planification créée au sein de vos règles pour définir le moment où les snapshots sont effectués.
+
+
+
+== Création d'une règle de snapshots
+
+Une règle définit la fréquence de création des snapshots, le nombre maximal de snapshots autorisés et la durée de conservation des snapshots.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > stratégies*, puis *règles d'instantanés*.
+. Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez un nom pour la politique de snapshots.
+. Sélectionnez *Cluster* pour appliquer la stratégie à l'ensemble du cluster. Sélectionnez *Storage VM* pour appliquer la stratégie à une machine virtuelle de stockage individuelle.
+. Sélectionnez *Ajouter un planning*, puis entrez le planning de la stratégie de snapshot.
+. Sélectionnez *Ajouter une stratégie*.
+
+
+.Et la suite ?
+Une fois que vous avez créé une politique de snapshots, vous pouvez l'appliquer à un groupe de cohérence. Des copies Snapshot du groupe de cohérence seront effectuées en fonction des paramètres définis dans la règle de copie Snapshot.
+
+
+
+== Applique une politique de snapshot à un groupe de cohérence
+
+Appliquez une règle de snapshot à un groupe de cohérence pour créer, conserver et étiqueter automatiquement les snapshots du groupe de cohérence.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > stratégies*, puis *règles d'instantanés*.
+. Placez le pointeur de la souris sur le nom de la politique de snapshots que vous souhaitez appliquer.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"]; puis *appliquer*.
+. Sélectionnez les groupes de cohérence auxquels vous souhaitez appliquer la règle de snapshot, puis sélectionnez *appliquer*.
+
+
+.Et la suite ?
+Maintenant que vos données sont protégées avec des snapshots, vous devez link:snapshot-replication.html#step-3-create-a-replication-relationship["configurer une relation de réplication"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.
+
+
+
+== Modifiez, supprimez ou désactivez une règle de snapshots
+
+Modifiez une règle de snapshot pour modifier le nom de la règle, le nombre maximal de snapshots ou le libellé SnapMirror. Supprimez une règle pour la supprimer du cluster, ainsi que les données de sauvegarde qui y sont associées. Désactivez une règle pour arrêter temporairement la création ou le transfert de snapshots spécifiés par la règle.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > stratégies*, puis *règles d'instantanés*.
+. Placez le pointeur de la souris sur le nom de la règle de snapshot à modifier.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Modifier*, *Supprimer* ou *Désactiver*.
+
+
+.Résultat
+Vous avez modifié, supprimé ou désactivé la règle de snapshot.
+
+
+
+== Modifier une règle de réplication
+
+Modifiez une règle de réplication pour modifier la description de la règle, la planification du transfert et les règles. Vous pouvez également modifier la stratégie pour activer ou désactiver la compression réseau.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > stratégies*.
+. Sélectionnez *stratégies de réplication*.
+. Passez le curseur sur la règle de réplication à modifier, puis sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
+. Sélectionnez *Modifier*.
+. Mettez à jour la stratégie, puis sélectionnez *Enregistrer*.
+
+
+.Résultat
+Vous avez modifié la règle de réplication.

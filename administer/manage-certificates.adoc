@@ -1,0 +1,129 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-certificates.html 
+keywords: asa r2, security, certificates, digital, certificate signing request, signing, request, trusted, authority, trusted certificate authority, client, server, local certificate, authorities, add, renew, delete, generate 
+summary: 'Utilisez des certificats de sécurité numériques pour vérifier l"identité des serveurs distants.' 
+---
+= Gestion des certificats de sécurité sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilisez des certificats de sécurité numériques pour vérifier l'identité des serveurs distants.
+
+Le protocole OCSP (Online Certificate Status Protocol) valide le statut des demandes de certificat numérique des services ONTAP à l'aide de connexions SSL et TLS (transport Layer Security).
+
+
+
+== Générer une demande de signature de certificat
+
+Générez une requête de signature de certificat (CSR) pour créer une clé privée qui peut être utilisée pour générer un certificat public.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. Sous *sécurité*, en regard de *certificats*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"]; puis sélectionnez image:icon_generate_csr.png["rectangle bleu contenant un signe plus suivi des mots generate csr"].
+. Saisissez le nom commun du sujet, puis sélectionnez le pays.
+. Si vous souhaitez modifier les valeurs par défaut du GSR, sélectionnez utilisation de la touche étendue ou ajoutez des noms de substitution d'objet, sélectionnez image:icon_more_options.png["deux flèches orientées en diagonale dans les directions opposées, suivies des mots plus d'options"]; puis effectuez les mises à jour souhaitées.
+. Sélectionnez *generate*.
+
+
+.Résultat
+Vous avez généré une RSC à laquelle vous pouvez utiliser pour générer un certificat public.
+
+
+
+== Ajoutez une autorité de certification approuvée
+
+ONTAP fournit un ensemble par défaut de certificats racine approuvés pour les applications utilisant TLS (transport Layer Security). Vous pouvez ajouter des autorités de certification approuvées supplémentaires si nécessaire.
+
+.Étapes
+. Sélectionnez *Cluster > Paramètres*.
+. Sous *sécurité*, en regard de *certificats*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"].
+. Sélectionnez *autorités de certification approuvées*.
+. Entrez ou importez les détails du certificat, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+
+
+.Résultat
+Vous avez ajouté une nouvelle autorité de certification approuvée à votre système ASA r2.
+
+
+
+== Renouveler ou supprimer une autorité de certification approuvée
+
+Les autorités de certification de confiance doivent être renouvelées chaque année. Si vous ne souhaitez pas renouveler un certificat expiré, vous devez le supprimer.
+
+.Étapes
+. Sélectionnez *Cluster > Paramètres*.
+. Sous *sécurité*, en regard de *certificats*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"].
+. Sélectionnez *autorités de certification approuvées*.
+. Sélectionnez l'autorité de certification de confiance que vous souhaitez renouveler ou supprimer.
+. Renouvelez ou supprimez l'autorité de certification.
++
+[cols="2"]
+|===
+| Pour renouveler l'autorité de certification, procédez comme suit... | Pour supprimer l'autorité de certification, procédez comme suit... 
+
+
+ a| 
+.. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Renew*.
+.. Entrez ou importez les informations du certificat, puis sélectionnez *Renew*.
+
+ a| 
+.. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Supprimer*.
+.. Confirmez que vous souhaitez supprimer, puis sélectionnez *Supprimer*.
+
+
+|===
+
+
+.Résultat
+Vous avez renouvelé ou supprimé une autorité de certification approuvée existante sur votre système ASA r2.
+
+
+
+== Ajoutez un certificat client/serveur ou des autorités de certification locales
+
+Ajoutez un certificat client/serveur ou des autorités de certification locales pour activer des services Web sécurisés.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. Sous *sécurité*, en regard de *certificats*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"].
+. Sélectionnez *certificats client/serveur* ou *autorités de certification locales*.
+. Ajoutez les informations du certificat, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant le signe plus bleu suivi du mot add"].
+
+
+.Résultat
+Vous avez ajouté un nouveau certificat client/serveur ou des autorités locales à votre système ASA r2.
+
+
+
+== Renouvelez ou supprimez un certificat client/serveur ou des autorités de certification locales
+
+Les certificats client/serveur et les autorités de certification locales doivent être renouvelés chaque année. Si vous ne souhaitez pas renouveler un certificat expiré ou les autorités de certification locales, vous devez les supprimer.
+
+.Étapes
+. Sélectionnez *Cluster > Paramètres*.
+. Sous *sécurité*, en regard de certificats, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"].
+. Sélectionnez *certificats client/serveur* ou *autorités de certification locales*.
+. Sélectionnez le certificat que vous souhaitez renouveler ou supprimer.
+. Renouvelez ou supprimez l'autorité de certification.
++
+[cols="2"]
+|===
+| Pour renouveler l'autorité de certification, procédez comme suit... | Pour supprimer l'autorité de certification, procédez comme suit... 
+
+
+ a| 
+.. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Renew*.
+.. Entrez ou importez les informations du certificat, puis sélectionnez *Renew*.
+
+ a| 
+Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Supprimer*.
+
+|===
+
+
+.Résultat
+Vous avez renouvelé ou supprimé un certificat client/serveur existant ou une autorité de certification locale sur votre système ASA r2.

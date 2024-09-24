@@ -1,0 +1,40 @@
+---
+section: manage-data
+title: Gérez vos données avec ONTAP
+entries:
+- title: Vidéos pour les tâches courantes
+  url: "/videos/videos-common-tasks.html"
+- title: Gérez votre stockage
+  entries:
+  - title: Provisionner le stockage
+    url: "/manage-data/provision-san-storage.html"
+  - title: Clonage de données
+    url: "/manage-data/data-cloning.html"
+  - title: Modifier les unités de stockage
+    url: "/manage-data/modify-storage-units.html"
+  - title: Supprimer les unités de stockage
+    url: "/manage-data/delete-storage-units.html"
+  - title: Limites de stockage
+    url: "/manage-data/storage-limits.html"
+- title: Protégez vos données
+  entries:
+  - title: Créer des instantanés
+    url: "/data-protection/create-snapshots.html"
+  - title: Configuration de la réplication Snapshot
+    url: "/data-protection/snapshot-replication.html"
+  - title: Protéger Kubernetes
+    url: "/data-protection/protect-kubernetes.html"
+  - title: Restaurez les données
+    url: "/data-protection/restore-data.html"
+  - title: Gérer les groupes de cohérence
+    url: "/data-protection/manage-consistency-groups.html"
+  - title: Gérer les règles et les plannings de protection
+    url: "/data-protection/policies-schedules.html"
+- title: Sécurisez vos données
+  entries:
+  - title: Chiffrement des données au repos
+    url: "/secure-data/encrypt-data-at-rest.html"
+  - title: Protégez-vous contre les attaques par ransomware
+    url: "/secure-data/ransomware-protection.html"
+  - title: Des connexions NVMe sécurisées
+    url: "/secure-data/nvme-tcp-connections.html"

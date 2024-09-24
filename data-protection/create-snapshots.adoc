@@ -1,0 +1,189 @@
+---
+sidebar: sidebar 
+permalink: data-protection/create-snapshots.html 
+keywords: protect data, snapshots, asa r2, data protection, create snapshots, snapshots, create consistency groups, consistency groups 
+summary: Créez un snapshot pour sauvegarder vos données sur votre système ASA r2. Vous pouvez également créer manuellement des snapshots ou utiliser un groupe de cohérence pour planifier des snapshots automatiques. 
+searchtitle: 'Créez des copies Snapshot pour sauvegarder vos données à l"aide de ONTAP System Manager | ASA r2' 
+---
+= Créez des copies Snapshot pour sauvegarder vos données sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour sauvegarder des données sur votre système ASA r2, vous devez créer un snapshot. Vous pouvez utiliser ONTAP System Manager pour créer un snapshot manuel d'une seule unité de stockage ou pour créer un groupe de cohérence et planifier des snapshots automatiques de plusieurs unités de stockage en même temps.
+
+
+
+== Étape 1 : créez un groupe de cohérence éventuellement
+
+Un groupe de cohérence est un ensemble d'unités de stockage gérées comme une seule unité. Créez des groupes de cohérence pour simplifier la gestion du stockage et la protection des données pour les charges de travail applicatives sur plusieurs unités de stockage. Supposons par exemple que vous disposez d'une base de données constituée de 10 unités de stockage dans un groupe de cohérence et que vous devez sauvegarder l'ensemble de la base de données. Au lieu de sauvegarder chaque unité de stockage, vous pouvez sauvegarder l'ensemble de la base de données en ajoutant simplement la protection des données Snapshot au groupe de cohérence.
+
+Créez un groupe de cohérence avec de nouvelles unités de stockage ou un groupe de cohérence avec des unités de stockage existantes.
+
+[role="tabbed-block"]
+====
+.Utilisez de nouvelles unités de stockage
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"], puis *utilisation de nouvelles unités de stockage*.
+. Entrez un nom pour la nouvelle unité de stockage, le nombre d'unités et la capacité par unité.
++
+Si vous créez plusieurs unités, chaque unité est créée avec la même capacité et le même système d'exploitation hôte. Pour attribuer une capacité différente à chaque unité, sélectionnez *plus d'options*, puis sélectionnez *Ajouter une capacité différente*.
+
+. Sélectionnez le système d'exploitation hôte et le mappage d'hôte.
+. Sélectionnez *Ajouter*.
+
+
+.Et la suite ?
+Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger. Vous êtes maintenant prêt à créer un snapshot.
+
+--
+.Utiliser les unités de stockage existantes
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"], puis *en utilisant des unités de stockage existantes*.
+. Indiquez le nom du groupe de cohérence, puis recherchez et sélectionnez les unités de stockage à inclure dans le groupe de cohérence.
+. Sélectionnez *Ajouter*.
+
+
+.Et la suite ?
+Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger. Vous êtes maintenant prêt à créer un snapshot.
+
+--
+====
+
+
+== Étape 2 : créer un instantané
+
+Un snapshot est une copie locale en lecture seule de vos données, que vous pouvez utiliser pour restaurer des unités de stockage à des points spécifiques dans le temps.
+
+Les snapshots peuvent être créés à la demande ou automatiquement à intervalles réguliers en fonction d'un link:https://review.docs.netapp.com/us-en/asa-r2_asa-r2-9160/data-protection/policies-schedules.html["règle snapshot et planification"]. La règle et la planification des snapshots indiquent quand créer les snapshots, combien de copies conserver, comment les nommer et comment les étiqueter pour la réplication. Par exemple, un système peut créer un snapshot tous les jours à 12:10, conserver les deux copies les plus récentes, les nommer « quotidien » (ajouté à un horodatage) et les étiqueter « quotidien » pour la réplication.
+
+.Types de snapshots
+Vous pouvez créer un snapshot à la demande d'une unité de stockage ou d'un groupe de cohérence. Vous pouvez créer des snapshots automatisés d'un groupe de cohérence contenant plusieurs unités de stockage. Vous ne pouvez pas créer de snapshots automatisés pour une seule unité de stockage.
+
+* Snapshots à la demande
++
+Un snapshot à la demande d'une unité de stockage peut être créé à tout moment. L'unité de stockage n'a pas besoin d'être membre d'un groupe de cohérence pour être protégée par un snapshot à la demande. Si vous créez un snapshot à la demande d'une unité de stockage membre d'un groupe de cohérence, les autres unités de stockage du groupe de cohérence ne sont pas incluses dans le snapshot à la demande. Si vous créez un snapshot à la demande d'un groupe de cohérence, toutes les unités de stockage du groupe de cohérence sont incluses dans le snapshot.
+
+* Snapshots automatisés
++
+Les snapshots automatisés sont créés à l'aide de règles Snapshot. Pour appliquer une règle de snapshot à une unité de stockage en vue de la création automatique de snapshots, l'unité de stockage doit être membre d'un groupe de cohérence. Si vous appliquez une règle de snapshot à un groupe de cohérence, toutes les unités de stockage du groupe de cohérence sont protégées par des snapshots automatisés.
+
+
+
+Créez un snapshot d'un groupe de cohérence ou d'une unité de stockage.
+
+[role="tabbed-block"]
+====
+.Snapshot d'un groupe de cohérence
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le nom du groupe de cohérence à protéger.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] , puis *protéger*.
+. Si vous souhaitez créer un instantané immédiat à la demande, sous *protection locale*, sélectionnez *Ajouter un instantané maintenant*.
++
+La protection locale crée l'instantané sur le même cluster contenant l'unité de stockage.
+
++
+.. Entrez un nom pour le snapshot ou acceptez le nom par défaut, puis saisissez une étiquette SnapMirror.
++
+Le libellé SnapMirror est utilisé par la destination distante.
+
+
+
+. Si vous souhaitez créer des instantanés automatisés à l'aide d'une stratégie d'instantanés, sélectionnez *planifier des instantanés*.
++
+.. Sélectionnez une règle de snapshots.
++
+Acceptez la règle de snapshot par défaut, sélectionnez une règle existante ou créez une nouvelle règle.
+
++
+[cols="2,6a"]
+|===
+| Option | Étapes 
+
+
+| Sélectionnez une politique de snapshots existante  a| 
+Sélectionnez image:icon_dropdown_arrow.gif["flèche bleue pointant vers le bas"] en regard de la stratégie par défaut, puis sélectionnez la stratégie existante que vous souhaitez utiliser.
+
+
+
+| Créer une politique de snapshots  a| 
+... Sélectionnez image:icon_add.gif["signe plus bleu suivi du mot add"] ; puis entrez les paramètres de la règle de snapshot.
+... Sélectionnez *Ajouter une stratégie*.
+
+
+|===
+
+
+. Si vous souhaitez répliquer vos snapshots sur un cluster distant, sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
++
+.. Sélectionnez le cluster source et la VM de stockage, puis sélectionnez la règle de réplication.
++
+Le transfert initial des données pour la réplication démarre immédiatement par défaut.
+
+
+
+. Sélectionnez *Enregistrer*.
+
+
+--
+.Instantané de l'unité de stockage
+--
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Placez le pointeur de la souris sur le nom de l'unité de stockage que vous souhaitez protéger.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] , puis *protéger*. Si vous souhaitez créer un instantané immédiat à la demande, sous *protection locale*, sélectionnez *Ajouter un instantané maintenant*.
++
+La protection locale crée l'instantané sur le même cluster contenant l'unité de stockage.
+
+. Entrez un nom pour le snapshot ou acceptez le nom par défaut, puis saisissez une étiquette SnapMirror.
++
+Le libellé SnapMirror est utilisé par la destination distante.
+
+. Si vous souhaitez créer des instantanés automatisés à l'aide d'une stratégie d'instantanés, sélectionnez *planifier des instantanés*.
++
+.. Sélectionnez une règle de snapshots.
++
+Acceptez la règle de snapshot par défaut, sélectionnez une règle existante ou créez une nouvelle règle.
+
++
+[cols="2,6a"]
+|===
+| Option | Étapes 
+
+
+| Sélectionnez une politique de snapshots existante  a| 
+Sélectionnez image:icon_dropdown_arrow.gif["flèche bleue pointant vers le bas"] en regard de la stratégie par défaut, puis sélectionnez la stratégie existante que vous souhaitez utiliser.
+
+
+
+| Créer une politique de snapshots  a| 
+... Sélectionnez image:icon_add.gif["signe plus bleu suivi du mot add"] ; puis entrez les paramètres de la règle de snapshot.
+... Sélectionnez *Ajouter une stratégie*.
+
+
+|===
+
+
+. Si vous souhaitez répliquer vos snapshots sur un cluster distant, sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
++
+.. Sélectionnez le cluster source et la VM de stockage, puis sélectionnez la règle de réplication.
++
+Le transfert initial des données pour la réplication démarre immédiatement par défaut.
+
+
+
+. Sélectionnez *Enregistrer*.
+
+
+--
+====
+.Et la suite ?
+Maintenant que vos données sont protégées avec des snapshots, vous devez link:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.

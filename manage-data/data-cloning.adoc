@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: manage-data/data-cloning.html 
+keywords: data cloning, clone data, cloning data, luns, namespaces, clone storage units, clone, cloning, clone consistency groups 
+summary: Clonez des unités de stockage et des groupes de cohérence sur ASA r2 afin de créer des copies de données à utiliser en dehors de votre environnement de production à diverses fins. 
+searchtitle: 'Clonage des données à l"aide de ONTAP System Manager | ASA r2' 
+---
+= Cloner les données sur des systèmes de stockage ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le clonage des données crée des copies d'unités de stockage et de groupes de cohérence sur votre système ASA r2 à l'aide de ONTAP System Manager. Ces copies peuvent être utilisées pour le développement d'applications, les tests, les sauvegardes, la migration des données ou d'autres fonctions d'administration.
+
+
+
+== Cloner les unités de stockage
+
+Lorsque vous clonez une unité de stockage, vous créez une nouvelle unité de stockage sur votre système ASA r2 qui est une copie inscriptible instantanée de l'unité de stockage que vous avez clonée.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Placez le curseur de la souris sur le nom de l'unité de stockage à cloner.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Clone*.
+. Acceptez le nom par défaut de la nouvelle unité de stockage qui sera créée en tant que clone ou entrez-en un nouveau.
+. Sélectionnez le système d'exploitation hôte.
++
+Par défaut, un nouveau snapshot est créé pour le clone.
+
+. Si vous souhaitez utiliser un snapshot existant, créer un nouveau groupe d'hôtes ou ajouter un nouvel hôte, sélectionnez *plus d'options*.
++
+[cols="2"]
+|===
+| Option | Étapes 
+
+
+ a| 
+Utiliser un snapshot existant
+ a| 
+.. Sous *instantané à cloner*, sélectionnez *utiliser un instantané existant*.
+.. Sélectionnez le snapshot que vous souhaitez utiliser pour le clone.
+
+
+
+
+ a| 
+Créez un nouveau groupe d'hôtes
+ a| 
+.. Sous *Host Mapping*, sélectionnez *New host group*.
+.. Entrez un nom pour le nouveau groupe d'hôtes, puis sélectionnez les initiateurs hôtes à inclure dans le groupe.
+
+
+
+
+ a| 
+Ajouter un nouvel hôte
+ a| 
+.. Sous *Host mapping*, sélectionnez *New hosts*.
+.. Entrez le nom a du nouvel hôte, puis sélectionnez *FC* ou *iSCSI*.
+.. Sélectionnez les initiateurs hôtes dans la liste des initiateurs existants ou sélectionnez *Ajouter* pour ajouter de nouveaux initiateurs pour l'hôte.
+
+
+|===
+. Sélectionnez *Clone*.
+
+
+.Et la suite ?
+Vous avez créé une nouvelle unité de stockage identique à l'unité de stockage que vous avez clonée. Vous êtes maintenant prêt à utiliser la nouvelle unité de stockage si nécessaire.
+
+
+
+== Cloner des groupes de cohérence
+
+Lorsque vous clonez un groupe de cohérence, vous créez un nouveau groupe de cohérence dont la structure, les unités de stockage et les données sont identiques au groupe de cohérence que vous avez cloné. Utilisez un clone de groupe de cohérence pour tester les applications ou migrer les données. Supposons, par exemple, que vous deviez migrer une charge de travail de production à partir d'un groupe de cohérence. Vous pouvez cloner le groupe de cohérence pour créer une copie de votre charge de travail de production à conserver en tant que sauvegarde jusqu'à la fin de la migration.
+
+Le clone est créé à partir d'un snapshot du groupe de cohérence en cours de clonage. L'instantané utilisé pour le clone est pris au moment où le processus de clonage est lancé par défaut. Vous pouvez modifier le comportement par défaut pour utiliser un instantané existant.
+
+Les mappages d'unité de stockage sont copiés dans le cadre du processus de clonage. Les règles Snapshot ne sont pas copiées dans le cadre du processus de clonage.
+
+Vous pouvez créer des clones à partir de groupes de cohérence stockés localement sur votre système ASA r2 ou à partir de groupes de cohérence qui ont été répliqués sur des sites distants.
+
+[role="tabbed-block"]
+====
+.Clonage à l'aide d'un snapshot local
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le groupe de cohérence à cloner.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Clone*.
+. Indiquez le nom du clone de groupe de cohérence ou acceptez le nom par défaut.
+. Sélectionnez le système d'exploitation hôte.
+. Si vous souhaitez dissocier le clone du groupe de cohérence source et allouer de l'espace disque, sélectionnez *Split clone*.
+. Si vous souhaitez utiliser un snapshot existant, créer un nouveau groupe d'hôtes ou ajouter un nouvel hôte pour le clone, sélectionnez *plus d'options*.
++
+[cols="2"]
+|===
+| Option | Étapes 
+
+
+ a| 
+Utiliser un snapshot existant
+ a| 
+.. Sous *instantané à cloner*, sélectionnez *utiliser un instantané existant*.
+.. Sélectionnez le snapshot que vous souhaitez utiliser pour le clone.
+
+
+
+
+ a| 
+Créez un nouveau groupe d'hôtes
+ a| 
+.. Sous *Host Mapping*, sélectionnez *New host group*.
+.. Entrez un nom pour le nouveau groupe d'hôtes, puis sélectionnez les initiateurs hôtes à inclure dans le groupe.
+
+
+
+
+ a| 
+Ajouter un nouvel hôte
+ a| 
+.. Sous *Host mapping*, sélectionnez *New hosts*.
+.. Entrez le nouveau nom d'hôte, puis sélectionnez *FC* ou *iSCSI*.
+.. Sélectionnez les initiateurs hôtes dans la liste des initiateurs existants ou sélectionnez *Ajouter un initiateur* pour ajouter de nouveaux initiateurs pour l'hôte.
+
+
+|===
+. Sélectionnez *Clone*.
+
+
+--
+.Clonage à l'aide d'un snapshot distant
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > réplication*.
+. Passez le curseur sur la *Source* que vous souhaitez cloner.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Clone*.
+. Sélectionnez le cluster source et la machine virtuelle de stockage, puis indiquez le nom du nouveau groupe de cohérence ou acceptez le nom par défaut.
+. Sélectionnez l'instantané à cloner, puis sélectionnez *Clone*.
+
+
+.Et la suite ?
+Vous avez cloné un groupe de cohérence à partir de votre emplacement distant. Le nouveau groupe de cohérence est disponible en local sur votre système ASA r2 et peut être utilisé en fonction des besoins.
+
+--
+====
+.Et la suite ?
+Pour protéger vos données, vous devez link:../data-protection/create-snapshots.html#step-2-create-a-snapshot["créer des instantanés"] utiliser le groupe de cohérence cloné.

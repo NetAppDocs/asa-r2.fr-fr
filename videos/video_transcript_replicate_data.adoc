@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: videos/video_transcript_replicate_data.html 
+keywords: frontmatter, front matter 
+summary: Visionnez de courtes vidéos qui expliquent comment utiliser ONTAP System Manager pour effectuer rapidement et facilement des tâches courantes sur vos systèmes de stockage ASA r2. 
+---
+= Répliquez les données sur un cluster distant à partir d'un système de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La transcription suivante est fournie pour la vidéo `Replicate data to a remote cluster from an ASA r2 storage system`.
+
+link:videos-common-tasks.html#video_transcript_return_replicate_data["Retour à la page"]
+
+Vous pouvez utiliser ONTAP System Manager pour protéger vos données en planifiant des copies Snapshot de vos unités de stockage ou de vos groupes de cohérence et en les répliquant sur un site distant.
+
+Dans cet exemple, nous planifierons les snapshots pour les unités de stockage existantes.
+
+Dans le menu System Manager, sélectionnez *Storage*.
+
+Sélectionnez l'unité de stockage à protéger, puis sélectionnez *protéger*.
+
+Vous pouvez éventuellement créer un instantané à la demande en sélectionnant *Ajouter un instantané maintenant*.
+
+Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
+
+Sélectionnez la machine virtuelle de stockage et la règle de réplication pour la réplication. Par défaut, le transfert de données initial commence immédiatement.
+
+Sélectionnez *Enregistrer*.
+
+Si l'unité de stockage ne fait pas partie d'un groupe de cohérence, vous devez en créer un. Entrez le nom du nouveau groupe de cohérence, puis sélectionnez *Create*.
+
+Vous avez rapidement et facilement répliqué votre groupe de cohérence vers un cluster distant.

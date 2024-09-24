@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-cluster-networking.html 
+keywords: add a broadcast domain, broadcast domains, reassign ports, create a vlan, create vlans 
+summary: 'Utilisez ONTAP System Manager pour effectuer des tâches d"administration réseau de stockage de base sur votre système ASA r2.' 
+---
+= Gestion de la mise en réseau des clusters sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser ONTAP System Manager pour administrer le réseau de stockage de base sur votre système ASA r2. Par exemple, vous pouvez ajouter un domaine de diffusion ou réaffecter des ports à un autre domaine de diffusion.
+
+
+
+== Ajouter un domaine de diffusion
+
+Utilisez les domaines de diffusion pour simplifier la gestion de votre réseau de clusters en regroupant les ports réseau appartenant au même réseau de couche 2. Les machines virtuelles de stockage peuvent ensuite utiliser les ports du groupe pour le trafic de données ou de gestion.
+
+Le broadcast domain « Default » et le broadcast « Cluster » sont créés lors du setup des cluster. Le broadcast domain « Default » contient les ports inclus dans l'IPspace « Default ». Ces ports servent principalement à transmettre des données. Les ports de management des clusters et de management des nœuds sont également présents dans ce broadcast domain. Le broadcast « Cluster » contient les ports situés dans le « Cluster » IPspace. Ces ports sont utilisés pour la communication de cluster et incluent tous les ports de cluster de tous les nœuds du cluster.
+
+Vous pouvez créer d'autres domaines de diffusion après l'initialisation de votre cluster. Lorsque vous créez un broadcast domain, un failover group contenant les mêmes ports est automatiquement créé.
+
+.Description de la tâche
+L'unité de transmission maximale (MTU) des ports ajoutés à un domaine de diffusion est mise à jour vers la valeur MTU définie dans le domaine de diffusion.
+
+.Étapes
+. Dans System Manager, sélectionnez *réseau > Présentation*.
+. Sous *domaines de diffusion*, sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez un nom pour le domaine de diffusion ou acceptez le nom par défaut.
++
+Tous les noms de domaine de diffusion doivent être uniques au sein d'un IPspace.
+
+. Sélectionnez l'IPspace pour le broadcast domain.
++
+Si vous ne spécifiez pas de nom IPspace, le broadcast domain est créé dans le « Default » IPspace.
+
+. Entrez l'unité de transmission maximale (MTU).
++
+MTU est le plus grand paquet de données qui peut être accepté dans votre domaine de diffusion.
+
+. Sélectionnez les ports souhaités, puis sélectionnez *Enregistrer*.
+
+
+.Résultat
+Vous avez ajouté un nouveau domaine de diffusion.
+
+
+
+== Réaffectez des ports à un autre domaine de diffusion
+
+Les ports ne peuvent appartenir qu'à un seul domaine de diffusion. Si vous souhaitez modifier le domaine de diffusion auquel appartient un port, vous devez réaffecter le port de son domaine de diffusion existant à un nouveau domaine de diffusion.
+
+.Étapes
+. Dans System Manager, sélectionnez *réseau > Présentation*.
+. Sous *Broadcast Domains*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] en regard du nom de domaine, puis sélectionnez *Edit*.
+. Désélectionnez les ports Ethernet que vous souhaitez réaffecter à un autre domaine.
+. Sélectionnez le domaine de diffusion auquel vous souhaitez réaffecter le port, puis sélectionnez *réaffecter*.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+Vous avez réattribué des ports à un autre domaine de diffusion.
+
+
+
+== Créer un VLAN
+
+Un VLAN est constitué de ports de commutateur regroupés dans un domaine de diffusion. Les VLAN vous permettent d'améliorer la sécurité, d'isoler les problèmes et de limiter les chemins disponibles au sein de votre infrastructure réseau IP.
+
+.Avant de commencer
+Les commutateurs déployés sur le réseau doivent soit être conformes aux normes IEEE 802.1Q, soit disposer d'une implémentation spécifique au fournisseur de VLAN.
+
+.Description de la tâche
+* Un VLAN ne peut pas être créé sur un port de groupe d'interfaces ne contenant aucun port membre.
+* Lorsque vous configurez un VLAN sur un port pour la première fois, le port risque de tomber en panne, entraînant une déconnexion temporaire du réseau. Les ajouts de VLAN ultérieurs au même port n'affectent pas l'état du port.
+* Vous ne devez pas créer de VLAN sur une interface réseau avec le même identifiant que le VLAN natif du commutateur. Par exemple, si l'interface réseau e0b est sur un VLAN 10 natif, vous ne devez pas créer de VLAN e0b-10 sur cette interface.
+
+
+.Étapes
+. Dans System Manager, sélectionnez *réseau > ports Ethernet*, puis sélectionnez image:icon_vlan.png["un signe plus bleu suivi du mot vlan"].
+. Sélectionnez le nœud et le domaine de diffusion pour le VLAN.
+. Sélectionnez le port du VLAN.
++
+Le VLAN ne peut pas être connecté à un port hébergeant une LIF de cluster ou à des ports assignés au cluster IPspace.
+
+. Entrez un ID de VLAN.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+Vous avez créé un VLAN pour améliorer la sécurité, isoler les problèmes et limiter les chemins disponibles au sein de votre infrastructure réseau IP.

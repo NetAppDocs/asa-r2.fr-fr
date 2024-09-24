@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: administer/update-firmware.html 
+keywords: update, firmware, system files, automatic updates, automated updates, asa r2, disable, 
+summary: ONTAP met automatiquement à jour le micrologiciel sur les systèmes ASA r2. Vous pouvez utiliser System Manager pour désactiver les mises à jour automatiques et afficher les mises à jour avant leur installation. 
+---
+= Mise à jour du firmware sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Par défaut, ONTAP télécharge et met à jour automatiquement les fichiers système et de micrologiciel sur votre système ASA r2. Si vous souhaitez avoir la possibilité d'afficher les mises à jour recommandées avant de les télécharger et de les installer, vous pouvez utiliser ONTAP System Manager pour désactiver les mises à jour automatiques ou pour modifier les paramètres de mise à jour afin d'afficher les notifications des mises à jour disponibles avant d'effectuer une action.
+
+
+
+== Activer les mises à jour automatiques
+
+Les mises à jour recommandées pour le micrologiciel de stockage, le micrologiciel SP/BMC et les fichiers système sont automatiquement téléchargées et installées sur votre système ASA r2 par défaut. Si les mises à jour automatiques ont été désactivées, vous pouvez les activer pour rétablir le comportement par défaut.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Activer*.
+. Lisez et acceptez le CLUF.
+. Acceptez les valeurs par défaut pour mettre à jour automatiquement vos fichiers système et de micrologiciel. Si vous le souhaitez, sélectionnez pour afficher les notifications ou pour ignorer automatiquement les mises à jour recommandées.
+. Sélectionnez cette option pour confirmer que vos modifications de mise à jour seront appliquées à toutes les mises à jour actuelles et futures.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+Les mises à jour recommandées sont automatiquement téléchargées et installées sur votre système ASA r2 en fonction de vos sélections de mises à jour.
+
+
+
+== Désactiver les mises à jour automatiques
+
+Désactivez les mises à jour automatiques si vous souhaitez pouvoir afficher les mises à jour recommandées avant leur installation. Si vous désactivez les mises à jour automatiques, vous devez effectuer les mises à jour du micrologiciel et des fichiers système manuellement.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Désactiver*.
+
+
+.Résultat
+Les mises à jour automatiques sont désactivées. Vous devez régulièrement vérifier les mises à jour recommandées et décider si vous souhaitez effectuer une installation manuelle.
+
+
+
+== Afficher les mises à jour automatiques
+
+Afficher la liste des mises à jour de firmware et de fichiers système qui ont été téléchargées sur le cluster et dont l'installation automatique est prévue Affichez également les mises à jour qui ont été installées automatiquement au préalable.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Afficher toutes les mises à jour automatiques*.
+
+
+
+
+== Modifier les mises à jour automatiques
+
+Vous pouvez choisir de télécharger et d'installer automatiquement les mises à jour recommandées pour votre micrologiciel de stockage, votre micrologiciel SP/BMC et vos fichiers système sur votre cluster, ou de faire en sorte que les mises à jour recommandées soient automatiquement rejetées. Si vous souhaitez contrôler manuellement l'installation ou le rejet des mises à jour, sélectionnez pour être averti lorsqu'une mise à jour recommandée est disponible ; vous pouvez alors sélectionner manuellement l'installation ou le rejet.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Modifier les mises à jour automatiques*.
+. Mettre à jour les sélections pour les mises à jour automatiques.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+Les mises à jour automatiques sont modifiées en fonction de vos sélections.
+
+
+
+== Mettre à jour le micrologiciel manuellement
+
+Si vous souhaitez pouvoir afficher les mises à jour recommandées avant de les télécharger et de les installer, vous pouvez désactiver les mises à jour automatiques et mettre à jour votre micrologiciel manuellement.
+
+.Étapes
+. Téléchargez votre fichier de mise à jour du micrologiciel sur un serveur ou un client local.
+. Dans System Manager, sélectionnez *Cluster > Présentation*, puis *Update*.
+. Sélectionnez *Firmware update* ; le sélectionnez image:icon_update_firmware.png["rectangle bleu contenant un signe plus suivi des mots update firmware en lettres blanches"].
+
+
+.Résultat
+Votre micrologiciel est mis à jour.

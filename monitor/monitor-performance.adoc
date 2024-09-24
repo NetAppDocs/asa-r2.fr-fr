@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: monitor/monitor-performance.html 
+keywords: monitor, cluster, performance, storage units, latency, iops, throughput 
+summary: 'Surveillez les performances de votre cluster et des unités de stockage pour déterminer l"impact de la latence, des IOPS et du débit sur vos applications stratégiques.' 
+searchtitle: 'Contrôle des performances du cluster à l"aide du gestionnaire système ONTAP | ASA r2' 
+---
+= Surveillance des performances du cluster et de l'unité de stockage sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilisez ONTAP System Manager pour surveiller les performances globales de votre cluster et les performances de certaines unités de stockage afin de déterminer l'impact de la latence, des IOPS et du débit sur vos applications stratégiques. Les performances peuvent être surveillées sur plusieurs périodes allant d'une heure à un an.
+
+Supposons par exemple qu'une application stratégique connaît une latence élevée et un faible débit. Lorsque vous consultez les performances du cluster au cours des cinq derniers jours ouvrables, vous constatez une baisse des performances à la même heure chaque jour. Ces informations vous permettent de déterminer si l'application stratégique est en concurrence avec les ressources du cluster lorsqu'un processus non critique commence à s'exécuter en arrière-plan. Vous pouvez ensuite modifier votre règle de qualité de service pour limiter l'impact de la charge de travail non critique sur les ressources système et vous assurer que votre charge de travail stratégique respecte les objectifs de débit minimaux.
+
+
+
+== Contrôle des performances du cluster
+
+Utilisez les metrics de performance du cluster pour déterminer si vous devez déplacer des charges de travail afin de minimiser la latence et d'optimiser les IOPS et le débit pour vos applications stratégiques.
+
+.Étapes
+. Dans System Manager, sélectionnez *Dashboard*.
+. Sous *Performance*, affichez la latence, les IOPS et le débit du cluster par heure, jour, semaine, mois ou année.
+. Sélectionnez image:icon_download.png["flèche bleue vers le bas"] pour télécharger les données de performances.
+
+
+.Et la suite ?
+Utilisez vos metrics de performance du cluster pour déterminer si vous devez modifier vos règles de qualité de service ou effectuer d'autres ajustements de vos charges de travail applicatives afin d'optimiser les performances globales de votre cluster.
+
+
+
+== Surveiller les performances de l'unité de stockage
+
+Utilisez les metrics de performance de l'unité de stockage pour déterminer l'impact de certaines applications sur la latence, les IOPS et le débit.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Sélectionnez l'unité de stockage que vous souhaitez surveiller, puis sélectionnez *Présentation*.
+. Sous *Performance*, affichez la latence, les IOPS et le débit de l'unité de stockage par heure, jour, semaine, mois ou année.
+. Sélectionnez image:icon_download.png["flèche bleue vers le bas"] pour télécharger les données de performances.
+
+
+.Et la suite ?
+Utilisez les metrics de performance de votre unité de stockage pour déterminer si vous devez modifier les règles de QoS attribuées à vos unités de stockage afin de réduire la latence et d'optimiser les IOPS et le débit.

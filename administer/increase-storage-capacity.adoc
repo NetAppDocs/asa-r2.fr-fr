@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: administer/increase-storage-capacity.html 
+keywords: increase, capacity, node, shelf, drive, expand, storage, asa r2, asa r2, asa a1k, asa 70, asa 90 
+summary: Ajoutez des disques à un nœud ou à un tiroir pour augmenter la capacité de vos unités de stockage ASA r2. 
+---
+= Augmentez la capacité de stockage sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ajoutez des disques à un nœud ou à un tiroir pour augmenter la capacité de stockage de votre système ASA r2.
+
+
+
+== Utilisez NetApp Hardware Universe pour préparer l'installation d'un nouveau lecteur
+
+Avant d'installer un nouveau disque sur un nœud ou un tiroir, vérifiez à l'aide de NetApp Hardware Universe que le disque que vous souhaitez ajouter est pris en charge par votre plateforme ASA r2 et identifiez le slot approprié pour le nouveau disque. Les emplacements appropriés pour l'ajout de disques varient en fonction du modèle de plate-forme et de la version ONTAP. Dans certains cas, vous devez ajouter des lecteurs à des emplacements spécifiques dans l'ordre.
+
+.Étapes
+. Passez à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]l' .
+. Sous *produits*, sélectionnez vos configurations matérielles.
+. Sélectionnez votre plate-forme ASA r2.
+. Sélectionnez votre version ONTAP, puis *Afficher les résultats*.
+. Sous le graphique, sélectionnez *cliquez ici pour voir d'autres vues*, puis choisissez la vue qui correspond à votre configuration.
+. Utilisez l'affichage de votre configuration pour vérifier que votre nouveau lecteur est pris en charge et que le logement approprié est installé.
+
+
+.Résultat
+Vous avez confirmé que votre nouveau lecteur est pris en charge et que vous connaissez le logement approprié pour l'installation.
+
+
+
+== Installez un nouveau lecteur sur ASA r2
+
+Le nombre minimum de disques que vous devez ajouter en une seule procédure est de six. L'ajout d'un disque unique peut réduire les performances.
+
+.Description de la tâche
+Vous devez répéter les étapes de cette procédure pour chaque lecteur.
+
+.Étapes
+. Mettez-vous à la terre.
+. Retirez délicatement le cache de l'avant de la plate-forme.
+. Insérez le nouveau lecteur dans le logement approprié.
++
+.. Avec la poignée de came en position ouverte, utilisez les deux mains pour insérer le nouvel entraînement.
+.. Poussez jusqu'à ce que l'entraînement s'arrête.
+.. Fermez la poignée de came de façon à ce que le lecteur soit bien en place dans le plan médian et que la poignée s'enclenche.
++
+Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s'aligne correctement sur la face de l'entraînement.
+
+
+
+. Vérifiez que le voyant d'activité du lecteur (vert) est allumé.
++
+** SI le voyant est fixe, le disque est sous tension.
+** Si le voyant clignote, le lecteur est sous tension et les E/S sont en cours. Le voyant clignote également si le micrologiciel du lecteur est en cours de mise à jour.
++
+Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux lecteurs qui ne disposent pas de versions de micrologiciel actuelles.
+
+
+
+. Si votre nœud est configuré pour l'affectation automatique des disques, vous pouvez attendre que ONTAP attribue automatiquement les nouveaux disques à un nœud. Si votre nœud n'est pas configuré pour l'affectation automatique des disques ou si vous préférez, vous pouvez attribuer les disques manuellement.
++
+Les nouveaux disques ne sont pas reconnus tant qu'ils ne sont pas attribués à un nœud.
+
+
+
+.Et la suite ?
+Une fois les nouveaux disques reconnus, vérifiez qu'ils ont été ajoutés et que leur propriété est correctement spécifiée.

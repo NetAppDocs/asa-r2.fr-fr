@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: manage-data/modify-storage-units.html 
+keywords: increase storage units, resize luns, resize namespaces, san, nvme,  increase lun size, increase namespace, increase, modify, edit, luns, namespaces, modify quality of service, qos, host mapping, mapping host 
+summary: 'Répondez aux modifications des performances et des données du système de stockage en modifiant les unités de stockage pour augmenter la capacité, mettre à jour les règles de qualité de service (QoS) ou modifier les mappages des hôtes.' 
+---
+= Modification des unités de stockage sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour optimiser les performances de votre système ASA r2, vous devrez peut-être modifier vos unités de stockage afin d'augmenter leur capacité, mettre à jour les règles de QoS ou modifier les hôtes mappés sur les unités. Par exemple, si une nouvelle charge de travail applicative stratégique est ajoutée à une unité de stockage existante, vous devrez peut-être modifier la règle de qualité de service (QoS) appliquée à l'unité de stockage afin de prendre en charge le niveau de performance requis pour la nouvelle application.
+
+.Augmentation de la capacité
+Augmentez la taille d'une unité de stockage avant qu'elle n'atteigne sa pleine capacité afin d'éviter une perte d'accès aux données qui peut se produire si l'unité de stockage manque d'espace inscriptible. La capacité d'une unité de stockage peut être augmentée à 128 To, ce qui correspond à la taille maximale autorisée par ONTAP.
+
+.Modifier les mappages d'hôte
+Modifiez les hôtes mappés à une unité de stockage pour faciliter l'équilibrage des charges de travail ou la reconfiguration des ressources système.
+
+.Modifiez la règle QoS
+Les règles de qualité de service (QoS) garantissent que la performance des charges de travail stratégiques n'est pas dégradée par les autres charges de travail. Vous pouvez utiliser des règles de QoS pour définir un débit de QoS _limite_ et un débit de QoS _garantie_.
+
+* Limite de débit QoS
++
+Le débit de qualité de service _limite_ limite l'impact d'une charge de travail sur les ressources système en limitant le débit de la charge de travail à un nombre maximal d'IOPS ou de Mo/sec, ou d'IOPS et de Mo/sec.
+
+* Garantie de débit QoS
++
+La qualité de service _Guarantee_ garantit que les charges de travail stratégiques atteignent des objectifs de débit minimaux, indépendamment de la demande des charges de travail concurrentes, en garantissant que le débit pour la charge de travail stratégique ne passe pas en dessous d'un nombre minimal d'IOPS, de Mo/sec, ou d'IOPS et de Mo/sec.
+
+
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Placez le pointeur de la souris sur le nom de l'unité de stockage à modifier.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Modifier*.
+. Mettez à jour les paramètres de l'unité de stockage si nécessaire pour augmenter la capacité, modifier la stratégie QoS et mettre à jour le mappage de l'hôte.
+
+
+.Et la suite ?
+Si vous avez augmenté la taille de votre unité de stockage, vous devez relancer l'analyse de l'unité de stockage sur l'hôte pour qu'il reconnaisse le changement de taille.

@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: get-help/view-submit-support-case.html 
+keywords:  
+summary:  
+---
+= Envoi et consultation des dossiers de demande de support pour les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous rencontrez un problème qui nécessite de l'aide, utilisez le Gestionnaire système ONTAP pour soumettre un dossier au support technique. Vous pouvez également utiliser ONTAP System Manager pour afficher les dossiers clos ou en cours d'exécution.
+
+Vous devez link:https://activeiq-link.netapp.com/["Enregistré auprès de Active IQ"]afficher les dossiers de demande de support de votre système ASA r2.
+
+.Étapes
+. Pour soumettre un dossier d'assistance, dans le Gestionnaire système, sélectionnez *Cluster > support*, puis sélectionnez *aller au support NetApp*.
+. Pour afficher un cas soumis précédemment, dans System Manager, sélectionnez *Cluster > support*, puis *Afficher mes cas*.
+

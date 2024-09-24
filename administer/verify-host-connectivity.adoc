@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: administer/verify-host-connectivity.html 
+keywords: host, connectivity, asa r2 
+summary: 'En cas de problème avec les opérations de données hôte, vous pouvez utiliser ONTAP System Manager pour vérifier que la connexion entre l"hôte et le système de stockage ASA r2 est active.' 
+---
+= Vérifiez la connectivité hôte sur votre système de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En cas de problème avec les opérations de données hôte, vous pouvez utiliser ONTAP System Manager pour vérifier que la connexion entre l'hôte et le système de stockage ASA r2 est active.
+
+.Étapes
+. Dans System Manager, sélectionnez *Host*.
++
+L'état de la connectivité hôte est indiqué en regard du nom du groupe d'hôtes comme suit : * *OK* : indique que tous les initiateurs sont connectés aux deux nœuds. * *Partiellement connecté* : indique que certains des initiateurs ne sont pas connectés aux deux nœuds. * *Aucun connecté* : indique qu'aucun initiateur n'est connecté.
+
+
+
+.Et la suite ?
+Effectuez des mises à jour sur votre hôte pour corriger les problèmes de connectivité. ONTAP revérifie l'état de la connexion toutes les quinze minutes.

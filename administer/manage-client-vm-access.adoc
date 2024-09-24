@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-client-vm-access.html 
+keywords: asa r2, client access, host access, virtual machines, storage virtual machines, create, ipspaces, subnets, lifs, network interface 
+summary: Créez une LIF pour accéder aux données des unités de stockage de votre ASA r2. Utilisation de sous-réseaux pour simplifier la création de LIF et les IPspaces pour une administration et un routage sécurisés. 
+searchtitle: 'Gestion de l"accès client au stockage via ONTAP System Manager | ASA r2' 
+---
+= Gestion de l'accès client aux machines virtuelles de stockage sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les unités de stockage d'un système ASA r2 sont contenues dans des machines virtuelles de stockage. Les VM de stockage sont utilisées pour transmettre des données à vos clients SAN. Utilisez ONTAP System Manager pour créer une LIF (interface réseau) pour vos clients SAN afin de se connecter à une VM de stockage et d'accéder aux données des unités de stockage. Vous pouvez également utiliser des sous-réseaux pour simplifier la création de LIF et les IPspaces afin de fournir à vos VM de stockage leur propre stockage, administration et routage sécurisés.
+
+
+
+== Créez les IPspaces
+
+Un IPspace est un espace d'adresse IP distinct dans lequel résident les VM de stockage. Lorsque vous créez des IPspaces, vos machines virtuelles de stockage peuvent disposer de leur propre stockage, administration et routage sécurisés. Vous activez également les clients dans des domaines réseau distincts d'un point de vue administratif pour utiliser des adresses IP redondantes à partir de la même plage de sous-réseaux d'adresses IP.
+
+Vous devez créer un IPspace avant de pouvoir créer un sous-réseau.
+
+.Étapes
+. Sélectionnez *réseau > vue d'ensemble*.
+. Sous *IPspaces*, sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez un nom pour l'IPspace ou acceptez le nom par défaut.
++
+Un nom IPspace ne peut pas être « All » car « All » est un nom réservé au système.
+
+. Sélectionnez *Enregistrer*.
+
+
+.Et la suite ?
+Maintenant que vous avez créé un IPspace, vous pouvez l'utiliser pour créer un sous-réseau.
+
+
+
+== Créer des sous-réseaux
+
+Un sous-réseau vous permet d'allouer des blocs spécifiques d'adresses IPv4 ou IPv6 à utiliser lors de la création d'une LIF (interface réseau) . Un sous-réseau simplifie la création de LIF en vous permettant de spécifier le nom de sous-réseau à la place d'une adresse IP et d'un masque réseau spécifiques pour chaque LIF.
+
+.Avant de commencer
+* Vous devez être un administrateur de cluster pour effectuer cette tâche.
+* L'link:../administer/manage-cluster-networking.html#add-a-broadcast-domain["broadcast-domain"]IPspace et l'emplacement où vous prévoyez d'ajouter le sous-réseau doivent déjà exister.
+
+
+.Étapes
+. Sélectionnez *réseau > vue d'ensemble*.
+. Sélectionnez *sous-réseaux*, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez le nom du sous-réseau.
++
+Tous les noms de sous-réseau doivent être uniques au sein d'un IPspace.
+
+. Entrez l'adresse IP du sous-réseau et le masque de sous-réseau.
+. Spécifiez la plage d'adresses IP du sous-réseau.
++
+Lorsque vous spécifiez la plage d'adresses IP du sous-réseau, ne faites pas chevaucher les adresses IP avec d'autres sous-réseaux. Des problèmes de réseau peuvent se produire lorsque les adresses IP de sous-réseau se chevauchent et que différents sous-réseaux ou hôtes tentent d'utiliser la même adresse IP.
+
+. Sélectionnez le domaine de diffusion du sous-réseau.
+. Sélectionnez *Ajouter*.
+
+
+.Et la suite ?
+Vous avez créé un sous-réseau que vous pouvez utiliser pour simplifier la création de vos LIF.
+
+
+
+== Créer une LIF (interface réseau)
+
+Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder à des données. Les VM de stockage fournissent des données aux clients via une ou plusieurs LIF. En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique, afin que la communication réseau ne soit pas interrompue.
+
+Lors de la création d'une LIF de données IP, celle-ci peut traiter le trafic iSCSI et NVMe/TCP par défaut. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.
+
+.Avant de commencer
+* Vous devez être un administrateur de cluster pour effectuer cette tâche.
+* Le port réseau physique ou logique sous-jacent doit avoir été configuré sur le `up` statut administratif.
+* Si vous prévoyez d'utiliser un nom de sous-réseau pour allouer la valeur de l'adresse IP et du masque de réseau à une LIF, le sous-réseau doit déjà exister.
+* Une LIF gérant le trafic intracluster entre des nœuds ne doit pas se trouver sur le même sous-réseau que le trafic de gestion d'une LIF ou encore le trafic de données géré par une LIF.
+
+
+.Étapes
+. Sélectionnez *réseau > vue d'ensemble*.
+. Sélectionnez *interfaces réseau*, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu avec un signe plus suivi du mot ajouter en lettres blanches"].
+. Sélectionnez le type et le protocole d'interface, puis la VM de stockage.
+. Entrez un nom pour la LIF ou acceptez le nom par défaut.
+. Sélectionnez le nœud de départ de l'interface réseau, puis entrez l'adresse IP et le masque de sous-réseau.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+Vous avez créé une LIF pour l'accès aux données.
+
+
+
+== Modification d'une LIF (interfaces réseau)
+
+Les LIF peuvent être désactivées ou renommées selon les besoins. Vous pouvez également modifier l'adresse IP et le masque de sous-réseau de la LIF.
+
+.Étapes
+. Sélectionnez *réseau > Présentation*, puis *interfaces réseau*.
+. Passez le curseur sur l'interface réseau que vous souhaitez modifier, puis sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
+. Sélectionnez *Modifier*.
+. Vous pouvez désactiver l'interface réseau, renommer l'interface réseau, modifier l'adresse IP ou modifier le masque de sous-réseau.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+Votre LIF a été modifiée.

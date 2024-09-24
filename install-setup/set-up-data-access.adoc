@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: install-setup/set-up-data-access.html 
+keywords:  
+summary:  
+---
+= Activez l'accès aux données depuis des hôtes SAN vers votre système de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour configurer l'accès aux données, vous devez vous assurer que les paramètres et paramètres spécifiques de votre client SAN qui sont essentiels au bon fonctionnement de ONTAP sont correctement configurés. Si vous utilisez VMware, vous devez migrer vos machines virtuelles.
+
+
+
+== Configurez l'accès aux données à partir d'hôtes SAN
+
+La configuration nécessaire pour configurer l'accès aux données sur votre système ASA r2 à partir de vos hôtes SAN varie en fonction du système d'exploitation hôte et du protocole. Une configuration correcte est importante pour de meilleures performances et un basculement réussi.
+
+Reportez-vous à la documentation de l'hôte SAN ONTAP pour link:https://docs.netapp.com/us-en/ontap-sanhost/hu_vsphere_8.html["Clients SCSI VMware vSphere"^] link:https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["Clients NVMe VMware vSphere"^]et link:https://docs.netapp.com/us-en/ontap-sanhost/overview.html["Autres clients SAN"^] pour configurer correctement vos hôtes pour qu'ils se connectent à votre système ASA r2.
+
+
+
+== Migrez des machines virtuelles VMware
+
+Si vous devez migrer votre charge de travail de machine virtuelle d'un système de stockage ASA vers un système de stockage ASA r2, NetApp vous recommande d'link:https://www.vmware.com/products/cloud-infrastructure/vsphere/vmotion["VMware vSphere vMotion"^]effectuer une migration dynamique et sans interruption de vos données.
+
+.Et la suite ?
+Vous êtes prêt à link:../manage-data/provision-san-storage.html["provisionner le stockage"]permettre à vos hôtes SAN de lire et d'écrire des données sur les unités de stockage.
