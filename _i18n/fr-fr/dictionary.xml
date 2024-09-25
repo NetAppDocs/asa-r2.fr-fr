@@ -256,7 +256,6 @@
   <block id="cd5ce84f06573fa36efd7de37fc1e5ba" category="summary">En cas de problème avec les opérations de données hôte, vous pouvez utiliser ONTAP System Manager pour vérifier que la connexion entre l'hôte et le système de stockage ASA r2 est active.</block>
   <block id="29aef3c4098e0c02a759b7ceeffd7bf5" category="doc">Vérifiez la connectivité hôte sur votre système de stockage ASA r2</block>
   <block id="2066e94a3e5e94a8e4ebdca7307614e8" category="list-text">Dans System Manager, sélectionnez *Host*.</block>
-  <block id="d6a0ea19a115b4b6c1b0c1db29d0f8c8" category="paragraph">L'état de la connectivité hôte est indiqué en regard du nom du groupe d'hôtes comme suit : * *OK* : indique que tous les initiateurs sont connectés aux deux nœuds. * *Partiellement connecté* : indique que certains des initiateurs ne sont pas connectés aux deux nœuds. * *Aucun connecté* : indique qu'aucun initiateur n'est connecté.</block>
   <block id="7d19a1e7e72002fdb422d749fd4507db" category="paragraph">Effectuez des mises à jour sur votre hôte pour corriger les problèmes de connectivité. ONTAP revérifie l'état de la connexion toutes les quinze minutes.</block>
   <block id="69cb7ab40e4d5787db8003ef13bf1939" category="summary">Créez un snapshot pour sauvegarder vos données sur votre système ASA r2. Vous pouvez également créer manuellement des snapshots ou utiliser un groupe de cohérence pour planifier des snapshots automatiques.</block>
   <block id="a72d39c43f1da3c8e4c29dc1a6cf6185" category="searchtitle">Créez des copies Snapshot pour sauvegarder vos données à l'aide de ONTAP System Manager | ASA r2</block>
@@ -1586,4 +1585,8 @@
   <block id="580170da57ca90dca0f62ce9faf29c6e" category="sidebar">Des connexions NVMe sécurisées</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Notes de mise à jour</block>
   <block id="4eae1c6da6a9edad5e5228cf8cfe3cdb" category="sidebar">Nouveautés de ONTAP 9.16.0</block>
+  <block id="0a57cb4625de2148aa1f3fe6815e78eb" category="paragraph">L'état de la connectivité hôte est indiqué en regard du nom du groupe d'hôtes comme suit :</block>
+  <block id="5b13dc2b1f3390e14daacb1f2f882717" category="list-text">*OK* : indique que tous les initiateurs sont connectés aux deux nœuds.</block>
+  <block id="c2520bb5c23501e13bc7e06dde3ae9fd" category="list-text">*Partiellement connecté* : indique que certains des initiateurs ne sont pas connectés aux deux nœuds.</block>
+  <block id="031e3ca05bd720350a450cc6267211e2" category="list-text">*Aucun connecté* : indique qu'aucun initiateur n'est connecté.</block>
 </blocks>
