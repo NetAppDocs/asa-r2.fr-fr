@@ -5,9 +5,9 @@ indexpage:
     unifiée qui simplifie l'expérience et répond parfaitement aux besoins des clients
     SAN.
   keywords: asa r2, ontap, documentation, asa a1k, asa a70, asa a90
-  lead: Les nouveaux systèmes NetApp ASA r2 (ASA A1K, ASA A70 et ASA A90) proposent
-    une solution matérielle et logicielle unifiée qui simplifie l'expérience en fonction
-    des besoins des clients qui utilisent exclusivement SAN.
+  lead: Les systèmes NetApp ASA r2 (ASA A1K, ASA A70 et ASA A90) proposent une solution
+    matérielle et logicielle unifiée qui simplifie l'expérience en fonction des besoins
+    des clients qui utilisent exclusivement SAN.
   tiles:
   - title: Commencez
     links:
