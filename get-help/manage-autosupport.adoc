@@ -31,7 +31,7 @@ Une fois le cluster configuré, testez la connectivité AutoSupport pour vérifi
 
 
 .Et la suite ?
-Vous avez vérifié que le support technique peut recevoir des messages AutoSupport de votre système ASA r2 et dispose des données nécessaires pour vous aider en cas de problème.
+Vous avez confirmé que le support technique peut recevoir des messages AutoSupport de votre système ASA r2, en vous assurant qu'ils disposent des données nécessaires pour vous aider en cas de problème.
 
 
 

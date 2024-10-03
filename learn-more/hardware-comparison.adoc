@@ -80,4 +80,4 @@ Les nouveaux clusters contiennent automatiquement un SVM de données par défaut
 La création d'une unité de stockage (LUN ou espace de noms) crée automatiquement un volume à partir de la zone de disponibilité du stockage. Il en résulte un namespace commun et simplifié. La suppression d'une unité de stockage supprime automatiquement le volume associé.
 
 .Modifications du provisionnement fin et lourd
-Les unités de stockage de sont toujours à provisionnement fin sur les systèmes de stockage ASA r2. Le provisionnement lourd n'est pas pris en charge.
+Les unités de stockage sont toujours à provisionnement fin sur les systèmes de stockage ASA r2. Le provisionnement lourd n'est pas pris en charge.

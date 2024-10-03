@@ -60,7 +60,7 @@ puis sélectionnez image:icon_dropdown_arrow.gif["flèche bleue pointant vers le
 
 
 .Et la suite
-Maintenant que vos données sont protégées à l'aide de snapshots, vous devez link:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.
+Maintenant que vos données sont protégées avec des snapshots, vous devez link:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.
 
 
 
@@ -147,7 +147,7 @@ Si vous devez continuer à protéger les données de l'unité de stockage, ajout
 Si vous n'avez plus besoin de gérer les membres d'un groupe de cohérence comme une seule unité, vous pouvez supprimer le groupe de cohérence. Une fois un groupe de cohérence supprimé, les unités de stockage du groupe restent actives sur le cluster.
 
 .Avant de commencer
-Si le groupe de cohérence à supprimer appartient à une relation de réplication, vous devez interrompre la relation avant de supprimer le groupe de cohérence. Après avoir supprimé un groupe de cohérence de réplication antérieur, les unités de stockage appartenant au groupe de cohérence restent actives sur le cluster et les copies répliquées y sont conservées.
+Si le groupe de cohérence à supprimer appartient à une relation de réplication, vous devez interrompre la relation avant de supprimer le groupe de cohérence. Une fois que vous avez supprimé un groupe de cohérence de réplication, les unités de stockage appartenant au groupe de cohérence restent actives sur le cluster et les copies répliquées y sont conservées.
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > groupes de cohérence*.
