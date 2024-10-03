@@ -81,3 +81,6 @@ La création d'une unité de stockage (LUN ou espace de noms) crée automatiquem
 
 .Modifications du provisionnement fin et lourd
 Les unités de stockage sont toujours à provisionnement fin sur les systèmes de stockage ASA r2. Le provisionnement lourd n'est pas pris en charge.
+
+.Modifications de la compression des données
+L'efficacité du stockage sensible à la température n'est pas appliquée aux systèmes ASA r2. Sur les systèmes ASA r2, la compression n'est pas basée sur des données _hot_ (fréquemment utilisées) ou _Cold_ (rarement consultées). La compression commence sans attendre que les données soient inactives.
