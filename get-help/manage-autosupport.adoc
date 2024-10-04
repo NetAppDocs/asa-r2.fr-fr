@@ -25,7 +25,7 @@ Vous devez être administrateur du cluster pour gérer AutoSupport.
 Une fois le cluster configuré, testez la connectivité AutoSupport pour vérifier que le support technique recevra les messages générés par AutoSupport.
 
 .Étapes
-. Dans le gestionnaire système, sélectionnez *Cluster > Paramètres*.
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . En regard de *AutoSupport*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez ; puis *Tester la connectivité*.
 . Saisissez un objet pour le message AutoSupport, puis sélectionnez *Envoyer le message test AutoSupport*.
 
@@ -40,7 +40,7 @@ Vous avez confirmé que le support technique peut recevoir des messages AutoSupp
 Ajoutez des membres de votre organisation de support interne à la liste des adresses e-mail qui reçoivent des messages AutoSupport.
 
 .Étapes
-. Dans le gestionnaire système, sélectionnez *Cluster > Paramètres*.
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . À côté de *AutoSupport*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez ; puis *plus d'options*.
 . En regard de *Email*, sélectionnez image:icon_edit_pencil_blue_outline.png["icône crayon"]; puis sélectionnez image:icon_add.gif["Signe plus bleu suivi du mot Ajouter"].
 . Saisissez l'adresse e-mail du destinataire, puis la catégorie de destinataire.
@@ -60,7 +60,7 @@ Les adresses e-mail que vous avez ajoutées recevront de nouveaux messages AutoS
 En cas de problème sur votre système ASA r2, les données AutoSupport réduisent considérablement le temps nécessaire à l'identification et à la résolution des problèmes.
 
 .Étapes
-. Dans le gestionnaire système, sélectionnez *Cluster > Paramètres*.
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . En regard de *AutoSupport*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez ; puis *générer et envoyer*.
 . Saisissez un objet pour le message AutoSupport, puis sélectionnez *Envoyer*.
 
@@ -75,7 +75,7 @@ Vos données AutoSupport sont envoyées au support technique.
 Si vous effectuez une mise à niveau ou une maintenance sur votre système ASA r2, vous pouvez supprimer les dossiers de demande de support de la génération AutoSupport jusqu'à ce que votre mise à niveau ou votre maintenance soit terminée.
 
 .Étapes
-. Dans le gestionnaire système, sélectionnez *Cluster > Paramètres*.
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . En regard de *AutoSupport*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez ; puis sélectionnez *Supprimer la génération de cas de support*.
 . Spécifiez le nombre d'heures pour supprimer la génération de dossiers de support, puis sélectionnez les nœuds pour lesquels vous ne souhaitez pas générer de dossiers.
 . Sélectionnez *Envoyer*.
@@ -91,7 +91,7 @@ Les dossiers AutoSupport ne seront pas générés pendant le temps que vous avez
 Si vous avez supprimé la génération de dossiers de support pendant une fenêtre de mise à niveau ou de maintenance, vous devez reprendre la génération de dossiers de support immédiatement après la fin de votre mise à niveau ou de votre maintenance.
 
 .Étapes
-. Dans le gestionnaire système, sélectionnez *Cluster > Paramètres*.
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . En regard de *AutoSupport*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez ; puis sélectionnez *reprendre la génération de cas de support*.
 . Sélectionnez les nœuds pour lesquels vous souhaitez reprendre les dossiers AutoSupport générés.
 . Sélectionnez *Envoyer*.
