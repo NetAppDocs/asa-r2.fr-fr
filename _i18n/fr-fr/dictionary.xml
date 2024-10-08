@@ -1587,4 +1587,7 @@
   <block id="b16351f807fbda6965666255eef268dd" category="section-title">Initialiser l'horloge SnapLock Compliance</block>
   <block id="6f7e58f2fc20167d69dc971955e6bb11" category="paragraph">Avant de pouvoir créer des instantanés inviolables, vous devez initialiser l'horloge SnapLock Compliance sur vos clusters locaux et de destination.</block>
   <block id="71c1cda56d6fad5ca8b28cabd1f98042" category="paragraph">Après avoir initialisé l'horloge SnapLock Compliance sur vos clusters locaux et de destination, vous êtes prêt à <block ref="9e34609081a00054138ac6c8cbbd66f1" category="inline-link-macro-rx"></block>.</block>
+  <block id="253b40ae359ba25b56231803430c4873" category="section-title">ONTAP</block>
+  <block id="f20a7be09bb1e964599f6a093df3c792" category="inline-link-macro">Avis pour ONTAP 9.16.01</block>
+  <block id="7f4ce7e91f585315eb8df215a736469e" category="paragraph"><block ref="7f4ce7e91f585315eb8df215a736469e" category="inline-link-macro-rx"></block></block>
 </blocks>
