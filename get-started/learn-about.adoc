@@ -32,6 +32,6 @@ Les systèmes ASA r2 ne prennent pas en charge la combinaison de clusters avec l
 
 .Pour en savoir plus
 * Pour en savoir plus sur la prise en charge et les limites des systèmes ASA r2link:https://hwu.netapp.com/["NetApp Hardware Universe"^], consultez le .
-* En savoir plus sur link:../learn-more/hardware-comparison.html["Nouveaux systèmes ASA r2 par rapport aux systèmes ASA"].
+* En savoir plus sur link:../learn-more/hardware-comparison.html["Les systèmes ASA r2 par rapport aux systèmes ASA"].
 * En savoir plus sur link:https://www.netapp.com/pdf.html?item=/media/85736-ds-4254-asa.pdf["NetApp ASA"]le .
 
