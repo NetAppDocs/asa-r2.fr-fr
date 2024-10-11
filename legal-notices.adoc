@@ -51,4 +51,4 @@ Les fichiers de notification fournissent des informations sur les droits d'auteu
 
 == ONTAP
 
-link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3329264["Avis pour ONTAP 9.16.01"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3329264["Avis pour ONTAP 9.16.1"^]

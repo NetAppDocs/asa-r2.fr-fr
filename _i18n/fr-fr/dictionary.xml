@@ -1585,9 +1585,9 @@
   <block id="6f7e58f2fc20167d69dc971955e6bb11" category="paragraph">Avant de pouvoir créer des instantanés inviolables, vous devez initialiser l'horloge SnapLock Compliance sur vos clusters locaux et de destination.</block>
   <block id="71c1cda56d6fad5ca8b28cabd1f98042" category="paragraph">Après avoir initialisé l'horloge SnapLock Compliance sur vos clusters locaux et de destination, vous êtes prêt à <block ref="9e34609081a00054138ac6c8cbbd66f1" category="inline-link-macro-rx"></block>.</block>
   <block id="253b40ae359ba25b56231803430c4873" category="section-title">ONTAP</block>
-  <block id="f20a7be09bb1e964599f6a093df3c792" category="inline-link-macro">Avis pour ONTAP 9.16.01</block>
-  <block id="7f4ce7e91f585315eb8df215a736469e" category="paragraph"><block ref="7f4ce7e91f585315eb8df215a736469e" category="inline-link-macro-rx"></block></block>
   <block id="7634d59040fd3f0630abac42ed05842e" category="inline-link-macro">Les systèmes ASA r2 par rapport aux systèmes ASA</block>
   <block id="0a1c5c73cbf93d4b2d88ff0be84d2900" category="list-text">En savoir plus sur <block ref="c736257475481e43d317d6d66a81a5cb" category="inline-link-macro-rx"></block>.</block>
   <block id="420a0f9e5b6b25901e8477f2031c4f09" category="admonition">La réplication Snapshot d'un système de stockage ASA r2 n'est prise en charge qu'à partir d'un autre système de stockage ASA r2. Vous ne pouvez pas répliquer les snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS actuel, ou depuis un système ASA, AFF ou FAS actuel vers un système ASA r2.</block>
+  <block id="3f808654ebfed6aae875b71a402ac91b" category="inline-link-macro">Avis pour ONTAP 9.16.1</block>
+  <block id="ccde34ed9a96a11b25c1db2a8c9acb87" category="paragraph"><block ref="ccde34ed9a96a11b25c1db2a8c9acb87" category="inline-link-macro-rx"></block></block>
 </blocks>
