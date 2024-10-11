@@ -15,7 +15,7 @@ searchtitle: 'Réplication de snapshots sur un cluster distant à l"aide de ONTA
 La réplication Snapshot est un processus au cours duquel les groupes de cohérence de votre système ASA r2 sont copiés sur un site distant. Après la réplication initiale, les modifications apportées aux groupes de cohérence sont copiées vers l'emplacement distant en fonction d'une règle de réplication. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.
 
 
-NOTE: La réplication Snapshot à partir d'un système de stockage ASA r2 n'est prise en charge que sur un autre système de stockage ASA r2. Vous ne pouvez pas répliquer les snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS actuel.
+NOTE: La réplication Snapshot d'un système de stockage ASA r2 n'est prise en charge qu'à partir d'un autre système de stockage ASA r2. Vous ne pouvez pas répliquer les snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS actuel, ou depuis un système ASA, AFF ou FAS actuel vers un système ASA r2.
 
 Pour configurer la réplication Snapshot, vous devez établir une relation de réplication entre votre système ASA r2 et l'emplacement distant. La relation de réplication est régie par une règle de réplication. Une règle par défaut permettant de répliquer tous les snapshots est créée lors de la configuration du cluster. Vous pouvez utiliser la règle par défaut ou, si vous le souhaitez, créer une nouvelle règle.
 
