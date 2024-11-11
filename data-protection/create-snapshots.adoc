@@ -61,7 +61,7 @@ Vous avez créé un groupe de cohérence contenant les unités de stockage que v
 
 Un snapshot est une copie locale en lecture seule de vos données, que vous pouvez utiliser pour restaurer des unités de stockage à des points spécifiques dans le temps.
 
-Les snapshots peuvent être créés à la demande ou automatiquement à intervalles réguliers en fonction d'un link:https://review.docs.netapp.com/us-en/asa-r2_asa-r2-9160/data-protection/policies-schedules.html["règle snapshot et planification"]. La règle et la planification des snapshots indiquent quand créer les snapshots, combien de copies conserver, comment les nommer et comment les étiqueter pour la réplication. Par exemple, un système peut créer un snapshot tous les jours à 12:10, conserver les deux copies les plus récentes, les nommer « quotidien » (ajouté à un horodatage) et les étiqueter « quotidien » pour la réplication.
+Les snapshots peuvent être créés à la demande ou automatiquement à intervalles réguliers en fonction d'un link:policies-schedules.html["règle snapshot et planification"]. La règle et la planification des snapshots indiquent quand créer les snapshots, combien de copies conserver, comment les nommer et comment les étiqueter pour la réplication. Par exemple, un système peut créer un snapshot tous les jours à 12:10, conserver les deux copies les plus récentes, les nommer « quotidien » (ajouté à un horodatage) et les étiqueter « quotidien » pour la réplication.
 
 .Types de snapshots
 Vous pouvez créer un snapshot à la demande d'une unité de stockage ou d'un groupe de cohérence. Vous pouvez créer des snapshots automatisés d'un groupe de cohérence contenant plusieurs unités de stockage. Vous ne pouvez pas créer de snapshots automatisés pour une seule unité de stockage.
