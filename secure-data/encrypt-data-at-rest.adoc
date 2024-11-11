@@ -52,4 +52,4 @@ En plus de NSE, vous pouvez également activer le chiffrement logiciel afin d'aj
 .Et la suite ?
 Une fois que vous avez chiffré vos données au repos, si vous utilisez le protocole NVMe/TCP, vous pouvez le link:nvme-tcp-connections.html["chiffrez toutes les données envoyées sur le réseau"] faire entre votre hôte NVMe/TCP et votre système ASA r2.
 
-Si vous devez passer du gestionnaire de clés intégré à un gestionnaire de clés externe ou vice versa, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/migrate-keys-between-key-managers["Migration des clés de chiffrement des données ONTAP entre les gestionnaires de clés"^].
+Si vous devez passer du gestionnaire de clés intégré à un gestionnaire de clés externe ou vice versa, reportez-vous à la section link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/migrate-keys-between-key-managers.html["Migration des clés de chiffrement des données ONTAP entre les gestionnaires de clés"^].
