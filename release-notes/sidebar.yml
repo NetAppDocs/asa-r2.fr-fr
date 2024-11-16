@@ -2,9 +2,9 @@
 section: release-notes
 title: Notes de mise à jour
 entries:
-- title: Nouveautés de ONTAP 9.16.0
-  url: "/release-notes/whats-new-9160.html"
 - title: Nouveautés de ONTAP 9.16.1
   url: "/release-notes/whats-new-9161.html"
+- title: Nouveautés de ONTAP 9.16.0
+  url: "/release-notes/whats-new-9160.html"
 - title: Modifications des valeurs par défaut et des limites ONTAP
   url: "/release-notes/changes-to-limits-defaults.html"
