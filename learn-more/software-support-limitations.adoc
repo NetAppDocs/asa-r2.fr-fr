@@ -20,8 +20,8 @@ Bien que les systèmes ASA r2 proposent une prise en charge étendue des solutio
 * MetroCluster
 * Protocoles d'objet
 * API ONTAP S3 SnapMirror et S3
-* SnapMirror vers le cloud
-* SnapMirror vers les systèmes non ASA r2
+* SnapMirror (asynchrone et synchrone) vers le cloud
+* SnapMirror (asynchrone et synchrone) vers les systèmes non ASA r2
 * Mappage de LUN sélectif (SLM)
 
 
