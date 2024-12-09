@@ -565,7 +565,6 @@
   <block id="b4e5592d9ac502884e059b5eb31d6bf6" category="list-text">En savoir plus sur <block ref="7ca9eeacedc91cf0cb26acef9d99ecbd" category="inline-link-macro-rx"></block>le .</block>
   <block id="05b76f77eda2923699bcc5fed0226549" category="summary">Pour commencer avec un système ASA r2 (ASA A1K, ASA A70, ASA A90), installez le matériel, configurez le cluster, configurez l'accès aux données et provisionnez le stockage.</block>
   <block id="726d7bea9295f2cedea11857011476c0" category="searchtitle">Installez et configurez les systèmes de stockage ASA A1K, ASA A70 et ASA A90</block>
-  <block id="ceb35ef309bc127d4f8d63986f004986" category="doc">Démarrage rapide des systèmes de stockage ASA r2</block>
   <block id="7277c9d417ac8a6d967bd0e7b323cd57" category="paragraph">Pour être opérationnel avec votre système ASA r2, vous installez vos composants matériels, configurez votre cluster, configurez l'accès aux données depuis vos hôtes vers le système de stockage et provisionnez votre stockage.</block>
   <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Une seule</block>
   <block id="40a0d9b63d17cd9ee40121b195ad7812" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Installez et configurez votre matériel</block>
@@ -1611,4 +1610,5 @@
   <block id="db501755a13db6bc1da40b7fa29e25f1" category="list-text">SnapMirror (asynchrone et synchrone) vers les systèmes non ASA r2</block>
   <block id="b0af3c84875edd616110edf2dac64154" category="paragraph">Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage.</block>
   <block id="f31e58176a4fc5fa75f3c5160b712278" category="admonition">SnapMirror (asynchrone et synchrone) est uniquement pris en charge par les systèmes ASA r2 vers les systèmes ASA r2. SnapMirror n'est pas pris en charge par les systèmes ASA r2 vers les systèmes AFF ou FAS.</block>
+  <block id="a45025bc45c4e360bb41b761b432dd34" category="doc">Démarrage rapide des systèmes de stockage ASA r2</block>
 </blocks>
