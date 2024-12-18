@@ -551,7 +551,6 @@
   <block id="18aec681e94562add9f015e57e17b8d0" category="list-text">Pour soumettre un dossier d'assistance, dans le Gestionnaire système, sélectionnez *Cluster &gt; support*, puis sélectionnez *aller au support NetApp*.</block>
   <block id="ce3bbf8e2056eaff8c2c9a52eb4ce4dc" category="list-text">Pour afficher un cas soumis précédemment, dans System Manager, sélectionnez *Cluster &gt; support*, puis *Afficher mes cas*.</block>
   <block id="c4bd20e96bacd4ca7f4f874cb8a77b00" category="summary">Les systèmes ASA r2 (ASA A1K, ASA A70 et ASA A90) proposent une solution matérielle et logicielle unifiée qui simplifie l'expérience des clients SAN uniquement.</block>
-  <block id="0ef2f5aecf77f5521c5e2b69fdb889af" category="searchtitle">En savoir plus sur les systèmes de stockage ASA A1K, ASA A70 et ASA A90</block>
   <block id="e995d56efd9e31d97825dd79be4d1383" category="doc">En savoir plus sur les systèmes de stockage ASA r2</block>
   <block id="4c09e6dc15402ad1dfdd0de9dde9ced3" category="paragraph">Sur un système ASA r2, le logiciel ONTAP et System Manager sont optimisés pour prendre en charge les fonctionnalités SAN essentielles tout en supprimant les fonctionnalités et fonctionnalités non prises en charge dans les environnements SAN.</block>
   <block id="8ba78ca0516a69b587aca58206efc01f" category="paragraph">Les systèmes ASA r2 introduisent l'utilisation d'unités de stockage avec groupes de cohérence :</block>
@@ -1611,4 +1610,5 @@
   <block id="b0af3c84875edd616110edf2dac64154" category="paragraph">Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage.</block>
   <block id="f31e58176a4fc5fa75f3c5160b712278" category="admonition">SnapMirror (asynchrone et synchrone) est uniquement pris en charge par les systèmes ASA r2 vers les systèmes ASA r2. SnapMirror n'est pas pris en charge par les systèmes ASA r2 vers les systèmes AFF ou FAS.</block>
   <block id="a45025bc45c4e360bb41b761b432dd34" category="doc">Démarrage rapide des systèmes de stockage ASA r2</block>
+  <block id="426ed8a052d2d7277d60ee8001b9d37e" category="searchtitle">En savoir plus sur les systèmes de stockage ASA r2 : A1K, A90 et A70</block>
 </blocks>
