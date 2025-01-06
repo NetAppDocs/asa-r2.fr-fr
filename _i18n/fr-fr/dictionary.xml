@@ -1611,4 +1611,19 @@
   <block id="f31e58176a4fc5fa75f3c5160b712278" category="admonition">SnapMirror (asynchrone et synchrone) est uniquement pris en charge par les systèmes ASA r2 vers les systèmes ASA r2. SnapMirror n'est pas pris en charge par les systèmes ASA r2 vers les systèmes AFF ou FAS.</block>
   <block id="a45025bc45c4e360bb41b761b432dd34" category="doc">Démarrage rapide des systèmes de stockage ASA r2</block>
   <block id="426ed8a052d2d7277d60ee8001b9d37e" category="searchtitle">En savoir plus sur les systèmes de stockage ASA r2 : A1K, A90 et A70</block>
+  <block id="465ce601131c87fafd3a4a3da5836246" category="summary">Les systèmes ASA r2 suivent les mêmes recommandations et instructions pour la configuration des hôtes SAN que tous les autres systèmes ONTAP.</block>
+  <block id="9a364a877707d0b61983419895ba3632" category="doc">Configuration d'hôtes SAN avec les systèmes ASA r2</block>
+  <block id="31eb0490b298463d8797eab8041ed748" category="paragraph">Il est recommandé d'utiliser au moins deux commutateurs pour connecter votre système de stockage à un ou plusieurs hôtes SAN. Pour les configurations iSCSI, la topologie réseau reliant vos hôtes, commutateurs et systèmes de stockage est appelée _network_. Pour les configurations FC et FC-NVMe, cette même topologie réseau est appelée _fabric_.</block>
+  <block id="1ea2e359c5275499813dff319ee20baa" category="paragraph">Les configurations multiréseau et multistructure (qui utilisent au moins deux commutateurs) sont recommandées, car elles assurent la redondance au niveau des couches de switch et de stockage. Cette redondance rend votre système de stockage plus tolérant aux pannes et assure la continuité de l'activité.</block>
+  <block id="37fdee11e5eadf392d943f0a18609831" category="paragraph">L'illustration suivante est un exemple de configuration FC avec plusieurs hôtes utilisant deux structures pour accéder à une seule paire haute disponibilité. Les numéros de port cible FC (0C, 0d, 1a, 1b) sont également des exemples. Les numéros de port réels varient selon le modèle de votre plate-forme et si vous utilisez des cartes d'extension.</block>
+  <block id="cafd65a257cc24af0e84e8951ad9d9b5" category="image-alt">Deux structures FC connectant plusieurs hôtes à une seule paire haute disponibilité</block>
+  <block id="7934e04423cdef3122abed138d14e800" category="inline-link-macro">Configuration SAN pour hôtes iSCSI</block>
+  <block id="1697498835ad65fe0eb56d5a08926207" category="inline-link-macro">Configuration SAN pour les hôtes FC et FC/NVMe</block>
+  <block id="ebd194f81358f792dec388e009d8bec3" category="paragraph">En savoir plus sur <block ref="9880b1feac4156c93ea0abed0c0efc7f" category="inline-link-macro-rx"></block>. En savoir plus sur <block ref="e620f7fdd29d4d62cc1639e7aa82a5ed" category="inline-link-macro-rx"></block>.</block>
+  <block id="f32de8a0d0833354764d0913e73367fa" category="section-title">Recommandation de segmentation pour les hôtes FC</block>
+  <block id="3efb87f7842540462326a834b157f4ab" category="paragraph">Vous devez configurer vos hôtes FC pour qu'ils utilisent la segmentation. Les systèmes ASA r2 suivent les mêmes recommandations et instructions de segmentation des hôtes FC que tous les autres systèmes ONTAP.</block>
+  <block id="db6c51496ac3638e90475615dca619b4" category="paragraph">Une zone est un regroupement logique d'un ou de plusieurs ports au sein d'une structure. Pour que les périphériques puissent se découvrir, établir des sessions entre eux et communiquer, les deux ports doivent avoir une appartenance à une zone commune.</block>
+  <block id="61cf7293359faa875bba34aec2374d5e" category="inline-link-macro">Segmentation FC/FC-NVMe</block>
+  <block id="05c164818e6cf72673636c3f026f35fd" category="paragraph">En savoir plus sur <block ref="04395b79c4c7664c0e1d06aced656acd" category="inline-link-macro-rx"></block>.</block>
+  <block id="9567f97a2f92160f66cfc2ac7b1e9cc2" category="sidebar">Configuration de l'hôte SAN</block>
 </blocks>
