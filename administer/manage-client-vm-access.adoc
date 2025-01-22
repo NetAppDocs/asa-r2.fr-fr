@@ -73,6 +73,8 @@ Une LIF (interface réseau) est une adresse IP associée à un port physique ou 
 
 Lors de la création d'une LIF de données IP, celle-ci peut traiter le trafic iSCSI et NVMe/TCP par défaut. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.
 
+Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez créer une LIF iSCSI uniquement. Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.
+
 .Avant de commencer
 * Vous devez être un administrateur de cluster pour effectuer cette tâche.
 * Le port réseau physique ou logique sous-jacent doit avoir été configuré sur le `up` statut administratif.
@@ -84,6 +86,9 @@ Lors de la création d'une LIF de données IP, celle-ci peut traiter le trafic i
 . Sélectionnez *réseau > vue d'ensemble*.
 . Sélectionnez *interfaces réseau*, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu avec un signe plus suivi du mot ajouter en lettres blanches"].
 . Sélectionnez le type et le protocole d'interface, puis la VM de stockage.
++
+Pour créer une LIF de protocole unique, sélectionnez un seul protocole. Par exemple, pour créer une LIF iSCSI uniquement, sélectionnez *iSCSI*.
+
 . Entrez un nom pour la LIF ou acceptez le nom par défaut.
 . Sélectionnez le nœud de départ de l'interface réseau, puis entrez l'adresse IP et le masque de sous-réseau.
 . Sélectionnez *Enregistrer*.

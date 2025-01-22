@@ -14,7 +14,13 @@ summary: Bien que les systèmes ASA r2 proposent une prise en charge étendue de
 Bien que les systèmes ASA r2 proposent une prise en charge étendue des solutions SAN, certaines fonctionnalités du logiciel ONTAP ne sont pas prises en charge.
 
 .Les systèmes ASA r2 ne prennent pas en charge les éléments suivants :
-* Basculement de LIF iSCSI
+* Basculement automatique de LIF iSCSI par défaut
++
+Sur les systèmes ASA r2, la LIF réseau par défaut est partagée entre les hôtes NVMe et SCSI, de sorte que le basculement automatique ne soit pas pris en charge. Pour activer le basculement automatique de LIF iSCSI, vous devez link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Créez une LIF iSCSI uniquement"]. Le basculement automatique est activé par défaut sur les LIF iSCSI uniquement.
+
++
+Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.
+
 * FabricPool
 * Provisionnement lourd des LUN
 * MetroCluster
@@ -27,11 +33,15 @@ Bien que les systèmes ASA r2 proposent une prise en charge étendue des solutio
 
 .Les systèmes ASA r2 prennent en charge les éléments suivants :
 * SnapLock
++
+link:../secure-data/ransomware-protection.html["Découvrez comment verrouiller des instantanés"] Sur votre système ASA r2.
+
 * Chiffrement double couche
++
+link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] Aux données de votre système ASA r2.
+
 
 
 .Pour en savoir plus
 * link:https://hwu.netapp.com/["NetApp Hardware Universe"^]Pour plus d'informations sur la prise en charge matérielle et les limitations de ASA r2, reportez-vous au.
-* link:../secure-data/ransomware-protection.html["Découvrez comment verrouiller des instantanés"] Sur votre système ASA r2.
-* link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] Aux données de votre système ASA r2.
 

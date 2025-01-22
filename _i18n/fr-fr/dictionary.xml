@@ -1091,7 +1091,6 @@
   <block id="769cac8936a099436eaf35a70beb7039" category="summary">Bien que les systèmes ASA r2 proposent une prise en charge étendue des solutions SAN, certaines fonctionnalités du logiciel ONTAP ne sont pas prises en charge.</block>
   <block id="c305c29e81953bb01b7c42d73fc8099c" category="doc">Limitations et prise en charge du logiciel ONTAP pour les systèmes de stockage ASA r2</block>
   <block id="2f7f66e818d17cdf226ec888e94e2751" category="list-title">Les systèmes ASA r2 ne prennent pas en charge les éléments suivants :</block>
-  <block id="e2d11c222fd8d727dcdcff1a70a7c1c0" category="list-text">Basculement de LIF iSCSI</block>
   <block id="55449fd175613962d882ab450cfc5f3c" category="list-text">FabricPool</block>
   <block id="e4bc96983300161ae3464466c0030db7" category="list-text">Provisionnement lourd des LUN</block>
   <block id="1749d12df3df2319d3eee218a277ff83" category="list-text">MetroCluster</block>
@@ -1639,4 +1638,10 @@
   <block id="b57ea9712535452d1a9c410e0f1f4f93" category="list-text"><block ref="b57ea9712535452d1a9c410e0f1f4f93" category="inline-link-macro-rx"></block></block>
   <block id="8182eb8f155278176f93ebb4d84774dc" category="list-text"><block ref="8182eb8f155278176f93ebb4d84774dc" category="inline-link-macro-rx"></block></block>
   <block id="8027cf82d29e89bcd72c0f7ae984c222" category="paragraph">Les systèmes ASA r2 sont pris en charge par <block ref="6a0b5c767b375da41f0e7140f5d8129e" category="inline-link-macro-rx"></block> et les versions ultérieures.</block>
+  <block id="ace9c44d680e3a8684441fd776f4db68" category="paragraph">Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez créer une LIF iSCSI uniquement. Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.</block>
+  <block id="38db38181d3edceaf9353ed23bb6a1d6" category="paragraph">Pour créer une LIF de protocole unique, sélectionnez un seul protocole. Par exemple, pour créer une LIF iSCSI uniquement, sélectionnez *iSCSI*.</block>
+  <block id="f08b07b736a8c5201accc4549e8a0762" category="list-text">Basculement automatique de LIF iSCSI par défaut</block>
+  <block id="4b3d6eefe10e552e93669e44e3908ab2" category="inline-link-macro">Créez une LIF iSCSI uniquement</block>
+  <block id="c32fddd27ad2252ef230f0871f34068f" category="paragraph">Sur les systèmes ASA r2, la LIF réseau par défaut est partagée entre les hôtes NVMe et SCSI, de sorte que le basculement automatique ne soit pas pris en charge. Pour activer le basculement automatique de LIF iSCSI, vous devez <block ref="80674e801e3a84767641d7c52bb7dcab" category="inline-link-macro-rx"></block>. Le basculement automatique est activé par défaut sur les LIF iSCSI uniquement.</block>
+  <block id="22f4d4e3ef9ad886ae95608e10f828cb" category="paragraph">Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.</block>
 </blocks>
