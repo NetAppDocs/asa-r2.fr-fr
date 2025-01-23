@@ -25,7 +25,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1 pour les
 | Mise à jour | Description 
 
 
-| link:data-protection/manage-consistency-groups.html["Prise en charge des groupes de cohérence hiérarchiques"] | Les groupes de cohérence hiérarchiques vous permettent de créer un groupe de cohérence parent contenant plusieurs groupes de cohérence enfant. Cela simplifie la protection et la gestion des données pour les structures de données complexes. 
+| link:../data-protection/manage-consistency-groups.html["Prise en charge des groupes de cohérence hiérarchiques"] | Les groupes de cohérence hiérarchiques vous permettent de créer un groupe de cohérence parent contenant plusieurs groupes de cohérence enfant. Cela simplifie la protection et la gestion des données pour les structures de données complexes. 
 |===
 
 
