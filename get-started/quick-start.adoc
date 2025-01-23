@@ -1,9 +1,9 @@
 ---
 sidebar: sidebar 
 permalink: get-started/quick-start.html 
-keywords: asa r2, asa a1k, asa a70, asa a90, get started, getting started, quick start, install, set up 
-summary: 'Pour commencer avec un système ASA r2 (ASA A1K, ASA A70, ASA A90), installez le matériel, configurez le cluster, configurez l"accès aux données et provisionnez le stockage.' 
-searchtitle: Installez et configurez les systèmes de stockage ASA A1K, ASA A70 et ASA A90 
+keywords: asa r2, asa a1k, asa a90, asa a70, get started, getting started, quick start, install, set up 
+summary: 'Pour commencer avec un système ASA r2 (ASA A1K, A90, A70), installez le matériel, configurez le cluster, configurez l"accès aux données et provisionnez le stockage.' 
+searchtitle: Installer et configurer les systèmes de stockage ASA A1K, A90 et A70 
 ---
 = Démarrage rapide des systèmes de stockage ASA r2
 :allow-uri-read: 
@@ -16,7 +16,7 @@ Pour être opérationnel avec votre système ASA r2, vous installez vos composan
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez et configurez votre matériel
 [role="quick-margin-para"]
-link:../install-setup/install-setup-workflow.html["Installation et configuration"] Votre système ASA r2 et déployez-le comme une paire haute disponibilité dans votre environnement ONTAP.
+link:../install-setup/install-setup-workflow.html["Installation et configuration"] Votre système ASA r2 et déployez-le dans votre environnement ONTAP.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Configurez votre cluster
 [role="quick-margin-para"]

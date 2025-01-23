@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/cable-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a70, asa a90, asa c80, cable controllers 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, cable controllers 
 summary: Découvrez comment connecter les câbles du contrôleur ASA r2 à votre réseau et connecter les contrôleurs aux tiroirs. 
 ---
 = Branchez les câbles du matériel du système de stockage ASA r2

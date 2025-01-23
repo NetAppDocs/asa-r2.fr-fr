@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: administer/reboot-take-over-give-back-nodes.html 
-keywords: reboot, take over, give back, nodes, asa r2, asa r2, asa a1k, asa 70, asa 90 
+keywords: reboot, take over, give back, nodes, asa r2, asa a1k, asa a90, asa a70 
 summary: 'Vous devrez peut-être redémarrer un nœud pour effectuer des opérations de maintenance, de dépannage, de mise à jour logicielle ou d"autres tâches d"administration.' 
 ---
 = Redémarrez un nœud sur un système de stockage ASA r2

@@ -14,6 +14,8 @@ entries:
     url: "/monitor/monitor-storage.html"
   - title: Augmenter la capacité de stockage
     url: "/administer/increase-storage-capacity.html"
+- title: Surclassement ONTAP
+  url: "/administer/upgrade-ontap.html"
 - title: Met à jour le micrologiciel
   url: "/administer/update-firmware.html"
 - title: Afficher des informations exploitables
@@ -22,6 +24,8 @@ entries:
   url: "/monitor/view-events-jobs.html"
 - title: Gérer des nœuds
   entries:
+  - title: Ajouter des nœuds
+    url: "/administer/add-nodes.html"
   - title: Redémarrez, Takeover et back nœuds
     url: "/administer/reboot-take-over-give-back-nodes.html"
   - title: Renommer les nœuds

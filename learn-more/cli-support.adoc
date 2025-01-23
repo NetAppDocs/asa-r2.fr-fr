@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: learn-more/cli-support.html 
-keywords: asa r2, cli, asa r2, asa a1k, asa 70, asa 90 
+keywords: asa r2, asa r2, asa a1k, asa a90, a70, cli 
 summary: 'Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 70, ASA 90).' 
 ---
 = Prise en charge de l'interface de ligne de commande ONTAP pour les systèmes de stockage ASA r2

@@ -150,3 +150,19 @@ Vous avez cloné un groupe de cohérence à partir de votre emplacement distant.
 ====
 .Et la suite ?
 Pour protéger vos données, vous devez link:../data-protection/create-snapshots.html#step-2-create-a-snapshot["créer des instantanés"] utiliser le groupe de cohérence cloné.
+
+
+
+== Séparer le clone du groupe de cohérence
+
+Lorsque vous fractionnez un clone de groupe de cohérence, vous dissociez le clone du groupe de cohérence source et allouez de l'espace disque au clone. Le clone devient un groupe de cohérence autonome pouvant être utilisé indépendamment du groupe de cohérence source.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le clone de groupe de cohérence à diviser.
+. Sélectionnez *Split clone*.
+. Sélectionnez *Fractionner*.
+
+
+.Résultat
+Le clone est dissocié du groupe de cohérence source et l'espace disque est alloué au clone.

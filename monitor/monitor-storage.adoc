@@ -33,6 +33,31 @@ Si l'espace de votre cluster est insuffisant ou s'il ne dispose pas de la capaci
 
 
 
+== Surveiller l'utilisation de la zone de disponibilité du stockage
+
+Chaque paire haute disponibilité d'un système ASA r2 utilise un pool de stockage commun appelé _zone de disponibilité du stockage_. La zone de disponibilité du stockage a accès à tous les disques disponibles dans le système de stockage et est visible pour les deux nœuds de la paire haute disponibilité.
+
+Si votre cluster comporte 4 nœuds ou plus, vous pouvez afficher la quantité d'espace utilisée par la zone de disponibilité du stockage pour chaque paire haute disponibilité. Cette métrique n'est pas disponible pour les clusters à 2 nœuds.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster*, puis *Présentation*.
++
+Un récapitulatif de l'utilisation de la zone de disponibilité du stockage s'affiche pour chaque paire HA dans le cluster.
+
+. Si vous souhaitez obtenir des mesures plus détaillées, sélectionnez une disponibilité spécifique du stockage.
++
+Sous *vue d'ensemble*, la capacité de la zone de disponibilité du stockage, la quantité d'espace utilisé et le taux de réduction des données sont affichés.
+
++
+Sous *unités de stockage*, une liste de toutes les unités de stockage de la zone de disponibilité de stockage s'affiche.
+
+
+
+.Et la suite ?
+Si le niveau d'espace de votre zone de disponibilité du stockage est faible, envisagez link:../manage-data/move-storage-units.html["déplacer les unités de stockage"]d'utiliser une autre zone de disponibilité du stockage pour équilibrer l'utilisation du stockage dans le cluster.
+
+
+
 == Surveiller l'utilisation de l'unité de stockage
 
 Surveillez la quantité de stockage consommée par une unité de stockage afin d'augmenter de manière proactive la taille de l'unité de stockage en fonction des besoins de votre entreprise.

@@ -22,6 +22,8 @@ Un groupe de cohérence est un ensemble d'unités de stockage gérées comme une
 
 Créez un groupe de cohérence avec de nouvelles unités de stockage ou un groupe de cohérence avec des unités de stockage existantes.
 
+Lorsque vous créez un groupe de cohérence avec de nouvelles unités de stockage, vous pouvez attribuer une capacité différente à chaque unité de stockage, modifier le niveau de service de performances par défaut et créer jusqu'à cinq groupes de cohérence enfant. Lorsque vous créez un groupe de cohérence à l'aide d'unités de stockage existantes, vous pouvez ajouter des unités de stockage déjà utilisées.
+
 [role="tabbed-block"]
 ====
 .Utilisez de nouvelles unités de stockage
@@ -31,14 +33,43 @@ Créez un groupe de cohérence avec de nouvelles unités de stockage ou un group
 . Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"], puis *utilisation de nouvelles unités de stockage*.
 . Entrez un nom pour la nouvelle unité de stockage, le nombre d'unités et la capacité par unité.
 +
-Si vous créez plusieurs unités, chaque unité est créée avec la même capacité et le même système d'exploitation hôte. Pour attribuer une capacité différente à chaque unité, sélectionnez *plus d'options*, puis sélectionnez *Ajouter une capacité différente*.
+Si vous créez plusieurs unités, chaque unité est créée avec la même capacité et le même système d'exploitation hôte par défaut. Vous pouvez éventuellement attribuer une capacité différente à chaque unité.
 
-. Sélectionnez le système d'exploitation hôte et le mappage d'hôte.
-. Sélectionnez *Ajouter*.
+. Si vous souhaitez effectuer l'une des opérations suivantes, sélectionnez *plus d'options* et suivez les étapes requises.
++
+[cols="2, 4a"]
+|===
+| Option | Étapes 
+
+
+ a| 
+Attribuez une capacité différente à chaque unité de stockage
+ a| 
+Sélectionnez *Ajouter une capacité différente*.
+
+
+
+ a| 
+Modifiez le niveau de service de performances par défaut
+ a| 
+Sous *niveau de service Performance*, sélectionnez un niveau de service différent.
+
+
+
+ a| 
+Créer un groupe de cohérence enfant
+ a| 
+Sélectionnez *Ajouter un groupe de cohérence enfant*.
+
+.. Sélectionnez le système d'exploitation hôte et le mappage d'hôte.
+.. Sélectionnez *Ajouter*.
 
 
 .Et la suite ?
 Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger. Vous êtes maintenant prêt à créer un snapshot.
+
+|===
+
 
 --
 .Utiliser les unités de stockage existantes

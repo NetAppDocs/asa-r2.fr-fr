@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: manage-data/move-storage-units.html 
+keywords: move lun, lun move, move namespace, move storage unit, asa r2 
+summary: 'Supprimez des unités de stockage pour réduire la quantité de stockage physique nécessaire ou libérer de l"espace nécessaire pour d"autres applications hôtes.' 
+---
+= Déplacement des unités de stockage sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si l'espace d'une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d'équilibrer l'utilisation du stockage dans le cluster.
+
+Vous pouvez déplacer une unité de stockage pendant que celle-ci est en ligne et qu'elle assure l'accès aux données. L'opération de déplacement est sans interruption.
+
+.Avant de commencer
+* Vous devez exécuter ONTAP 9.16.1 ou une version ultérieure.
+* Votre cluster doit être composé d'au moins quatre nœuds.
+
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*, puis sélectionnez l'unité de stockage à déplacer.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *déplacer*.
+. Sélectionnez la zone de disponibilité de stockage vers laquelle vous souhaitez déplacer l'unité de stockage, puis sélectionnez *déplacer*.
+
