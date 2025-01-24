@@ -61,15 +61,13 @@ Créer un groupe de cohérence enfant
  a| 
 Sélectionnez *Ajouter un groupe de cohérence enfant*.
 
-.. Sélectionnez le système d'exploitation hôte et le mappage d'hôte.
-.. Sélectionnez *Ajouter*.
+|===
+. Sélectionnez le système d'exploitation hôte et le mappage d'hôte.
+. Sélectionnez *Ajouter*.
 
 
 .Et la suite ?
 Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger. Vous êtes maintenant prêt à créer un snapshot.
-
-|===
-
 
 --
 .Utiliser les unités de stockage existantes
