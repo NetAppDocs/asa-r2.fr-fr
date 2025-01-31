@@ -29,6 +29,17 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1 pour les
 |===
 
 
+== Protocoles pris en charge
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../get-started/learn-about.html["Prise en charge de NVMe pour les chemins d'accès multiples symétriques actif-actif"] | NVMe/FC et NVMe/TCP prennent désormais en charge l'architecture actif-actif symétrique pour les chemins d'accès multiples, de sorte que tous les chemins entre les hôtes et le stockage soient actifs/optimisés. 
+|===
+
+
 == Efficacité du stockage
 
 [cols="2,4"]
