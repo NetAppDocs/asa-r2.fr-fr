@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/deploy-hardware.html 
-keywords: asa r2, install hardware, deploy hardware, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70 
+keywords: asa r2, install hardware, deploy hardware, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50 
 summary: 'Découvrez comment installer les kits de rails pour le système de stockage ASA r2 et les tiroirs de stockage, et sécuriser le matériel ASA r2 dans l"armoire ou le rack de télécommunications.' 
 ---
 = Installez votre système de stockage ASA r2
@@ -27,7 +27,12 @@ Après avoir préparé l'installation du système de stockage ASA r2, installez 
 .. Fixez le système de stockage à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies.
 
 
-. Installez le tiroir de stockage :
+. Fixez le panneau à l'avant du système de stockage.
+. Si votre système ASA r2 est fourni avec un dispositif de gestion des câbles, connectez-le à l'arrière du système de stockage.
++
+image::../media/drw_affa1k_install_cable_mgmt_ieops-1697.svg[Installez le périphérique de gestion des câbles]
+
+. Installez et fixez le tiroir de stockage :
 +
 .. Placez l'arrière de la tablette de stockage sur les rails, puis soutenez la tablette par le bas et faites-la glisser dans l'armoire ou le rack de télécommunications.
 +
@@ -36,11 +41,6 @@ Si vous installez plusieurs tiroirs de stockage, placez le premier tiroir de sto
 .. Fixez l'étagère de stockage à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies.
 
 
-. Connectez les périphériques de gestion des câbles à l'arrière du système de stockage.
-+
-image::../media/drw_affa1k_install_cable_mgmt_ieops-1697.svg[Installez le périphérique de gestion des câbles]
-
-. Fixez le panneau à l'avant du système de stockage.
 
 
 .Et la suite ?

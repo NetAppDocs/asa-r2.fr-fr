@@ -581,26 +581,14 @@
   <block id="4effe079c1a641bd05cf0513a1eaf8c6" category="summary">Découvrez comment connecter les câbles du contrôleur ASA r2 à votre réseau et connecter les contrôleurs aux tiroirs.</block>
   <block id="db8640dafbf216593610b43870a62e8d" category="doc">Branchez les câbles du matériel du système de stockage ASA r2</block>
   <block id="08f29f426eac8bb0b1cef738430fac57" category="paragraph">Une fois le matériel rack du système de stockage ASA r2 installé, installez les câbles réseau des contrôleurs et connectez les câbles entre les contrôleurs et les tiroirs de stockage.</block>
-  <block id="403075fa89afdf5689d3f155524d9e1b" category="paragraph">Vérifiez la flèche d'illustration dans les schémas de câblage pour connaître l'orientation correcte de la languette de retrait du connecteur de câble.</block>
-  <block id="04c6391623d6bd5d0ac0d7df563f74dc" category="image-alt">Exemple d'orientation de la languette de retrait de câble</block>
-  <block id="724b63ff77d309630df65f6af09956a2" category="list-text">Lorsque vous insérez le connecteur, vous devez le sentir en place. Si vous ne le sentez pas, retirez-le, retournez la tête du câble et réessayez.</block>
-  <block id="c0b05ac617b77a5c10f26756e6ef04f2" category="list-text">Si vous vous connectez à un commutateur optique, insérez l'émetteur-récepteur enfichable à petit facteur de forme (SFP) dans le port du contrôleur avant de le connecter au port.</block>
-  <block id="417968dd9c410e2ebdf82236e2a6f1d8" category="section-title">Étape 1 : connectez les contrôleurs de stockage à votre réseau</block>
-  <block id="1463138ead0bd5def70e2d744eddfc0a" category="paragraph">Connectez vos contrôleurs directement les uns aux autres et à votre réseau hôte.</block>
-  <block id="73672e433c39ed0cc0cdb0334e672525" category="paragraph">Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau de l'hôte, contactez votre administrateur réseau.</block>
-  <block id="a5e51e5f50ca83720f1d0d8b17c1e93b" category="paragraph">Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>.</block>
   <block id="5d6a7459a3583d9e29f4b486d809b6a1" category="open-title">ASA A1K</block>
-  <block id="10ddcbe568df11daf470f9b11ab92b62" category="paragraph">Connectez vos contrôleurs de stockage pour créer des connexions de cluster ONTAP, puis connectez les ports Ethernet de chaque contrôleur au réseau hôte.</block>
   <block id="ee6c90ad735c4fc892e900202d6ff034" category="list-text">Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
   <block id="883f8ccaa3b7bb186f5d85df551292e7" category="admonition">Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques.</block>
-  <block id="491359bee867965cfa22411b77d88b8d" category="list-text">Connectez le port e1a du contrôleur A au port E1A du contrôleur B.</block>
-  <block id="1a33712b794a97041f7338604473e7a3" category="list-text">Connectez le port e7a du contrôleur A au port E1A du contrôleur B.</block>
   <block id="8c1f3262727530ad8d4652a5b107e167" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité*</block>
   <block id="29b62d617481485649ea2d5b54fca512" category="image-alt">Câble haute disponibilité du cluster</block>
   <block id="3e86dd6511e223ecedd044d86cd934bf" category="image-alt">Schéma de câblage d'un cluster sans commutateur à 2 nœuds</block>
   <block id="8637ca13eb3c1a10bb4383130268c950" category="list-text">Connectez les ports du module Ethernet à votre réseau hôte.</block>
   <block id="e5878ec206640d3f0489cbe562e56856" category="paragraph">Voici quelques exemples types de câblage réseau hôte. Reportez-vous à la section <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour connaître la configuration spécifique de votre système.</block>
-  <block id="a6992cc3b8eb7adfbce0724b4ed8e4a4" category="list-text">Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet, comme illustré.</block>
   <block id="b1a78b15892ed366f203ff3009cb08d9" category="admonition">Pour optimiser les performances du système pour le trafic de cluster et haute disponibilité, n'utilisez pas les ports e1b et e7b pour les connexions réseau hôte. Utilisez une carte hôte séparée pour optimiser les performances.</block>
   <block id="d2163ed76fe91108f8a1e58f08924448" category="paragraph">*Câble 100 GbE*</block>
   <block id="dca4917cf460ca0094ae46e8d7178c17" category="image-alt">Câble Ethernet 100 Gb</block>
@@ -609,21 +597,15 @@
   <block id="fbb2ead6e1dba22c64b785b1864b9809" category="paragraph">*Hôte 10/25 GbE*</block>
   <block id="e6db43427a500d394f1d34dcfecf3b50" category="image-alt">Câble Ethernet 10 Gb</block>
   <block id="204d53c0ad48ec9abe6f3cde34241579" category="image-alt">Câble vers un réseau Ethernet 10 Gb</block>
-  <block id="9d62d1718b5465944796c5fb854d0f5d" category="list-text">Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion du contrôleur (clé anglaise) aux commutateurs du réseau de gestion.</block>
   <block id="1107155d6b0c900a6485f06681854862" category="image-alt">Câbles RJ-45</block>
   <block id="9c29eb35e98929529d99ca71cd855f4e" category="paragraph">*CÂBLES 1000BASE-T RJ-45*</block>
   <block id="a8536d671676b42d7c49328e04123a96" category="image-alt">Connectez-vous à votre réseau de gestion</block>
   <block id="38821947dff053760f4c97b648ca454a" category="admonition">Ne branchez pas encore les cordons d'alimentation.</block>
-  <block id="8cf7baf96983d1c70a286576ddcd0ca1" category="open-title">ASA A70 et ASA A90</block>
-  <block id="bd078f69cc3533ea9bc3100deef482d0" category="list-text">Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
   <block id="d4f534f2d370cb0f29178f31331b3536" category="image-alt">Câble vers un réseau Ethernet 100 Gb</block>
   <block id="5a8b74659281e9e3495bfc29767b645c" category="paragraph">*4 ports, hôte 10/25 GbE*</block>
   <block id="06d20f31fccdd7b31221a7b1e1ed37d1" category="image-alt">Câble de 10/25 Go</block>
   <block id="95b007a39e5ec5c4d9b8e17f2ec0424d" category="image-alt">Câbles RJ45</block>
-  <block id="4bdc8275aa2933fa877bfc4f40f6c3a2" category="section-title">Étape 2 : connectez les contrôleurs de stockage aux tiroirs de stockage</block>
-  <block id="581d5dbeb2b657af56ca70f32099c9d4" category="paragraph">Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir et à deux tiroirs. Vous pouvez directement connecter jusqu'à quatre tiroirs à vos contrôleurs.</block>
   <block id="b3623f40c8ee8913ca5a6a7756d97ce9" category="paragraph">Choisissez l'une des options de câblage suivantes correspondant à votre configuration.</block>
-  <block id="45783cabcfb105d0da4815a8eccc2f24" category="example-title">Option 1 : connectez les contrôleurs à un tiroir de stockage NS224</block>
   <block id="46d73bd828c75397e5f3cca81c4236e1" category="paragraph">Connectez chaque contrôleur aux modules NSM du tiroir NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.</block>
   <block id="cdc609c675d24b2fff8b5acc2e37e89e" category="list-text">Sur le contrôleur A, connecter les ports suivants :</block>
   <block id="f316f1854f33785f42807636a3284714" category="list-text">Connectez le port e11a au port NSM A e0a.</block>
@@ -635,7 +617,6 @@
   <block id="3a95f3cf99705bbbd01d1dd74336e9fd" category="list-text">Connectez le port e11b au port e0b de NSM A.</block>
   <block id="182824a7bd82a321df1a100637995a19" category="inline-image-macro">Reliez les ports e11a et e11b du contrôleur B à un seul tiroir NS224</block>
   <block id="86ab7b5fab8b30fc8e3619226fb66002" category="paragraph"><block ref="86ab7b5fab8b30fc8e3619226fb66002" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c5ac0907ecf688c8b8347e531e8a7106" category="example-title">Option 2 : connectez les contrôleurs à deux tiroirs de stockage NS224</block>
   <block id="348bd528033e13e79fcfb366a5cd5af4" category="paragraph">Connectez chaque contrôleur aux modules NSM des deux tiroirs NS224. Les graphiques présentent le câblage depuis chaque contrôleur : le câblage du contrôleur A est représenté en bleu et le câblage du contrôleur B en jaune.</block>
   <block id="4b079ba797f88f932136bdbd1aa314a0" category="list-text">Connectez le port e11a au port e0a NSM A du tiroir 1.</block>
   <block id="486d7e107c3f396974308ba4cc20a5f9" category="list-text">Connectez le port e11b au port e0b du tiroir 2 NSM B.</block>
@@ -680,11 +661,9 @@
   <block id="1c8c6696ac03ef01690be450b3767032" category="list-text">Installez et sécurisez votre système de stockage dans l'armoire ou le rack de télécommunications :</block>
   <block id="bdb39b5926a304a8f387b036b6fd9445" category="list-text">Positionnez le système de stockage sur les rails au milieu de l'armoire ou du rack de télécommunications, puis soutenez le système de stockage par le bas et faites-le glisser pour le mettre en place.</block>
   <block id="0a508c750e66a219b3bc9449125a4672" category="list-text">Fixez le système de stockage à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies.</block>
-  <block id="c91c25b22baf3cf726a3ecc4b7e7f23f" category="list-text">Installez le tiroir de stockage :</block>
   <block id="76f6a6a53ead4da24271bca7a9b976e0" category="list-text">Placez l'arrière de la tablette de stockage sur les rails, puis soutenez la tablette par le bas et faites-la glisser dans l'armoire ou le rack de télécommunications.</block>
   <block id="8ac98c640ab335c330eb3d45c03096ad" category="paragraph">Si vous installez plusieurs tiroirs de stockage, placez le premier tiroir de stockage directement au-dessus des contrôleurs. Placez le second tiroir de stockage directement sous les contrôleurs. Répétez cette procédure pour toutes les étagères de stockage supplémentaires.</block>
   <block id="871681e86e80556b261166721e0bbe3b" category="list-text">Fixez l'étagère de stockage à l'armoire ou au rack de télécommunications à l'aide des vis de montage fournies.</block>
-  <block id="c5eaaf4a6fa532356e5d0189384e0e34" category="list-text">Connectez les périphériques de gestion des câbles à l'arrière du système de stockage.</block>
   <block id="6b7aa880220c7f598440de8d8a0f944b" category="image-alt">Installez le périphérique de gestion des câbles</block>
   <block id="36eaeecf3fe5d82e498290c50c773db1" category="list-text">Fixez le panneau à l'avant du système de stockage.</block>
   <block id="eb3b2ba356f7e0823316a945c2fa26ad" category="inline-link-macro">Reliez les contrôleurs et les tiroirs de stockage à votre système ASA r2</block>
@@ -747,19 +726,10 @@
   <block id="8dd75d4e14815a2e3e3154ea67cd841e" category="list-text">Sangle de décharge électrostatique (ESD)</block>
   <block id="75b0ae11d26c806413ef6e8aed1ece4f" category="list-text">Lampe de poche</block>
   <block id="32271edc7814b81370e65a0b9ea22010" category="list-text">Ordinateur portable ou console avec connexion USB/série</block>
-  <block id="2e9e7e3bf632d3a831fdcb0a200d53b7" category="list-text">Trombone ou stylo à pointe sphérique à pointe étroite pour le réglage des ID de tablette de stockage NS224</block>
   <block id="f0ae587f290f3d775f2ea5aa1a8a00ea" category="list-text">Tournevis Phillips n°2</block>
   <block id="8170c4932dac7ac5a018213e28744cab" category="section-title">Précautions de levage</block>
-  <block id="f15e3b515c8037c307e56c131f269fc3" category="paragraph">Les systèmes de stockage ASA r2 et les tiroirs de stockage NS224 sont très volumineux. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
   <block id="522bd666055071c79860849502df1178" category="section-title">Poids du système de stockage</block>
   <block id="03045764da1593b6b1f92a9fb7b61115" category="paragraph">Prenez les précautions nécessaires lors du déplacement ou du levage de votre système de stockage ASA r2.</block>
-  <block id="338f0823becae44822b99305a020773b" category="paragraph">Un système de stockage ASA A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système, faire appel à deux personnes ou à un relevage hydraulique.</block>
-  <block id="00db13616a21c862d199d7fae938549d" category="image-alt">AFF A1K icône d'avertissement de levage</block>
-  <block id="b6eb05c05f5875d94df5d8c0c9fb06d9" category="paragraph">Un système de stockage ASA A70 ou un système de stockage ASA A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour lever le système, faire appel à quatre personnes ou à un relevage hydraulique.</block>
-  <block id="50c089c00eacadfe94238545067e1673" category="image-alt">AFF A90</block>
-  <block id="8cbb936501554e10d8ef238b0bed1516" category="section-title">Poids de la tablette de stockage</block>
-  <block id="2426c13bd8c78d02a8ccbd2a43174936" category="paragraph">Une étagère de stockage NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette de rangement, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette de stockage (avant et arrière) pour éviter de débalourer le poids de la tablette.</block>
-  <block id="c55a46464ae8350cc2bff0a097df93e1" category="image-alt">Avertissement de levage NS224</block>
   <block id="30f60d67f457bb040dffde52197a54da" category="list-title">Informations associées</block>
   <block id="35c124f455f44a154eb3b514029ee58a" category="inline-link">Informations de sécurité et avis réglementaires</block>
   <block id="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="list-text"><block ref="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="inline-link-rx"></block></block>
@@ -782,17 +752,13 @@
   <block id="f0458cb9a2bfe68bf005af12c17ad1aa" category="inline-link-macro">Mettez le système de stockage ASA r2 sous tension</block>
   <block id="22d9f0a1dd203d9cd6eba27e0a348588" category="paragraph-title"><block ref="91d7076df3f3bfcf6ace71bd0aa6cf68" category="inline-image-macro-rx" type="image"></block><block ref="69d31d64dbed246448f394257b05fdb9" category="inline-link-macro-rx"></block></block>
   <block id="9adaba33c41b009e4561e4c9bfed5074" category="paragraph">Avant de mettre les contrôleurs sous tension, mettez chaque tiroir NS224 sous tension et attribuez un ID de tiroir unique pour vous assurer que chaque tiroir est identifié de manière unique dans la configuration.</block>
-  <block id="8c81ca9e9e2ca6805e56478191f75c42" category="summary">Mettez chaque tiroir NS224 sous tension afin d'attribuer un ID de tiroir unique, mettez les contrôleurs ASA r2 sous tension et sécurisez les câbles d'alimentation.</block>
   <block id="de4e7be8a936d1ed409fa1f461a34957" category="doc">Mettez le système de stockage ASA r2 sous tension</block>
   <block id="2b814ecf2be8542bceb68933db5cbcfe" category="paragraph">Une fois que vous avez installé le matériel en rack du système de stockage ASA r2 et que vous avez installé les câbles des contrôleurs et des tiroirs de stockage, mettez vos tiroirs et contrôleurs de stockage sous tension.</block>
   <block id="0b5c1681fb8f009a141f0c7d0f2d8f64" category="section-title">Étape 1 : mettez le tiroir sous tension et attribuez l'ID de tiroir</block>
-  <block id="c239b345dc160b2bfc0fb8247acc17eb" category="paragraph">Chaque tiroir NS224 se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage. Par défaut, les ID de tiroir sont attribués aux noms « 00 » et « 01 ». Toutefois, vous devrez peut-être les ajuster pour maintenir le caractère unique de votre système de stockage.</block>
-  <block id="ca6592648e24fc75321ba685ce760213" category="list-text">Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.</block>
   <block id="4acf2e1827dc9d94e8643d89bb45be93" category="list-text">Vous devez mettre un tiroir hors tension puis sous tension (débranchez les deux cordons d'alimentation, attendez la durée appropriée, puis rebranchez-les) pour que l'ID de tiroir prenne effet.</block>
   <block id="90b5c3b3e8b76a473c431858d638eccb" category="list-text">Mettez le shelf sous tension en connectant d'abord les cordons d'alimentation au shelf, en les fixant à l'aide du dispositif de retenue du cordon d'alimentation, puis en connectant les cordons d'alimentation aux sources d'alimentation de différents circuits.</block>
   <block id="aa4d119638bea60a8850d8c9e0b57b86" category="paragraph">Le tiroir se met sous tension et démarre automatiquement lorsqu'il est branché à la source d'alimentation.</block>
   <block id="67cfcbdbfb87a54aadf338e218c38216" category="list-text">Retirez le capuchon d'extrémité gauche pour accéder au bouton d'ID du shelf derrière le cache.</block>
-  <block id="f044e75ec5037aabefb204d1365ba96b" category="image-alt">Modifiez l'ID de tiroir NS224</block>
   <block id="eff9a2b0e485ca3fb80f96fc9995fb62" category="image-alt">Numéro de légende 1</block>
   <block id="48fb10beb7e1cd15b9bdbab40aac9532" category="paragraph">Capuchon d'extrémité de tablette</block>
   <block id="d8147b4a0f272144c59f006b412b8290" category="image-alt">[Légende numéro 2</block>
@@ -825,7 +791,6 @@
   <block id="5a6ec3ac63a7fb05de2686f31f690298" category="list-text">Remettez le capuchon d'extrémité gauche en place.</block>
   <block id="b1ea51baf980ec6bb00ca1b7b419d506" category="section-title">Étape 2 : mettez les contrôleurs sous tension</block>
   <block id="51ebfc33ce787da893819e3a68129a19" category="paragraph">Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniques, mettez les contrôleurs de stockage sous tension.</block>
-  <block id="9be560fd489238e97542aa683a683199" category="list-text">Connectez votre ordinateur portable au port série console. Cela vous permettra de surveiller la séquence d'amorçage lorsque les contrôleurs sont sous tension.</block>
   <block id="943e3a7c8a0476b63130b5a3dfab2ef1" category="list-text">Définissez le port série console de l'ordinateur portable sur 115,200 bauds avec le N-8-1.</block>
   <block id="04112f6af1c35028ff6da3640556c14c" category="admonition">Consultez l'aide en ligne de votre ordinateur portable pour obtenir des instructions sur la configuration du port série console.</block>
   <block id="637d6f599c1184d1c5de273700d7924f" category="list-text">Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec le système de stockage.</block>
@@ -833,11 +798,8 @@
   <block id="5dc15886a7be0b02974c471249fd2702" category="image-alt">Connexions de la console</block>
   <block id="9e7e8b48adc159107d0baf9021253c61" category="list-text">Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.</block>
   <block id="a2e521b7ad497537c9e544a50086c51b" category="list-text">Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.</block>
-  <block id="d4b97f0234af8d33d5ad6190a7930ff4" category="image-alt">Schéma générique de connexion de l'alimentation</block>
-  <block id="6b66db132383abf32640c51ec249e853" category="list-text">Le système de stockage commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.</block>
   <block id="71abffb89587fc128eb09ec9ef2dd7e1" category="list-text">Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.</block>
   <block id="cd76e142e3adabbfc33b1de3c074b2cb" category="list-text">Les ventilateurs sont peut-être très bruyants lors du premier démarrage. Le bruit du ventilateur au démarrage est normal.</block>
-  <block id="671754b07475807f952083aca6f98a97" category="list-text">Fixez les câbles d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.</block>
   <block id="b01257e209b4db1591904675a969a888" category="inline-link-macro">Configuration d'un cluster ONTAP ASA r2</block>
   <block id="5375af62a757a5f1f0b518f2b55d638e" category="paragraph">Après avoir allumé votre système de stockage ASA r2, vous <block ref="ad00ee8fa1dc09eacef7d17804bf3a85" category="inline-link-macro-rx"></block>.</block>
   <block id="4795c2f303b604ed82cee521ffaeb4b7" category="summary">Préparez l'installation du système de stockage ASA r2 dans votre environnement ONTAP et enregistrez le matériel pour bénéficier des avantages du support.</block>
@@ -845,9 +807,6 @@
   <block id="d947c4efa0662eb2ca7150b618c02730" category="paragraph">Préparez l'installation de votre système de stockage ASA r2 en préparant le site, en décompressant les boîtes et en comparant le contenu des boîtes au bordereau d'expédition, puis en enregistrant le système pour accéder aux avantages du support.</block>
   <block id="92c8397408f55d9526d554c55cde3d22" category="section-title">Étape 1 : préparer le site</block>
   <block id="867f7657bd9567df4702cf9ddb87ae73" category="paragraph">Pour installer votre système de stockage ASA r2, assurez-vous que le site et l'armoire ou le rack que vous prévoyez d'utiliser respectent les spécifications de votre configuration.</block>
-  <block id="322c154066211ea062c12149146928fb" category="list-text">Utilisez<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage ASA r2.</block>
-  <block id="0b75c01928f08a952353b4ed76796fb5" category="list-text">Assurez-vous de disposer d'un espace de rack adéquat :</block>
-  <block id="26e7314ba01a2bdc4fda67ee84154359" category="list-text">4U en configuration HA pour le système de stockage</block>
   <block id="6ac193907083dd66438c89227559f4dc" category="list-text">2U pour chaque tiroir de stockage NS224</block>
   <block id="2df7e61cfe4bf7857f54171cec3da494" category="list-text">Installez les commutateurs réseau requis.</block>
   <block id="11b5963f8c4ca653ab5f43bc4b9828df" category="inline-link">Documentation du commutateur</block>
@@ -855,17 +814,13 @@
   <block id="6630a85163683d2127a4b50c91d77093" category="section-title">Étape 2 : déballez les boîtes</block>
   <block id="c7fa73c8f25d1dda70af465f1a37aa84" category="paragraph">Après avoir vérifié que le site et l'armoire ou le rack que vous prévoyez d'utiliser pour votre système de stockage ASA r2 répondent aux spécifications requises, déballez toutes les boîtes et comparez le contenu aux éléments du bordereau d'expédition.</block>
   <block id="82174a976e9a37564a41e6138a110eb6" category="list-text">Ouvrez soigneusement toutes les boîtes et disposez le contenu de manière organisée.</block>
-  <block id="d6aed2118da6ba77f55936d16677727f" category="list-text">Comparez le contenu que vous avez déballé avec la liste sur le bordereau d'expédition.</block>
   <block id="6056345394434bf38ce0cd6fc7155a3e" category="admonition">Vous pouvez obtenir votre liste d'emballage en scannant le code QR sur le côté du carton d'expédition.</block>
   <block id="1726196375cd4d9085528facd587a31e" category="paragraph">Les éléments suivants sont quelques-uns des contenus que vous pouvez voir dans les boîtes.</block>
-  <block id="3a5ea134befe8869fed079290f956fd1" category="paragraph">Assurez-vous que tous les éléments contenus dans les boîtes correspondent à la liste figurant sur le bordereau d'expédition. En cas d'écarts, notez-les pour prendre des mesures supplémentaires.</block>
   <block id="958c530ea1ae0e18b942f8784148734c" category="cell">*Matériel*</block>
   <block id="09ff86ce1246a36d79f5d417bc9fb6be" category="cell">*Câbles*</block>
   <block id="efb4c0c41cf8767bf0f9361a8c61a50a" category="list-text">Panneau</block>
-  <block id="680d900a0d52fdf0778ee2a5588f6f69" category="list-text">Dispositif de gestion des câbles</block>
   <block id="f31303ddb8ada38aed08c2bb8f9d8e6c" category="list-text">Adieu les migrations de données onéreuses</block>
   <block id="45e29b9394f4cac59a4b24854556dec2" category="list-text">Kits de rails avec instructions (en option)</block>
-  <block id="2a6f49472befe7fd3e056a4a6fedfe00" category="list-text">Tiroir de stockage</block>
   <block id="06d2646a8077631818b55a12dc3c58ac" category="list-text">Câbles Ethernet de gestion (câbles RJ-45)</block>
   <block id="b2cdf9589096f203f816541f43a15f6c" category="list-text">Câbles réseau</block>
   <block id="7ceeb9e2de47574891152d45e033aea1" category="list-text">Cordons d'alimentation</block>
@@ -873,9 +828,6 @@
   <block id="3ad4852daca6060d9a43783d0d67578c" category="list-text">Câble du port série USB-C.</block>
   <block id="9bea2d1b752b83d2f602c5b85b99a901" category="section-title">Étape 3 : enregistrez votre système de stockage</block>
   <block id="a2be4a0a69af403c3bba37d2bf7044a4" category="paragraph">Après avoir vérifié que votre site répond aux spécifications de votre système de stockage ASA r2 et après avoir vérifié que vous disposez de toutes les pièces commandées, vous devez enregistrer votre système.</block>
-  <block id="04a9069d60a270b8326c0bf8dece532c" category="list-text">Recherchez le numéro de série de votre système de stockage.</block>
-  <block id="501009762675d8b94f6d05080102eaa1" category="paragraph">Vous trouverez le numéro sur le bordereau d'expédition, dans votre e-mail de confirmation ou sur le module de gestion du système du contrôleur après le déballage.</block>
-  <block id="9a3ab30d090ff0aedb700d0ce5d6d031" category="image-alt">Exemple de numéro de série du système indiquant l'emplacement du numéro</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">Site de support NetApp</block>
   <block id="f5c45bcc73f02c7f2b1398ee78576a7a" category="list-text">Accédez à la<block ref="1850de052c61829b534b07ba1a2ca402" category="inline-link-rx"></block>.</block>
   <block id="6918c0735e9cef59385e60d3f94d7115" category="list-text">Déterminez si vous devez enregistrer votre système de stockage :</block>
@@ -885,7 +837,6 @@
   <block id="8a55a5b89690f6046e6de8dd649ff837" category="list-text">Connectez-vous à l'aide de votre nom d'utilisateur et de votre mot de passe.</block>
   <block id="5c83cedabfd78baf337988a092bcf317" category="list-text">Sélectionnez *systèmes* &gt; *Mes systèmes*.</block>
   <block id="8cc04c4151dd22af84b31cd55d6c5f57" category="list-text">Vérifiez que le nouveau numéro de série est répertorié.</block>
-  <block id="d193a53b34315bee1bed499f665686ce" category="list-text">Si ce n'est pas le cas, suivez les instructions destinées aux nouveaux clients NetApp.</block>
   <block id="daee797d0bf63a91fe069e1df88d7923" category="paragraph">Nouveau client NetApp</block>
   <block id="12dc2a66a130388ec482398caa6ce95b" category="list-text">Cliquez sur *s'inscrire maintenant* et créez un compte.</block>
   <block id="89cc8de091278e0fb0686833ac6a7982" category="list-text">Sélectionnez *systèmes* &gt; *Enregistrer systèmes*.</block>
@@ -905,7 +856,6 @@
   <block id="36b30e26ad350b193fa96577b859aa6b" category="paragraph">Si vous devez migrer votre charge de travail de machine virtuelle d'un système de stockage ASA vers un système de stockage ASA r2, NetApp vous recommande d'<block ref="97ce748bde1d0df326ab308ffcedbe79" category="inline-link-macro-rx"></block>effectuer une migration dynamique et sans interruption de vos données.</block>
   <block id="d76fc5ee6d641846e5835d32d7f85b4f" category="inline-link-macro">provisionner le stockage</block>
   <block id="e397caa258e5d83ec68542ada3868a88" category="paragraph">Vous êtes prêt à <block ref="16349da302f4151e8c9d8212eacbac27" category="inline-link-macro-rx"></block>permettre à vos hôtes SAN de lire et d'écrire des données sur les unités de stockage.</block>
-  <block id="7ca4fe244381dbbbb75b019c3bc54c14" category="summary">Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 70, ASA 90).</block>
   <block id="504d463c80199fc8015db827acb89c07" category="doc">Prise en charge de l'interface de ligne de commande ONTAP pour les systèmes de stockage ASA r2</block>
   <block id="981793b9517680b559e7e18c40ff7865" category="paragraph">Au lieu des agrégats traditionnels, propriétaires d'un jeu spécifique de disques disponibles dans un système de stockage, les systèmes ASA r2 utilisent une _zone de disponibilité du stockage_. Une zone de disponibilité de stockage est un pool de stockage commun qui a accès à tous les disques disponibles dans le système de stockage. La zone de disponibilité du stockage est visible pour les deux nœuds d'une paire HA ASA r2. Lors de la création d'une unité de stockage (espace de noms de LUN ou NVMe), ONTAP crée automatiquement un volume contenant une machine virtuelle de stockage (VM) dans la zone de disponibilité du stockage afin d'héberger l'unité de stockage.</block>
   <block id="e46d2bbb0e6e44b354b5ca95c001185e" category="paragraph">Grâce à cette approche simplifiée de la gestion du stockage, les<block ref="ba2a83cd4de4eb43c31f434bfb5213e0" prefix=" " category="inline-code"></block> commandes ne sont pas prises en charge sur les systèmes ASA r2. La prise en charge de certaines<block ref="03628ea331120176369891df319619e8" prefix=" " category="inline-code"></block><block ref="210ab9e731c9c36c2c38db15c28a8d1c" prefix=" " category="inline-code"></block> commandes et paramètres est également limitée.</block>
@@ -1559,7 +1509,6 @@
   <block id="c43d68b5b8370d3423bfb0b13dfe0abe" category="inline-link">Documentation de maintenance de ASA r2</block>
   <block id="f2abf1f4083409f0d65b59ffbcd13341" category="paragraph">Consultez le<block ref="6805eee0c680715323289cabd48eb628" category="inline-link-rx"></block> pour savoir comment effectuer des procédures de maintenance sur les composants de votre système ASA r2.</block>
   <block id="77ae7cb145355765cca98cef84bef3eb" category="paragraph">Supposons par exemple qu'une application stratégique connaît une latence élevée et un faible débit. Lorsque vous consultez les performances du cluster au cours des cinq derniers jours ouvrables, vous remarquez une baisse des performances à la même heure chaque jour. Ces informations vous permettent de déterminer si l'application stratégique est en concurrence avec les ressources du cluster lorsqu'un processus non critique commence à s'exécuter en arrière-plan. Vous pouvez ensuite modifier votre règle de qualité de service pour limiter l'impact de la charge de travail non critique sur les ressources système et vous assurer que votre charge de travail stratégique respecte les objectifs de débit minimaux.</block>
-  <block id="9df0af6622b120b0338c4289d4d6b9e4" category="paragraph">Les systèmes NetApp ASA r2 (ASA A1K, ASA A70 et ASA A90) proposent une solution matérielle et logicielle unifiée qui simplifie l'expérience en fonction des besoins des clients qui utilisent exclusivement SAN.</block>
   <block id="02a5548e7c0c7ed0e4a93d5e2d37ebc2" category="paragraph">Les systèmes NetApp ASA r2 suivants sont disponibles. Ces plateformes offrent une solution matérielle et logicielle unifiée qui offre une expérience simplifiée et adaptée aux besoins des clients qui utilisent uniquement un SAN.</block>
   <block id="514854c9f2116902eea3ece0f40e8154" category="paragraph-title">Modifications de la compression des données</block>
   <block id="097c1368589d519db55e5ac8f141a847" category="paragraph">L'efficacité du stockage sensible à la température n'est pas appliquée aux systèmes ASA r2. Sur les systèmes ASA r2, la compression n'est pas basée sur des données _hot_ (fréquemment utilisées) ou _Cold_ (rarement consultées). La compression commence sans attendre que les données soient inactives.</block>
@@ -1590,10 +1539,8 @@
   <block id="3a405933969f80a6182b8257c15c10ff" category="cell">La désallocation d'espace NVMe est activée par défaut</block>
   <block id="7ec849e005dbd9c153a3b9fc38bf47df" category="paragraph">La désallocation d'espace (également appelée « perforation » et « unmap ») est activée par défaut pour les espaces de noms NVMe. La désallocation d'espace permet à un hôte de désallouer les blocs inutilisés à partir des espaces de noms pour libérer de l'espace.</block>
   <block id="9228b29536da5aa86ee6865642b7a754" category="paragraph">Cela améliore considérablement l'efficacité globale du stockage, en particulier avec les systèmes de fichiers dont le volume de données est élevé.</block>
-  <block id="459e6c3f59570324cab3a799ce9f4d6f" category="inline-link-macro">Migration des clés de chiffrement des données ONTAP entre les gestionnaires de clés</block>
   <block id="319ffa33cfb4e70c9e521494969d662a" category="sidebar">Nouveautés de ONTAP 9.16.1</block>
   <block id="0b6845dd2391304844b6f9578fd8c865" category="sidebar">Modifications des valeurs par défaut et des limites ONTAP</block>
-  <block id="ec7ed1b959417fb145bcf5bc5351a4e1" category="paragraph">Si vous devez passer du gestionnaire de clés intégré à un gestionnaire de clés externe ou vice versa, reportez-vous à la section <block ref="6c5d784251393a5f6fda5c1a058497d1" category="inline-link-macro-rx"></block>.</block>
   <block id="d32b93d0cc0df3a57e074a2dd7f55bac" category="list-text">SnapMirror (asynchrone et synchrone) vers le cloud</block>
   <block id="db501755a13db6bc1da40b7fa29e25f1" category="list-text">SnapMirror (asynchrone et synchrone) vers les systèmes non ASA r2</block>
   <block id="b0af3c84875edd616110edf2dac64154" category="paragraph">Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage.</block>
@@ -1711,10 +1658,6 @@
   <block id="f9e81700c82de44e7b8b9b6bfcfbba80" category="list-text">Sélectionnez *détacher*.</block>
   <block id="3fe9697b148df0f9994a0c38ed482555" category="inline-link-macro">Configuration d'une règle de réplication</block>
   <block id="ee498a1797cb05156ed6a63b8ff17543" category="paragraph"><block ref="2e81c1e2e7e67baddc7dd1eab1535a95" category="inline-link-macro-rx"></block> pour répliquer les snapshots du groupe de cohérence enfant détaché vers un cluster distant en tant que groupe de cohérence unique.</block>
-  <block id="ab8f09c8990747589e661d2b7b0d3f20" category="summary">Les systèmes ASA r2 (ASA A1K, A90, A70) proposent une solution matérielle et logicielle unifiée pour une expérience simplifiée aux clients qui utilisent uniquement un réseau SAN.</block>
-  <block id="2168b2f72c5b19d6c97100664276ea67" category="searchtitle">En savoir plus sur les systèmes ASA A1K, A90 et A70</block>
-  <block id="109a51a8a2c0a685a3c75a58d3c4230b" category="summary">Pour commencer avec un système ASA r2 (ASA A1K, A90, A70), installez le matériel, configurez le cluster, configurez l'accès aux données et provisionnez le stockage.</block>
-  <block id="1e6107a968feb6567db48861306cc49f" category="searchtitle">Installer et configurer les systèmes de stockage ASA A1K, A90 et A70</block>
   <block id="e5c51f544e69319bec042113911e203e" category="paragraph"><block ref="1284f4e581f500fae0f4daa3e9543a0c" category="inline-link-macro-rx"></block> Votre système ASA r2 et déployez-le dans votre environnement ONTAP.</block>
   <block id="9a5e67864d1a0cbd6f43034e561f51a2" category="summary">Commencez à installer et à configurer le système de stockage ASA r2, puis déployez-le dans votre environnement ONTAP.</block>
   <block id="bf0f6aa21aec3e349179a68aa2cb89e0" category="section-title">Séparer le clone du groupe de cohérence</block>
@@ -1756,7 +1699,6 @@
   <block id="aada91e6d0de9250c4de431c33ad5116" category="cell">Les groupes de cohérence hiérarchiques vous permettent de créer un groupe de cohérence parent contenant plusieurs groupes de cohérence enfant. Cela simplifie la protection et la gestion des données pour les structures de données complexes.</block>
   <block id="6feaf968503604ce3e0d0b4eefca6c57" category="cell">Prise en charge du rééquilibrage automatique des unités de stockage</block>
   <block id="ec84fb814253e6779e1876e18f7db731" category="cell">ONTAP rééquilibre automatiquement les unités de stockage dans vos zones de disponibilité du stockage pour une utilisation optimale des performances et de la capacité.</block>
-  <block id="abdffd3ebdd2031130d1592a9a139a92" category="sidebar">Les systèmes NetApp ASA r2 (ASA A1K, A90, A70) proposent une solution matérielle et logicielle unifiée qui simplifie l'expérience en fonction des besoins des clients qui utilisent uniquement un SAN.</block>
   <block id="d04e5f519989e5f2ca95f9541ffe17a0" category="sidebar">Surclassement ONTAP</block>
   <block id="fb3dca1c5682d0eef255de24a00af0f3" category="sidebar">Ajouter des nœuds</block>
   <block id="3214e36fd00eb6d4da6f5d9b64f41cb1" category="sidebar">Gérer les unités de stockage</block>
@@ -1799,4 +1741,164 @@
   <block id="cc1a9524f9ddd8574a5553ccd90ee9c3" category="paragraph">Vous pouvez utiliser l'interface de ligne de commandes ONTAP pour migrer les clés entre le gestionnaire de clés au niveau du cluster et un gestionnaire de clés au niveau de la machine virtuelle de stockage.</block>
   <block id="5efbf2392161773688bf42568dd2c8c6" category="list-text">Migration des clés :</block>
   <block id="f7d82610ce1c76769575f4a95bb11e80" category="sidebar">Migration des clés de chiffrement des données entre les gestionnaires de clés</block>
+  <block id="77a58a8f042eca52cbae63333451e567" category="summary">Les systèmes ASA r2 (ASA A1K, A90, A70, A50, A30, A20) offrent une solution matérielle et logicielle unifiée pour une expérience simplifiée aux clients qui utilisent uniquement un réseau SAN.</block>
+  <block id="16b2362ce213edbe317b5df3169d035c" category="searchtitle">Découvrez les systèmes ASA A1K, A90, A70, A50, A30 et A20</block>
+  <block id="feb8007866385642b73ef1e6524ba327" category="paragraph">Les systèmes NetApp ASA r2 apportent une solution matérielle et logicielle unifiée qui simplifie l'expérience et répond parfaitement aux besoins des clients SAN.</block>
+  <block id="3ee9bc9a210bd85fa921ca63bdeef612" category="list-text">ASA A50</block>
+  <block id="e21bdbd552261278be0a5ad02fbc6fa7" category="list-text">ASA A30</block>
+  <block id="3c609b480f1311eaec9774146ac50e79" category="list-text">ASA A20</block>
+  <block id="eb020f30ead1b473ff4a75c9863c0d1a" category="summary">Pour commencer avec un système ASA r2 (ASA A1K, A90, A70, A50, A30, A20), installez le matériel, configurez le cluster, configurez l'accès aux données et provisionnez le stockage.</block>
+  <block id="e25344cc16f12d622f2af42aea8ed7a8" category="searchtitle">Installer et configurer les systèmes de stockage ASA A1K, A90, A70, A50, A30 et A20</block>
+  <block id="b3a1e3cfc607694cb423d46b8b23fa54" category="paragraph">Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau, contactez votre administrateur réseau.</block>
+  <block id="cdd3776ed8f948030728899ab7f94b8e" category="list-text">Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour plus de détails sur la configuration, voir <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>.</block>
+  <block id="28c4b42113d6ebd3c5e6ca40929d04a6" category="list-text">Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.</block>
+  <block id="fd2cb99acafb4f0144bfb5e0e4c31373" category="paragraph">Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.</block>
+  <block id="416f5908ffc86e7abf276c4f75904ee7" category="inline-image-macro">Direction de la languette de tirage du câble</block>
+  <block id="c486d43df45ffe41cde84a1b0fa45aa0" category="paragraph"><block ref="c486d43df45ffe41cde84a1b0fa45aa0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e3eb777419d46f8ec20ca944795a4d26" category="list-text">Si vous effectuez un câblage vers un commutateur optique, insérez l'émetteur-récepteur optique dans le port du contrôleur avant de le connecter au port du commutateur.</block>
+  <block id="d16a227aab66041a81c6f88b290eb486" category="section-title">Étape 1 : câblez les connexions du cluster/haute disponibilité</block>
+  <block id="e5f780ef73bd41c1dd64af7a1a1a31ac" category="paragraph">Connectez les contrôleurs au cluster ONTAP. Cette procédure varie en fonction du modèle de votre système de stockage et de la configuration de votre module d'E/S.</block>
+  <block id="cc462bbdb3b8d9369a4c3f67dcc8095c" category="open-title">A1K</block>
+  <block id="fde22ae5f3a1cc39c61853ffe9a68675" category="paragraph">Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.</block>
+  <block id="134e0586a0879fa097abfb47d5e64dbe" category="example-title">Câblage switchless cluster Cabling</block>
+  <block id="c4cbbd77402de8c27a0e7a305bcd7a83" category="list-text">Connectez le port e1a du contrôleur A au port e1a du contrôleur B.</block>
+  <block id="0990249c3bba6596b74be9af46837266" category="list-text">Connectez le port e7a du contrôleur A au port e1a du contrôleur B.</block>
+  <block id="666ce5251c9c6f25db5da3d713f9b34a" category="example-title">Câblage commuté du cluster</block>
+  <block id="18695b824b22d82a916970e4903bf31d" category="paragraph">Utilisez le câble 100 GbE pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
+  <block id="698b27a4b40df61ad4e02a808f16defc" category="admonition">Les configurations de cluster commuté sont prises en charge dans la version 9.16.1 et les versions ultérieures.</block>
+  <block id="bf419afe8104f0626b8c6f35d7546f54" category="list-text">Connectez le port e1a du contrôleur A et le port e1a du contrôleur B au commutateur a du réseau du cluster</block>
+  <block id="cf5e5d4912cff0cbaa590fc1ae9ce6d7" category="list-text">Connectez le port e7a du contrôleur A et le port e7a du contrôleur B au commutateur de réseau du cluster B.</block>
+  <block id="b222cca23840b6a495e76b8c300b08f2" category="image-alt">Câble de 100 Go</block>
+  <block id="f1d133e33e29362e931a34312a961d0b" category="image-alt">Reliez les connexions du cluster au réseau du cluster</block>
+  <block id="b1f39e4d9956723a4e80ea4844651e57" category="open-title">A70 et A90</block>
+  <block id="45078e841660b01dec689a55423c0ad7" category="paragraph">Utilisez le câble d'interconnexion cluster/haute disponibilité pour connecter les ports e1a à e1a et les ports e7a à e7a.</block>
+  <block id="4c4c88c42c8601a756bccea16c845e74" category="open-title">A20, A30 ET A50</block>
+  <block id="fd58de99944e8efb194dd7978a910460" category="paragraph">*Câblage de cluster sans commutateur*</block>
+  <block id="27414c133f108cf7a16f5284d6f30c1c" category="paragraph">Connectez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.</block>
+  <block id="ae385fd98cef8d5576799c3e17b37de5" category="example-title">ASA A30 et ASA A50 avec deux modules d'E/S 40/100 GbE à 2 ports</block>
+  <block id="3020ab19ecc6bea34da86a75211a1480" category="list-text">Connectez les connexions d'interconnexion cluster/haute disponibilité :</block>
+  <block id="6780657f10ef4bbe5e784f3b1e7777e3" category="admonition">Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.</block>
+  <block id="81d3b176c84d195465a42037b378be34" category="list-text">Brancher le port e2a du contrôleur A sur le port e2a du contrôleur B.</block>
+  <block id="97986c7edeb8aa720651d6caecb2740e" category="list-text">Connectez le port e4a du contrôleur A au port e4a du contrôleur B.</block>
+  <block id="c2f3dca1342038cc2e96405818f97fc1" category="admonition">Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.</block>
+  <block id="29225cb045b4ca6180b60163acf195c6" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité 100 GbE*</block>
+  <block id="11156b406be2310dbc7ea0be9d4c50ed" category="image-alt">Câble 100 GbE haute disponibilité du cluster</block>
+  <block id="9cfa3d116e4d078fb40d2bc893df02d3" category="image-alt">schéma de câblage des clusters sans commutateur a30 et a50 utilisant deux modules io 100 gbe</block>
+  <block id="a4f83d44ddc4f1d9024cb358c68b9839" category="example-title">ASA A30 et ASA A50 avec un module d'E/S 40/100 GbE à 2 ports</block>
+  <block id="fe9b088094e89f3bfca3ca399c7b0db3" category="admonition">Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.</block>
+  <block id="106e367c9573abf49a09d94f19c1bfc1" category="list-text">Connectez le port e4b du contrôleur A au port e4b du contrôleur B.</block>
+  <block id="8664dd7c786c742954653ce492e9658d" category="image-alt">schéma de câblage des clusters sans commutateur a30 et a50 utilisant un module io 100 gbe</block>
+  <block id="41e7c843565f888c45e00de3fb7efbb7" category="example-title">ASA A20 avec un module d'E/S 10/25 GbE à 2 ports</block>
+  <block id="12c884ae6ab63449a58d2a6afa1e2e37" category="admonition">Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 10/25 GbE.</block>
+  <block id="1d26f858cfe843b7c2ef97cec62fa3e4" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité 25 GbE*</block>
+  <block id="7068e62ae38501c78d2ab15da6f10b16" category="inline-image-macro">Connecteur en cuivre SFP GbE, largeur = 100 px</block>
+  <block id="6fb39f4b9d1de8f2f3a463d3f9eedd52" category="paragraph"><block ref="6fb39f4b9d1de8f2f3a463d3f9eedd52" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7e04550968face4eb31df851171941f8" category="image-alt">schéma de câblage du cluster a20 sans commutateur utilisant un module 25 gbe io</block>
+  <block id="151c289f37f59079c337dd0b4878c201" category="paragraph">*Câblage de cluster commuté*</block>
+  <block id="fa02cdb8515e1cd51b4eadba9fd50080" category="paragraph">Connectez les contrôleurs aux commutateurs de réseau du cluster pour créer les connexions de cluster ONTAP.</block>
+  <block id="ee68cf12a16ca46d58bedd8cf9051f32" category="example-title">AFF A30 ou AFF A50 avec deux modules d'E/S 40/100 GbE à 2 ports</block>
+  <block id="a8d16746fb80901317600cba36862a10" category="list-text">Reliez les connexions d'interconnexion cluster/haute disponibilité :</block>
+  <block id="3a343cf67a3c616a35a00f3a82358fe3" category="list-text">Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.</block>
+  <block id="627172884756ce9f3fccfd51a4559c59" category="list-text">Reliez le port e2a du contrôleur A au commutateur de réseau du cluster B.</block>
+  <block id="9c7f10ca7cef7791dc302ef4b9fc6cff" category="list-text">Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster</block>
+  <block id="e7a7b98be669245e46e9b8f7bbe98b71" category="list-text">Reliez le port e2a du contrôleur B au commutateur de réseau du cluster B.</block>
+  <block id="b53a4effb80334f95a8d3a106ebd8d78" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*</block>
+  <block id="b0f68808f5130fe93780d063d5a249ef" category="image-alt">Câble 40/100 GbE haute disponibilité du cluster</block>
+  <block id="fdf9561d280feaca372af24a497c913c" category="image-alt">schéma de câblage des clusters commutés a30 et a50 avec deux modules io 100 gbe</block>
+  <block id="0876d414989c1fb53595c5b00b028242" category="example-title">AFF A30 ou AFF A50 avec un module d'E/S 40/100 GbE à 2 ports</block>
+  <block id="03b14fd60bbaa553460ca8bf5858ac71" category="list-text">Reliez les contrôleurs aux commutateurs du réseau du cluster :</block>
+  <block id="2cfaddf7a4d44f5351fdb0ee36c9c36b" category="list-text">Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.</block>
+  <block id="04fca3f1f2d55aeb84370ab3e66d9214" category="list-text">Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.</block>
+  <block id="b7b6d611e5d7c5c0d87c70245fb7d396" category="example-title">AFF A20 avec un module d'E/S 10/25 GbE à 2 ports</block>
+  <block id="9d14c26ccbbb0d65a3b5d05e2013404b" category="paragraph">*Câbles d'interconnexion cluster/haute disponibilité 10/25 GbE*</block>
+  <block id="3488ff918c31f4a57e74bbab6ef9bcc9" category="inline-image-macro">schéma de câblage du bloc de commande a20 utilisant un module 25gbe io</block>
+  <block id="ae3bd4fc66b4084d0dc856b5f0230d72" category="paragraph"><block ref="ae3bd4fc66b4084d0dc856b5f0230d72" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7f99cbc2aa28ab9fed6e99fa94242b4a" category="section-title">Étape 2 : câblez les connexions réseau de l'hôte</block>
+  <block id="11b5e1f572906bdd8b96e6f22d885cd4" category="paragraph">Connectez les contrôleurs à votre réseau hôte.</block>
+  <block id="40a36b0ffd7a648bae61167d750303ae" category="paragraph">Cette procédure varie en fonction du modèle de votre système de stockage et de la configuration de votre module d'E/S.</block>
+  <block id="3b29102e499249644dff327644d96081" category="list-text">Connectez les ports e9a et e9b à votre commutateur de réseau de données Ethernet.</block>
+  <block id="4f3114ccf1048d4ddc64a6a3b00212c0" category="paragraph">Connectez les ports de module Ethernet ou Fibre Channel (FC) à votre réseau hôte.</block>
+  <block id="fa60bebf26c9f26f466d33f766281ef9" category="paragraph">*Câblage hôte Ethernet*</block>
+  <block id="e754a652dbb952ac31751366c3c21c14" category="example-title">ASA A30 et ASA A50 : deux modules d'E/S 40/100 GbE à 2 ports</block>
+  <block id="3202c4ba4b5ac6113c606ef9bb3c50cf" category="paragraph">Sur chaque contrôleur, connectez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.</block>
+  <block id="e827a0600a7ebd00f36ea855012f66a1" category="admonition">Les ports des modules d'E/S des connecteurs 2 et 4 sont 40/100 GbE (connectivité hôte 40/100 GbE).</block>
+  <block id="7329bfa51dec924de206ced093bea600" category="paragraph">*Câbles 40/100 GbE*</block>
+  <block id="8f31147c7cfeb7520dc9739e31dedc90" category="image-alt">Câble de 40/100 Go</block>
+  <block id="ec83c89c1bfd1fa2fe72db4df75b0e43" category="image-alt">Câble vers les switchs réseau hôte ethernet 40 gbe</block>
+  <block id="e542a7b563f91e8435b64ab751642f56" category="example-title">ASA A20, A30 et A50 : un module d'E/S 10/25 GbE à 4 ports</block>
+  <block id="3e42ab3fbc066a1e09943ca314bf3205" category="paragraph">Sur chaque contrôleur, connectez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.</block>
+  <block id="c053ea984f8ec26545ef5a0f8e3c516b" category="paragraph">*Câbles 10/25 GbE*</block>
+  <block id="b8382f91ab365521fe8568f720b6ddd4" category="paragraph">*Câblage hôte FC*</block>
+  <block id="54f820ebbd8d18dec75e23b076eb9340" category="example-title">ASA A20, A30 et A50 : un module d'E/S FC 64 Gbit/s à 4 ports</block>
+  <block id="945fde23e0c7ac9dc52f131c48ef5861" category="paragraph">Sur chaque contrôleur, connectez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.</block>
+  <block id="241c17a1be2cc4feae5c8c6007f8aed3" category="paragraph">*Câbles FC 64 Gbit/s*</block>
+  <block id="176084e0e3d1d8b98919ade28704bd7b" category="inline-image-macro">Câble fc de 64 Go, largeur = 100 px</block>
+  <block id="0174aef3c6edce25256f90638a06bdca" category="paragraph"><block ref="0174aef3c6edce25256f90638a06bdca" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="53b32e6926c94a5a2ab06b2fe3836135" category="image-alt">Câble vers les switchs réseau hôte fc de 64 go</block>
+  <block id="945babbf23a8741321d27a1c4a0c4200" category="section-title">Étape 3 : branchement des câbles du réseau de gestion</block>
+  <block id="81c5a35ebe94a71ec0440d955458f3b2" category="paragraph">Connectez les contrôleurs à votre réseau de gestion.</block>
+  <block id="606df56893b9539a0efef8ec28ae5b04" category="paragraph">Pour plus d'informations sur la connexion du système de stockage aux commutateurs du réseau de gestion, contactez votre administrateur réseau.</block>
+  <block id="c7900e3ee1f4eb935f449465b57ad5c1" category="paragraph">Utilisez les câbles 1000BASE-T RJ-45 pour connecter les ports de gestion (clé anglaise) de chaque contrôleur aux commutateurs du réseau de gestion.</block>
+  <block id="827e1151fb167c880355e4177a701fcc" category="paragraph">Connectez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.</block>
+  <block id="cc9dc8ff5d926a2f202e16be7619d147" category="section-title">Étape 4 : branchement des tiroirs sur le câble</block>
+  <block id="0d76e0793ffa0c020fcde5112f3ab0ac" category="paragraph">Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir de stockage.</block>
+  <block id="5a684badbec5242d1800f819ca49559e" category="paragraph">Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, reportez-vous à <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>la section .</block>
+  <block id="11f69ba457c92cc85e478b022d6fe27d" category="example-title">Option 1 : un tiroir de stockage NS224</block>
+  <block id="dbc80d316683c8c8fbd51c4f53c57169" category="example-title">Option 2 : deux tiroirs de stockage NS224</block>
+  <block id="d0102d843a83876d4bd560d55dc295dd" category="paragraph">Connectez chaque contrôleur au module NSM100B correspondant sur le tiroir NS224 à l'aide des câbles de stockage fournis avec le système de stockage. Ces câbles peuvent inclure le type de câble suivant :</block>
+  <block id="302158186d4e933e7fd1df5cef7e5e27" category="paragraph">Les graphiques présentent le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.</block>
+  <block id="43f628d39f94658277cbd1d5e2ec5913" category="list-text">Brancher le contrôleur A sur le tiroir :</block>
+  <block id="6c7c671b8bb322ab01af1c161215e3d7" category="list-text">Connectez le port e3a du contrôleur A au port e1a du NSM A.</block>
+  <block id="bc5326a83ab89a40d5cfd25f6eb9899d" category="list-text">Connectez le port e3b du contrôleur A au port NSM B e1b.</block>
+  <block id="c4026e3ae600ac06e1796e4025a51f22" category="inline-image-macro">Ports du contrôleur A e3a et e3b câblés sur un tiroir NS224</block>
+  <block id="5b9ac89947f29d7d4db86ad300db69d3" category="paragraph"><block ref="5b9ac89947f29d7d4db86ad300db69d3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="df9e27b7d1c106fffbc9dde2fe027000" category="list-text">Connectez le contrôleur B au tiroir :</block>
+  <block id="3a54b891c1fe5c653ae2233e99b32ada" category="list-text">Connectez le port e3a du contrôleur B au port e1a du NSM B.</block>
+  <block id="ce3ea3eeee75c18d4f586150df3cf629" category="list-text">Connectez le port e3b du contrôleur B au port e1b de la carte NSM A.</block>
+  <block id="a7232cb75808a8e7cf49cc148792b59d" category="inline-image-macro">Ports du contrôleur B e3a et e3b câblés sur un tiroir NS224</block>
+  <block id="4e7a391052a15e943c46f8d16f6bd53d" category="paragraph"><block ref="4e7a391052a15e943c46f8d16f6bd53d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7a0f0e325563120e62646d89ac8b197e" category="list-text">Si votre système ASA r2 est fourni avec un dispositif de gestion des câbles, connectez-le à l'arrière du système de stockage.</block>
+  <block id="952805fa15e6e1f3af7524361380c893" category="list-text">Installez et fixez le tiroir de stockage :</block>
+  <block id="9af939d89ff4b6cd47b1f72c57d76a06" category="list-text">Trombone ou stylo à pointe sphérique à pointe étroite pour la mise en place des ID de tablette de stockage</block>
+  <block id="3ab6c785bbd775b63a4a25d8453fdddf" category="paragraph">Les systèmes de stockage et tiroirs de stockage ASA r2 sont très lourds. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.</block>
+  <block id="0118ce23f0901978d22ba4cb610ecf9b" category="paragraph">Un système de stockage ASA A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.</block>
+  <block id="ea2b428ae3132b5aa1f8abadc2dac0ec" category="image-alt">ASA A1K icône d'avertissement de levage</block>
+  <block id="ade40ccac82599c531d24027ce58a74c" category="paragraph">Un système de stockage ASA A70 ou ASA A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour soulever le système de stockage, faire appel à quatre personnes ou à un relevage hydraulique.</block>
+  <block id="ee73bc981e2e8029d6fae6ac2090bcba" category="paragraph">Un système de stockage ASA A20, ASA A30 ou ASA A50 peut peser jusqu'à 27.9 kg (61.5 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.</block>
+  <block id="336e0262f6402efd45d8cf9d7ae13e8c" category="section-title">Poids des étagères de stockage</block>
+  <block id="fe464b77547b113c26b6c4a663f8d99c" category="paragraph">Prenez les précautions nécessaires lorsque vous déplacez ou soulevez votre tablette.</block>
+  <block id="45e63469b991d33c068f31181b786804" category="open-title">Tiroir NS224</block>
+  <block id="6de84c72e7e126f172cbcc00c68cd297" category="paragraph">Une étagère NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.</block>
+  <block id="f6212161be26bdf2d9804cc49d78a681" category="image-alt">NS224 NSM100 attention de levage</block>
+  <block id="645bbd951015c1adc70cec78178abf63" category="open-title">Tiroir NS224 avec modules NSM100B</block>
+  <block id="6eb0f75df27b0466f7984bf67accd904" category="paragraph">Une étagère NS224 avec modules NSM100B peut peser jusqu'à 25.8 kg (56.8 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.</block>
+  <block id="34ae4f1779c2db0223377cbefc6262df" category="image-alt">NS224 avec précaution de levage NSM100b</block>
+  <block id="16c114ca23e26a2dea111e805efdbc64" category="summary">Mettez chaque tiroir sous tension pour attribuer un ID de tiroir unique, mettre les contrôleurs ASA r2 sous tension et fixer les câbles d'alimentation.</block>
+  <block id="6379280c267113ec35e5881e1b0f65bb" category="paragraph">Chaque tiroir se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage.</block>
+  <block id="f4e530e07769045ad933874fca013307" category="list-text">Remarque : pour être valides, les ID de tiroir sont compris entre 01 et 99.</block>
+  <block id="ce4b2f7741d87ac6c37e8727ca9ad20a" category="paragraph">Si vous disposez de tiroirs internes (de stockage) intégrés aux contrôleurs, l'ID de tiroir fixe est 00.</block>
+  <block id="cf999199f9d4c3e90d15399860476f13" category="image-alt">Modifiez l'ID de tiroir</block>
+  <block id="891561cb838adbb7475943bc7ea20ead" category="list-text">Connectez votre ordinateur portable au port série console. Cela vous permettra de surveiller la séquence d'amorçage lorsque les contrôleurs sont sous tension.</block>
+  <block id="5d181ca91be1af691d1f01654691cc7b" category="image-alt">Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90</block>
+  <block id="d2318e267239f37a3cc57e89925b9627" category="image-alt">Schéma de connexion de l'alimentation du système de stockage A20, A30 ou A50</block>
+  <block id="e477637685baafe9bbd353f71ef51283" category="list-text">Le système commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.</block>
+  <block id="d420064a5f4919f9be16d853c6d1997c" category="list-text">Fixez les cordons d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.</block>
+  <block id="784289434de2772034240714a84f80a9" category="list-text">Utilisez<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block> pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage.</block>
+  <block id="16b6ee929559cf4a616d08d372071c4d" category="list-text">Assurez-vous de disposer d'une armoire ou d'un espace rack adapté à votre système de stockage, à vos tiroirs et aux commutateurs :</block>
+  <block id="0bf1ff1f561d2a96752b8ee596c65068" category="list-text">4U en configuration HA</block>
+  <block id="d870295bbe120d15107d49597065fc2e" category="list-text">1U pour la plupart des commutateurs</block>
+  <block id="c076fae440b08efddde1c3350bc89b48" category="open-title">A70 et A90</block>
+  <block id="586f9ad5db82f223a8b9cca9ed48f572" category="list-text">2U pour un système de stockage</block>
+  <block id="f3bd097d24df1ac0353888e40c01c232" category="list-text">Comparez le contenu que vous avez déballé avec la liste sur le bordereau d'expédition. En cas d'écarts, notez-les pour prendre des mesures supplémentaires.</block>
+  <block id="7638bec0a959f7fd0b1433ed8d2deca8" category="list-text">Tiroir de stockage (si vous avez commandé du stockage supplémentaire)</block>
+  <block id="06492da17f061f2a9e0458d0fb9a15f7" category="list-text">Recherchez les numéros de série de votre système de stockage.</block>
+  <block id="3db53907b5ca9a298d8e8517cdd30a44" category="paragraph">Les numéros de série sont indiqués aux emplacements suivants :</block>
+  <block id="3fc885acbf9f3f66cb5fefc99c0d76c6" category="list-text">Sur le bordereau d'expédition</block>
+  <block id="cf163ceac39b37fd1108b3cf9ff2b719" category="list-text">Dans votre e-mail de confirmation</block>
+  <block id="676b7066692787a119854c062d5f6c05" category="list-text">Sur chaque contrôleur ou pour certains systèmes, sur le module de gestion du système de chaque contrôleur</block>
+  <block id="3b2136486adac3ad66275a45c07c6ebf" category="image-alt">Exemple du numéro de série du système</block>
+  <block id="6b127ae60215df1a5f77bc62deb0fa41" category="list-text">Si le numéro de série n'est pas répertorié, suivez les instructions pour les nouveaux clients NetApp.</block>
+  <block id="556e0ee8174fe1dd298dfe165915e58f" category="summary">Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 90, ASA 70, ASA A50, ASA A30, ASA A20).</block>
+  <block id="d4b904a6ceddca0805b85998f1946d36" category="paragraph">Les systèmes NetApp ASA r2 suivants sont pris en charge à partir de ONTAP 9.16.1. Ces plateformes offrent une solution matérielle et logicielle unifiée qui offre une expérience simplifiée et adaptée aux besoins des clients qui utilisent uniquement un SAN.</block>
+  <block id="1afab26d25573baff41c4a297e2b15fb" category="sidebar">Les systèmes NetApp ASA r2 (ASA A1K, ASA A90, ASA A70, ASA A50, ASA A30, ASA A20) offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée, adaptée aux besoins des clients qui ne disposent que d'un réseau SAN.</block>
 </blocks>

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/power-on-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, power on 
-summary: 'Mettez chaque tiroir NS224 sous tension afin d"attribuer un ID de tiroir unique, mettez les contrôleurs ASA r2 sous tension et sécurisez les câbles d"alimentation.' 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, power on 
+summary: 'Mettez chaque tiroir sous tension pour attribuer un ID de tiroir unique, mettre les contrôleurs ASA r2 sous tension et fixer les câbles d"alimentation.' 
 ---
 = Mettez le système de stockage ASA r2 sous tension
 :allow-uri-read: 
@@ -17,10 +17,13 @@ Une fois que vous avez installé le matériel en rack du système de stockage AS
 
 == Étape 1 : mettez le tiroir sous tension et attribuez l'ID de tiroir
 
-Chaque tiroir NS224 se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage. Par défaut, les ID de tiroir sont attribués aux noms « 00 » et « 01 ». Toutefois, vous devrez peut-être les ajuster pour maintenir le caractère unique de votre système de stockage.
+Chaque tiroir se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage.
 
 .Description de la tâche
-* Remarque : pour être valides, les ID de tiroir sont compris entre 00 et 99.
+* Remarque : pour être valides, les ID de tiroir sont compris entre 01 et 99.
++
+Si vous disposez de tiroirs internes (de stockage) intégrés aux contrôleurs, l'ID de tiroir fixe est 00.
+
 * Vous devez mettre un tiroir hors tension puis sous tension (débranchez les deux cordons d'alimentation, attendez la durée appropriée, puis rebranchez-les) pour que l'ID de tiroir prenne effet.
 
 
@@ -31,7 +34,7 @@ Le tiroir se met sous tension et démarre automatiquement lorsqu'il est branché
 
 . Retirez le capuchon d'extrémité gauche pour accéder au bouton d'ID du shelf derrière le cache.
 +
-image::../media/drw_a900_oie_change_ns224_shelf_id_ieops-836.svg[Modifiez l'ID de tiroir NS224]
+image::../media/drw_change_ns224_shelf_id_ieops-836.svg[Modifiez l'ID de tiroir]
 
 +
 [cols="20%,80%"]
@@ -39,28 +42,28 @@ image::../media/drw_a900_oie_change_ns224_shelf_id_ieops-836.svg[Modifiez l'ID d
 
 
  a| 
-image::../media/legend_icon_01.svg[Numéro de légende 1]
+image::../media/icon_round_1.png[Numéro de légende 1]
  a| 
 Capuchon d'extrémité de tablette
 
 
 
  a| 
-image::../media/legend_icon_02.svg[[Légende numéro 2]
+image::../media/icon_round_2.png[[Légende numéro 2]
  a| 
 Plateau de tablette
 
 
 
  a| 
-image::../media/legend_icon_03.svg[[Légende numéro 3]
+image::../media/icon_round_3.png[[Légende numéro 3]
  a| 
 Numéro ID du tiroir
 
 
 
  a| 
-image::../media/legend_icon_04.svg[[Légende numéro 4]
+image::../media/icon_round_4.png[[Légende numéro 4]
  a| 
 Bouton de l'ID de tiroir
 
@@ -131,28 +134,63 @@ Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniqu
 +
 .. Définissez le port série console de l'ordinateur portable sur 115,200 bauds avec le N-8-1.
 +
-
-NOTE: Consultez l'aide en ligne de votre ordinateur portable pour obtenir des instructions sur la configuration du port série console.
+Consultez l'aide en ligne de votre ordinateur portable pour obtenir des instructions sur la configuration du port série console.
 
 .. Connectez le câble de la console à l'ordinateur portable et le port série console du contrôleur à l'aide du câble de console fourni avec le système de stockage.
 .. Connectez l'ordinateur portable au commutateur du sous-réseau de gestion.
 +
+[role="tabbed-block"]
+====
+.A1K
+--
 image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Connexions de la console]
 
-.. Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.
+--
+.A70 et A90
+--
+image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Connexions de la console]
+
+--
+.A20, A30 ET A50
+--
+image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Connexions de la console]
+
+--
+====
 
 
+
+
+. Attribuez une adresse TCP/IP à l'ordinateur portable, en utilisant une adresse située sur le sous-réseau de gestion.
 . Branchez les câbles d'alimentation aux alimentations du contrôleur, puis connectez-les à des sources d'alimentation de différents circuits.
 +
-image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma générique de connexion de l'alimentation]
+[role="tabbed-block"]
+====
+.A1K
+--
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
 
+--
+.A70 et A90
+--
+image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
+
+--
+.A20, A30 ET A50
+--
+image::../media/drw_psu_layout_1_ieops-1886.svg[Schéma de connexion de l'alimentation du système de stockage A20, A30 ou A50]
+
+--
+====
 +
-** Le système de stockage commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
+** Le système commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
 ** Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.
 ** Les ventilateurs sont peut-être très bruyants lors du premier démarrage. Le bruit du ventilateur au démarrage est normal.
 
 
-. Fixez les câbles d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.
+
+
+. Fixez les cordons d'alimentation à l'aide du dispositif de fixation de chaque bloc d'alimentation.
 
 
 .Et la suite ?

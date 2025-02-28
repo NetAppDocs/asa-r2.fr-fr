@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: release-notes/whats-new-9161.html 
-keywords: 'what"s new, release notes, 9.16.1, asa r2, asa a1k, asa a90, asa a70' 
+keywords: 'what"s new, release notes, 9.16.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
 summary: Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1 pour les systèmes ASA r2. 
 ---
 = Nouveautés de ONTAP 9.16.1 pour les systèmes ASA r2
@@ -16,6 +16,24 @@ summary: Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1
 [role="lead"]
 Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1 pour les systèmes ASA r2.
 
+
+
+== Plateformes
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| Plateformes  a| 
+Les systèmes NetApp ASA r2 suivants sont pris en charge à partir de ONTAP 9.16.1. Ces plateformes offrent une solution matérielle et logicielle unifiée qui offre une expérience simplifiée et adaptée aux besoins des clients qui utilisent uniquement un SAN.
+
+* ASA A50
+* ASA A30
+* ASA A20
+
+
+|===
 
 
 == Protection des données

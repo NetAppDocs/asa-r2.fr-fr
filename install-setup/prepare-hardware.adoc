@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/prepare-hardware.html 
-keywords: prepare, hardware installation, aff a1k, aff a70, aff a90, aff c80, asa r2, asa a1k, asa a90, asa a70 
+keywords: prepare, hardware installation, aff a1k, aff a70, aff a90, aff c80, asa r2, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50 
 summary: 'Préparez l"installation du système de stockage ASA r2 dans votre environnement ONTAP et enregistrez le matériel pour bénéficier des avantages du support.' 
 ---
 = Préparez l'installation d'un système de stockage ASA r2
@@ -20,11 +20,36 @@ Préparez l'installation de votre système de stockage ASA r2 en préparant le s
 Pour installer votre système de stockage ASA r2, assurez-vous que le site et l'armoire ou le rack que vous prévoyez d'utiliser respectent les spécifications de votre configuration.
 
 .Étapes
-. Utilisez https://hwu.netapp.com["NetApp Hardware Universe"^] pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage ASA r2.
-. Assurez-vous de disposer d'un espace de rack adéquat :
+. Utilisez https://hwu.netapp.com["NetApp Hardware Universe"^] pour vérifier que votre site répond aux exigences environnementales et électriques de votre système de stockage.
+. Assurez-vous de disposer d'une armoire ou d'un espace rack adapté à votre système de stockage, à vos tiroirs et aux commutateurs :
 +
-** 4U en configuration HA pour le système de stockage
+[role="tabbed-block"]
+====
+.A1K
+--
+** 4U en configuration HA
 ** 2U pour chaque tiroir de stockage NS224
+** 1U pour la plupart des commutateurs
+
+
+--
+.A70 et A90
+--
+** 4U en configuration HA
+** 2U pour chaque tiroir de stockage NS224
+** 1U pour la plupart des commutateurs
+
+
+--
+.A20, A30 ET A50
+--
+** 2U pour un système de stockage
+** 2U pour chaque tiroir de stockage NS224
+** 1U pour la plupart des commutateurs
+
+
+--
+====
 
 
 . Installez les commutateurs réseau requis.
@@ -41,16 +66,12 @@ Après avoir vérifié que le site et l'armoire ou le rack que vous prévoyez d'
 
 .Étapes
 . Ouvrez soigneusement toutes les boîtes et disposez le contenu de manière organisée.
-. Comparez le contenu que vous avez déballé avec la liste sur le bordereau d'expédition.
+. Comparez le contenu que vous avez déballé avec la liste sur le bordereau d'expédition. En cas d'écarts, notez-les pour prendre des mesures supplémentaires.
 +
-
-NOTE: Vous pouvez obtenir votre liste d'emballage en scannant le code QR sur le côté du carton d'expédition.
+Vous pouvez obtenir votre liste d'emballage en scannant le code QR sur le côté du carton d'expédition.
 
 +
 Les éléments suivants sont quelques-uns des contenus que vous pouvez voir dans les boîtes.
-
-+
-Assurez-vous que tous les éléments contenus dans les boîtes correspondent à la liste figurant sur le bordereau d'expédition. En cas d'écarts, notez-les pour prendre des mesures supplémentaires.
 
 +
 [cols="12,9,4"]
@@ -62,10 +83,9 @@ Assurez-vous que tous les éléments contenus dans les boîtes correspondent à 
 
  a| 
 ** Panneau
-** Dispositif de gestion des câbles
 ** Adieu les migrations de données onéreuses
 ** Kits de rails avec instructions (en option)
-** Tiroir de stockage
+** Tiroir de stockage (si vous avez commandé du stockage supplémentaire)
 
  a| 
 ** Câbles Ethernet de gestion (câbles RJ-45)
@@ -85,12 +105,18 @@ Assurez-vous que tous les éléments contenus dans les boîtes correspondent à 
 Après avoir vérifié que votre site répond aux spécifications de votre système de stockage ASA r2 et après avoir vérifié que vous disposez de toutes les pièces commandées, vous devez enregistrer votre système.
 
 .Étapes
-. Recherchez le numéro de série de votre système de stockage.
+. Recherchez les numéros de série de votre système de stockage.
 +
-Vous trouverez le numéro sur le bordereau d'expédition, dans votre e-mail de confirmation ou sur le module de gestion du système du contrôleur après le déballage.
+Les numéros de série sont indiqués aux emplacements suivants :
 
 +
-image::../media/drw_ssn_label.svg[Exemple de numéro de série du système indiquant l'emplacement du numéro]
+** Sur le bordereau d'expédition
+** Dans votre e-mail de confirmation
+** Sur chaque contrôleur ou pour certains systèmes, sur le module de gestion du système de chaque contrôleur
++
+image::../media/drw_ssn_label.svg[Exemple du numéro de série du système]
+
+
 
 . Accédez à la http://mysupport.netapp.com/["Site de support NetApp"^].
 . Déterminez si vous devez enregistrer votre système de stockage :
@@ -106,7 +132,7 @@ Client NetApp existant
 .. Connectez-vous à l'aide de votre nom d'utilisateur et de votre mot de passe.
 .. Sélectionnez *systèmes* > *Mes systèmes*.
 .. Vérifiez que le nouveau numéro de série est répertorié.
-.. Si ce n'est pas le cas, suivez les instructions destinées aux nouveaux clients NetApp.
+.. Si le numéro de série n'est pas répertorié, suivez les instructions pour les nouveaux clients NetApp.
 
 
 

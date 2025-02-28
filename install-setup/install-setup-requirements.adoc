@@ -23,7 +23,7 @@ Pour installer votre système de stockage ASA r2, vous avez besoin de l'équipem
 * Sangle de décharge électrostatique (ESD)
 * Lampe de poche
 * Ordinateur portable ou console avec connexion USB/série
-* Trombone ou stylo à pointe sphérique à pointe étroite pour le réglage des ID de tablette de stockage NS224
+* Trombone ou stylo à pointe sphérique à pointe étroite pour la mise en place des ID de tablette de stockage
 * Tournevis Phillips n°2
 
 
@@ -31,7 +31,7 @@ Pour installer votre système de stockage ASA r2, vous avez besoin de l'équipem
 
 == Précautions de levage
 
-Les systèmes de stockage ASA r2 et les tiroirs de stockage NS224 sont très volumineux. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.
+Les systèmes de stockage et tiroirs de stockage ASA r2 sont très lourds. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.
 
 
 
@@ -41,29 +41,51 @@ Prenez les précautions nécessaires lors du déplacement ou du levage de votre 
 
 [role="tabbed-block"]
 ====
-.ASA A1K
+.A1K
 --
-Un système de stockage ASA A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système, faire appel à deux personnes ou à un relevage hydraulique.
+Un système de stockage ASA A1K peut peser jusqu'à 28.5 kg (62.83 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.
 
-image::../media/drw_a1k_weight_caution_ieops-1698.svg[AFF A1K icône d'avertissement de levage]
+image::../media/drw_a1k_weight_caution_ieops-1698.svg[ASA A1K icône d'avertissement de levage]
 
 --
-.ASA A70 et ASA A90
+.A70 et A90
 --
-Un système de stockage ASA A70 ou un système de stockage ASA A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour lever le système, faire appel à quatre personnes ou à un relevage hydraulique.
+Un système de stockage ASA A70 ou ASA A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour soulever le système de stockage, faire appel à quatre personnes ou à un relevage hydraulique.
 
-image::../media/drw_a70-90_weight_icon_ieops-1730.svg[AFF A90]
+image::../media/drw_a70-90_weight_icon_ieops-1730.svg[ASA A90]
+
+--
+.A20, A30 ET A50
+--
+Un système de stockage ASA A20, ASA A30 ou ASA A50 peut peser jusqu'à 27.9 kg (61.5 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.
+
+image::../media/drw_g_lifting_weight_ieops-1831.svg[ASA A20,A30,or an A50 weight caution icon]
 
 --
 ====
 
 
-=== Poids de la tablette de stockage
+=== Poids des étagères de stockage
 
-Une étagère de stockage NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette de rangement, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette de stockage (avant et arrière) pour éviter de débalourer le poids de la tablette.
+Prenez les précautions nécessaires lorsque vous déplacez ou soulevez votre tablette.
 
-image::../media/drw_ns224_lifting_weight_ieops-1716.svg[Avertissement de levage NS224]
+[role="tabbed-block"]
+====
+.Tiroir NS224
+--
+Une étagère NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.
 
+image::../media/drw_ns224_lifting_weight_ieops-1716.svg[NS224 NSM100 attention de levage]
+
+--
+.Tiroir NS224 avec modules NSM100B
+--
+Une étagère NS224 avec modules NSM100B peut peser jusqu'à 25.8 kg (56.8 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.
+
+image::../media/drw_ns224_nsm100b_lifting_weight_ieops-1832.svg[NS224 avec précaution de levage NSM100b]
+
+--
+====
 .Informations associées
 * https://library.netapp.com/ecm/ecm_download_file/ECMP12475945["Informations de sécurité et avis réglementaires"^]
 
