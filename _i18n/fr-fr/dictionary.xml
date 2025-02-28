@@ -1901,4 +1901,7 @@
   <block id="556e0ee8174fe1dd298dfe165915e58f" category="summary">Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 90, ASA 70, ASA A50, ASA A30, ASA A20).</block>
   <block id="d4b904a6ceddca0805b85998f1946d36" category="paragraph">Les systèmes NetApp ASA r2 suivants sont pris en charge à partir de ONTAP 9.16.1. Ces plateformes offrent une solution matérielle et logicielle unifiée qui offre une expérience simplifiée et adaptée aux besoins des clients qui utilisent uniquement un SAN.</block>
   <block id="1afab26d25573baff41c4a297e2b15fb" category="sidebar">Les systèmes NetApp ASA r2 (ASA A1K, ASA A90, ASA A70, ASA A50, ASA A30, ASA A20) offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée, adaptée aux besoins des clients qui ne disposent que d'un réseau SAN.</block>
+  <block id="9e607734cbe02d05fcbdf2a8bd579b3a" category="inline-link-macro">Prise en charge de la migration des clés de chiffrement entre les gestionnaires de clés</block>
+  <block id="c18d7ea3e180dd72f3fc8869a57e6376" category="cell"><block ref="c18d7ea3e180dd72f3fc8869a57e6376" category="inline-link-macro-rx"></block></block>
+  <block id="86c79aae612f98a6019861f950eeb1a3" category="cell">Lorsque vous basculez du gestionnaire de clés intégré ONTAP vers un gestionnaire de clés externe au niveau du cluster, vous pouvez utiliser l'interface de ligne de commandes ONTAP pour migrer facilement les clés de chiffrement d'un gestionnaire de clés vers un autre.</block>
 </blocks>
