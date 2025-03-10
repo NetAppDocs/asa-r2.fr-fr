@@ -28,7 +28,6 @@ Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement d
 * API ONTAP S3 SnapMirror et S3
 * SnapMirror (asynchrone et synchrone) vers le cloud
 * SnapMirror (asynchrone et synchrone) vers les systèmes non ASA r2
-* Mappage de LUN sélectif (SLM)
 
 
 .Les systèmes ASA r2 prennent en charge les éléments suivants :
