@@ -1903,4 +1903,5 @@
   <block id="c18d7ea3e180dd72f3fc8869a57e6376" category="cell"><block ref="c18d7ea3e180dd72f3fc8869a57e6376" category="inline-link-macro-rx"></block></block>
   <block id="86c79aae612f98a6019861f950eeb1a3" category="cell">Lorsque vous basculez du gestionnaire de clés intégré ONTAP vers un gestionnaire de clés externe au niveau du cluster, vous pouvez utiliser l'interface de ligne de commandes ONTAP pour migrer facilement les clés de chiffrement d'un gestionnaire de clés vers un autre.</block>
   <block id="f06feed69dbf0f5f7721d9ea53af616f" category="list-text">Découverte de votre réseau de clusters</block>
+  <block id="54ece869b1ae7921e7f18bd670ac879c" category="list-text">Pour les systèmes de stockage ASAr2 A20, A30 ou A50, l'ID de tiroir à l'avant du châssis du système ne s'allume pas. L'ID de tiroir interne du système est défini sur 00.</block>
 </blocks>

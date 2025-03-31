@@ -186,6 +186,7 @@ image::../media/drw_psu_layout_1_ieops-1886.svg[Schéma de connexion de l'alimen
 ** Le système commence à démarrer. Le démarrage initial peut prendre jusqu'à huit minutes.
 ** Les LED clignotent et les ventilateurs démarrent, ce qui indique que les contrôleurs sont sous tension.
 ** Les ventilateurs sont peut-être très bruyants lors du premier démarrage. Le bruit du ventilateur au démarrage est normal.
+** Pour les systèmes de stockage ASAr2 A20, A30 ou A50, l'ID de tiroir à l'avant du châssis du système ne s'allume pas. L'ID de tiroir interne du système est défini sur 00.
 
 
 
