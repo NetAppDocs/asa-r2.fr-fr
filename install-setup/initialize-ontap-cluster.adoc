@@ -36,7 +36,7 @@ Lors de la configuration du cluster, ONTAP recommande un ensemble d'interfaces r
 
 
 .Étapes
-. Découvrez votre réseau en cluster
+. Découverte de votre réseau de clusters
 +
 .. Connectez votre ordinateur portable au commutateur de gestion et accédez aux ordinateurs et périphériques réseau.
 .. Ouvrez l'Explorateur de fichiers.
