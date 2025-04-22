@@ -71,9 +71,9 @@ Vous avez créé un sous-réseau que vous pouvez utiliser pour simplifier la cr�
 
 Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder à des données. Les VM de stockage fournissent des données aux clients via une ou plusieurs LIF. En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique, afin que la communication réseau ne soit pas interrompue.
 
-Lors de la création d'une LIF de données IP, celle-ci peut traiter le trafic iSCSI et NVMe/TCP par défaut. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.
+Sur un système ASA r2, vous pouvez créer des LIF IP, FC et NVMe/FC. Une LIF de données IP peut traiter le trafic iSCSI et NVMe/TCP par défaut. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.
 
-Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez créer une LIF iSCSI uniquement. Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.
+Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez créer une LIF IP pour le trafic iSCSI uniquement. Lorsque le basculement automatique de LIF iSCSI est activé, en cas de basculement du stockage, la LIF iSCSI IP est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI IP est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.
 
 .Avant de commencer
 * Vous devez être un administrateur de cluster pour effectuer cette tâche.
@@ -87,7 +87,7 @@ Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez cr
 . Sélectionnez *interfaces réseau*, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu avec un signe plus suivi du mot ajouter en lettres blanches"].
 . Sélectionnez le type et le protocole d'interface, puis la VM de stockage.
 +
-Pour créer une LIF de protocole unique, sélectionnez un seul protocole. Par exemple, pour créer une LIF iSCSI uniquement, sélectionnez *iSCSI*.
+Pour activer le basculement de LIF iSCSI, sélectionnez uniquement le protocole IP.
 
 . Entrez un nom pour la LIF ou acceptez le nom par défaut.
 . Sélectionnez le nœud de départ de l'interface réseau, puis entrez l'adresse IP et le masque de sous-réseau.
