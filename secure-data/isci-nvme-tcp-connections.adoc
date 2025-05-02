@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: secure-data/iscsi-nvme-tcp-connections.html 
+keywords: asa r2, secure data, data security, encrypt, data at rest, data-at-rest, encryption, iscsi, nvme/tcp, ipsec, data-in-flight, ip security, secure connections, secure data connections, hardware offload 
+summary: 'Si vous utilisez le protocole IP sur votre système ASA r2, vous pouvez configurer la sécurité IP (IPsec) pour améliorer la sécurité de vos données.' 
+---
+= Sécurisez les connexions IP sur vos systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous utilisez le protocole IP sur votre système ASA r2, vous pouvez configurer la sécurité IP (IPsec) pour améliorer la sécurité de vos données. IPSec est une norme Internet qui fournit un chiffrement des données à la volée, une authentification pour le trafic circulant entre les terminaux réseau au niveau IP et une protection contre les attaques par réexécution et les attaques de l'homme du milieu malveillantes sur vos données.
+
+Pour les systèmes ASA r2, IPSec est disponible pour les hôtes iSCSI et NVMe/TCP.
+
+Sur certains systèmes ASA r2, plusieurs opérations cryptographiques, telles que le cryptage et les contrôles d'intégrité, peuvent être déchargées sur une carte réseau (NIC) prise en charge. Le débit pour les opérations déchargées sur la carte NIC est d'environ 5 % ou moins. Cela peut considérablement améliorer les performances et le débit du trafic réseau protégé par IPsec.
+
+Les cartes NIC suivantes sont prises en charge pour le déchargement matériel sur les systèmes ASA r2 suivants :
+
+[cols="2"]
+|===
+| Carte réseau prise en charge | Systèmes ASA r2 
+
+
+ a| 
+X50131A - (contrôleur Ethernet 2p, 40G/100G/200G/400G)
+ a| 
+* ASA A1K
+* ASA A90
+* ASA A70
+
+
+
+
+ a| 
+X60132A - (contrôleur Ethernet 4p, 10G/25G)
+ a| 
+* ASA A50
+* ASA A30
+* ASA A20
+
+
+|===
+Informations associées
+
+link:https://docs.netapp.com/us-en/ontap/networking/ipsec-configure.html["Configurer la sécurité IP pour le réseau ONTAP"]

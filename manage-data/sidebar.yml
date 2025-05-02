@@ -45,3 +45,5 @@ entries:
     url: "/secure-data/ransomware-protection.html"
   - title: Des connexions NVMe sécurisées
     url: "/secure-data/nvme-tcp-connections.html"
+  - title: Connexions IP sécurisées
+    url: "/secure-data/iscsi-nvme-tcp-connections.html"
