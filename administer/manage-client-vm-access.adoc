@@ -16,6 +16,28 @@ Les unités de stockage d'un système ASA r2 sont contenues dans des machines vi
 
 
 
+== Créez une machine virtuelle de stockage
+
+Lors de la configuration des clusters, votre machine virtuelle de stockage de données par défaut est créée. Toutes les nouvelles unités de stockage sont créées à l'intérieur de votre VM de stockage de données par défaut, sauf si vous créez et sélectionnez une autre VM de stockage. Vous pouvez créer une VM de stockage supplémentaire pour séparer vos unités de stockage pour différentes applications, différents services ou clients. Par exemple, vous pouvez créer une VM de stockage pour votre environnement de développement et une autre VM de stockage pour votre environnement de production, ou bien créer une VM de stockage pour votre département financier et une autre VM de stockage pour votre département marketing.
+
+.Étapes
+. Sélectionnez *Cluster > VM de stockage*.
+. Sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
+. Entrez un nom pour la machine virtuelle de stockage ou acceptez le nom par défaut.
+. Sous *configurer les protocoles*, sélectionnez les protocoles pour la machine virtuelle de stockage.
++
+Sélectionnez *IP* pour iSCSI et NVMe/TCP. Sélectionnez *FC* pour Fibre Channel ou NVMe/FC.
+
+. Sous *Storage VM administration*, sélectionnez *Manage Administrator account*, puis entrez le nom d'utilisateur et le mot de passe du compte administrateur.
+. Ajouter une interface réseau pour la VM de stockage
+. Sélectionnez *Enregistrer*.
+
+
+.Et la suite ?
+Vous avez créé une VM de stockage. Vous pouvez maintenant utiliser la machine virtuelle de stockage pour link:../manage-data/provision-san-storage.html["provisionner le stockage"].
+
+
+
 == Créez les IPspaces
 
 Un IPspace est un espace d'adresse IP distinct dans lequel résident les VM de stockage. Lorsque vous créez des IPspaces, vos machines virtuelles de stockage peuvent disposer de leur propre stockage, administration et routage sécurisés. Vous activez également les clients dans des domaines réseau distincts d'un point de vue administratif pour utiliser des adresses IP redondantes à partir de la même plage de sous-réseaux d'adresses IP.
@@ -96,6 +118,26 @@ Pour activer le basculement de LIF iSCSI, sélectionnez uniquement le protocole 
 
 .Résultat
 Vous avez créé une LIF pour l'accès aux données.
+
+.Et la suite ?
+Si vous avez créé une LIF IP pour iSCSI, vous pouvez utiliser l'interface de ligne de commande ONTAP pour activer le basculement automatique des LIF iSCSI.
+
+
+
+=== Activer le basculement automatique de LIF iSCSI
+
+Si sur le SVM des LIF iSCSI ne sont pas activées pour le basculement automatique des LIF, vos nouvelles LIF ne seront pas non plus activées pour le basculement automatique des LIF. Si le basculement automatique de LIF n'est pas activé et qu'un événement de basculement se produit, vos LIFs iSCSI ne migrent pas.
+
+Vous devez utiliser l'interface de ligne de commande ONTAP pour activer le basculement automatique des LIF iSCSI.
+
+.Étape
+. Activer le basculement automatique de LIF iSCSI :
++
+[source, cli]
+----
+network interface modify -vserver <SVM_name> -lif <iscsi_lif> -failover-policy sfo-partner-only -auto-revert true
+----
+
 
 
 
