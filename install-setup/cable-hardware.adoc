@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/cable-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50 cable controllers 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, asa C30 cable controllers 
 summary: Découvrez comment connecter les câbles du contrôleur ASA r2 à votre réseau et connecter les contrôleurs aux tiroirs. 
 ---
 = Branchez les câbles du matériel du système de stockage ASA r2
@@ -17,7 +17,15 @@ Une fois le matériel rack du système de stockage ASA r2 installé, installez l
 Pour plus d'informations sur la connexion du système de stockage aux commutateurs réseau, contactez votre administrateur réseau.
 
 .Description de la tâche
-* Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour plus de détails sur la configuration, voir link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Ces procédures présentent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour obtenir des détails complets sur la configuration et la priorité des emplacements, reportez-vous à la section link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+* Les procédures de câblage du réseau hôte/cluster/haute disponibilité présentent les configurations courantes.
++
+Si vous ne voyez pas votre configuration dans les procédures de câblage, accédez à link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour une configuration complète et des informations sur la priorité des emplacements afin de câbler correctement votre système de stockage.
+
+* Si vous disposez d'un système de stockage ASA A1K, ASA A70 ou ASA A90, les emplacements d'E/S sont numérotés de 1 à 11.
++
+image::../media/drw_a1K_back_slots_labeled_ieops-2162.svg[Numérotation des emplacements sur un contrôleur ASA A1K ASA A70 et ASA A90]
+
 * Les graphiques de câblage sont dotés d'icônes de flèche indiquant l'orientation correcte (vers le haut ou vers le bas) de la languette du connecteur de câble lors de l'insertion d'un connecteur dans un port.
 +
 Lorsque vous insérez le connecteur, vous devez le sentir en place ; si vous ne le sentez pas, retirez-le, retournez-le et réessayez.
@@ -229,7 +237,7 @@ image::../media/drw_isi_a20_switchless_2p_25gbe_cabling_ieops-2018.svg[schéma d
 
 Connectez les contrôleurs aux commutateurs de réseau du cluster pour créer les connexions de cluster ONTAP.
 
-.AFF A30 ou AFF A50 avec deux modules d'E/S 40/100 GbE à 2 ports
+.ASA A30 ou ASA A50 avec deux modules d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
 .Étapes
@@ -239,10 +247,10 @@ Connectez les contrôleurs aux commutateurs de réseau du cluster pour créer le
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
 
 +
-.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
-.. Reliez le port e2a du contrôleur A au commutateur de réseau du cluster B.
-.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
-.. Reliez le port e2a du contrôleur B au commutateur de réseau du cluster B.
+.. Connectez le port e4a du contrôleur A au commutateur réseau du cluster A.
+.. Connectez le port e2a du contrôleur A au commutateur réseau du cluster B.
+.. Connectez le port e4a du contrôleur B au commutateur réseau du cluster A.
+.. Connectez le port e2a du contrôleur B au commutateur réseau du cluster B.
 +
 
 NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
@@ -261,7 +269,7 @@ image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[s
 
 
 =====
-.AFF A30 ou AFF A50 avec un module d'E/S 40/100 GbE à 2 ports
+.ASA A30 ou ASA A50 avec un module d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
 .Étapes
@@ -271,10 +279,10 @@ image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[s
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
 
 +
-.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
-.. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
-.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
-.. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
+.. Connectez le port e4a du contrôleur A au commutateur réseau du cluster A.
+.. Connectez le port e4b du contrôleur A au commutateur réseau du cluster B.
+.. Connectez le port e4a du contrôleur B au commutateur réseau du cluster A.
+.. Connectez le port e4b du contrôleur B au commutateur réseau du cluster B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
 
@@ -289,7 +297,7 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[R
 
 
 =====
-.AFF A20 avec un module d'E/S 10/25 GbE à 2 ports
+.ASA A20 avec un module d'E/S 10/25 GbE à 2 ports
 [%collapsible]
 =====
 . Reliez les contrôleurs aux commutateurs du réseau du cluster :
@@ -298,18 +306,147 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[R
 NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 10/25 GbE.
 
 +
-.. Reliez le port e4a du contrôleur de câble A au commutateur de réseau du cluster A.
-.. Reliez le port e4b du contrôleur A au commutateur de réseau du cluster B.
-.. Reliez le port e4a du contrôleur B au commutateur a du réseau du cluster
-.. Reliez le port e4b du contrôleur B au commutateur de réseau du cluster B.
+.. Connectez le port e4a du contrôleur A au commutateur réseau du cluster A.
+.. Connectez le port e4b du contrôleur A au commutateur réseau du cluster B.
+.. Connectez le port e4a du contrôleur B au commutateur réseau du cluster A.
+.. Connectez le port e4b du contrôleur B au commutateur réseau du cluster B.
 +
 *Câbles d'interconnexion cluster/haute disponibilité 10/25 GbE*
 
 +
-image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+image::../media/oie_cable_sfp_gbe_copper.png[Connecteur en cuivre SFP GbE]
 
 +
-image:../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg["schéma de câblage du bloc de commande a20 utilisant un module 25gbe io"]
+image::../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg[schéma de câblage du bloc de commande a20 utilisant un module 25gbe io]
+
+
+
+
+
+=====
+--
+.C30
+--
+Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.
+
+*Câblage de cluster sans commutateur*
+
+Connectez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
+
+.ASA C30 avec deux modules d'E/S 40/100 GbE à 2 ports
+[%collapsible]
+=====
+.Étapes
+. Reliez les connexions d'interconnexion cluster/haute disponibilité :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
+
++
+.. Brancher le port e2a du contrôleur A sur le port e2a du contrôleur B.
+.. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
++
+
+NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
+
++
+*Câbles d'interconnexion cluster/haute disponibilité 100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
+
++
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_2card_cabling_ieops-2011.svg[schéma de câblage des clusters sans commutateur a30 et a50 utilisant deux modules io 100 gbe]
+
+
+
+
+
+=====
+.ASA C30 avec un module d'E/S 40/100 GbE à 2 ports
+[%collapsible]
+=====
+.Étapes
+. Reliez les connexions d'interconnexion cluster/haute disponibilité :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
+
++
+.. Connectez le port e4a du contrôleur A au port e4a du contrôleur B.
+.. Connectez le port e4b du contrôleur A au port e4b du contrôleur B.
++
+*Câbles d'interconnexion cluster/haute disponibilité 100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 100 GbE haute disponibilité du cluster]
+
++
+image::../media/drw_isi_a30-50_switchless_2p_100gbe_1card_cabling_ieops-1925.svg[schéma de câblage du cluster c30 sans commutateur utilisant un module io 100 gbe]
+
+
+
+
+
+=====
+*Câblage de cluster commuté*
+
+Connectez les contrôleurs aux commutateurs de réseau du cluster pour créer les connexions de cluster ONTAP.
+
+.ASA C30 avec deux modules d'E/S 40/100 GbE à 2 ports
+[%collapsible]
+=====
+.Étapes
+. Reliez les connexions d'interconnexion cluster/haute disponibilité :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur les modules d'E/S des connecteurs 2 et 4). Les ports sont 40/100 GbE.
+
++
+.. Connectez le port e4a du contrôleur A au commutateur réseau du cluster A.
+.. Connectez le port e2a du contrôleur A au commutateur réseau du cluster B.
+.. Connectez le port e4a du contrôleur B au commutateur réseau du cluster A.
+.. Connectez le port e2a du contrôleur B au commutateur réseau du cluster B.
++
+
+NOTE: Les ports de module d'E/S e2b et e4b sont inutilisés et disponibles pour la connectivité réseau de l'hôte.
+
++
+*Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 40/100 GbE haute disponibilité du cluster]
+
++
+image::../media/drw_isi_a30-50_switched_2p_100gbe_2card_cabling_ieops-2013.svg[Schéma de câblage du cluster commuté C30 utilisant deux modules E/S 100 GBE]
+
+
+
+
+
+=====
+.ASA C30 avec un module d'E/S 40/100 GbE à 2 ports
+[%collapsible]
+=====
+.Étapes
+. Connectez les contrôleurs aux commutateurs réseau du cluster :
++
+
+NOTE: Le trafic d'interconnexion de cluster et le trafic haute disponibilité partagent les mêmes ports physiques (sur le module d'E/S du slot 4). Les ports sont 40/100 GbE.
+
++
+.. Connectez le port e4a du contrôleur A au commutateur réseau du cluster A.
+.. Connectez le port e4b du contrôleur A au commutateur réseau du cluster B.
+.. Connectez le port e4a du contrôleur B au commutateur réseau du cluster A.
+.. Connectez le port e4b du contrôleur B au commutateur réseau du cluster B.
++
+*Câbles d'interconnexion cluster/haute disponibilité 40/100 GbE*
+
++
+image::../media/oie_cable100_gbe_qsfp28.png[Câble 40/100 GbE haute disponibilité du cluster]
+
++
+image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[Reliez les connexions du cluster au réseau du cluster]
 
 
 
@@ -402,7 +539,7 @@ Connectez les ports de module Ethernet ou Fibre Channel (FC) à votre réseau h�
 
 *Câblage hôte Ethernet*
 
-.ASA A30 et ASA A50 : deux modules d'E/S 40/100 GbE à 2 ports
+.ASA A30 et ASA A50 avec deux modules d'E/S 40/100 GbE à 2 ports
 [%collapsible]
 =====
 Sur chaque contrôleur, connectez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.
@@ -417,7 +554,7 @@ image::../media/oie_cable_sfp_gbe_copper.png[Câble de 40/100 Go]
 image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
 
 =====
-.ASA A20, A30 et A50 : un module d'E/S 10/25 GbE à 4 ports
+.ASA A20, A30 et A50 avec un module d'E/S 10/25 GbE à 4 ports
 [%collapsible]
 =====
 Sur chaque contrôleur, connectez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
@@ -431,7 +568,7 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[C�
 =====
 *Câblage hôte FC*
 
-.ASA A20, A30 et A50 : un module d'E/S FC 64 Gbit/s à 4 ports
+.ASA A20, A30 et A50 avec un module d'E/S FC 64 Gb/s à 4 ports
 [%collapsible]
 =====
 Sur chaque contrôleur, connectez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
@@ -441,6 +578,68 @@ Sur chaque contrôleur, connectez les ports 1a, 1b, 1c et 1D aux commutateurs r�
 image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
 
 image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble vers les switchs réseau hôte fc de 64 go]
+
+=====
+--
+.C30
+--
+Connectez les ports de module Ethernet ou Fibre Channel (FC) à votre réseau hôte.
+
+*Câblage hôte Ethernet*
+
+.ASA C30 avec deux modules d'E/S 40/100 GbE à 2 ports
+[%collapsible]
+=====
+.Étapes
+. Sur chaque contrôleur, reliez les ports e2b et e4b aux commutateurs réseau hôte Ethernet.
++
+
+NOTE: Les ports des modules d'E/S des connecteurs 2 et 4 sont 40/100 GbE (connectivité hôte 40/100 GbE).
+
++
+*Câbles 40/100 GbE*
+
++
+image::../media/oie_cable_sfp_gbe_copper.png[Câble de 40/100 Go]
+
++
+image::../media/drw_isi_a30-50_host_2p_40-100gbe_2card_cabling_ieops-2014.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
+
+
+
+=====
+.ASA C30 avec un module d'E/S 10/25 GbE à 4 ports
+[%collapsible]
+=====
+.Étapes
+. Sur chaque contrôleur, reliez les ports e2a, e2b, e2c et e2d aux commutateurs de réseau hôte Ethernet.
++
+*Câbles 10/25 GbE*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Connecteur en cuivre SFP GbE, largeur = 100 px"]
+
++
+image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[Câble vers les switchs réseau hôte ethernet 40 gbe]
+
+
+
+=====
+.ASA C30 avec un module d'E/S FC 64 Gb/s à 4 ports
+[%collapsible]
+=====
+.Étapes
+. Sur chaque contrôleur, reliez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
++
+*Câbles FC 64 Gbit/s*
+
++
+image:../media/oie_cable_sfp_gbe_copper.png["Câble fc de 64 Go, largeur = 100 px"]
+
++
+image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble vers les switchs réseau hôte fc de 64 go]
+
+
 
 =====
 --
@@ -497,6 +696,20 @@ image::../media/drw_isi_g_wrench_cabling_ieops-1928.svg[Connectez-vous à votre 
 IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 --
+.C30
+--
+Connectez les ports de gestion (clé anglaise) de chaque contrôleur aux switchs réseau de gestion.
+
+*CÂBLES 1000BASE-T RJ-45*
+
+image::../media/oie_cable_rj45.png[Câbles RJ-45]
+
+image::../media/drw_isi_g_wrench_cabling_ieops-1928.svg[Connectez-vous à votre réseau de gestion]
+
+
+IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
+
+--
 ====
 
 
@@ -504,12 +717,20 @@ IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 Les procédures de câblage suivantes indiquent comment connecter les contrôleurs à un tiroir de stockage.
 
-Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, reportez-vous à link:https://hwu.netapp.com["NetApp Hardware Universe"^]la section .
+Pour connaître le nombre maximum de tiroirs pris en charge par votre système de stockage et pour toutes vos options de câblage, telles que les options optiques et connectées par commutateur, reportez-vous à link:https://hwu.netapp.com["NetApp Hardware Universe"^]la section .
 
 [role="tabbed-block"]
 ====
 .A1K
 --
+Les systèmes de stockage AFF A1K prennent en charge les étagères NS224 avec le module NSM100 ou NSM100B. Les principales différences entre les modules sont les suivantes :
+
+* Les modules d'étagère NSM100 utilisent les ports intégrés e0a et e0b.
+* Les modules d'étagère NSM100B utilisent les ports e1a et e1b dans l'emplacement 1.
+
+
+L'exemple de câblage suivant montre les modules NSM100 dans les étagères NS224 en faisant référence aux ports des modules d'étagère.
+
 Choisissez l'une des options de câblage suivantes correspondant à votre configuration.
 
 .Option 1 : un tiroir de stockage NS224
@@ -532,7 +753,7 @@ image:../media/drw_a1k_1shelf_cabling_a_ieops-1703.svg["Contrôleur A e11a et e1
 .. Connectez le port e11a au port NSM B e0a.
 .. Connectez le port e11b au port e0b de NSM A.
 +
-image:../media/drw_a1k_1shelf_cabling_b_ieops-1704.svg["Reliez les ports e11a et e11b du contrôleur B à un seul tiroir NS224"]
+image:../media/drw_a1k_1shelf_cabling_b_ieops-1704.svg["Connectez les ports e11a et e11b du contrôleur B à une seule étagère NS224"]
 
 
 
@@ -573,6 +794,14 @@ image:../media/drw_a1k_2shelf_cabling_b_ieops-1706.svg["Connexions contrôleur �
 --
 .A70 et A90
 --
+Les systèmes de stockage AFF A70 et 90 prennent en charge les étagères NS224 avec le module NSM100 ou NSM100B. Les principales différences entre les modules sont les suivantes :
+
+* Les modules d'étagère NSM100 utilisent les ports intégrés e0a et e0b.
+* Les modules d'étagère NSM100B utilisent les ports e1a et e1b dans l'emplacement 1.
+
+
+L'exemple de câblage suivant montre les modules NSM100 dans les étagères NS224 en faisant référence aux ports des modules d'étagère.
+
 Choisissez l'une des options de câblage suivantes correspondant à votre configuration.
 
 .Option 1 : un tiroir de stockage NS224
@@ -636,7 +865,51 @@ image:../media/drw_a70-90_2shelf_cabling_b_ieops-1734.svg["Connexions contrôleu
 --
 .A20, A30 ET A50
 --
-Connectez chaque contrôleur au module NSM100B correspondant sur le tiroir NS224 à l'aide des câbles de stockage fournis avec le système de stockage. Ces câbles peuvent inclure le type de câble suivant :
+La procédure de câblage du plateau NS224 utilise des modules NSM100B au lieu de modules NSM100. Le câblage est identique quel que soit le type de modules NSM utilisé ; seuls les noms de ports diffèrent :
+
+* Les modules NSM100B utilisent les ports e1a et e1b sur un module d'E/S dans l'emplacement 1.
+* Les modules NSM100 utilisent les ports intégrés (à bord) e0a et e0b.
+
+
+Vous câblez chaque contrôleur à chaque module NSM sur l'étagère NS224 à l'aide des câbles de stockage fournis avec votre système de stockage, qui peuvent être du type de câble suivant :
+
+*Câbles en cuivre QSFP28 100 GbE*
+
+image::../media/oie_cable100_gbe_qsfp28.png[Câble en cuivre QSFP28 à 100 GbE]
+
+Les graphiques présentent le câblage du contrôleur A en bleu et le câblage du contrôleur B en jaune.
+
+.Étapes
+. Brancher le contrôleur A sur le tiroir :
++
+.. Connectez le port e3a du contrôleur A au port e1a du NSM A.
+.. Connectez le port e3b du contrôleur A au port NSM B e1b.
++
+image:../media/drw_isi_g_1_ns224_controller_a_cabling_ieops-1945.svg["Ports du contrôleur A e3a et e3b câblés sur un tiroir NS224"]
+
+
+
+. Connectez le contrôleur B au tiroir :
++
+.. Connectez le port e3a du contrôleur B au port e1a du NSM B.
+.. Connectez le port e3b du contrôleur B au port e1b de la carte NSM A.
++
+image:../media/drw_isi_g_1_ns224_controller_b_cabling_ieops-1946.svg["Ports du contrôleur B e3a et e3b câblés sur un tiroir NS224"]
+
+
+
+
+
+--
+.C30
+--
+La procédure de câblage du plateau NS224 utilise des modules NSM100B au lieu de modules NSM100. Le câblage est identique quel que soit le type de modules NSM utilisé ; seuls les noms de ports diffèrent :
+
+* Les modules NSM100B utilisent les ports e1a et e1b sur un module d'E/S dans l'emplacement 1.
+* Les modules NSM100 utilisent les ports intégrés (à bord) e0a et e0b.
+
+
+Vous câblez chaque contrôleur à chaque module NSM sur l'étagère NS224 à l'aide des câbles de stockage fournis avec votre système de stockage, qui peuvent être du type de câble suivant :
 
 *Câbles en cuivre QSFP28 100 GbE*
 

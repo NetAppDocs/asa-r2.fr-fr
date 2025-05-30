@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: install-setup/power-on-hardware.html 
-keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, power on 
+keywords: asa r2, aff a1k, aff a70, aff a90, aff c80, asa a1k, asa a90, asa a70, asa a30, asa a20, asa a50, asa c30, power on 
 summary: 'Mettez chaque tiroir sous tension pour attribuer un ID de tiroir unique, mettre les contrôleurs ASA r2 sous tension et fixer les câbles d"alimentation.' 
 ---
 = Mettez le système de stockage ASA r2 sous tension
@@ -156,6 +156,11 @@ image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[Connexions de la
 image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Connexions de la console]
 
 --
+.C30
+--
+image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Connexions de la console]
+
+--
 ====
 
 
@@ -181,12 +186,17 @@ image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma de connexion
 image::../media/drw_psu_layout_1_ieops-1886.svg[Schéma de connexion de l'alimentation du système de stockage A20, A30 ou A50]
 
 --
+.C30
+--
+image::../media/drw_psu_layout_1_ieops-1886.svg[Schéma de connexion de l'alimentation du système de stockage A20, A30 ou A50]
+
+--
 ====
 +
 ** Le système lance le processus de démarrage. La séquence de démarrage initiale peut prendre jusqu'à huit minutes.
 ** Pendant le processus de démarrage, vous verrez les voyants clignoter et les ventilateurs s'activer, indiquant que les contrôleurs sont en cours de mise sous tension.
 ** N'oubliez pas que les ventilateurs peuvent émettre un niveau de bruit élevé lors de leur premier démarrage. Le bruit du ventilateur au démarrage est normal.
-** Pour les systèmes de stockage ASA A20, ASA A30 et ASA A50, l'ID de tiroir à l'avant du châssis du système ne s'allume pas.
+** Pour les systèmes de stockage ASA A20, A30, A50 et ASA C30, l'affichage de l'ID d'étagère à l'avant du châssis du système ne s'allume pas.
 
 
 

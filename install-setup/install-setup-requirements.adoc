@@ -52,14 +52,21 @@ image::../media/drw_a1k_weight_caution_ieops-1698.svg[ASA A1K icône d'avertisse
 --
 Un système de stockage ASA A70 ou ASA A90 peut peser jusqu'à 68.8 kg (151.68 lb). Pour soulever le système de stockage, faire appel à quatre personnes ou à un relevage hydraulique.
 
-image::../media/drw_a70-90_weight_icon_ieops-1730.svg[ASA A90]
+image::../media/drw_a70-90_weight_icon_ieops-1730.svg[Icône d'avertissement de poids ASA A90 ASA A70]
 
 --
 .A20, A30 ET A50
 --
 Un système de stockage ASA A20, ASA A30 ou ASA A50 peut peser jusqu'à 27.9 kg (61.5 lb). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.
 
-image::../media/drw_g_lifting_weight_ieops-1831.svg[ASA A20,A30,or an A50 weight caution icon]
+image::../media/drw_g_lifting_weight_ieops-1831.svg[Icône d'avertissement de poids ASA A20 A30 A50]
+
+--
+.C30
+--
+Un système de stockage ASA C30 peut peser jusqu'à 61,5 lb (27,9 kg). Pour soulever le système de stockage, faire appel à deux personnes ou à un relevage hydraulique.
+
+image::../media/drw_g_lifting_weight_ieops-1831.svg[Icône d'avertissement de poids ASA A20 A30 ou A50]
 
 --
 ====
