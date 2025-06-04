@@ -21,9 +21,9 @@ Les mises à jour recommandées pour le micrologiciel de stockage, le micrologic
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Activer*.
-. Lisez et acceptez le CLUF.
-. Acceptez les valeurs par défaut pour mettre à jour automatiquement vos fichiers système et de micrologiciel. Si vous le souhaitez, sélectionnez pour afficher les notifications ou pour ignorer automatiquement les mises à jour recommandées.
+. Sous *Mises à jour logicielles*, sélectionnez *Activer*.
+. Lisez le CLUF.
+. Acceptez les paramètres par défaut pour *Afficher la notification* des mises à jour recommandées. Vous pouvez également choisir de *Mettre à jour automatiquement* ou de *Rejeter automatiquement* les mises à jour recommandées.
 . Sélectionnez cette option pour confirmer que vos modifications de mise à jour seront appliquées à toutes les mises à jour actuelles et futures.
 . Sélectionnez *Enregistrer*.
 
@@ -39,7 +39,7 @@ Désactivez les mises à jour automatiques si vous souhaitez pouvoir afficher le
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Désactiver*.
+. Sous *Mises à jour logicielles*, sélectionnez *Désactiver*.
 
 
 .Résultat
@@ -53,7 +53,7 @@ Afficher la liste des mises à jour de firmware et de fichiers système qui ont 
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Afficher toutes les mises à jour automatiques*.
+. À côté de *Mises à jour logicielles*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"] , puis sélectionnez *Afficher toutes les mises à jour automatiques*.
 
 
 
@@ -64,7 +64,7 @@ Vous pouvez choisir de télécharger et d'installer automatiquement les mises à
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. En regard de *mise à jour automatique*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Modifier les mises à jour automatiques*.
+. À côté de *Mises à jour logicielles*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"] , puis sélectionnez *Toutes les autres mises à jour*.
 . Mettre à jour les sélections pour les mises à jour automatiques.
 . Sélectionnez *Enregistrer*.
 
@@ -80,8 +80,9 @@ Si vous souhaitez pouvoir afficher les mises à jour recommandées avant de les 
 
 .Étapes
 . Téléchargez votre fichier de mise à jour du micrologiciel sur un serveur ou un client local.
-. Dans System Manager, sélectionnez *Cluster > Présentation*, puis *Update*.
-. Sélectionnez *Firmware update* ; le sélectionnez image:icon_update_firmware.png["rectangle bleu contenant un signe plus suivi des mots update firmware en lettres blanches"].
+. Dans le Gestionnaire système, sélectionnez *Cluster > Présentation*, puis sélectionnez *Toutes les autres mises à jour*.
+. Sous *Mises à jour manuelles*, sélectionnez *Ajouter des fichiers de micrologiciel* ; puis sélectionnez *Télécharger depuis le serveur* ou *Télécharger depuis le client local*.
+. Installez le fichier de mise à jour du firmware.
 
 
 .Résultat

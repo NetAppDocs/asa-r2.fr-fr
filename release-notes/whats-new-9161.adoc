@@ -31,6 +31,7 @@ Les systèmes NetApp ASA r2 suivants sont pris en charge à partir de ONTAP 9.16
 * ASA A50
 * ASA A30
 * ASA A20
+* ASA C30
 
 
 |===

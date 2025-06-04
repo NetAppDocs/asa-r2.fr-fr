@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: learn-more/cli-support.html 
-keywords: asa r2, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20cli 
-summary: 'Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 90, ASA 70, ASA A50, ASA A30, ASA A20).' 
+keywords: asa r2, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20, asa c30, cli, comand line interface 
+summary: 'Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 90, ASA 70, ASA A50, ASA A30, ASA A20, ASA C30).' 
 ---
 = Prise en charge de l'interface de ligne de commande ONTAP pour les systèmes de stockage ASA r2
 :allow-uri-read: 
