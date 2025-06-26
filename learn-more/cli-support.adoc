@@ -22,9 +22,6 @@ Les commandes et jeux de commandes suivants ne sont pas pris en charge sur ASA s
 ====
 * `lun copy`
 * `lun geometry`
-* `lun import`
-* `lun mapping add-reportng-nodes`
-* `lun mapping-remove-reporting-nodes`
 * `lun maxsize`
 * `lun move`
 * `lun move-in-volume`
