@@ -26,9 +26,42 @@ Les commandes et jeux de commandes suivants ne sont pas pris en charge sur ASA s
 * `lun move`
 * `lun move-in-volume`
 +
-Cette commande est remplacée par lun rename/vserver nvme namespace rename.
+
+NOTE: Le  `lun move-in-volume` la commande est remplacée par la  `lun rename` et le  `vserver nvme namespace rename` commandes.
 
 * `lun transition`
+
+
+====
+.Commandes <code> </code> non prises en charge
+[%collapsible]
+====
+* `storage failover show-takeover`
+* `storage failover show-giveback`
+* `storage aggregate relocation`
+* `storage disk assign`
+* `storage disk partition`
+* `storage disk reassign`
+
+
+====
+.Jeux de commandes <code> </code> non pris en charge
+[%collapsible]
+====
+* `volume activity-tracking`
+* `volume analytics`
+* `volume conversion`
+* `volume file`
+* `volume flexcache`
+* `volume flexgroup`
+* `volume inode-upgrade`
+* `volume object-store`
+* `volume qtree`
+* `volume quota`
+* `volume reallocation`
+* `volume rebalance`
+* `volume recovery-queue`
+* `volume schedule-style`
 
 
 ====
@@ -41,7 +74,7 @@ Cette commande est remplacée par lun rename/vserver nvme namespace rename.
 * `volume expand`
 * `volume modify`
 +
-Cette commande n'est pas disponible lorsqu'elle est utilisée conjointement avec les paramètres suivants :
+Le  `volume modify` La commande n'est pas disponible lorsqu'elle est utilisée avec les paramètres suivants :
 
 +
 ** `-anti-ransomware-state`
@@ -103,38 +136,6 @@ Cette commande n'est pas disponible lorsqu'elle est utilisée conjointement avec
 * `volume snapshot`
 * `volume snapshot autodelete modify`
 * `volume snapshot policy modify`
-
-
-====
-.Jeux de commandes <code> </code> non pris en charge
-[%collapsible]
-====
-* `volume activity-tracking`
-* `volume analytics`
-* `volume conversion`
-* `volume file`
-* `volume flexcache`
-* `volume flexgroup`
-* `volume inode-upgrade`
-* `volume object-store`
-* `volume qtree`
-* `volume quota`
-* `volume reallocation`
-* `volume rebalance`
-* `volume recovery-queue`
-* `volume schedule-style`
-
-
-====
-.Commandes <code> </code> non prises en charge
-[%collapsible]
-====
-* `storage failover show-takeover`
-* `storage failover show-giveback`
-* `storage aggregate relocation`
-* `storage disk assign`
-* `storage disk partition`
-* `storage disk reassign`
 
 
 ====
