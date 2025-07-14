@@ -35,7 +35,7 @@ indexpage:
   - title: Plus de ressources ASA r2
     links:
     - title: Fiche technique ASA
-      url: https://www.netapp.com/data-storage/all-flash-san-storage-array/
+      url: https://www.netapp.com/pdf.html?item=/media/85736-ds-4254-asa.pdf
   - title: Autres ressources ONTAP
     links:
     - title: Documentation pour les autres systèmes ONTAP
