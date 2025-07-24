@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: secure-data/respond-anti-ransomware-protection-alerts.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+summary: Affichez les avertissements concernant les attaques potentielles de ransomware et prenez des mesures dans le Gestionnaire système. 
+---
+= Répondez à la protection autonome contre les ransomwares avec des alertes IA sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la protection autonome contre les ransomwares avec intelligence artificielle (ARP/IA) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, un avertissement s'affiche sur le tableau de bord du Gestionnaire système. Consultez l'avertissement, vérifiez l'activité et, si nécessaire, prenez les mesures nécessaires pour contrer toute menace potentielle pesant sur vos données.
+
+Si un message d'avertissement ARP/AI s'affiche, avant d'agir, utilisez le vérificateur d'intégrité des applications approprié pour vérifier l'intégrité des données sur l'unité de stockage. Vérifier l'intégrité des données de l'unité de stockage vous permet de déterminer si l'activité est acceptable ou s'il s'agit d'une attaque potentielle par rançongiciel.
+
+[cols="2,2"]
+|===
+| Si l'activité anormale est... | Alors fais ceci... 
+
+
+| Acceptable | Marquer l’activité comme un faux positif. 
+
+
+| Une attaque potentielle de ransomware | Marquez l’activité comme une attaque potentielle de ransomware. 
+
+
+| Indéterminé | N'agissez pas immédiatement. Surveillez l'unité de stockage pendant 7 jours maximum. Si l'unité de stockage continue de fonctionner normalement, signalez l'activité comme un faux positif. Si l'unité de stockage continue de présenter une activité anormale, signalez-la comme une attaque potentielle par rançongiciel. 
+|===
+.Étapes
+. Dans System Manager, sélectionnez *Dashboard*.
++
+Si ARP a détecté une activité anormale sur une ou plusieurs unités de stockage, un message apparaît sous *Avertissements*.
+
+. Sélectionnez le message d’avertissement.
+. Sous *Aperçu des événements*, sélectionnez le message *Avertissements* qui indique le nombre d'unités de stockage présentant une activité anormale.
+. Sous *Unités de stockage avec activité anormale*, sélectionnez l'unité de stockage.
+. Sélectionnez *Sécurité*.
++
+S'il y a une activité anormale sur l'unité de stockage, un message s'affiche sous *Anti-ransomware*.
+
+. Sélectionnez *Choisir une action*.
+. Sélectionnez *Marquer comme faux positif* ou sélectionnez *Marquer comme attaque potentielle par ransomware*.
+

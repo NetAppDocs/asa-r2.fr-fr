@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-prepare.html 
+keywords: asa r2, data protection, business continuity, snapmirror active sync, protocol support, object limits, NVMe protocol limitations, prerequisites, interoperability, limits 
+summary: 'Pour préparer la configuration de SnapMirror Active Sync sur votre système ASA r2, vous devez examiner les conditions préalables de configuration, confirmer la prise en charge des systèmes d"exploitation de vos hôtes et être conscient des limites d"objets susceptibles d"avoir un impact sur une configuration spécifique.' 
+---
+= Préparez-vous à configurer SnapMirror Active Sync sur les systèmes ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour préparer la configuration de SnapMirror Active Sync sur votre système ASA r2, vous devez examiner les conditions préalables de configuration, confirmer la prise en charge des systèmes d'exploitation de vos hôtes et être conscient des limites d'objets susceptibles d'avoir un impact sur une configuration spécifique.
+
+.Étapes
+. Revoir la synchronisation active de SnapMirror link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/prerequisites-reference.html["prérequis"^] .
+. link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/interoperability-reference.html["Confirmez que vos systèmes d'exploitation hôtes sont pris en charge"^] pour la synchronisation active SnapMirror .
+. Passez en revue le link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/limits-reference.html["limites de l'objet"] cela pourrait avoir un impact sur votre configuration.
+. Vérifiez la prise en charge du protocole hôte pour la synchronisation active SnapMirror sur votre système ASA r2.
++
+La prise en charge de la synchronisation active SnapMirror sur les systèmes ASA r2 varie en fonction de la version ONTAP et du protocole hôte.
+
++
+[cols="2,2"]
+|===
+| En commençant par ONTAP... | La synchronisation active de SnapMirror prend en charge... 
+
+
+| 9.17.1  a| 
+** iSCSI
+** FC
+** NVMe/FC
+** NVMe/TCP
+
+
+
+
+| 9.16.0  a| 
+** iSCSI
+** FC
+
+
+|===
+
+
+
+
+== Limitations du protocole NVMe avec la synchronisation active SnapMirror sur les systèmes ASA r2
+
+Avant de configurer SnapMirror Active Sync sur un système ASA r2 avec des hôtes NVMe, vous devez connaître certaines limitations du protocole NVMe.
+
+Toutes les unités de stockage NVMe du sous-système NVMe doivent être membres du même groupe de cohérence et doivent toutes faire partie de la même relation de synchronisation active SnapMirror .
+
+Les protocoles NVMe/FC et NVMe/TCP sont pris en charge avec SnapMirror Active Sync comme suit :
+
+* Uniquement sur les clusters à 2 nœuds
+* Uniquement sur les hôtes ESXi
+* Uniquement avec des configurations symétriques actives/actives
++
+Les configurations actives/actives asymétriques ne sont pas prises en charge avec les hôtes NVMe.
+
+
+
+La synchronisation active de SnapMirror avec NVMe ne prend pas en charge les éléments suivants :
+
+* Sous-systèmes mappés à plusieurs groupes de cohérence
++
+Un groupe de cohérence peut être mappé avec plusieurs sous-systèmes, mais chaque sous-système ne peut être mappé qu'à un seul groupe de cohérence.
+
+* Extension des groupes de cohérence dans une relation de synchronisation active SnapMirror
+* Mappage des unités de stockage NVMe qui ne sont pas dans une relation de synchronisation active SnapMirror vers des sous-systèmes répliqués
+* Suppression d'une unité de stockage d'un groupe de cohérence
+* Changement de géométrie du groupe de cohérence
+* link:https://docs.netapp.com/us-en/ontap/san-admin/microsoft-offloaded-data-transfer-odx-concept.html["Transfert de données déchargées Microsoft (ODX)"]
+
+
+.Et la suite ?
+Après avoir terminé la préparation nécessaire pour activer la synchronisation active de SnapMirror , vous devez link:snapmirror-active-sync-confirm-cluster-configuration.html["confirmer la configuration de votre cluster"] .

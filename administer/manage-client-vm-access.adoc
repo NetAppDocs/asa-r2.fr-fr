@@ -108,9 +108,6 @@ Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez cr
 . Sélectionnez *réseau > vue d'ensemble*.
 . Sélectionnez *interfaces réseau*, puis sélectionnez image:icon_add_blue_bg.png["rectangle bleu avec un signe plus suivi du mot ajouter en lettres blanches"].
 . Sélectionnez le type et le protocole d'interface, puis la VM de stockage.
-+
-Pour activer le basculement de LIF iSCSI, sélectionnez uniquement le protocole IP.
-
 . Entrez un nom pour la LIF ou acceptez le nom par défaut.
 . Sélectionnez le nœud de départ de l'interface réseau, puis entrez l'adresse IP et le masque de sous-réseau.
 . Sélectionnez *Enregistrer*.
@@ -120,22 +117,81 @@ Pour activer le basculement de LIF iSCSI, sélectionnez uniquement le protocole 
 Vous avez créé une LIF pour l'accès aux données.
 
 .Et la suite ?
-Si vous avez créé une LIF IP pour iSCSI, vous pouvez utiliser l'interface de ligne de commande ONTAP pour activer le basculement automatique des LIF iSCSI.
+Vous pouvez utiliser l'interface de ligne de commande (CLI) ONTAP pour créer un LIF iSCSI uniquement avec basculement automatique.
 
 
 
-=== Activer le basculement automatique de LIF iSCSI
+=== Créer une stratégie de service LIF iSCSI uniquement personnalisée
 
-Si sur le SVM des LIF iSCSI ne sont pas activées pour le basculement automatique des LIF, vos nouvelles LIF ne seront pas non plus activées pour le basculement automatique des LIF. Si le basculement automatique de LIF n'est pas activé et qu'un événement de basculement se produit, vos LIFs iSCSI ne migrent pas.
+Si vous souhaitez créer des LIF iSCSI uniquement avec basculement LIF automatique, vous devez d'abord créer une stratégie de service LIF iSCSI uniquement personnalisée.
 
-Vous devez utiliser l'interface de ligne de commande ONTAP pour activer le basculement automatique des LIF iSCSI.
+Vous devez utiliser l’interface de ligne de commande (CLI) ONTAP pour créer la stratégie de service personnalisée.
 
 .Étape
-. Activer le basculement automatique de LIF iSCSI :
+. Définissez le niveau de privilège sur avancé :
 +
 [source, cli]
 ----
-network interface modify -vserver <SVM_name> -lif <iscsi_lif> -failover-policy sfo-partner-only -auto-revert true
+set -privilege advanced
+----
+. Créer une stratégie de service LIF iSCSI uniquement personnalisée :
++
+[source, cli]
+----
+network interface service-policy create -vserver <SVM_name> -policy <service_policy_name> -services data-core,data-iscsi
+----
+. Vérifiez que la politique de service a été créée :
++
+[source, cli]
+----
+network interface service-policy show -policy <service_policy_name>
+----
+. Renvoyer le niveau de privilège à l'administrateur :
++
+[source, cli]
+----
+set -privilege admin
+----
+
+
+
+
+=== Créer des LIF uniquement iSCSI avec basculement automatique des LIF
+
+Si sur le SVM des LIF iSCSI ne sont pas activées pour le basculement automatique des LIF, vos nouvelles LIF ne seront pas non plus activées pour le basculement automatique des LIF. Si le basculement automatique de LIF n'est pas activé et qu'un événement de basculement se produit, vos LIFs iSCSI ne migrent pas.
+
+.Avant de commencer
+Vous devez avoir créé une stratégie de service LIF iSCSI uniquement personnalisée.
+
+.Étapes
+. Créez des LIF uniquement iSCSI avec basculement automatique des LIF :
++
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
+----
++
+** Il est recommandé de créer deux LIF iSCSI sur chaque nœud, un pour la structure A et l'autre pour la structure B. Cela assure la redondance et l'équilibrage de charge de votre trafic iSCSI. Dans l'exemple suivant, quatre LIF iSCSI sont créés : deux sur chaque nœud et un pour chaque structure.
++
+[listing]
+----
+network interface create -vserver svm1 -lif iscsi-lif-01a -service-policy custom-data-iscsi -home-node node1 -home-port e2b -address <node01-iscsi-a–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+
+network interface create -vserver svm1 -lif iscsi-lif-01b -service-policy custom-data-iscsi -home-node node1 -home-port e4b -address <node01-iscsi-b–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+
+network interface create -vserver svm1 -lif iscsi-lif-02a -service-policy custom-data-iscsi -home-node node2 -home-port e2b -address <node02-iscsi-a–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+
+network interface create -vserver svm1 -lif iscsi-lif-02b -service-policy custom-data-iscsi -home-node node2 -home-port e4b -address <node02-iscsi-b–ip> -netmask 255.255.255.0 -failover-policy sfo-partner-only -status-admin up
+----
+** Si vous utilisez des VLAN, ajustez le  `home-port` paramètre pour inclure les informations de port VLAN pour la structure iSCSI respective, par exemple,  `-home-port e2b-<iSCSI-A-VLAN>` pour la structure iSCSI A et  `-home-port e4b-<iSCSI-B-VLAN>` .
+** Si vous utilisez des groupes d'interfaces (ifgroups) avec des VLAN, ajustez le  `home-port` paramètre pour inclure le port VLAN approprié, par exemple,  `-home-port a0a-<iSCSI-A-VLAN>` pour la structure iSCSI A et  `-home-port a0a-<iSCSI-B-VLAN>` pour la structure iSCSI B où  `a0a` est le ifgroup et a0a-<iSCSI-A-VLAN> et a0a-<iSCSI-B-VLAN> sont les ports VLAN respectifs pour la structure iSCSI A et la structure iSCSI B.
+
+
+. Vérifiez que les LIF iSCSI ont été créés :
++
+[source, cli]
+----
+network interface show -lif iscsi*
 ----
 
 

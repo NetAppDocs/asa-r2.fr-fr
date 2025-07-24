@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: manage-data/create-host-groups.html 
+keywords: create host group, map storage units, host access, asa r2 
+summary: Créez des groupes d’hôtes pour fournir aux hôtes un accès aux unités de stockage et gérer efficacement les mappages de stockage. 
+---
+= Créez des groupes d'hôtes sur votre système ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sur un système ASA r2, un _groupe d'hôtes_ est le mécanisme utilisé pour donner aux hôtes l'accès aux unités de stockage. Un groupe d'hôtes désigne un groupe initiateur pour les hôtes SCSI ou un sous-système NVMe pour les hôtes NVMe. Un hôte ne peut voir que les unités de stockage qui sont mappées aux groupes d'hôtes auxquels il appartient. Lorsqu'un groupe d'hôtes est mappé sur une unité de stockage, les hôtes qui sont membres du groupe peuvent alors monter (créer des répertoires et des structures de fichiers sur) l'unité de stockage.
+
+Les groupes d'hôtes sont créés automatiquement ou manuellement lorsque vous créez vos unités de stockage. Vous pouvez éventuellement utiliser les étapes suivantes pour créer des groupes hôtes avant ou après la création de l'unité de stockage.
+
+.Étapes
+. Dans System Manager, sélectionnez *Host*.
+. Sélectionnez les hôtes que vous souhaitez ajouter au groupe d'hôtes.
++
+Après avoir sélectionné le premier hôte, l'option à ajouter à un groupe d'hôtes apparaît au-dessus de la liste des hôtes.
+
+. Sélectionnez *Ajouter au groupe d'hôtes*.
+. Recherchez et sélectionnez le groupe d'hôtes auquel vous souhaitez ajouter l'hôte.
+
+
+.Et la suite ?
+Vous avez créé un groupe d'hôtes et vous pouvez désormais link:provision-san-storage.html#map-the-storage-unit-to-a-host["mappez-le à une unité de stockage"] .

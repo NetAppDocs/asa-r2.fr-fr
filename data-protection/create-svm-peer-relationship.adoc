@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: data-protection/create-svm-peer-relationship.html 
+keywords: restore data, asa r2, data restoration 
+summary: 'Si les données d"un groupe de cohérence sont corrompues ou perdues, vous pouvez restaurer l"intégralité du groupe de cohérence à partir d"un snapshot distant.' 
+---
+= Créer une relation homologue de machine virtuelle de stockage intercluster sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une relation d'homologue définit les connexions réseau permettant aux clusters et aux machines virtuelles de stockage (VM) d'échanger des données en toute sécurité. Créez des relations d'homologue entre les VM de stockage de différents clusters pour assurer la protection des données et la reprise après sinistre grâce à SnapMirror.
+
+link:https://docs.netapp.com/us-en/ontap/peering/peering-basics-concept.html["En savoir plus sur les relations entre pairs"^] .
+
+.Avant de commencer
+Vous devez avoir établi une relation d'homologue de cluster entre les clusters locaux et distants avant de pouvoir créer une relation d'homologue de machine virtuelle de stockage. link:snapshot-replication.html#step-1-create-a-cluster-peer-relationship["Créer une relation entre pairs de cluster"] si vous ne l'avez pas déjà fait.
+
+.Étapes
+. Dans le Gestionnaire système, sélectionnez *Protection > Présentation*.
+. Sous *Homologations de machines virtuelles de stockage*, sélectionnez *Ajouter une homologation de machines virtuelles de stockage*.
+. Sélectionnez la machine virtuelle de stockage sur le cluster local, puis sélectionnez la machine virtuelle de stockage sur le cluster distant.
+. Sélectionnez *Ajouter un homologue de machine virtuelle de stockage*.
+

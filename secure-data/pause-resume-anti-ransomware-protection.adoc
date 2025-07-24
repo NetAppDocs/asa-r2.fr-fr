@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: secure-data/pause-resume-anti-ransomware-protection.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, pause, resume, suspend 
+summary: 'Si vous prévoyez un événement de charge de travail inhabituel, vous pouvez suspendre temporairement l"analyse ARP/AI pour éviter les détections faussement positives d"attaques de ransomware' 
+---
+= Suspendez ou reprenez la protection autonome contre les ransomwares avec l'IA sur vos systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À partir d' ONTAP 9.17.1, vous pouvez utiliser la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) pour protéger les données de votre système ASA r2. Si vous prévoyez un événement de charge de travail inhabituel, vous pouvez suspendre temporairement l'analyse ARP/AI afin d'éviter les détections de faux positifs d'attaques de ransomware. Une fois l'événement de charge de travail terminé, vous pouvez reprendre l'analyse ARP/AI.
+
+
+
+== Mettre en pause ARP/AI
+
+Avant de commencer un événement de charge de travail inhabituel, vous devrez peut-être suspendre temporairement l'analyse ARP/AI pour éviter les détections faussement positives d'attaques de ransomware.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Sélectionnez les unités de stockage pour lesquelles vous souhaitez suspendre ARP/AI.
+. Sélectionnez *Pause anti-ransomware*.
+
+
+.Résultat
+L'analyse ARP/AI est suspendue pour les unités de stockage sélectionnées et aucune activité suspecte ne vous est signalée dans le Gestionnaire système jusqu'à ce que vous repreniez ARP/AI.
+
+
+
+== Reprendre ARP/AI
+
+Si vous suspendez ARP/AI pendant une charge de travail inhabituelle, une fois votre charge de travail terminée, vous devez la reprendre pour protéger vos données contre les attaques de ransomware.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Sélectionnez les unités de stockage pour lesquelles vous souhaitez reprendre ARP/AI.
+. Sélectionnez *Reprendre l'anti-ransomware*.
+
+
+.Résultat
+L’analyse des attaques potentielles de ransomware reprend et les activités suspectes vous sont signalées dans le Gestionnaire système.

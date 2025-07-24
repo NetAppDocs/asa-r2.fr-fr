@@ -10,6 +10,12 @@ entries:
     url: "/manage-data/provision-san-storage.html"
   - title: Clonage de données
     url: "/manage-data/data-cloning.html"
+  - title: Gérer les groupes d'hôtes
+    entries:
+    - title: Créer des groupes d'hôtes
+      url: "/manage-data/create-host-groups.html"
+    - title: Supprimer les groupes d'hôtes
+      url: "/manage-data/delete-host-groups.html"
   - title: Gérer les unités de stockage
     entries:
     - title: Modifier les unités de stockage
@@ -24,8 +30,31 @@ entries:
   entries:
   - title: Créer des instantanés
     url: "/data-protection/create-snapshots.html"
+  - title: Créer une relation homologue SVM
+    url: "/data-protection/create-svm-peer-relationship.html"
   - title: Configuration de la réplication Snapshot
     url: "/data-protection/snapshot-replication.html"
+  - title: Configurer la synchronisation active de SnapMirror
+    entries:
+    - title: Flux de travail
+      url: "/data-protection/snapmirror-active-sync.html"
+    - title: Préparez-vous à configurer la synchronisation active de SnapMirror
+      url: "/data-protection/snapmirror-active-sync-prepare.html"
+    - title: Confirmez la configuration de votre cluster
+      url: "/data-protection/snapmirror-active-sync-confirm-cluster-configuration.html"
+    - title: Installer ONTAP Mediator
+      url: "/data-protection/install-ontap-mediator.html"
+    - title: Configurer ONTAP Mediator
+      url: "/data-protection/configure-ontap-mediator.html"
+    - title: Configurer la synchronisation active de SnapMirror
+      url: "/data-protection/configure-snapmirror-active-sync.html"
+  - title: Gérer la synchronisation active de SnapMirror
+    entries:
+    - title: Effectuer un basculement planifié avec SnapMirror Active Sync
+      url: "/data-protection/snapmirror-active-sync-planned-failover.html"
+    - title: Rétablir la synchronisation active de SnapMirror après un basculement
+        imprévu
+      url: "/data-protection/snapmirror-active-sync-unplanned-failover.html"
   - title: Protéger Kubernetes
     url: "/data-protection/protect-kubernetes.html"
   - title: Restaurez les données
@@ -42,7 +71,17 @@ entries:
       clés
     url: "/secure-data/migrate-encryption-keys-between-key-managers.html"
   - title: Protégez-vous contre les attaques par ransomware
-    url: "/secure-data/ransomware-protection.html"
+    entries:
+    - title: Créez des instantanés inviolables
+      url: "/secure-data/ransomware-protection.html"
+    - title: Activer ARP/AI
+      url: "/secure-data/enable-anti-ransomware-protection.html"
+    - title: Modifier les périodes de conservation des instantanés ARP/AI
+      url: "/secure-data/modify-arp-snapshot-retention-period.html"
+    - title: Répondre aux alertes ARP/AI
+      url: "/secure-data/respond-anti-ransomware-protection-alerts.html"
+    - title: Mettre en pause ou reprendre ARP/AI
+      url: "/secure-data/pause-resume-anti-ransomware-protection.html"
   - title: Des connexions NVMe sécurisées
     url: "/secure-data/nvme-tcp-connections.html"
   - title: Connexions IP sécurisées

@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync.html 
+keywords: asa r2, data protection, business continuity, snapmirror active sync, zero rpo, zero rto, disaster recovery, symmetric active/active, workflow 
+summary: 'Utilisez la synchronisation active SnapMirror pour protéger les applications hôtes qui nécessitent un objectif de point de récupération zéro (RPO) et un objectif de temps de récupération zéro (RTO) contre les pannes dues à une interruption inattendue ou à une catastrophe du site.' 
+---
+= Flux de travail de configuration de la synchronisation active de SnapMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La protection des données ONTAP SnapMirror Active Sync permet aux services métier de continuer à fonctionner même en cas de panne totale du site, en permettant le basculement transparent des applications via une copie secondaire. Aucune intervention manuelle ni script personnalisé ne sont requis pour déclencher un basculement avec SnapMirror Active Sync.
+
+Bien que les procédures du gestionnaire système pour la configuration de SnapMirror Active Sync soient différentes sur les systèmes ASA r2 et sur les systèmes NetApp FAS, AFF et ASA exécutant la personnalité ONTAP unifiée, les exigences, l'architecture et le fonctionnement de SnapMirror Active Sync sont les mêmes.
+
+link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["En savoir plus sur la synchronisation active de SnapMirror"^] .
+
+Sur les systèmes ASA r2, SnapMirror Active Sync prend en charge les configurations symétriques actives/actives. Dans une telle configuration, les deux sites peuvent accéder au stockage local pour les E/S actives.
+
+En savoir plus sur link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/architecture-concept.html#symmetric-activeactive["configurations symétriques actives/actives"^] .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Préparez-vous à configurer la synchronisation active de SnapMirror .
+[role="quick-margin-para"]
+À link:snapmirror-active-sync-prepare.html["préparer la configuration de SnapMirror Active Sync"] sur votre système ASA r2, vous devez examiner les conditions préalables de configuration, confirmer la prise en charge de vos systèmes d'exploitation hôtes et être conscient des limites d'objets susceptibles d'avoir un impact sur une configuration spécifique.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Confirmez la configuration de votre cluster.
+[role="quick-margin-para"]
+Avant de configurer la synchronisation active de SnapMirror , vous devez link:snapmirror-active-sync-confirm-cluster-configuration.html["confirmez que vos clusters ASA r2 sont dans les relations de peering appropriées et répondent aux autres exigences de configuration"] .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"] Installez ONTAP Mediator.
+[role="quick-margin-para"]
+Vous pouvez utiliser ONTAP Mediator ou ONTAP Cloud Mediator pour surveiller l'état de votre cluster et assurer la continuité de vos activités. Si vous utilisez ONTAP Mediator, vous devez link:install-ontap-mediator.html["installez-le"] sur votre hôte. Si vous utilisez ONTAP Cloud Mediator, vous pouvez ignorer cette étape.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"] Configurez ONTAP Mediator ou ONTAP Cloud Mediator à l’aide de certificats auto-signés.
+[role="quick-margin-para"]
+Vous devez link:configure-ontap-mediator.html["configurer le médiateur ONTAP ou le médiateur cloud ONTAP"] avant de pouvoir commencer à l'utiliser avec SnapMirror Active Sync pour la surveillance des clusters.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"] Configurer la synchronisation active de SnapMirror .
+[role="quick-margin-para"]
+link:configure-snapmirror-active-sync.html["Configurer la synchronisation active de SnapMirror"] pour créer une copie de vos données sur un site secondaire et permettre à vos applications hôtes de basculer automatiquement et de manière transparente en cas de sinistre.

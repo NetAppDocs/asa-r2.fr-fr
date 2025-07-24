@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: administer/revert-ontap.html 
+keywords: update, revert, ontap, asa r2 
+summary: ONTAP met automatiquement à jour le micrologiciel sur les systèmes ASA r2. Vous pouvez utiliser System Manager pour désactiver les mises à jour automatiques et afficher les mises à jour avant leur installation. 
+---
+= Rétablir ONTAP sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les restaurations pour les autres systèmes ONTAP .
+
+La restauration d'un cluster ONTAP est perturbatrice. Vous devez mettre le cluster hors ligne pendant toute la durée de la restauration. Vous ne devez pas restaurer un cluster de production sans l'aide du support technique. Vous pouvez restaurer un nouveau cluster ou un cluster de test sans assistance. Si la restauration d'un nouveau système ou d'un cluster de test échoue ou réussit, mais que vous n'êtes pas satisfait des performances du cluster dans votre environnement de production, contactez le support technique pour obtenir de l'aide.
+
+link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Rétablir un cluster ONTAP"] .
+
+
+
+== Rétablir les exigences pour les systèmes ASA r2
+
+Certaines configurations de cluster ASA r2 nécessitent que vous preniez des mesures spécifiques avant de commencer une restauration du logiciel ONTAP .
+
+
+
+=== Retour à ONTAP 9.17.1
+
+Si vous revenez à ONTAP 9.17.1 sur un système ASA r2, vous devez effectuer les actions suivantes avant de commencer la restauration :
+
+[cols="2"]
+|===
+| Si vous avez... | Avant de revenir en arrière, vous devriez... 
+
+
+| Groupes de cohérence hiérarchique dans une relation de synchronisation active SnapMirror | Supprimer la relation de synchronisation active SnapMirror 
+
+
+| Relations d'importation actives | Supprimer les relations d'importation actives 
+
+
+| Protection anti-ransomware activée | Désactiver la protection anti-ransomware 
+|===

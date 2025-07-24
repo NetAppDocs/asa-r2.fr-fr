@@ -4,7 +4,7 @@ permalink: secure-data/ransomware-protection.html
 keywords: asa r2, secure data, data security, ransomware, ransomware attacks, protection 
 summary: 'Sécurisez vos données à l"aide de snapshots inviolables. Les snapshots inviolables ne peuvent pas être supprimés et peuvent être utilisés pour restaurer les données compromises en cas d"attaque par ransomware.' 
 ---
-= Protégez-vous contre les attaques par ransomware sur les systèmes de stockage ASA r2
+= Créez des instantanés inviolables pour vous protéger contre les attaques de ransomware sur les systèmes de stockage ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

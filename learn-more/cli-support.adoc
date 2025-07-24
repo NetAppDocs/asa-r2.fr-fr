@@ -11,9 +11,9 @@ summary: 'Certaines commandes ONTAP ne sont pas prises en charge sur les systèm
 
 
 [role="lead"]
-Au lieu des agrégats traditionnels, propriétaires d'un jeu spécifique de disques disponibles dans un système de stockage, les systèmes ASA r2 utilisent une _zone de disponibilité du stockage_. Une zone de disponibilité de stockage est un pool de stockage commun qui a accès à tous les disques disponibles dans le système de stockage. La zone de disponibilité du stockage est visible pour les deux nœuds d'une paire HA ASA r2. Lors de la création d'une unité de stockage (espace de noms de LUN ou NVMe), ONTAP crée automatiquement un volume contenant une machine virtuelle de stockage (VM) dans la zone de disponibilité du stockage afin d'héberger l'unité de stockage.
+Au lieu d'agrégats, la couche de stockage des systèmes ASA r2 utilise des zones de disponibilité de stockage. Une zone de disponibilité de stockage est un pool commun de stockage accessible à une seule paire HA. Les deux nœuds de la paire HA ont accès à tous les disques disponibles dans leur zone de disponibilité de stockage partagée. Lorsqu'une unité de stockage (LUN ou espace de noms NVMe) est créée, ONTAP crée automatiquement un volume dans la zone de disponibilité de stockage appropriée pour l'héberger.
 
-Grâce à cette approche simplifiée de la gestion du stockage, les `storage aggregate` commandes ne sont pas prises en charge sur les systèmes ASA r2. La prise en charge de certaines `lun` `volume` commandes et paramètres est également limitée.
+En raison de cette approche simplifiée de la gestion du stockage,  `storage aggregate` Les commandes ne sont pas prises en charge sur les systèmes ASA r2. Prise en charge de certaines  `lun` ,  `storage` et  `volume` les commandes et les paramètres sont également limités.
 
 Les commandes et jeux de commandes suivants ne sont pas pris en charge sur ASA sous r2 :
 

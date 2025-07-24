@@ -19,10 +19,16 @@ Les systèmes ASA r2 prennent en charge les éléments suivants :
 |===
 
 
-| Nombre max. De nœuds par cluster | 12 
+| Nombre maximal de nœuds par cluster | 12 
 
 
-| Taille max. De l'unité de stockage | 128 TO 
+| Nombre maximal d'unités de stockage par cluster | 30 000 
+
+
+| Taille maximale de l'unité de stockage | 128 TO 
+
+
+| Taille maximale de la zone de disponibilité de stockage | 2 PB 
 |===
 .Pour en savoir plus
 Pour obtenir la liste complète des limites de stockage ASA r2 les plus récentes, reportez-vous à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]la section .

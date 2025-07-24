@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: learn-more/additional-supported-ontap-features.html 
+keywords: asa r2, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20, asa c30, cli, comand line interface 
+summary: 'Étant donné que les systèmes ASA r2 exécutent une version simplifiée d" ONTAP, de nombreuses tâches ONTAP courantes et fonctions du gestionnaire de système sont exécutées de la même manière sur les systèmes ASA r2 que sur les autres systèmes ONTAP .' 
+---
+= Fonctionnalités ONTAP courantes prises en charge sur les systèmes ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Étant donné que les systèmes ASA r2 exécutent une version simplifiée d' ONTAP, de nombreuses tâches ONTAP courantes et fonctions du gestionnaire de système sont exécutées de la même manière sur les systèmes ASA r2 que sur les autres systèmes ONTAP .
+
+Pour plus d'informations sur les fonctionnalités et fonctions courantes, consultez la documentation ONTAP suivante.
+
+
+
+== Administration ONTAP
+
+* link:https://docs.netapp.com/us-en/ontap/task_admin_search_filter_sort.html["Apprenez à rechercher, filtrer et trier les informations dans ONTAP System Manager"^] .
+* link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html["Combinez des ports physiques pour créer des groupes d'interfaces"^] .
+* link:https://docs.netapp.com/us-en/ontap/concept_nvme_provision_overview.html["En savoir plus sur le provisionnement NVMe over Fabrics (NVMe-oF)"^] .
+
+
+
+
+== Sécurité des données
+
+* link:https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["En savoir plus sur l'authentification OAuth 2.0"^] .
+* link:https://docs.netapp.com/us-en/ontap/concepts/client-access-storage-concept.html["En savoir plus sur l'authentification et l'autorisation des clients"^] .
+* link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authentication-task.html["Apprenez à configurer l'authentification SAML"^] .
+* link:https://docs.netapp.com/us-en/ontap/task_security_administrator_access.html["Gérer l'accès administrateur ONTAP"^] .
+
+
+
+
+== Protection des données
+
+* link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-key-server-task.html["Configurer des serveurs de clés externes en cluster dans ONTAP"^] .
+* link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-external-key-management-96-later-hw-task.html["Activer la gestion des clés externes (basée sur le matériel)"^] .
+* link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-external-key-management-96-later-nve-task.html["Activer la gestion des clés externes (NVE)"^] .
+

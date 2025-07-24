@@ -25,6 +25,9 @@ Pour configurer la réplication Snapshot, vous devez établir une relation de r�
 
 Avant de pouvoir protéger vos données en les répliquant sur un cluster distant, vous devez créer une relation entre les pairs de cluster entre le cluster local et distant.
 
+.Avant de commencer
+Les conditions préalables à l'appairage de cluster sont les mêmes pour les systèmes ASA r2 que pour les autres systèmes ONTAP . link:https://docs.netapp.com/us-en/ontap/peering/prerequisites-cluster-peering-reference.html["Passez en revue les conditions préalables à l'appairage de clusters"] .
+
 .Étapes
 . Sur le cluster local, dans System Manager, sélectionnez *Cluster > Paramètres*.
 . Sous *intercluster Settings* en regard de *Cluster peers*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Ajouter un homologue de cluster*.

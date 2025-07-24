@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: secure-data/modify-arp-snapshot-retention-period.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+summary: Découvrez comment modifier les périodes de conservation des instantanés ARP en fonction de vos besoins de stockage et d’entreprise. 
+---
+= Modifier les périodes de conservation des snapshots ARP/AI sur les systèmes de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la protection autonome contre les ransomwares avec intelligence artificielle (ARP/IA) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, elle crée automatiquement un snapshot ARP pour protéger les données de l'unité. En fonction de votre capacité de stockage et des besoins de votre entreprise en matière de données, vous pouvez augmenter ou réduire la période de conservation par défaut du snapshot ARP. Par exemple, vous pouvez augmenter la période de conservation des applications critiques afin de bénéficier, si nécessaire, de périodes de conservation plus longues pour la récupération des données, ou réduire celle des applications non critiques pour économiser de l'espace de stockage.
+
+La période de conservation par défaut de l’instantané ARP varie en fonction de l’action que vous entreprenez en réponse à l’activité anormale.
+
+[cols="2,2"]
+|===
+| Si vous effectuez cette action... | Les instantanés ARP sont conservés par défaut pendant... 
+
+
+| Marquer comme faux positif | 12 heures 
+
+
+| Marquer comme attaque potentielle par ransomware | 7 jours 
+
+
+| Ne prenez pas de mesures immédiates | 10 jours 
+|===
+Les périodes de conservation par défaut peuvent être modifiées à l'aide de l'interface de ligne de commande (CLI) ONTAP . Voir  https://docs.netapp.com/us-en/ontap/anti-ransomware/modify-automatic-snapshot-options-task.html["Modifier les options pour les instantanés automatiques ONTAP"] pour connaître les étapes à suivre pour modifier la période de conservation par défaut.

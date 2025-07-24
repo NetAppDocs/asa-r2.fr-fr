@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: data-protection/configure-ontap-mediator.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+summary: Découvrez comment configurer le médiateur ONTAP avec des certificats auto-signés pour les systèmes ASA r2. 
+---
+= Configurer Mediator à l'aide de certificats auto-signés sur les systèmes ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez configurer ONTAP Mediator ou ONTAP Cloud Mediator avant de pouvoir utiliser SnapMirror Active Sync pour la surveillance des clusters. ONTAP Mediator et ONTAP Cloud Mediator fournissent tous deux un stockage persistant et clôturé pour les métadonnées haute disponibilité (HA) utilisées par les clusters ONTAP dans une relation SnapMirror Active Sync. De plus, les deux médiateurs offrent une fonctionnalité de requête synchrone sur l'état des nœuds pour faciliter la détermination du quorum et servent de proxy ping pour la détection de la vivacité des contrôleurs.
+
+.Avant de commencer
+* Si vous utilisez ONTAP Cloud Mediator, vérifiez que votre système ASA r2 répond aux exigences nécessaires link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["prérequis"^] .
+
+
+.Étapes
+. Dans le Gestionnaire système, sélectionnez *Protection > Présentation*.
+. Dans le volet de droite, à côté de *Médiateurs*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] ; puis sélectionnez *Ajouter un médiateur*.
+. Sélectionnez le *type de médiateur*.
+. Pour un médiateur *Cloud*, saisissez l'ID d'organisation, l'ID client et le secret client. Pour un médiateur *On-premises*, saisissez l'adresse IP, le port, le nom d'utilisateur et le mot de passe du médiateur.
+. Sélectionnez le pair de cluster dans la liste des pairs de cluster éligibles ou sélectionnez *Ajouter un pair de cluster* pour en ajouter un nouveau.
+. Copiez le contenu du  `intermediate.crt` fichier et collez-le dans le champ *Certificat*, ou sélectionnez *Importer* pour accéder au  `intermediate.crt` fichier et importer les informations du certificat.
+. Sélectionnez *Ajouter*.
+
+
+.Et la suite ?
+Après avoir initialisé le médiateur, vous pouvez link:configure-snapmirror-active-sync.html["configurer la synchronisation active de SnapMirror"] pour créer une copie de vos données sur un site secondaire et permettre à vos applications hôtes de basculer automatiquement et de manière transparente en cas de sinistre.

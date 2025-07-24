@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-confirm-cluster-configuration.html 
+keywords: asa r2, data protection, business continuity, snapmirror active sync, cluster configuration 
+summary: Affichez les avertissements concernant les attaques potentielles de ransomware et prenez des mesures dans le Gestionnaire système. 
+---
+= Confirmez la configuration de votre cluster ASA r2 avant de configurer SnapMirror Active Sync
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror Active Sync s'appuie sur des clusters appairés pour protéger vos données en cas de basculement. Avant de configurer SnapMirror Active Sync, vous devez vérifier que vos clusters ASA r2 sont dans une relation d'appairage prise en charge et répondent aux autres exigences de configuration.
+
+.Étapes
+. Confirmez qu’une relation d’appairage de cluster existe entre les clusters.
++
+
+NOTE: L'espace IP par défaut est requis par SnapMirror Active Sync pour les relations entre homologues de cluster. Un espace IP personnalisé n'est pas pris en charge.
+
++
+link:snapshot-replication.html#step-1-create-a-cluster-peer-relationship["Créer une relation entre pairs de cluster"] .
+
+. Confirmez qu’une relation homologue existe entre les machines virtuelles de stockage (VM) sur chaque cluster.
++
+link:create-svm-peer-relationship.html["Créer une relation homologue de machine virtuelle de stockage intercluster"^] .
+
+. Confirmez qu’au moins un LIF est créé sur chaque nœud du cluster.
++
+link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Créer un FRV"]
+
+. Confirmez que les unités de stockage nécessaires sont créées et mappées aux groupes d’hôtes.
++
+link:../manage-data/provision-san-storage.html#create-storage-units["Créer une unité de stockage"] et link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["mapper l'unité de stockage à un groupe d'hôtes"] .
+
+. Réanalysez l’hôte de l’application pour découvrir de nouvelles unités de stockage.
+
+
+.Et la suite ?
+Après avoir confirmé la configuration de votre cluster, vous êtes prêt à link:install-ontap-mediator.html["installer ONTAP Mediator"] .

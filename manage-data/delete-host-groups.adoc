@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: manage-data/delete-host-groups.html 
+keywords: delete host groups, remove host groups, igroup, nvme subsystem, asa r2 
+summary: Supprimez les groupes d’hôtes pour supprimer l’accès de l’hôte aux unités de stockage sur votre système ASA r2. 
+---
+= Supprimer un groupe d'hôtes sur votre système ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sur un système ASA r2, un groupe d'hôtes est le mécanisme permettant aux hôtes d'accéder aux unités de stockage. Un groupe d'hôtes fait référence à un igroup pour les hôtes SCSI ou à un sous-système NVMe pour les hôtes NVMe. Un hôte ne peut voir que les unités de stockage mappées aux groupes d'hôtes auxquels il appartient. Vous pouvez supprimer un groupe d'hôtes si vous ne souhaitez plus que les hôtes qui le composent aient accès aux unités de stockage mappées à ce groupe.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Sous *Mappage d'hôte*, sélectionnez le groupe d'hôtes que vous souhaitez supprimer.
+. Sélectionnez *Stockage mappé*.
+. Sélectionnez *Plus*, puis sélectionnez *Supprimer*.
+. Sélectionnez pour vérifier que vous souhaitez continuer, puis sélectionnez *Supprimer*.
+
+
+.Et la suite ?
+Le groupe d'hôtes est supprimé. Les hôtes qui le composaient n'ont plus accès aux unités de stockage qui y étaient mappées.

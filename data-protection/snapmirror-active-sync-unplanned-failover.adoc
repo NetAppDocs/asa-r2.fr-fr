@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-unplanned-failover.html 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, alerts, respond, warnings, security 
+summary: Découvrez comment rétablir les relations de synchronisation active SnapMirror après un basculement imprévu de vos clusters ASA r2. 
+---
+= Rétablir la relation de synchronisation active SnapMirror après un basculement imprévu de vos clusters ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un basculement automatique non planifié (AUFO) se produit lorsque le cluster principal est hors service ou isolé. Le médiateur détecte un basculement et exécute un basculement automatique non planifié vers le cluster secondaire. Ce dernier devient alors le cluster principal et commence à servir les clients.
+
+.Avant de commencer
+* La relation de synchronisation active SnapMirror doit être synchronisée.
+* Vous ne pouvez pas lancer un basculement planifié lorsqu'une opération non perturbatrice, telle qu'un déplacement d'unité de stockage, est en cours.
+* Le médiateur ONTAP doit être configuré, connecté et en quorum.
+
+
+.Étapes
+. Sélectionnez *Protection > Réplication*.
+. Sélectionnez la relation de synchronisation active SnapMirror que vous devez rétablir.
+. Attendez que le statut de la relation affiche *InSync*.
+. Sélectionner image:icon_kabob.gif["trois points bleus verticaux"] ; puis sélectionnez *Failover* pour reprendre les opérations sur le cluster principal d'origine.
+
+
+.Et la suite
+Pour éviter la perte des chemins d’E/S vers vos hôtes, vous devez réanalyser les chemins d’hôte après la reprise des opérations sur le cluster principal.

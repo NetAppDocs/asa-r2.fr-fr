@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9171.html 
+keywords: 'what"s new, release notes, 9.17.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.17.1 pour les systèmes ASA r2. 
+---
+= Nouveautés d' ONTAP 9.17.1 pour les systèmes ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.17.1 pour les systèmes ASA r2.
+
+
+
+== Migration de données SAN
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../install-setup/set-up-data-access.html#migrate-data-from-a-third-party-storage-system["Prise en charge de la migration de données à partir d'un système de stockage tiers"] | La migration de données SAN via l'importation de LUN étrangers (FLI) est prise en charge pour les systèmes ASA r2. FLI permet de migrer des données d'un LUN d'un système de stockage tiers vers un système ASA r2. 
+|===
+
+
+== Protection des données
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../secure-data/enable-anti-ransomware-protection.html["Prise en charge de la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI)"] | ARP/AI peut être activé sur les unités de stockage ASA r2. ARP/AI offre une protection supplémentaire des données en détectant et en signalant les attaques potentielles de ransomware sans période d'apprentissage. 
+
+
+| link:../data-protection/snapmirror-active-sync.html["Synchronisation active SnapMirror"] | SnapMirror Active Sync prend désormais en charge les charges de travail VMware avec accès hôte NVMe/TCP et NVMe/FC pour les clusters ONTAP à deux nœuds. La prise en charge des charges de travail VMware pour NVMe/TCP dépend de la résolution du bug VMware n° TR1049746. 
+|===
+
+
+== Efficacité du stockage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/hardware-comparison.html["Prise en charge de l'équilibrage automatique de la charge de travail"] | Les charges de travail sont automatiquement équilibrées entre les nœuds d’une paire HA pour optimiser les performances et l’utilisation des ressources. 
+|===

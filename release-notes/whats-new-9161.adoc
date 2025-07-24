@@ -69,7 +69,7 @@ Les systèmes NetApp ASA r2 suivants sont pris en charge à partir de ONTAP 9.16
 | Mise à jour | Description 
 
 
-| Prise en charge du rééquilibrage automatique des unités de stockage | ONTAP rééquilibre automatiquement les unités de stockage dans vos zones de disponibilité du stockage pour une utilisation optimale des performances et de la capacité. 
+| link:../learn-more/hardware-comparison.html["Prise en charge du rééquilibrage automatique des unités de stockage"] | ONTAP rééquilibre automatiquement les unités de stockage dans vos zones de disponibilité du stockage pour une utilisation optimale des performances et de la capacité. 
 
 
 | La désallocation d'espace NVMe est activée par défaut  a| 

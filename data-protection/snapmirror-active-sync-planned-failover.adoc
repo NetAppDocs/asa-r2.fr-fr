@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-planned-failover.html 
+keywords: snapmirror active sync, planned failover, disaster recovery, business continuity, data replication, ONTAP, secondary site, continuous availability 
+summary: Découvrez comment effectuer un basculement planifié des relations de synchronisation active SnapMirror pour garantir la continuité des activités et la reprise après sinistre. 
+---
+= Effectuer un basculement planifié des clusters ASA r2 dans une relation de synchronisation active SnapMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La synchronisation active SnapMirror assure une disponibilité continue des applications critiques en créant une copie de vos données sur un site secondaire et en permettant à vos applications hôtes de basculer automatiquement et de manière transparente en cas de sinistre. Vous devrez peut-être effectuer un basculement planifié de votre relation de synchronisation active SnapMirror pour tester le processus de basculement ou effectuer une maintenance sur le site principal.
+
+.Avant de commencer
+* La relation de synchronisation active SnapMirror doit être synchronisée.
+* Vous ne pouvez pas lancer un basculement planifié lorsqu'une opération non perturbatrice, telle qu'un déplacement d'unité de stockage, est en cours.
+* ONTAP Mediator ou ONTAP Cloud Mediator doit être configuré, connecté et en quorum.
+
+
+.Étapes
+. Sélectionnez *Protection > Réplication*.
+. Sélectionnez la relation de synchronisation active SnapMirror que vous souhaitez basculer.
+. Sélectionner image:icon_kabob.gif["trois points bleus verticaux"] ; puis sélectionnez *Failover*.
+
+
+.Et la suite
+Utilisez le  `snapmirror failover show` commande dans l'interface de ligne de commande ONTAP (CLI) pour surveiller l'état du basculement.
