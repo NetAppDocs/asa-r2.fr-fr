@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: data-protection/install-ontap-mediator.html 
-keywords: asa r2, data protection, business continuity, install, ONTAP Mediator, installation 
+keywords: asa r2, data protection, business continuity, install, ontap mediator, installation 
 summary: Pour installer ONTAP Mediator sur votre système ASA r2, vous devez suivre la même procédure utilisée pour installer ONTAP Mediator sur tous les autres systèmes ONTAP . 
 ---
 = Installer ONTAP Mediator sur les systèmes ASA r2
@@ -14,8 +14,6 @@ summary: Pour installer ONTAP Mediator sur votre système ASA r2, vous devez sui
 Pour installer ONTAP Mediator pour votre système ASA r2, vous devez suivre la même procédure utilisée pour installer ONTAP Mediator pour tous les autres systèmes ONTAP .
 
 L'installation ONTAP Mediator comprend la préparation de l'installation, l'activation de l'accès aux référentiels, le téléchargement du package ONTAP Mediator, la vérification de la signature du code, l'installation du package sur l'hôte et l'exécution des tâches de post-installation.
-
-https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/limits-reference.html[]
 
 Pour installer ONTAP Mediator, suivez link:https://docs.netapp.com/us-en/ontap/mediator/workflow-summary.html["ce flux de travail"^]
 

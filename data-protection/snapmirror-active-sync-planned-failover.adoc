@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-planned-failover.html 
-keywords: snapmirror active sync, planned failover, disaster recovery, business continuity, data replication, ONTAP, secondary site, continuous availability 
+keywords: snapmirror active sync, planned failover, disaster recovery 
 summary: Découvrez comment effectuer un basculement planifié des relations de synchronisation active SnapMirror pour garantir la continuité des activités et la reprise après sinistre. 
 ---
 = Effectuer un basculement planifié des clusters ASA r2 dans une relation de synchronisation active SnapMirror
