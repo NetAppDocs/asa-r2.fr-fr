@@ -16,6 +16,9 @@ Lorsque vous chiffrez les données au repos, elles ne peuvent pas être lues si 
 
 NetApp Storage Encryption (NSE) prend en charge le chiffrement matériel à l'aide de disques à autochiffrement (SED). Les disques SED chiffrent les données au fur et à mesure de leur écriture. Chaque SED contient une clé de chiffrement unique. Les données chiffrées stockées sur le SED ne peuvent pas être lues sans la clé de chiffrement du SED. Les nœuds qui tentent de lire à partir d'un SED doivent être authentifiés pour accéder à la clé de cryptage du SED. Les nœuds sont authentifiés en obtenant une clé d'authentification auprès d'un gestionnaire de clés, puis en présentant la clé d'authentification au SED. Si la clé d'authentification est valide, le SED donnera au nœud sa clé de cryptage pour accéder aux données qu'il contient.
 
+
+NOTE: Dans les systèmes ASA r2, les SED sont pris en charge uniquement pour les protocoles NVMe.
+
 Utilisez le gestionnaire de clés intégré ASA r2 ou un gestionnaire de clés externe pour transmettre des clés d'authentification à vos nœuds.
 
 En plus de NSE, vous pouvez également activer le chiffrement logiciel afin d'ajouter une couche supplémentaire de sécurité à vos données.

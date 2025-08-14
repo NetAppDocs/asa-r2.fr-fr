@@ -19,6 +19,9 @@ summary: 'À partir d" ONTAP 9.17.1, ONTAP rééquilibre automatiquement les cha
 
 Le rééquilibrage automatique de la charge de travail est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ONTAP 9.17.1 ASA r2. Vous pouvez utiliser l'interface de ligne de commande (CLI) ONTAP pour augmenter ou réduire la période d'évaluation par défaut en fonction de vos besoins opérationnels.
 
+
+NOTE: Vous ne pouvez pas revenir à ONTAP 9.17.1 sur votre système ASA r2 une fois le rééquilibrage automatique de la charge de travail activé.
+
 .Étapes
 . Vérifiez le nombre de jours restant dans la période d'évaluation :
 +
