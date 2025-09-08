@@ -11,7 +11,7 @@ summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conven
 
 
 [role="lead"]
-À partir de ONTAP 9.16.1, les systèmes de stockage ASA r2 prennent en charge jusqu'à 12 nœuds par cluster. Une fois que les nouveaux nœuds d'une paire haute disponibilité sont câblés et mis sous tension, vous devez les relier au cluster.
+À partir d' ONTAP 9.16.1, les systèmes de stockage ASA r2 prennent en charge jusqu'à 12 nœuds par cluster.  Une fois les nouveaux nœuds d’une paire HA câblés et mis sous tension, vous devez les joindre au cluster.
 
 .Avant de commencer
 Rassemblez les informations suivantes :

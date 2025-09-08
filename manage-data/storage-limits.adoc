@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/storage-limits.html 
 keywords: storage limits, cluster limits, maximum lun size, maximum, nodes per cluster, storage unit size, supported protocols, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20,asa c30 
-summary: Les configurations ASA r2 prennent en charge un maximum de 2 nœuds par cluster exécutant les protocoles FC, iSCSI, NVMe/FC ou NVMe/TCP. 
+summary: Pour optimiser les performances, la configuration et le support, vous devez tenir compte des limites de stockage de ASA r2. 
 ---
 = Limites de stockage de ASA r2
 :allow-uri-read: 
@@ -13,22 +13,67 @@ summary: Les configurations ASA r2 prennent en charge un maximum de 2 nœuds par
 [role="lead"]
 Pour optimiser les performances, la configuration et le support, vous devez tenir compte des limites de stockage de ASA r2.
 
-Les systèmes ASA r2 prennent en charge les éléments suivants :
+Les systèmes ASA r2 prennent en charge les limites de stockage suivantes :
 
-[cols="1h, 1"]
+[cols="3"]
+|===
+| Limite maximale | Par paire HA | Par cluster 
+
+
+| Groupe de cohérence | 256 | 256 
+
+
+| Applications d'entreprise | 100 | 350 
+
+
+| Nœuds | 2 | 12 
+
+
+| Groupes de réplication | 50 | 50 
+
+
+| Taille de la zone de disponibilité de stockage | 2PB | 2 PB 
+
+
+| Unités de stockage | 10 000 | 30 000 
+
+
+| Taille de l'unité de stockage | 128 TO | 128 TO 
+
+
+| Unités de stockage par groupe de cohérence | 80 | 80 
+
+
+| Machines virtuelles | 800 | 1200 
 |===
 
 
-| Nombre maximal de nœuds par cluster | 12 
+== Limites des relations asynchrones SnapMirror
+
+Les limites suivantes s’appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication asynchrone SnapMirror .
+
+[cols="3"]
+|===
+| Limite maximale | Par paire HA | Par cluster 
 
 
-| Nombre maximal d'unités de stockage par cluster | 30 000 
+| Groupes de cohérence | 250 | 750 
 
 
-| Taille maximale de l'unité de stockage | 128 TO 
+| Unités de stockage | 4 000 | 6 000 
+|===
 
 
-| Taille maximale de la zone de disponibilité de stockage | 2 PB 
+== Limites de la relation de synchronisation active SnapMirror
+
+Les limites suivantes s'appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication de synchronisation active SnapMirror .  La synchronisation active SnapMirror est prise en charge à partir d' ONTAP 9.17.1 sur les clusters à 2 nœuds uniquement.
+
+[cols="3"]
+|===
+| Limite maximale | Par paire HA | Groupes de cohérence 
+
+
+| 50 | Unités de stockage | 400 
 |===
 .Pour en savoir plus
 Pour obtenir la liste complète des limites de stockage ASA r2 les plus récentes, reportez-vous à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]la section .

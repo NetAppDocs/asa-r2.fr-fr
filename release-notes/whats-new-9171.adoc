@@ -40,6 +40,12 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.17.1 pour les
 
 
 | link:../data-protection/snapmirror-active-sync.html["Prise en charge de SnapMirror Active Sync pour les protocoles NVMe"] | SnapMirror Active Sync prend désormais en charge les charges de travail VMware avec accès hôte NVMe/TCP et NVMe/FC pour les clusters ONTAP à deux nœuds. La prise en charge des charges de travail VMware pour NVMe/TCP dépend de la résolution du bug VMware n° TR1049746. 
+
+
+| link:../data-protection/manage-consistency-groups.html["Prise en charge des modifications géométriques des groupes de cohérence dans les relations de réplication"] | Les systèmes ASA r2 prennent en charge les modifications de géométrie apportées aux groupes de cohérence dans une synchronisation active SnapMirror ou une relation de réplication asynchrone sans supprimer la relation de synchronisation active SnapMirror ni rompre la relation asynchrone.  Lorsqu'une modification de géométrie se produit sur le groupe de cohérence principal, la modification est répliquée sur le groupe de cohérence secondaire. 
+
+
+| link:../data-protection/snapshot-replication.html["Prise en charge de la réplication asynchrone des groupes de cohérence enfants"] | Les politiques de réplication asynchrone peuvent être appliquées aux groupes de cohérence dans des relations hiérarchiques. 
 |===
 
 

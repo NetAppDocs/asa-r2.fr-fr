@@ -14,7 +14,7 @@ summary: 'Supprimez des unités de stockage pour réduire la quantité de stocka
 Supprimez une unité de stockage si vous n'avez plus besoin de conserver les données contenues dans l'unité. La suppression d'unités de stockage qui ne sont plus nécessaires peut vous aider à libérer de l'espace pour d'autres applications hôtes.
 
 .Avant de commencer
-Si l'unité de stockage à supprimer se trouve dans un groupe de cohérence faisant partie de la relation de réplication, vous devez d'link:../data-protection/manage-consistency-groups.html#remove-a-storage-unit-from-a-consistency-group["retirez l'unité de stockage du groupe de cohérence"]abord la supprimer.
+Si l'unité de stockage que vous souhaitez supprimer se trouve dans un groupe de cohérence en relation de réplication, vous devezlink:../data-protection/manage-consistency-groups-add-remove-storage-units.html#remove-a-storage-unit-from-a-consistency-group["retirez l'unité de stockage du groupe de cohérence"] avant de le supprimer.
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*.

@@ -15,9 +15,13 @@ searchtitle: 'Réplication de snapshots sur un cluster distant à l"aide de ONTA
 La réplication Snapshot est un processus au cours duquel les groupes de cohérence de votre système ASA r2 sont copiés sur un site distant. Après la réplication initiale, les modifications apportées aux groupes de cohérence sont copiées vers l'emplacement distant en fonction d'une règle de réplication. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.
 
 
-NOTE: La réplication Snapshot d'un système de stockage ASA r2 n'est prise en charge qu'à partir d'un autre système de stockage ASA r2. Vous ne pouvez pas répliquer les snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS actuel, ou depuis un système ASA, AFF ou FAS actuel vers un système ASA r2.
+NOTE: La réplication de snapshots pour un système de stockage ASA r2 est uniquement prise en charge vers et depuis un autre système de stockage ASA r2.  Vous ne pouvez pas répliquer des snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS ou d'un système ASA, AFF ou FAS vers un système ASA r2.
 
 Pour configurer la réplication Snapshot, vous devez établir une relation de réplication entre votre système ASA r2 et l'emplacement distant. La relation de réplication est régie par une règle de réplication. Une règle par défaut permettant de répliquer tous les snapshots est créée lors de la configuration du cluster. Vous pouvez utiliser la règle par défaut ou, si vous le souhaitez, créer une nouvelle règle.
+
+À partir d' ONTAP 9.17.1, vous pouvez appliquer des stratégies de réplication asynchrone aux groupes de cohérence dans une relation hiérarchique.  La réplication asynchrone n'est pas prise en charge pour les groupes de cohérence dans les relations hiérarchiques dans ONTAP 9.16.1.
+
+link:manage-hierarchical-consistency-groups.html["En savoir plus sur les groupes de cohérence hiérarchiques (parent/enfant)"] .
 
 
 
@@ -42,9 +46,11 @@ Vous avez effectué un peering pour le cluster ASA r2 local avec un cluster dist
 
 
 
-== Étape 2 : vous pouvez éventuellement créer une règle de réplication
+== Étape 2 : (facultatif) Créez une politique de réplication personnalisée
 
-La règle de réplication des snapshots définit le moment où les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.
+La politique de réplication définit quand les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.  ONTAP inclut diverses politiques de protection des données prédéfinies que vous pouvez utiliser pour vos relations de réplication.  Si les politiques prédéfinies ne répondent pas à vos besoins, vous pouvez créer une politique de réplication personnalisée.
+
+En savoir plus surlink:pre-defined-protection-policies.html["politiques de protection des données ONTAP prédéfinies"] .
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > stratégies*, puis *règles de réplication*.
@@ -93,7 +99,12 @@ Une relation de réplication de snapshot établit une connexion entre le systèm
 Pour une protection contre les attaques par ransomware, lorsque vous configurez votre relation de réplication, vous pouvez choisir de verrouiller les snapshots de destination. Les snapshots verrouillés ne peuvent pas être supprimés accidentellement ou de manière malveillante. Vous pouvez utiliser des snapshots verrouillés pour restaurer des données si une unité de stockage est compromise par une attaque par ransomware.
 
 .Avant de commencer
-Si vous souhaitez verrouiller vos snapshots de destination, vous devez d'link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Initialiser l'horloge de conformité de snapshot"]abord créer la relation de réplication.
+* link:pre-defined-protection-policies.html["En savoir plus sur les politiques de réplication"] .
++
+Lorsque vous créez une relation de réplication, vous devez sélectionner la stratégie de réplication appropriée pour votre relation de réplication.  Vous pouvez utiliser une politique prédéfinie ou créer une politique personnalisée.
+
+* Si vous souhaitez verrouiller vos snapshots de destination, vous devez d'link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Initialiser l'horloge de conformité de snapshot"]abord créer la relation de réplication.
+
 
 Créer une relation de réplication avec ou sans snapshots de destination verrouillés.
 
@@ -149,9 +160,6 @@ Le groupe de cohérence _source_ fait référence au groupe de cohérence de vot
 | Sources locales  a| 
 .. Sélectionnez *sources locales*, puis sélectionnez image:icon_replicate_blue_bg.png["rectangle avec fond bleu et le mot reproduit en lettres blanches"] .
 .. Recherchez et sélectionnez le groupe de cohérence source.
-+
-Le groupe de cohérence _source_ fait référence au groupe de cohérence de votre cluster local que vous souhaitez répliquer.
-
 .. Sous *destination de la réplication*, sélectionnez le cluster vers lequel effectuer la réplication, puis sélectionnez la machine virtuelle de stockage.
 
 

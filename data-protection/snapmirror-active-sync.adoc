@@ -15,6 +15,11 @@ La protection des données ONTAP SnapMirror Active Sync permet aux services mét
 
 Bien que les procédures du gestionnaire système pour la configuration de SnapMirror Active Sync soient différentes sur les systèmes ASA r2 et sur les systèmes NetApp FAS, AFF et ASA exécutant la personnalité ONTAP unifiée, les exigences, l'architecture et le fonctionnement de SnapMirror Active Sync sont les mêmes.
 
+link:../learn-more/hardware-comparison.html#personality-differences["En savoir plus sur les personnalités ONTAP"] .
+
+
+NOTE: Pour les systèmes ASA r2, la synchronisation active SnapMirror est prise en charge uniquement sur les configurations de cluster à deux nœuds.
+
 link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["En savoir plus sur la synchronisation active de SnapMirror"^] .
 
 link:https://www.netapp.com/pdf.html?item=/media/138366-sb-3457-san-disaster-recovery-netapp-asa.pdf["En savoir plus sur la reprise après sinistre avec SnapMirror Active Sync sur votre système ASA r2"^]

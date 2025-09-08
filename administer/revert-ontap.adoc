@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/revert-ontap.html 
 keywords: update, revert, ontap, asa r2 
-summary: ONTAP met automatiquement à jour le micrologiciel sur les systèmes ASA r2. Vous pouvez utiliser System Manager pour désactiver les mises à jour automatiques et afficher les mises à jour avant leur installation. 
+summary: 'Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les restaurations pour les autres systèmes ONTAP . La restauration d"un cluster ONTAP est perturbatrice.' 
 ---
 = Rétablir ONTAP sur les systèmes de stockage ASA r2
 :allow-uri-read: 
@@ -30,14 +30,14 @@ Certaines configurations de cluster ASA r2 nécessitent que vous preniez des mes
 Si vous revenez à ONTAP 9.17.1 sur un système ASA r2, vous devez effectuer les actions suivantes avant de commencer la restauration :
 
 
-NOTE: link:../administer/rebalance-workloads.html["Rééquilibrage automatique de la charge de travail"]est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ONTAP 9.17.1 ASA r2. Vous ne pouvez pas revenir à ONTAP 9.17.1 sur votre système ASA r2 une fois le rééquilibrage automatique de la charge de travail activé.
+NOTE: link:rebalance-workloads.html["Rééquilibrage automatique de la charge de travail"]est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ONTAP 9.17.1 ASA r2. Vous ne pouvez pas revenir à ONTAP 9.17.1 sur votre système ASA r2 une fois le rééquilibrage automatique de la charge de travail activé.
 
 [cols="2"]
 |===
 | Si vous avez... | Avant de revenir en arrière, vous devriez... 
 
 
-| Groupes de cohérence hiérarchique dans une relation de synchronisation active SnapMirror | Supprimer la relation de synchronisation active SnapMirror 
+| Groupes de cohérence hiérarchique dans une relation de synchronisation active SnapMirror | link:../data-protection/snapmirror-active-sync-delete-relationship.html["Supprimer la relation de synchronisation active SnapMirror"] 
 
 
 | Relations d'importation actives | Supprimer les relations d'importation actives 

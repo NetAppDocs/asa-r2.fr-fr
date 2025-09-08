@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapmirror-active-sync-remove-mediator.html 
+keywords: asa r2, data protection, business continuity, remove, delete, ontap mediator, ontap cloud mediator 
+summary: 'Vous ne pouvez utiliser qu"un seul type de médiateur à la fois pour la synchronisation active SnapMirror sur votre système ASA r2.  Si vous choisissez de modifier votre type de médiateur, vous devez supprimer votre instance actuelle avant d"installer une autre instance.' 
+---
+= Supprimez ONTAP Mediator ou ONTAP Cloud Mediator de votre système ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous ne pouvez utiliser qu'un seul type de médiateur à la fois pour la synchronisation active SnapMirror sur votre système ASA r2.  Si vous choisissez de modifier votre type de médiateur, vous devez supprimer votre instance actuelle avant d'installer une autre instance.
+
+.Étapes
+Vous devez utiliser l'interface de ligne de commande ONTAP (CLI) pour supprimer ONTAP Mediator ou ONTAP Cloud Mediator.
+
+[role="tabbed-block"]
+====
+.Médiateur ONTAP
+--
+. Supprimer ONTAP Mediator :
++
+`snapmirror mediator remove -mediator-address <address> -peer-cluster <peerClusterName>`
+
++
+Exemple:
+
++
+[listing]
+----
+snapmirror mediator remove -mediator-address 12.345.678.90 -peer-cluster cluster_xyz
+----
+
+
+--
+.Médiateur cloud ONTAP
+--
+. Supprimer ONTAP Cloud Mediator :
++
+`snapmirror mediator remove -peer-cluster <peerClusterName> -type cloud`
+
++
+Exemple:
+
++
+[listing]
+----
+snapmirror mediator remove -peer-cluster cluster_xyz -type cloud
+----
+
+
+--
+====
+.Informations associées
+* link:https://docs.netapp.com/us-en/ontap-cli/snapmirror-mediator-remove.html["supprimer le médiateur SnapMirror"^]
+

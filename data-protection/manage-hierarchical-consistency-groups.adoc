@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: data-protection/manage-hierarchical-consistency-groups.html 
+keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
+summary: 'Utilisez des groupes de cohérence pour effectuer diverses actions sur plusieurs unités de stockage en même temps au lieu d"effectuer des actions individuellement sur chaque unité.  Dans une structure hiérarchique, un ou plusieurs groupes de cohérence sont configurés comme enfants sous un groupe de cohérence parent.' 
+---
+= Gérez les groupes de cohérence hiérarchique sur votre système ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À partir d' ONTAP 9.16.1, vous pouvez utiliser System Manager pour créer des groupes de cohérence hiérarchiques sur votre système ASA r2.  Dans une structure hiérarchique, un ou plusieurs groupes de cohérence sont configurés comme enfants sous un groupe de cohérence parent.  Vous pouvez appliquer des stratégies de snapshot individuelles à chaque groupe de cohérence enfant et répliquer les snapshots de tous les groupes de cohérence enfant sur un cluster distant en tant qu'unité unique en répliquant le parent.  Cela simplifie la protection et la gestion des données pour les structures de données complexes.
+
+
+
+== Promouvoir un groupe de cohérence existant en groupe de cohérence parent
+
+Si vous promouvez un groupe de cohérence existant en parent, un nouveau groupe de cohérence enfant est créé et les unités de stockage appartenant au groupe de cohérence promu sont déplacées vers le nouveau groupe de cohérence enfant.  Les unités de stockage ne peuvent pas être directement associées à un groupe de cohérence parent.
+
+.Avant de commencer
+Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez promouvoir est dans une relation de synchronisation active SnapMirror , vous devezlink:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant que le groupe de cohérence puisse être promu.  Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devezlink:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir promouvoir le groupe de cohérence.  La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant la promotion d'un groupe de cohérence n'est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le groupe de cohérence à convertir en groupe de cohérence parent.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *promouvoir vers le groupe de cohérence parent*.
+. Saisissez un nom pour le nouveau groupe de cohérence enfant ou acceptez le nom par défaut, puis sélectionnez le type de composant du groupe de cohérence.
+. Sélectionnez *promouvoir*.
+
+
+.Et la suite ?
+Vous pouvez créer des groupes de cohérence enfants supplémentaires sous le groupe de cohérence parent.  Vous pouvez égalementlink:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"] pour copier les groupes de cohérence parents et enfants vers un emplacement géographiquement distant à des fins de sauvegarde et de reprise après sinistre.
+
+
+
+== Rétrograder un groupe de cohérence parent en un seul groupe de cohérence
+
+Lorsque vous rétrogradez un groupe de cohérence parent en un groupe de cohérence unique, les unités de stockage des groupes de cohérence enfants associés sont ajoutées au groupe de cohérence parent.  Les groupes de cohérence enfants sont supprimés et le parent est alors géré comme un groupe de cohérence unique.
+
+.Avant de commencer
+Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez rétrograder est dans une relation de synchronisation active SnapMirror , vous devezlink:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant que le groupe de cohérence puisse être rétrogradé.  Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devezlink:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir rétrograder le groupe de cohérence.  La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant l'extension d'un groupe de cohérence n'est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le pointeur de la souris sur le groupe de cohérence parent à rétrograder.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Rétrograder à un seul groupe de cohérence*.
+. Sélectionnez *Rétrograder*
+
+
+.Et la suite ?
+link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["Ajouter une règle de snapshots"] au groupe de cohérence rétrogradé afin de protéger les unités de stockage précédemment gérées par les groupes de cohérence enfant.
+
+
+
+== Créer un groupe de cohérence enfant
+
+La création de groupes de cohérence enfants vous permet d'appliquer des stratégies d'instantanés individuelles à chaque enfant.  À partir d' ONTAP 9.17.1, vous pouvez également appliquer des stratégies de réplication individuelles directement à chaque enfant.  Dans ONTAP 9.16.1, les politiques de réplication ne peuvent être appliquées qu'au niveau parent.
+
+Vous pouvez créer un groupe de cohérence enfant à partir d'un groupe de cohérence nouveau ou existant.
+
+[role="tabbed-block"]
+====
+.D'un nouveau groupe de cohérence
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le groupe de cohérence parent auquel vous souhaitez ajouter un groupe de cohérence enfant.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Ajouter un nouveau groupe de cohérence enfant*.
+. Indiquez le nom du groupe de cohérence enfant ou acceptez le nom par défaut, puis sélectionnez le type de composant du groupe de cohérence.
+. Sélectionnez cette option pour ajouter des unités de stockage existantes au groupe de cohérence enfant ou pour créer de nouvelles unités de stockage.
++
+Si vous créez de nouvelles unités de stockage, entrez le nombre d'unités que vous souhaitez créer et la capacité par unité, puis entrez les informations sur l'hôte.
+
++
+Si vous créez plusieurs unités de stockage, chaque unité est créée avec la même capacité et le même système d'exploitation hôte. Pour attribuer une capacité différente à chaque unité, sélectionnez *Ajouter une capacité différente*.
+
+. Sélectionnez *Ajouter*.
+
+
+--
+.À partir d'un groupe de cohérence existant
+--
+.Avant de commencer
+Si le groupe de cohérence que vous souhaitez utiliser est déjà l'enfant d'un autre groupe de cohérence, vous devezlink:manage-hierarchical-consistency-groups.html#detach-a-child-consistency-group-from-a-parent-consistency-group["le détacher du groupe de cohérence parent existant"] avant de pouvoir le déplacer vers un nouveau groupe de cohérence parent.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Sélectionnez le groupe de cohérence existant que vous souhaitez créer.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *déplacer sous un autre groupe de cohérence*.
+. Indiquez un nouveau nom pour le groupe de cohérence enfant ou acceptez le nom par défaut, puis sélectionnez le type de composant du groupe de cohérence.
+. Sélectionnez le groupe de cohérence existant que vous souhaitez créer le groupe de cohérence parent ou sélectionnez pour créer un nouveau groupe de cohérence parent.
++
+Si vous choisissez de créer un nouveau groupe de cohérence parent, indiquez le nom du groupe de cohérence parent ou acceptez le nom par défaut, puis sélectionnez le type de composant d'application de cohérence.
+
+. Sélectionnez *déplacer*.
+
+
+--
+====
+.Et la suite
+Après avoir créé un groupe de cohérence enfant, vous pouvezlink:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["appliquez des règles de protection de snapshots individuelles"] à chaque groupe de cohérence enfant.  Vous pouvez égalementlink:snapshot-replication.html["configurer des politiques de réplication"] sur les groupes de cohérence parents et enfants pour répliquer les groupes de cohérence vers un emplacement distant.
+
+
+
+== Détachez un groupe de cohérence enfant d'un groupe de cohérence parent
+
+Lorsque vous détachez un groupe de cohérence enfant d'un groupe de cohérence parent, le groupe de cohérence enfant est supprimé du groupe de cohérence parent et est géré comme un groupe de cohérence unique.  La politique de réplication appliquée au parent n’est plus appliquée au groupe de cohérence enfant détaché.
+
+.Avant de commencer
+Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez détacher est dans une relation de synchronisation active SnapMirror , vous devezlink:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant que le groupe de cohérence puisse être détaché.  Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devezlink:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir détacher le groupe de cohérence.  La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant l'extension d'un groupe de cohérence n'est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Sélectionnez le groupe de cohérence parent.
+. Sélectionnez sur le groupe de cohérence enfant à détacher.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"]; puis sélectionnez *détacher du parent*.
+. Indiquez le nouveau nom du groupe de cohérence que vous souhaitez détacher ou acceptez le nom par défaut, puis sélectionnez le type d'application du groupe de cohérence.
+. Sélectionnez *détacher*.
+
+
+.Et la suite ?
+link:snapshot-replication.html["Configuration d'une règle de réplication"]pour répliquer les instantanés du groupe de cohérence enfant détaché vers un cluster distant.

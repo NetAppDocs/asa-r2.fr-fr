@@ -39,7 +39,7 @@ Les systèmes ASA r2 utilisent des unités de stockage avec des groupes de cohé
 
 Pour protéger vos données contre les attaques malveillantes telles que le vol ou les rançongiciels, les systèmes ASA r2 prennent en charge un gestionnaire de clés intégré, un chiffrement double couche, une authentification multifacteur et une vérification multi-administrateur. Les instantanés inviolables sont également pris en charge sur les systèmes ASA r2 secondaires.
 
-Les systèmes ASA r2 ne prennent pas en charge la combinaison de clusters avec les systèmes ASA, AFF ou FAS actuels.
+Les systèmes ASA r2 ne prennent pas en charge le mixage de clusters avec les systèmes ASA, AFF ou FAS .
 
 .Pour en savoir plus
 * Pour en savoir plus sur la prise en charge et les limites des systèmes ASA r2link:https://hwu.netapp.com/["NetApp Hardware Universe"^], consultez le .

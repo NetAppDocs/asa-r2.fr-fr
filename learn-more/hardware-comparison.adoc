@@ -34,8 +34,10 @@ Sur un système ASA r2, le logiciel ONTAP est optimisé pour prendre en charge l
 Vous pouvez vérifier le profil de votre stockage ONTAP dans System Manager ou via l'interface de ligne de commande ONTAP.
 
 * Dans le menu System Manager, sélectionnez *Cluster > Présentation*.
-* Dans l'interface de ligne de commande, entrez : `san config show`
+* Depuis la CLI, entrez : `system node show -personality -is-disaggregated`
 
+
+Pour les systèmes ASA r2, la _personnalité_ est _ASA r2_ et le statut _is-disaggregated_ est _true_.
 
 Impossible de modifier le profil de votre système de stockage ONTAP.
 

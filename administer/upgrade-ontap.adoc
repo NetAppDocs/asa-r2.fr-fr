@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/upgrade-ontap.html 
 keywords: update, firmware, system files, automatic updates, automated updates, asa r2, disable, 
-summary: ONTAP met automatiquement à jour le micrologiciel sur les systèmes ASA r2. Vous pouvez utiliser System Manager pour désactiver les mises à jour automatiques et afficher les mises à jour avant leur installation. 
+summary: Les mises à niveau du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les mises à niveau pour les autres systèmes ONTAP .  Lorsque vous mettez à niveau votre logiciel ONTAP sur votre système ASA r2, vous pouvez profiter de fonctionnalités ONTAP nouvelles et améliorées. 
 ---
 = Mise à niveau de ONTAP sur les systèmes de stockage ASA r2
 :allow-uri-read: 

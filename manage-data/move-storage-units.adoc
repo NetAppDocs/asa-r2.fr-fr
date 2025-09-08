@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/move-storage-units.html 
 keywords: move lun, lun move, move namespace, move storage unit, asa r2 
-summary: 'Supprimez des unités de stockage pour réduire la quantité de stockage physique nécessaire ou libérer de l"espace nécessaire pour d"autres applications hôtes.' 
+summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d"équilibrer l"utilisation du stockage dans le cluster.' 
 ---
 = Déplacement des unités de stockage sur les systèmes de stockage ASA r2
 :allow-uri-read: 

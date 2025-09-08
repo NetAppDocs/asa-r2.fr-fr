@@ -33,7 +33,13 @@ entries:
   - title: Créer une relation homologue SVM
     url: "/data-protection/create-svm-peer-relationship.html"
   - title: Configuration de la réplication Snapshot
-    url: "/data-protection/snapshot-replication.html"
+    entries:
+    - title: Répliquer des instantanés sur un cluster distant
+      url: "/data-protection/snapshot-replication.html"
+    - title: En savoir plus sur les politiques de protection prédéfinies
+      url: "/data-protection/pre-defined-protection-policies.html"
+    - title: Rompre une relation de réplication
+      url: "/data-protection/snapmirror-active-sync-break-relationship.html"
   - title: Configurer la synchronisation active de SnapMirror
     entries:
     - title: Flux de travail
@@ -50,15 +56,32 @@ entries:
       url: "/data-protection/configure-snapmirror-active-sync.html"
   - title: Gérer la synchronisation active de SnapMirror
     entries:
+    - title: Reconfigurer ONTAP Mediator ou ONTAP Cloud Mediator pour utiliser un
+        certificat tiers
+      url: "/data-protection/reconfigure-ontap-mediator-ca-certificate.html"
     - title: Effectuer un basculement planifié avec SnapMirror Active Sync
       url: "/data-protection/snapmirror-active-sync-planned-failover.html"
     - title: Rétablir la synchronisation active de SnapMirror après un basculement
         imprévu
       url: "/data-protection/snapmirror-active-sync-unplanned-failover.html"
+    - title: Supprimer une relation de synchronisation active SnapMirror
+      url: "/data-protection/snapmirror-active-sync-delete-relationship.html"
+    - title: Supprimer ONTAP Mediator ou ONTAP Cloud Mediator
+      url: "/data-protection/snapmirror-active-sync-remove-mediator.html"
   - title: Restaurez les données
     url: "/data-protection/restore-data.html"
   - title: Gérer les groupes de cohérence
-    url: "/data-protection/manage-consistency-groups.html"
+    entries:
+    - title: En savoir plus sur les groupes de cohérence
+      url: "/data-protection/manage-consistency-groups.html"
+    - title: Utiliser des instantanés pour protéger les groupes de cohérence
+      url: "/data-protection/manage-consistency-groups-add-remove-snapshots.html"
+    - title: Ajouter ou supprimer des unités de stockage aux groupes de cohérence
+      url: "/data-protection/manage-consistency-groups-add-remove-storage-units.html"
+    - title: Supprimer les groupes de cohérence
+      url: "/data-protection/manage-consistency-groups-delete.html"
+    - title: Gérer les groupes de cohérence hiérarchique
+      url: "/data-protection/manage-hierarchical-consistency-groups.html"
   - title: Gérer les règles et les plannings de protection
     url: "/data-protection/policies-schedules.html"
 - title: Sécurisez vos données

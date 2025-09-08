@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: data-protection/manage-consistency-groups-add-remove-snapshots.html 
+keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
+summary: Créez des instantanés des groupes de cohérence pour protéger les données dans les unités de stockage qui font partie du groupe de cohérence.  Si vous n’avez plus besoin de protéger les données dans l’une des unités de stockage du groupe de cohérence, vous pouvez supprimer la protection des snapshots. 
+---
+= Protégez les groupes de cohérence sur votre système ASA r2 avec des instantanés
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Créez des instantanés des groupes de cohérence dans votre système de stockage ASA r2 pour protéger les données dans les unités de stockage qui font partie du groupe de cohérence.  Si vous n’avez plus besoin de protéger les données dans l’une des unités de stockage du groupe de cohérence, vous pouvez supprimer la protection des snapshots du groupe de cohérence.
+
+Si vous n’avez plus besoin de protéger les données d’unités de stockage spécifiques dans le groupe de cohérence, vous pouvez supprimer ces unités de stockage du groupe de cohérence.
+
+
+
+== Ajouter la protection des données de snapshot à un groupe de cohérence
+
+Lorsque vous ajoutez une protection des données de snapshot à un groupe de cohérence, des snapshots locaux du groupe de cohérence sont effectués à intervalles réguliers, selon une planification prédéfinie.
+
+Vous pouvez utiliser des instantanés link:restore-data.html["restaurez les données"]perdus ou corrompus.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur sur le groupe de cohérence à protéger.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Modifier*.
+. Sous *protection locale*, sélectionnez *planifier les instantanés*.
+. Sélectionnez une règle de snapshots.
++
+Acceptez la règle de snapshot par défaut, sélectionnez une règle existante ou créez une nouvelle règle.
+
++
+[cols="2,6a"]
+|===
+| Option | Étapes 
+
+
+| Sélectionnez une politique de snapshots existante  a| 
+Sélectionnez image:icon_dropdown_arrow.gif["flèche bleue pointant vers le bas"] en regard de la stratégie par défaut, puis sélectionnez la stratégie existante que vous souhaitez utiliser.
+
+
+
+| Créer une politique de snapshots  a| 
+.. Sélectionnez image:icon_add.gif["signe plus bleu suivi du mot add"]; puis entrez le nouveau nom de la stratégie.
+.. Sélectionnez la portée de la règle.
+.. Sous *horaires*, sélectionnez image:icon_add.gif["signe plus bleu suivi du mot add"].
+.. Sélectionnez le nom qui apparaît sous *Nom de l'horaire*;
++
+puis sélectionnez image:icon_dropdown_arrow.gif["flèche bleue pointant vers le bas"].
+
+.. Sélectionnez la planification de la stratégie.
+.. Sous *nombre maximal de snapshots*, entrez le nombre maximal de snapshots que vous souhaitez conserver pour le groupe de cohérence.
+.. Si vous le souhaitez, sous *SnapMirror label*, saisissez un libellé SnapMirror.
+.. Sélectionnez *Enregistrer*.
+
+
+|===
+. Sélectionnez *Enregistrer*.
+
+
+.Et la suite
+Maintenant que vos données sont protégées avec des snapshots, vous devez link:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.
+
+
+
+== Supprimez la protection des données Snapshot d'un groupe de cohérence
+
+Lorsque vous supprimez la protection des données de snapshot d'un groupe de cohérence, les snapshots sont désactivés pour toutes les unités de stockage du groupe de cohérence.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le groupe de cohérence que vous souhaitez arrêter de protéger.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *Modifier*.
+. Sous *protection locale*, désélectionnez Programmer les instantanés.
+. Sélectionnez *Modifier*.
+
+
+.Résultat
+Aucun snapshot ne sera pris pour les unités de stockage du groupe de cohérence.

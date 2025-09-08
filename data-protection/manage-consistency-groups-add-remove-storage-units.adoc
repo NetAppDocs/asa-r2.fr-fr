@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: data-protection/manage-consistency-groups-add-remove-storage-units.html 
+keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity, shrink 
+summary: Augmentez ou diminuez la taille d’un groupe de cohérence en modifiant le nombre d’unités de stockage dans le groupe de cohérence. 
+---
+= Modifier la taille des groupes de cohérence sur votre système ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Augmentez ou diminuez la taille d’un groupe de cohérence en modifiant le nombre d’unités de stockage dans le groupe de cohérence.
+
+
+
+== Ajouter des unités de stockage à un groupe de cohérence
+
+Augmentez la quantité de stockage gérée par un groupe de cohérence en ajoutant des unités de stockage au groupe de cohérence.
+
+Vous pouvez ajouter des unités de stockage existantes à votre groupe de cohérence ou créer de nouvelles unités de stockage à ajouter au groupe de cohérence.
+
+.Avant de commencer
+Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez développer se trouve dans une relation de synchronisation active SnapMirror , vous devezlink:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant de pouvoir ajouter des unités de stockage.  Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devezlink:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir développer le groupe de cohérence.  La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant l'extension d'un groupe de cohérence n'est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
+
+[role="tabbed-block"]
+====
+.Ajouter des unités de stockage existantes
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le groupe de cohérence à développer.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *développer*.
+. Sélectionnez *utilisation des unités de stockage existantes*.
+. Sélectionnez les unités de stockage à ajouter au groupe de cohérence, puis sélectionnez *expand*.
+
+
+--
+.Ajouter de nouvelles unités de stockage
+--
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Placez le curseur de la souris sur le groupe de cohérence à développer.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *développer*.
+. Sélectionnez *utilisation de nouvelles unités de stockage*.
+. Entrez le nombre d'unités que vous souhaitez créer et la capacité par unité.
++
+Si vous créez plusieurs unités, chaque unité est créée avec la même capacité et le même système d'exploitation hôte. Pour attribuer une capacité différente à chaque unité, sélectionnez *Ajouter une capacité différente* pour attribuer une capacité différente à chaque unité.
+
+. Sélectionnez *développer*.
+
+
+.Et la suite
+Après avoir créé une nouvelle unité de stockage, vous devez link:../manage-data/provision-san-storage.html#add-host-initiators["ajoutez des initiateurs hôtes"] et link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["mappez l'unité de stockage nouvellement créée sur un hôte"]. L'ajout d'initiateurs hôtes permet aux hôtes d'accéder aux unités de stockage et d'effectuer des opérations de données. Le mappage d'une unité de stockage à un hôte permet à l'unité de stockage de commencer à transmettre des données à l'hôte auquel elle est mappée.
+
+--
+====
+.Et la suite ?
+Les snapshots existants du groupe de cohérence n'incluent pas les nouvelles unités de stockage ajoutées. link:create-snapshots.html#step-2-create-a-snapshot["créer un instantané immédiat"]Afin de protéger les unités de stockage que vous venez d'ajouter, vous devez utiliser votre groupe de cohérence jusqu'à la création automatique du prochain snapshot planifié.
+
+
+
+== Supprimer une unité de stockage d'un groupe de cohérence
+
+Vous devez supprimer une unité de stockage d'un groupe de cohérence si vous souhaitez supprimer l'unité de stockage, si vous souhaitez la gérer dans le cadre d'un autre groupe de cohérence ou si vous n'avez plus besoin de protéger les données qu'elle contient. La suppression d'une unité de stockage d'un groupe de cohérence rompt la relation entre l'unité de stockage et le groupe de cohérence, mais ne supprime pas l'unité de stockage.
+
+.Étapes
+. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
+. Double-cliquez sur le groupe de cohérence dont vous souhaitez supprimer une unité de stockage.
+. Dans la section *vue d'ensemble*, sous *unités de stockage*, sélectionnez l'unité de stockage à supprimer, puis sélectionnez *Supprimer du groupe de cohérence*.
+
+
+.Résultat
+L'unité de stockage n'est plus membre du groupe de cohérence.
+
+.Et la suite
+Si vous devez continuer à protéger les données de l'unité de stockage, ajoutez-la à un autre groupe de cohérence.

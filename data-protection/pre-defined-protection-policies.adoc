@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: data-protection/pre-defined-protection-policies.html 
+keywords: snapshot replication, asa r2, protect data, data protection, replication, replicate data, remote cluster, destination cluster, source cluster, replication relationship, asynchronous replication, synchronous replication, policy, pre-defined, default, custom, policies 
+summary: La politique de réplication définit quand les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.  ONTAP inclut diverses politiques de protection des données prédéfinies que vous pouvez utiliser pour vos relations de réplication. 
+---
+= En savoir plus sur les politiques de protection des données ONTAP prédéfinies
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La politique de réplication définit quand les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.  ONTAP inclut diverses politiques de protection des données prédéfinies que vous pouvez utiliser pour vos relations de réplication.
+
+Si les politiques prédéfinies ne répondent pas à vos besoins, vous pouvezlink:snapshot-replication.html#step-2-optionally-create-a-custom-replication-policy["créer une politique de réplication personnalisée"] .
+
+Les systèmes ASA r2 prennent en charge les politiques de protection prédéfinies suivantes.
+
+[cols="3,4,1"]
+|===
+| Politique | Description | Type de politique 
+
+
+| Asynchrone | Une politique asynchrone et de coffre-fort SnapMirror unifiée pour la mise en miroir du dernier système de fichiers actif et des instantanés quotidiens et hebdomadaires avec un calendrier de transfert horaire. | Asynchrone 
+
+
+| Basculement automatique duplex | Politique pour SnapMirror synchrone avec garantie RTO nulle et réplication de synchronisation bidirectionnelle. | Synchronisation active de SnapMirror 
+
+
+| CloudBackupDefault | Politique de coffre-fort avec règle quotidienne. | Asynchrone 
+
+
+| Sauvegarde quotidienne | Politique de coffre-fort avec une règle quotidienne et un calendrier de transfert quotidien. | Asynchrone 
+
+
+| DPDéfaut | Politique asynchrone SnapMirror pour la mise en miroir de tous les instantanés et du dernier système de fichiers actif. | Asynchrone 
+
+
+| MirrorAllSnapshots | Politique asynchrone SnapMirror pour la mise en miroir de tous les instantanés et du dernier système de fichiers actif. | Asynchrone 
+
+
+| MiroirTous les instantanésSupprimer le réseau | Politique asynchrone SnapMirror pour la mise en miroir de tous les instantanés et du dernier système de fichiers actif, à l'exclusion des configurations réseau. | Asynchrone 
+
+
+| Miroir et coffre-fort | Une politique asynchrone et de coffre-fort SnapMirror unifiée pour la mise en miroir du dernier système de fichiers actif et des instantanés quotidiens et hebdomadaires. | Asynchrone 
+
+
+| MirrorAndVaultDiscardNetwork | Une politique asynchrone et de coffre-fort SnapMirror unifiée pour la mise en miroir du dernier système de fichiers actif et des instantanés quotidiens et hebdomadaires à l'exclusion des configurations réseau. | Asynchrone 
+
+
+| MirrorLatest | Politique asynchrone SnapMirror pour la mise en miroir du dernier système de fichiers actif. | Asynchrone 
+
+
+| Unified7year | Politique SnapMirror unifiée avec conservation de 7 ans. | Asynchrone 
+
+
+| XDP par défaut | Politique de coffre-fort avec règles quotidiennes et hebdomadaires. | Asynchrone 
+|===

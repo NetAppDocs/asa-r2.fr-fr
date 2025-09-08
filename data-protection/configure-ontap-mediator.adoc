@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: data-protection/configure-ontap-mediator.html 
 keywords: asa r2, data protection, protect data, configure mediator, ontap mediator, cloud mediator, self-signed, ca, certificates 
-summary: Découvrez comment configurer ONTAP Mediator ou ONTAP Cloud Mediator avec des certificats auto-signés pour les systèmes ASA r2. 
+summary: Découvrez comment configurer ONTAP Mediator ou ONTAP Cloud Mediator avec des certificats auto-signés ou tiers pour les systèmes ASA r2. 
 ---
-= Configurer ONTAP Mediator ou ONTAP Cloud Mediatior à l'aide de certificats auto-signés sur les systèmes ASA r2
+= Configurer ONTAP Mediator ou ONTAP Cloud Mediatior sur les systèmes ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,16 +14,20 @@ summary: Découvrez comment configurer ONTAP Mediator ou ONTAP Cloud Mediator av
 Vous devez configurer ONTAP Mediator ou ONTAP Cloud Mediator avant de pouvoir utiliser SnapMirror Active Sync pour la surveillance des clusters. ONTAP Mediator et ONTAP Cloud Mediator fournissent tous deux un stockage persistant et clôturé pour les métadonnées haute disponibilité (HA) utilisées par les clusters ONTAP dans une relation SnapMirror Active Sync. De plus, les deux médiateurs offrent une fonctionnalité de requête synchrone sur l'état des nœuds pour faciliter la détermination du quorum et servent de proxy ping pour la détection de la vivacité des contrôleurs.
 
 .Avant de commencer
-* Si vous utilisez ONTAP Cloud Mediator, vérifiez que votre système ASA r2 répond aux exigences nécessaires link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["prérequis"^] .
-
+Si vous utilisez ONTAP Cloud Mediator, vérifiez que votre système ASA r2 répond aux exigences nécessaires link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["prérequis"^] .
 
 .Étapes
 . Dans le Gestionnaire système, sélectionnez *Protection > Présentation*.
-. Dans le volet de droite, à côté de *Médiateurs*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] ; puis sélectionnez *Ajouter un médiateur*.
+. Dans le volet de droite, sous *Médiateurs*, sélectionnez *Ajouter un médiateur*.
 . Sélectionnez le *type de médiateur*.
 . Pour un médiateur *Cloud*, saisissez l'ID d'organisation, l'ID client et le secret client. Pour un médiateur *On-premises*, saisissez l'adresse IP, le port, le nom d'utilisateur et le mot de passe du médiateur.
 . Sélectionnez le pair de cluster dans la liste des pairs de cluster éligibles ou sélectionnez *Ajouter un pair de cluster* pour en ajouter un nouveau.
-. Copiez le contenu du  `intermediate.crt` fichier et collez-le dans le champ *Certificat*, ou sélectionnez *Importer* pour accéder au  `intermediate.crt` fichier et importer les informations du certificat.
+. Ajoutez les informations du certificat
++
+** Si vous utilisez un certificat auto-signé, copiez le contenu du `intermediate.crt` fichier et collez-le dans le champ *Certificat*, ou sélectionnez *Importer* pour accéder au `intermediate.crt` fichier et importer les informations du certificat.
+** Si vous utilisez un certificat tiers, saisissez les informations du certificat dans le champ *Certificat*.
+
+
 . Sélectionnez *Ajouter*.
 
 
