@@ -2506,4 +2506,6 @@
   <block id="f9e11d9c895b9f2de1a25a03e810d34d" category="sidebar">Ajouter ou supprimer des unités de stockage aux groupes de cohérence</block>
   <block id="5a0dfc6f986e17a79c038bc9a2aeec2d" category="sidebar">Supprimer les groupes de cohérence</block>
   <block id="36bed646725e085252916c3131fbf1b2" category="sidebar">Gérer les groupes de cohérence hiérarchique</block>
+  <block id="e130096a0ace158c7893eedbd19e7115" category="inline-link-macro">La synchronisation NTP échoue après le changement d'IP LIF</block>
+  <block id="31fea35e33141cfa7edd94a1254d7007" category="paragraph">ONTAP utilise le protocole NTP (Network Time Protocol) pour synchroniser l'heure sur le cluster. Après avoir modifié les adresses IP LIF, vous devrez peut-être mettre à jour la configuration NTP pour éviter les échecs de synchronisation. Pour plus d'informations, reportez-vous à l'article de la base de connaissances<block ref="eb416b4e77f6226862164baac134c11c" category="inline-link-macro-rx"></block> .</block>
 </blocks>
