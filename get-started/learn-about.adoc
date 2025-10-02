@@ -25,7 +25,7 @@ Les plateformes ASA suivantes sont classées en tant que systèmes ASA r2 :
 * ASA C30
 
 
-Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Les protocoles iSCSI, FC, NVMe/FC et NVMe/TCP prennent en charge une architecture actif-actif symétrique pour les chemins d'accès multiples, de sorte que tous les chemins entre les hôtes et le stockage soient actifs/optimisés. Les protocoles iSCSI et NVMe/TCP prennent en charge les chemins directs entre les hôtes et le stockage.
+Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).  Les protocoles iSCSI, FC, NVMe/FC et NVMe/TCP prennent en charge l'architecture active-active symétrique pour le multivoie afin que tous les chemins entre les hôtes et le stockage soient actifs/optimisés.  Les protocoles iSCSI et NVMe/TCP prennent en charge la connexion directe entre les hôtes et le stockage.  Pour les protocoles Fibre Channel et NVMe/FC, la connexion directe n'est pas prise en charge.
 
 Sur un système ASA r2, le logiciel ONTAP et System Manager sont optimisés pour prendre en charge les fonctionnalités SAN essentielles tout en supprimant les fonctionnalités et fonctionnalités non prises en charge dans les environnements SAN.
 
