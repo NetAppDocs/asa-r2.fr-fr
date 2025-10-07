@@ -34,10 +34,10 @@ Si vous créez plusieurs unités de stockage, chaque unité est créée avec la 
 . Entrez la capacité de l'unité de stockage, puis sélectionnez le système d'exploitation hôte.
 . Acceptez le *mappage d'hôte* sélectionné automatiquement ou sélectionnez un autre groupe d'hôtes pour l'unité de stockage à mapper.
 +
-*Host Mapping* fait référence au groupe d'hôtes auquel la nouvelle unité de stockage sera mappée. S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôtes. Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement pour votre mappage d'hôtes ou sélectionner un autre groupe d'hôtes.
+*Mappage d'hôte* fait référence au groupe d'hôtes sur lequel la nouvelle unité de stockage sera mappée.  S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôte.  Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement ou sélectionner un autre groupe d'hôtes.
 
 +
-S'il n'existe aucun groupe d'hôtes préexistant pour les hôtes s'exécutant sur le système d'exploitation que vous avez spécifié, ONTAP crée automatiquement un nouveau groupe d'hôtes.
+S'il n'existe aucun groupe d'hôtes préexistant pour les hôtes exécutés sur le système d'exploitation que vous avez spécifié, ONTAP crée automatiquement un nouveau groupe d'hôtes.
 
 . Si vous souhaitez effectuer l'une des opérations suivantes, sélectionnez *plus d'options* et suivez les étapes requises.
 +
@@ -82,11 +82,12 @@ La définition d'un débit et d'IOPS minimaux pour une unité de stockage garant
 
  a| 
 Modifiez le niveau de service de performances par défaut.
-
-Les systèmes ASA r2 proposent deux niveaux de performance. Le niveau de performances par défaut est *Extreme*, qui est le niveau le plus élevé disponible. Vous pouvez abaisser le niveau de performances à *Performance*.
  a| 
 .. Sous *stockage et optimisation*, en regard du niveau de service *Performance*, sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"].
 .. Sélectionnez *Performance*.
++
+Les systèmes ASA r2 offrent deux niveaux de performances.  Le niveau de performance par défaut est *Extrême*, qui est le niveau le plus élevé disponible.  Vous pouvez abaisser le niveau à *Performance*.
+
 
 
 
