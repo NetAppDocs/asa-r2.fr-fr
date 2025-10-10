@@ -41,7 +41,7 @@ Les systèmes ASA r2 prennent en charge les limites de stockage suivantes :
 | Taille de l'unité de stockage | 128 TO | 128 TO 
 
 
-| Unités de stockage par groupe de cohérence | 80 | 80 
+| Unités de stockage par groupe de cohérence | 256 | 256 
 
 
 | Machines virtuelles | 800 | 1200 
