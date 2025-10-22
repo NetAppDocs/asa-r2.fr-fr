@@ -68,12 +68,15 @@ Les limites suivantes s’appliquent aux unités de stockage et aux groupes de c
 
 Les limites suivantes s'appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication de synchronisation active SnapMirror .  La synchronisation active SnapMirror est prise en charge à partir d' ONTAP 9.17.1 sur les clusters à 2 nœuds uniquement.
 
-[cols="3"]
+[cols="2"]
 |===
-| Limite maximale | Par paire HA | Groupes de cohérence 
+| Limite maximale | Par paire HA 
 
 
-| 50 | Unités de stockage | 400 
+| Groupes de cohérence | 50 
+
+
+| Unités de stockage | 400 
 |===
 .Pour en savoir plus
 Pour obtenir la liste complète des limites de stockage ASA r2 les plus récentes, reportez-vous à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]la section .
