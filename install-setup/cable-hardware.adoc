@@ -147,6 +147,13 @@ image::../media/drw_70-90_switched_cluster_cabling_ieops-1657.svg[Reliez les con
 --
 Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.
 
+[NOTE]
+====
+Les exemples de câblage cluster/HA montrent des configurations courantes.
+
+Si vous ne voyez pas votre configuration ici, accédez à link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des emplacements pour câbler votre système de stockage.
+
+====
 *Câblage de cluster sans commutateur*
 
 Connectez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
@@ -329,6 +336,13 @@ image::../media/drw_isi_a20_switched_2p_25gbe_cabling_ieops-2019.svg[schéma de 
 --
 Créez les connexions du cluster ONTAP. Dans le cas de clusters sans commutateur, connectez les contrôleurs les uns aux autres. Pour les clusters commutés, connectez les contrôleurs aux commutateurs de réseau du cluster.
 
+[NOTE]
+====
+Les exemples de câblage cluster/HA montrent des configurations courantes.
+
+Si vous ne voyez pas votre configuration ici, accédez à link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des emplacements pour câbler votre système de stockage.
+
+====
 *Câblage de cluster sans commutateur*
 
 Connectez les contrôleurs l'un à l'autre pour créer des connexions de cluster ONTAP.
@@ -537,6 +551,13 @@ image::../media/drw_70-90_network_cabling2_ieops-1655.svg[Câble vers un réseau
 --
 Connectez les ports de module Ethernet ou Fibre Channel (FC) à votre réseau hôte.
 
+[NOTE]
+====
+Les exemples de câblage du réseau hôte montrent des configurations courantes.
+
+Si vous ne voyez pas votre configuration ici, accédez à link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des emplacements pour câbler votre système de stockage.
+
+====
 *Câblage hôte Ethernet*
 
 .ASA A30 et ASA A50 avec deux modules d'E/S 40/100 GbE à 2 ports
@@ -585,6 +606,13 @@ image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble ve
 --
 Connectez les ports de module Ethernet ou Fibre Channel (FC) à votre réseau hôte.
 
+[NOTE]
+====
+Les exemples de câblage du réseau hôte montrent des configurations courantes.
+
+Si vous ne voyez pas votre configuration ici, accédez à link:https://hwu.netapp.com["NetApp Hardware Universe"^] pour obtenir des informations complètes sur la configuration et la priorité des emplacements pour câbler votre système de stockage.
+
+====
 *Câblage hôte Ethernet*
 
 .ASA C30 avec deux modules d'E/S 40/100 GbE à 2 ports
