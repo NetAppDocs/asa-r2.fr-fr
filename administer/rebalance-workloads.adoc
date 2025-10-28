@@ -11,7 +11,7 @@ summary: 'À partir d" ONTAP 9.17.1, ONTAP rééquilibre automatiquement les cha
 
 
 [role="lead"]
-À partir d' ONTAP 9.17.1, ONTAP rééquilibre automatiquement les charges de travail entre les nœuds d'une paire HA ASA r2 pour des performances optimales. Par exemple, si l'utilisation d'un nœud atteint 70 % alors que celle de son partenaire HA n'est que de 30 %, ONTAP déplace automatiquement les charges de travail afin que l'utilisation de chaque nœud soit plus homogène. Comme les nœuds de la paire HA partagent la même zone de disponibilité de stockage, le rééquilibrage des charges de travail est une opération sans copie et sans impact sur les performances.
+À partir d' ONTAP 9.17.1, ONTAP rééquilibre automatiquement les charges de travail entre les nœuds d'une paire de systèmes HA ASA r2 pour des performances optimales. Par exemple, si l'utilisation de l'espace sur un nœud augmente à 70 % alors que l'utilisation sur son partenaire HA n'est que de 30 %, ONTAP déplace automatiquement les charges de travail afin que l'utilisation de l'espace de chaque nœud soit plus étroitement adaptée. Comme les nœuds de la paire HA partagent la même zone de disponibilité de stockage, le rééquilibrage des charges de travail est une opération sans copie et sans impact sur les performances.
 
 
 
