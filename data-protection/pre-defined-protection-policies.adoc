@@ -15,6 +15,9 @@ La politique de réplication définit quand les mises à jour effectuées sur le
 
 Si les politiques prédéfinies ne répondent pas à vos besoins, vous pouvezlink:snapshot-replication.html#step-2-optionally-create-a-custom-replication-policy["créer une politique de réplication personnalisée"] .
 
+
+NOTE: Les systèmes ASA r2 ne prennent pas en charge la réplication synchrone.
+
 Les systèmes ASA r2 prennent en charge les politiques de protection prédéfinies suivantes.
 
 [cols="3,4,1"]

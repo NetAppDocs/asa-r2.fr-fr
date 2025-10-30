@@ -60,27 +60,14 @@ En savoir plus surlink:pre-defined-protection-policies.html["politiques de prote
 +
 Si vous souhaitez appliquer la règle de réplication à l'ensemble du cluster, sélectionnez *Cluster*. Si vous souhaitez que la règle de réplication s'applique uniquement aux unités de stockage d'une machine virtuelle de stockage spécifique, sélectionnez *Storage VM*.
 
-. Sélectionnez le *Type de stratégie*.
+. Pour le *type de politique*, sélectionnez *Asynchrone*.
 +
-[cols="2,6a"]
-|===
-| Option | Étapes 
 
+NOTE: Avec la politique asynchrone, les données sont copiées sur le site distant après avoir été écrites à la source. La réplication synchrone n'est pas prise en charge pour les systèmes ASA r2.
 
-| Copiez les données sur le site distant une fois qu'elles ont été écrites sur la source.  a| 
-.. Sélectionnez *Asynchronous*.
-.. Sous *transférer des instantanés à partir de la source*, acceptez le programme de transfert par défaut ou sélectionnez un autre programme.
-.. Sélectionnez cette option pour transférer tous les instantanés ou pour créer des règles afin de déterminer les snapshots à transférer.
-.. Activez éventuellement la compression réseau.
-
-
-
-
-| Écrire simultanément les données sur les sites source et distant  a| 
-.. Sélectionnez *synchrone*.
-
-
-|===
+. Sous *transférer des instantanés à partir de la source*, acceptez le programme de transfert par défaut ou sélectionnez un autre programme.
+. Sélectionnez cette option pour transférer tous les instantanés ou pour créer des règles afin de déterminer les snapshots à transférer.
+. Activez éventuellement la compression réseau.
 . Sélectionnez *Enregistrer*.
 
 

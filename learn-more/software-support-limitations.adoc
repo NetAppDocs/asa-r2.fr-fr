@@ -26,8 +26,6 @@ Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement d
 * MetroCluster
 * Protocoles d'objet
 * API ONTAP S3 SnapMirror et S3
-* SnapMirror (asynchrone et synchrone) vers le cloud
-* SnapMirror (asynchrone et synchrone) vers les systèmes non ASA r2
 
 
 .Les systèmes ASA r2 prennent en charge les éléments suivants :
@@ -38,6 +36,20 @@ link:../secure-data/ransomware-protection.html["Découvrez comment verrouiller d
 * Chiffrement double couche
 +
 link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] Aux données de votre système ASA r2.
+
+
+
+
+
+== Prise en charge de la réplication SnapMirror
+
+La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :
+
+* La réplication synchrone SnapMirror n'est pas prise en charge.
+* La synchronisation active SnapMirror est prise en charge uniquement entre deux systèmes ASA r2.
+* La réplication asynchrone SnapMirror est prise en charge uniquement entre deux systèmes ASA r2. La réplication asynchrone SnapMirror n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF ou FAS ou le cloud.
++
+En savoir plus surlink:data-protection/pre-defined-protection-policies.html["Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2."] .
 
 
 

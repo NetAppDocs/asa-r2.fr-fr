@@ -438,14 +438,9 @@
   <block id="b03db2a30a32c3ac8c0f123bffb1ece4" category="list-text">Entrez un nom pour la règle de réplication ou acceptez le nom par défaut, puis entrez une description.</block>
   <block id="ca8308195da9e8f1aaa6981179fa1910" category="list-text">Sélectionnez *étendue de la stratégie*.</block>
   <block id="ba8e129c41029b7f9087dd518b733282" category="paragraph">Si vous souhaitez appliquer la règle de réplication à l'ensemble du cluster, sélectionnez *Cluster*. Si vous souhaitez que la règle de réplication s'applique uniquement aux unités de stockage d'une machine virtuelle de stockage spécifique, sélectionnez *Storage VM*.</block>
-  <block id="cc4bd2e3882617e7952e21c6edcf0f70" category="list-text">Sélectionnez le *Type de stratégie*.</block>
-  <block id="94474bfd74d528818aa33385a7ef01b1" category="cell">Copiez les données sur le site distant une fois qu'elles ont été écrites sur la source.</block>
-  <block id="5b9740e84ea801d163925a0b1f33b1c2" category="list-text">Sélectionnez *Asynchronous*.</block>
   <block id="ca4245a2767798f81970db32d522e7cf" category="list-text">Sous *transférer des instantanés à partir de la source*, acceptez le programme de transfert par défaut ou sélectionnez un autre programme.</block>
   <block id="63abd2a127bdae4f4eaf9ca003d89ab3" category="list-text">Sélectionnez cette option pour transférer tous les instantanés ou pour créer des règles afin de déterminer les snapshots à transférer.</block>
   <block id="0527fa3e946de1ec8c471d2c7cae3688" category="list-text">Activez éventuellement la compression réseau.</block>
-  <block id="a06950db009f1d0449acff1c4c0993e3" category="cell">Écrire simultanément les données sur les sites source et distant</block>
-  <block id="2ea2e8a2b83fdeb4e03eb89a3c69ea7a" category="list-text">Sélectionnez *synchrone*.</block>
   <block id="caf0e8401f3720e2547947582afb98ff" category="paragraph">Vous avez créé une règle de réplication et êtes maintenant prêt à créer une relation de réplication entre votre système ASA r2 et votre emplacement distant.</block>
   <block id="5e1ce6bacb63e4397cf8fa4bbd6cafc8" category="inline-link-macro">Machines virtuelles de stockage pour l'accès client</block>
   <block id="308d9e6951d14df38557244f728d31ec" category="paragraph">En savoir plus sur <block ref="b2f7d76a0b614957304f0bebec8320f7" category="inline-link-macro-rx"></block>.</block>
@@ -1482,8 +1477,6 @@
   <block id="9228b29536da5aa86ee6865642b7a754" category="paragraph">Cela améliore considérablement l'efficacité globale du stockage, en particulier avec les systèmes de fichiers dont le volume de données est élevé.</block>
   <block id="319ffa33cfb4e70c9e521494969d662a" category="sidebar">Nouveautés de ONTAP 9.16.1</block>
   <block id="0b6845dd2391304844b6f9578fd8c865" category="sidebar">Modifications des valeurs par défaut et des limites ONTAP</block>
-  <block id="d32b93d0cc0df3a57e074a2dd7f55bac" category="list-text">SnapMirror (asynchrone et synchrone) vers le cloud</block>
-  <block id="db501755a13db6bc1da40b7fa29e25f1" category="list-text">SnapMirror (asynchrone et synchrone) vers les systèmes non ASA r2</block>
   <block id="b0af3c84875edd616110edf2dac64154" category="paragraph">Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage.</block>
   <block id="a45025bc45c4e360bb41b761b432dd34" category="doc">Démarrage rapide des systèmes de stockage ASA r2</block>
   <block id="465ce601131c87fafd3a4a3da5836246" category="summary">Les systèmes ASA r2 suivent les mêmes recommandations et instructions pour la configuration des hôtes SAN que tous les autres systèmes ONTAP.</block>
@@ -2510,4 +2503,14 @@
   <block id="11695514a878032b3fb5ecdf5e659b5b" category="paragraph">Si vous ne voyez pas votre configuration ici, accédez à <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> pour obtenir des informations complètes sur la configuration et la priorité des emplacements pour câbler votre système de stockage.</block>
   <block id="8c3a29fca49d6a772e0a2f8ab6ab7280" category="paragraph">Les exemples de câblage du réseau hôte montrent des configurations courantes.</block>
   <block id="47209a3f622b3d093f126e58491097c5" category="paragraph">À partir d' ONTAP 9.17.1, ONTAP rééquilibre automatiquement les charges de travail entre les nœuds d'une paire de systèmes HA ASA r2 pour des performances optimales. Par exemple, si l'utilisation de l'espace sur un nœud augmente à 70 % alors que l'utilisation sur son partenaire HA n'est que de 30 %, ONTAP déplace automatiquement les charges de travail afin que l'utilisation de l'espace de chaque nœud soit plus étroitement adaptée. Comme les nœuds de la paire HA partagent la même zone de disponibilité de stockage, le rééquilibrage des charges de travail est une opération sans copie et sans impact sur les performances.</block>
+  <block id="19b78e8ad6af7cf1ea82e76fdac1aa7f" category="admonition">Les systèmes ASA r2 ne prennent pas en charge la réplication synchrone.</block>
+  <block id="2e360c76c16280fe84148c9706ad34d6" category="list-text">Pour le *type de politique*, sélectionnez *Asynchrone*.</block>
+  <block id="f1f7f77e02139ed937613a8043556351" category="admonition">Avec la politique asynchrone, les données sont copiées sur le site distant après avoir été écrites à la source. La réplication synchrone n'est pas prise en charge pour les systèmes ASA r2.</block>
+  <block id="ea67212f425c599ae5520184dd5dea87" category="section-title">Prise en charge de la réplication SnapMirror</block>
+  <block id="078f057957ee3112500c8f235bb0352f" category="paragraph">La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :</block>
+  <block id="387dae8bc04454e56a9780e8507821e5" category="list-text">La réplication synchrone SnapMirror n'est pas prise en charge.</block>
+  <block id="74618c54a0d6a05f0dbccbfa9f4bc480" category="list-text">La synchronisation active SnapMirror est prise en charge uniquement entre deux systèmes ASA r2.</block>
+  <block id="c274f3c7bf5ff5013941b9ff06a2dfdc" category="list-text">La réplication asynchrone SnapMirror est prise en charge uniquement entre deux systèmes ASA r2. La réplication asynchrone SnapMirror n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF ou FAS ou le cloud.</block>
+  <block id="91986d95992f1ad825d4163f8cc66a27" category="inline-link-macro">Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2.</block>
+  <block id="8d722ac0b9aa4a6e8eaeefc6381bdc0e" category="paragraph">En savoir plus sur<block ref="d1292e0977d41506a87f914ff1c78817" category="inline-link-macro-rx"></block> .</block>
 </blocks>
