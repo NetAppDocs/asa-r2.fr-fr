@@ -47,9 +47,12 @@ La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les
 
 * La réplication synchrone SnapMirror n'est pas prise en charge.
 * La synchronisation active SnapMirror est prise en charge uniquement entre deux systèmes ASA r2.
++
+En savoir plus surlink:../data-protection/snapmirror-active-sync.html["Synchronisation active SnapMirror sur les systèmes ASA r2"] .
+
 * La réplication asynchrone SnapMirror est prise en charge uniquement entre deux systèmes ASA r2. La réplication asynchrone SnapMirror n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF ou FAS ou le cloud.
 +
-En savoir plus surlink:data-protection/pre-defined-protection-policies.html["Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2."] .
+En savoir plus surlink:../data-protection/pre-defined-protection-policies.html["Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2."] .
 
 
 
