@@ -12,9 +12,9 @@ searchtitle: Comparez les systèmes ASA r2 aux autres systèmes ONTAP
 
 
 [role="lead"]
-Les systèmes ASA r2 offrent une solution matérielle et logicielle pour les environnements SAN exclusivement basés sur des plateformes All Flash. ASA se distinguent des autres systèmes ONTAP (ASA, AFF et FAS) par la mise en œuvre de leur personnalité ONTAP , de leur couche de stockage et des protocoles pris en charge.
+Les systèmes ASA r2 offrent une solution matérielle et logicielle pour les environnements SAN uniquement, construits sur des solutions 100 % flash. ASA se distinguent des autres systèmes ONTAP (ASA, AFF et FAS) par la mise en œuvre de leur personnalité ONTAP , de leur couche de stockage et des protocoles pris en charge.
 
-Les plateformes ASA suivantes sont classées en tant que systèmes ASA r2 :
+Les éléments suivants sont classés comme systèmes ASA r2 :
 
 * ASA A1K
 * ASA A90
@@ -99,8 +99,8 @@ En raison de cette approche automatisée et simplifiée de la gestion du stockag
 
 Les principales différences entre les systèmes ASA r2 et FAS, AFF et ASA concernant l'interface de ligne de commande et l'API REST de ONTAP sont décrites ci-dessous.
 
-.Création de SVM par défaut avec services de protocole
-Les nouveaux clusters contiennent automatiquement un SVM de données par défaut lorsque les protocoles SAN sont activés. Les LIF de données IP prennent en charge les protocoles iSCSI et NVMe/TCP et utilisent la `default-data-blocks` stratégie de service par défaut.
+.Création de VM de stockage par défaut avec services de protocole
+Les nouveaux clusters contiennent automatiquement une machine virtuelle (VM) de stockage de données par défaut avec les protocoles SAN activés.  Les interfaces logiques de données IP prennent en charge les protocoles iSCSI et NVMe/TCP et utilisent le `default-data-blocks` politique de service par défaut.
 
 .Création automatique de volume
 La création d'une unité de stockage (LUN ou espace de noms) crée automatiquement un volume à partir de la zone de disponibilité du stockage. Il en résulte un namespace commun et simplifié. La suppression d'une unité de stockage supprime automatiquement le volume associé.

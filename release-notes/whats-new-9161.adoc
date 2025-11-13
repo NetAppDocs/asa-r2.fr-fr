@@ -18,15 +18,15 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1 pour les
 
 
 
-== Plateformes
+== Systèmes
 
 [cols="2,4"]
 |===
 | Mise à jour | Description 
 
 
-| Plateformes  a| 
-Les systèmes NetApp ASA r2 suivants sont pris en charge à partir d' ONTAP 9.16.1.  Ces plates-formes offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée spécifique aux besoins des clients SAN uniquement.
+| Systèmes  a| 
+Les systèmes NetApp ASA r2 suivants sont pris en charge à partir d' ONTAP 9.16.1. Ces systèmes offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée adaptée aux besoins spécifiques des clients utilisant exclusivement un SAN.
 
 * ASA A50
 * ASA A30
@@ -72,7 +72,7 @@ Les systèmes NetApp ASA r2 suivants sont pris en charge à partir d' ONTAP 9.16
 | link:../learn-more/hardware-comparison.html["Prise en charge du rééquilibrage automatique des unités de stockage"] | ONTAP rééquilibre automatiquement les unités de stockage dans vos zones de disponibilité du stockage pour une utilisation optimale des performances et de la capacité. 
 
 
-| La désallocation d'espace NVMe est activée par défaut  a| 
+| link:../learn-more/additional-supported-ontap-features.html#san-protocols["La désallocation d'espace NVMe est activée par défaut"]  a| 
 La désallocation d'espace (également appelée « perforation » et « unmap ») est activée par défaut pour les espaces de noms NVMe. La désallocation d'espace permet à un hôte de désallouer les blocs inutilisés à partir des espaces de noms pour libérer de l'espace.
 
 Cela améliore considérablement l'efficacité globale du stockage, en particulier avec les systèmes de fichiers dont le volume de données est élevé.

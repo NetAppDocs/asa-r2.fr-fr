@@ -17,12 +17,12 @@ Ajoutez des disques à un nœud ou à un tiroir pour augmenter la capacité de s
 
 == Utilisez NetApp Hardware Universe pour préparer l'installation d'un nouveau lecteur
 
-Avant d'installer un nouveau disque sur un nœud ou un tiroir, vérifiez à l'aide de NetApp Hardware Universe que le disque que vous souhaitez ajouter est pris en charge par votre plateforme ASA r2 et identifiez le slot approprié pour le nouveau disque. Les emplacements appropriés pour l'ajout de disques varient en fonction du modèle de plate-forme et de la version ONTAP. Dans certains cas, vous devez ajouter des lecteurs à des emplacements spécifiques dans l'ordre.
+Avant d'installer un nouveau disque sur un nœud ou une étagère, utilisez NetApp Hardware Universe pour vérifier que le disque que vous souhaitez ajouter est pris en charge par votre système ASA r2 et pour identifier l'emplacement approprié pour le nouveau disque.  Les emplacements appropriés pour l'ajout de disques varient en fonction du modèle du système et de la version ONTAP .  Dans certains cas, il est nécessaire d'ajouter les disques à des emplacements spécifiques, dans l'ordre.
 
 .Étapes
 . Passez à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]l' .
 . Sous *produits*, sélectionnez vos configurations matérielles.
-. Sélectionnez votre plate-forme ASA r2.
+. Sélectionnez votre système ASA r2.
 . Sélectionnez votre version ONTAP, puis *Afficher les résultats*.
 . Sous le graphique, sélectionnez *cliquez ici pour voir d'autres vues*, puis choisissez la vue qui correspond à votre configuration.
 . Utilisez l'affichage de votre configuration pour vérifier que votre nouveau lecteur est pris en charge et que le logement approprié est installé.
@@ -42,7 +42,7 @@ Vous devez répéter les étapes de cette procédure pour chaque lecteur.
 
 .Étapes
 . Mettez-vous à la terre.
-. Retirez délicatement le cache de l'avant de la plate-forme.
+. Retirez délicatement le cadre de la face avant du système.
 . Insérez le nouveau lecteur dans le logement approprié.
 +
 .. Avec la poignée de came en position ouverte, utilisez les deux mains pour insérer le nouvel entraînement.

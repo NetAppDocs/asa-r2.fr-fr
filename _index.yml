@@ -24,6 +24,8 @@ indexpage:
       url: "/manage-data/data-cloning.html"
     - title: Modifier les unités de stockage
       url: "/manage-data/modify-storage-units.html"
+    - title: Migrer les machines virtuelles de stockage
+      url: "/manage-data/migrate-svm.html"
   - title: Protégez et sécurisez les données
     links:
     - title: Créer des instantanés
@@ -34,6 +36,8 @@ indexpage:
       url: "/data-protection/snapmirror-active-sync.html"
     - title: Chiffrement des données au repos
       url: "/secure-data/encrypt-data-at-rest.html"
+    - title: Activer ARP/AI
+      url: "/secure-data/enable-anti-ransomware-protection.html"
   - title: Plus de ressources ASA r2
     links:
     - title: Fiche technique ASA

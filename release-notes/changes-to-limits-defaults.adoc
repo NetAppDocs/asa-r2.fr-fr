@@ -25,6 +25,12 @@ En savoir plus sur les modifications des limites et des valeurs par défaut affe
 | Fonction | Modification de limite | Modifié dans la version... 
 
 
+| Machines virtuelles de stockage par cluster | Le nombre maximal de machines virtuelles de stockage prises en charge (VM) par paire HA passe de 32 à 256. | ONTAP 9.18.1 
+
+
+| SnapMirror activ sync | La prise en charge de la synchronisation active SnapMirror est étendue des clusters à deux nœuds aux clusters à quatre nœuds. | ONTAP 9.18.1 
+
+
 | Nœuds par cluster  a| 
 Le nombre maximum de nœuds par cluster est passé de 2 à 12.
 

@@ -25,9 +25,9 @@ Après avoir activé ARP/AI, vous devez link:../administer/update-firmware.html#
 
 
 
-== Activer ARP/AI sur toutes les unités de stockage d'un SVM
+== Activez ARP/AI sur toutes les unités de stockage d'une machine virtuelle de stockage.
 
-Vous pouvez activer ARP/AI par défaut sur toutes les unités de stockage créées dans une machine virtuelle de stockage (SVM). Cela signifie que ARP/AI sera automatiquement activé sur toutes les nouvelles unités de stockage créées dans la SVM. Vous pouvez également appliquer ARP/AI aux unités de stockage existantes dans la SVM.
+Vous pouvez activer ARP/AI par défaut sur toutes les unités de stockage créées dans une machine virtuelle de stockage (VM). Cela signifie que toute nouvelle unité de stockage créée dans la machine virtuelle de stockage aura ARP/AI activé automatiquement.  Vous pouvez également appliquer ARP/AI aux unités de stockage existantes dans la VM de stockage.
 
 .Étapes
 . Dans le Gestionnaire système, sélectionnez *Cluster > Machines virtuelles de stockage*.
@@ -42,13 +42,13 @@ Cela active ARP/AI sur toutes les futures unités de stockage créées sur la ma
 
 
 .Résultat
-Toutes les nouvelles unités de stockage que vous créez sur le SVM sont protégées par défaut contre les attaques de ransomware et toute activité suspecte vous est signalée dans le Gestionnaire système.
+Toutes les nouvelles unités de stockage que vous créez sur la machine virtuelle de stockage sont protégées par défaut contre les attaques de ransomware, et toute activité suspecte vous est signalée dans le Gestionnaire système.
 
 
 
-== Activer ARP/AI sur des unités de stockage spécifiques dans un SVM
+== Activer ARP/AI sur des unités de stockage spécifiques dans une machine virtuelle de stockage
 
-Si vous ne souhaitez pas qu'ARP/AI soit activé sur toutes les unités de stockage d'un SVM, vous pouvez sélectionner les unités spécifiques que vous souhaitez activer.
+Si vous ne souhaitez pas activer ARP/AI sur toutes les unités de stockage d'une machine virtuelle de stockage, vous pouvez sélectionner les unités spécifiques que vous souhaitez activer.
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*.

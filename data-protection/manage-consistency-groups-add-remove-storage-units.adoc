@@ -17,9 +17,23 @@ Augmentez ou diminuez la taille d’un groupe de cohérence en modifiant le nomb
 
 == Ajouter des unités de stockage à un groupe de cohérence
 
-Augmentez la quantité de stockage gérée par un groupe de cohérence en ajoutant des unités de stockage au groupe de cohérence.
+Augmentez la capacité de stockage gérée par un groupe de cohérence en ajoutant des unités de stockage nouvelles ou existantes à ce groupe.
 
-Vous pouvez ajouter des unités de stockage existantes à votre groupe de cohérence ou créer de nouvelles unités de stockage à ajouter au groupe de cohérence.
+À partir d' ONTAP 9.18.1, vous pouvez configurer la réserve de snapshots et la suppression automatique des snapshots pour limiter la quantité d'espace utilisée par les snapshots dans vos unités de stockage.  Lorsque vous ajoutez une unité de stockage à un groupe de cohérence existant, la réserve d'instantanés et la suppression automatique des instantanés sont configurées comme suit par défaut.
+
+[cols="3"]
+|===
+| Si vous ajoutez... | Le pourcentage de réserve pour les instantanés est fixé à... | La suppression automatique des instantanés est... 
+
+
+| Nouveaux entrepôts | 0 | Désactivées 
+
+
+| Unités de stockage existantes | Inchangé | Inchangé 
+|===
+Vous pouvez modifier les paramètres par défaut des nouvelles unités de stockage lors de leur création.  Vous pouvez égalementlink:snapshot-reserve-modify.html["modifier les unités de stockage existantes"] pour mettre à jour leurs paramètres actuels.
+
+link:snapshot-reserve.html["Découvrez-en plus sur la réserve de snapshots sur les systèmes de stockage ASA r2"].
 
 .Avant de commencer
 Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez développer se trouve dans une relation de synchronisation active SnapMirror , vous devezlink:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant de pouvoir ajouter des unités de stockage.  Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devezlink:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir développer le groupe de cohérence.  La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant l'extension d'un groupe de cohérence n'est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
@@ -46,7 +60,7 @@ Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez
 . Sélectionnez *utilisation de nouvelles unités de stockage*.
 . Entrez le nombre d'unités que vous souhaitez créer et la capacité par unité.
 +
-Si vous créez plusieurs unités, chaque unité est créée avec la même capacité et le même système d'exploitation hôte. Pour attribuer une capacité différente à chaque unité, sélectionnez *Ajouter une capacité différente* pour attribuer une capacité différente à chaque unité.
+Si vous créez plusieurs unités, chaque unité sera créée avec la même capacité et le même système d'exploitation hôte.  Pour attribuer une capacité différente à chaque unité, sélectionnez *Ajouter une capacité différente*.
 
 . Sélectionnez *développer*.
 
@@ -63,7 +77,7 @@ Les snapshots existants du groupe de cohérence n'incluent pas les nouvelles uni
 
 == Supprimer une unité de stockage d'un groupe de cohérence
 
-Vous devez supprimer une unité de stockage d'un groupe de cohérence si vous souhaitez supprimer l'unité de stockage, si vous souhaitez la gérer dans le cadre d'un autre groupe de cohérence ou si vous n'avez plus besoin de protéger les données qu'elle contient. La suppression d'une unité de stockage d'un groupe de cohérence rompt la relation entre l'unité de stockage et le groupe de cohérence, mais ne supprime pas l'unité de stockage.
+Retirez une unité de stockage d'un groupe de cohérence pour la supprimer, la gérer dans le cadre d'un autre groupe de cohérence ou cesser de protéger ses données.  La suppression d'une unité de stockage d'un groupe de cohérence rompt la relation entre l'unité de stockage et le groupe de cohérence, mais ne supprime pas l'unité de stockage.
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > groupes de cohérence*.

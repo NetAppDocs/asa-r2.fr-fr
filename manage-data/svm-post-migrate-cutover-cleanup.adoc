@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: manage-data/svm-post-migrate-cutover-cleanup.html 
+keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine, manual cutover, manual cleanup, remove source svm 
+summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d"équilibrer l"utilisation du stockage dans le cluster.' 
+---
+= Basculer les clients et nettoyer la machine virtuelle de stockage source après la migration vers un système ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après la migration d'une machine virtuelle de stockage (VM) d'un cluster ASA vers un cluster ASA r2, par défaut, les clients sont automatiquement basculés vers le cluster ASA r2 et la VM de stockage sur le cluster ASA est automatiquement supprimée.  Si vous avez choisi de désactiver le basculement automatique et la suppression de la machine virtuelle de stockage ASA pendant la migration, vous devrez effectuer ces étapes manuellement une fois la migration terminée.
+
+
+
+== Basculer manuellement les clients vers un système ASA r2 après une migration de machine virtuelle de stockage
+
+Si vous désactivez la bascule automatique du client lors de la migration d'une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2, une fois la migration terminée avec succès, effectuez la bascule manuellement afin que la machine virtuelle de stockage ASA r2 puisse fournir des données aux clients.
+
+.Étapes
+. Sur le cluster ASA r2, exécutez manuellement la bascule du client :
++
+[source, cli]
+----
+vserver migrate cutover -vserver <storage_VM_name>
+----
+. Vérifiez que l'opération de basculement est terminée :
++
+[source, cli]
+----
+vserver migrate show
+----
+
+
+.Résultat
+Les données sont fournies à vos clients depuis la machine virtuelle de stockage de votre cluster ASA r2.
+
+.Et la suite ?
+Vous êtes maintenant prêt à supprimer la machine virtuelle de stockage du cluster ASA source.
+
+
+
+== Supprimer manuellement une machine virtuelle de stockage ASA après la migration vers un cluster ASA r2
+
+Si vous désactivez le nettoyage automatique de la source lors de la migration d'une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2, une fois la migration terminée, supprimez la machine virtuelle de stockage du cluster ASA pour libérer l'espace de stockage.
+
+.Avant de commencer
+Vos clients doivent diffuser des données provenant du cluster ASA r2.
+
+.Étapes
+. Depuis le cluster ASA , vérifiez que l'état de la machine virtuelle de stockage ASA est *Prêt pour le nettoyage de la source* :
++
+[source, cli]
+----
+vserver migrate show
+----
+. Supprimez la machine virtuelle de stockage ASA :
++
+[source, cli]
+----
+vserver migrate source-cleanup -vserver <storage_VM_name>
+----
+
+
+.Résultat
+La machine virtuelle de stockage de votre cluster ASA a été supprimée.

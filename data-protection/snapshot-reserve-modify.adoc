@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapshot-reserve-modify.html 
+keywords: asa r2, snapshot reserve, percentage 
+summary: 'La réserve d"instantanés correspond à l"espace de l"unité de stockage réservé spécifiquement aux instantanés.  Lorsque la réserve d"instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l"espace utilisé par les instantanés dépasse la réserve d"instantanés.' 
+---
+= Modifier la réserve de snapshots sur un système de stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La réserve d'instantanés correspond à l'espace de l'unité de stockage réservé spécifiquement aux instantanés.  Par défaut, la réserve de snapshots est fixée à 0 %.  À partir d' ONTAP 9.18.1, vous pouvez modifier la réserve de snapshots par défaut de l'unité de stockage et activer la suppression automatique des snapshots.  La suppression automatique des instantanés est désactivée par défaut.  Lorsqu'une valeur de réserve pour les instantanés est définie et que la suppression automatique des instantanés est activée, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.  Cela empêche les instantanés de consommer de l'espace dans votre unité de stockage destiné aux données utilisateur.
+
+link:snapshot-reserve.html["Découvrez-en plus sur la réserve de snapshots sur les systèmes de stockage ASA r2"].
+
+
+
+== Modifier la réserve d'instantané sur les unités de stockage
+
+Pour définir des valeurs de réserve de snapshots différentes, configurez chaque unité de stockage individuellement.  Pour utiliser la même valeur pour toutes les unités de stockage, modifiez la réserve d'instantanés sur la machine virtuelle de stockage.
+
+.Étapes
+. Dans System Manager, sélectionnez *Storage*.
+. Survolez le nom de l'unité de stockage pour laquelle vous souhaitez définir la réserve d'instantanés.
+. Sélectionnerimage:icon_kabob.gif["trois points verticaux"] , puis sélectionnez *Modifier*.
+. Sous *% de réserve de snapshots*, saisissez la valeur numérique du pourcentage de l'espace de l'unité de stockage que vous souhaitez allouer aux snapshots.
+. Vérifiez que l'option *Supprimer automatiquement les anciens instantanés* est sélectionnée.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+La réserve d'instantanés est définie sur le pourcentage que vous avez spécifié.  Si l'espace occupé par les instantanés atteint la réserve, les instantanés les plus anciens sont automatiquement supprimés.
+
+
+
+== Modifier la réserve de snapshot sur une machine virtuelle de stockage
+
+Pour définir la même réserve de snapshots pour toutes les unités de stockage d'une VM de stockage, appliquez le pourcentage souhaité à la VM de stockage. .  Lorsque la réserve d'instantané est appliquée à la machine virtuelle de stockage, elle est appliquée à toutes les unités de stockage nouvellement créées au sein de cette machine virtuelle.  Cela ne s'applique pas aux unités de stockage créées avant que vous ne modifiiez ce paramètre.
+
+.Étapes
+. Dans le Gestionnaire système, sélectionnez *Cluster > Machines virtuelles de stockage* ; puis sélectionnez *Paramètres*.
+. Sous *Politiques*, à côté de *Instantanés*, sélectionnezimage:icon_kabob.gif["trois points verticaux"] ; puis sélectionnez *Définir/modifier la valeur par défaut de la réserve d'instantanés*.
+. Sous *% de réserve de snapshots*, saisissez la valeur numérique du pourcentage de l'espace de l'unité de stockage que vous souhaitez allouer aux snapshots.
+. Vérifiez que l'option *Supprimer automatiquement les anciens instantanés* est sélectionnée.
+. Sélectionnez *Enregistrer*.
+
+
+.Résultat
+La réserve d'instantanés pour les unités de stockage nouvellement créées est définie sur le pourcentage que vous avez spécifié.  Si l'espace occupé par les instantanés dans ces unités de stockage atteint la réserve, les instantanés les plus anciens sont automatiquement supprimés.

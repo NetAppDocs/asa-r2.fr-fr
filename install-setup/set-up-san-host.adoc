@@ -17,7 +17,7 @@ Il est recommandé d'utiliser au moins deux commutateurs pour connecter votre sy
 
 Les configurations multiréseau et multistructure (qui utilisent au moins deux commutateurs) sont recommandées, car elles assurent la redondance au niveau des couches de switch et de stockage. Cette redondance rend votre système de stockage plus tolérant aux pannes et assure la continuité de l'activité.
 
-L'illustration suivante est un exemple de configuration FC avec plusieurs hôtes utilisant deux structures pour accéder à une seule paire haute disponibilité. Les numéros de port cible FC (0C, 0d, 1a, 1b) sont également des exemples. Les numéros de port réels varient selon le modèle de votre plate-forme et si vous utilisez des cartes d'extension.
+L'illustration suivante est un exemple de configuration FC avec plusieurs hôtes utilisant deux fabrics pour accéder à une seule paire HA.  Les numéros de port cible FC (0c, 0d, 1a, 1b) sont également des exemples.  Les numéros de port réels varient en fonction du modèle de votre système et de l'utilisation ou non d'adaptateurs d'extension.
 
 image::multi-fabric-san-configuration.png[Deux structures FC connectant plusieurs hôtes à une seule paire haute disponibilité]
 

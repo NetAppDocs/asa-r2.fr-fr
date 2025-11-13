@@ -12,7 +12,7 @@ searchtitle: 'Créez des copies Snapshot pour sauvegarder vos données à l"aide
 
 
 [role="lead"]
-Pour sauvegarder des données sur votre système ASA r2, vous devez créer un snapshot. Vous pouvez utiliser ONTAP System Manager pour créer un snapshot manuel d'une seule unité de stockage ou pour créer un groupe de cohérence et planifier des snapshots automatiques de plusieurs unités de stockage en même temps.
+Créez un instantané pour sauvegarder les données de votre système ASA r2.  Utilisez ONTAP System Manager pour créer un instantané manuel d'une seule unité de stockage, ou pour créer un groupe de cohérence et planifier des instantanés automatiques de plusieurs unités de stockage simultanément.
 
 
 
@@ -22,7 +22,11 @@ Un groupe de cohérence est un ensemble d'unités de stockage gérées comme une
 
 Créez un groupe de cohérence avec de nouvelles unités de stockage ou un groupe de cohérence avec des unités de stockage existantes.
 
-Lorsque vous créez un groupe de cohérence avec de nouvelles unités de stockage, vous pouvez attribuer une capacité différente à chaque unité de stockage, modifier le niveau de service de performances par défaut et créer jusqu'à cinq groupes de cohérence enfant. Lorsque vous créez un groupe de cohérence à l'aide d'unités de stockage existantes, vous pouvez ajouter des unités de stockage déjà utilisées.
+À partir d' ONTAP 9.18.1, vous pouvez définir le pourcentage de réserve de snapshots et activer la suppression automatique des snapshots lors de la création d'un groupe de cohérence avec de nouvelles unités de stockage.  La réserve d'instantanés correspond à l'espace de l'unité de stockage réservé spécifiquement aux instantanés.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.  Si la réservation d'instantanés et la suppression automatique des instantanés sont activées sur un groupe de cohérence parent, elles le sont également sur tous les groupes de cohérence enfants existants.  Si de nouveaux groupes de cohérence enfants sont ajoutés, ils n'héritent pas des paramètres de réservation et de suppression des instantanés du groupe parent.
+
+link:snapshot-reserve.html["Découvrez-en plus sur la réserve de snapshots sur les systèmes de stockage ASA r2"].
+
+À partir d' ONTAP 9.16.1, lorsque vous créez des groupes de cohérence à l'aide de nouvelles unités de stockage, vous pouvez configurer jusqu'à cinq groupes de cohérence enfants. link:manage-hierarchical-consistency-groups.html["Apprenez-en davantage sur les groupes de cohérence des enfants sur les systèmes ASA r2"].
 
 [role="tabbed-block"]
 ====
@@ -54,6 +58,17 @@ Modifiez le niveau de service de performances par défaut
  a| 
 Sous *niveau de service Performance*, sélectionnez un niveau de service différent.
 
+Les systèmes ASA r2 offrent deux niveaux de performance.  Le niveau de performance par défaut est *Extrême*, qui est le niveau le plus élevé disponible.  Vous pouvez abaisser le niveau de performance à *Performance*.
+
+
+
+ a| 
+Modifier la réserve de snapshots par défaut et activer la suppression automatique des snapshots
+ a| 
+.. Sous *% de réserve de snapshots*, saisissez la valeur numérique du pourcentage de l'espace de l'unité de stockage que vous souhaitez allouer aux snapshots.
+.. Sélectionnez *Supprimer automatiquement les anciens instantanés*.
+
+
 
 
  a| 
@@ -67,7 +82,7 @@ Sélectionnez *Ajouter un groupe de cohérence enfant*.
 
 
 .Et la suite ?
-Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger. Vous êtes maintenant prêt à créer un snapshot.
+Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger.  Vous pouvez maintenant créer un instantané.
 
 --
 .Utiliser les unités de stockage existantes
@@ -80,7 +95,7 @@ Vous avez créé un groupe de cohérence contenant les unités de stockage que v
 
 
 .Et la suite ?
-Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger. Vous êtes maintenant prêt à créer un snapshot.
+Vous avez créé un groupe de cohérence contenant les unités de stockage que vous souhaitez protéger.  Vous pouvez maintenant créer un instantané.
 
 --
 ====
@@ -97,7 +112,7 @@ Vous pouvez créer un snapshot à la demande d'une unité de stockage ou d'un gr
 
 * Snapshots à la demande
 +
-Un snapshot à la demande d'une unité de stockage peut être créé à tout moment. L'unité de stockage n'a pas besoin d'être membre d'un groupe de cohérence pour être protégée par un snapshot à la demande. Si vous créez un snapshot à la demande d'une unité de stockage membre d'un groupe de cohérence, les autres unités de stockage du groupe de cohérence ne sont pas incluses dans le snapshot à la demande. Si vous créez un snapshot à la demande d'un groupe de cohérence, toutes les unités de stockage du groupe de cohérence sont incluses dans le snapshot.
+Vous pouvez créer à tout moment un instantané à la demande d'une unité de stockage.  L'unité de stockage n'a pas besoin d'appartenir à un groupe de cohérence pour être protégée par un instantané à la demande.  Si vous créez un instantané à la demande d'une unité de stockage membre d'un groupe de cohérence, les autres unités de stockage du groupe de cohérence ne sont pas incluses dans l'instantané à la demande.  Si vous créez un instantané à la demande d'un groupe de cohérence, toutes les unités de stockage du groupe de cohérence sont incluses dans l'instantané.
 
 * Snapshots automatisés
 +

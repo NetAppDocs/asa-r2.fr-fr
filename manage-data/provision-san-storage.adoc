@@ -18,11 +18,15 @@ Lorsque vous provisionnez le stockage, vos hôtes SAN peuvent lire et écrire de
 
 == Créer des unités de stockage
 
-Sur un système ASA r2, une unité de stockage met à disposition de l'espace de stockage de vos hôtes SAN pour les opérations sur les données. Une unité de stockage désigne une LUN pour les hôtes SCSI ou un namespace NVMe pour les hôtes NVMe. Si votre cluster est configuré pour prendre en charge les hôtes SCSI, vous êtes invité à créer une LUN. Si votre cluster est configuré pour prendre en charge les hôtes NVMe, vous êtes invité à créer un namespace NVMe. Une unité de stockage ASA r2 a une capacité maximale de 128 To.
+Sur un système ASA r2, une unité de stockage met de l'espace de stockage à la disposition de vos hôtes SAN pour les opérations de données.  Une unité de stockage désigne un LUN pour les hôtes SCSI ou un espace de noms NVMe pour les hôtes NVMe.  Si votre cluster est configuré pour prendre en charge les hôtes SCSI, vous serez invité à créer un LUN.  Si votre cluster est configuré pour prendre en charge les hôtes NVMe, vous serez invité à créer un espace de noms NVMe.  Une unité de stockage ASA r2 a une capacité maximale de 128 To.
 
 Consultez le link:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour connaître les limites de stockage les plus récentes pour les systèmes ASA r2.
 
 Les initiateurs hôtes sont ajoutés et mappés sur l'unité de stockage dans le cadre du processus de création de l'unité de stockage. Vous pouvez également link:provision-san-storage.html#add-host-initiators["ajoutez des initiateurs hôtes"]link:provision-san-storage.html#map-the-storage-unit-to-a-host["carte"]les et sur vos unités de stockage une fois les unités de stockage créées.
+
+À partir d' ONTAP 9.18.1, vous pouvez modifier la réserve de snapshots et activer la suppression automatique des snapshots lors de la création d'une unité de stockage.  La réserve de snapshots correspond à l'espace de l'unité de stockage réservé spécifiquement aux snapshots.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.
+
+link:../data-protection/snapshot-reserve.html["Découvrez plus d'informations sur la réserve de snapshots sur les systèmes ASA r2"].
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*, puis sélectionnez image:icon_add_blue_bg.png["icône rectangulaire sur fond bleu et le mot se centre en lettres blanches"].
@@ -63,7 +67,7 @@ Création d'une règle de QoS
 .. Sous *stockage et optimisation*, à côté de *qualité de service (QoS)*, sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"] .
 .. Sélectionnez *définir une nouvelle stratégie*.
 .. Entrez un nom pour la nouvelle politique de QoS.
-.. Définissez une limite QoS, une garantie QoS, ou les deux.
+.. Définissez une limite de QoS, une garantie de QoS, ou les deux.
 +
 ... Si vous le souhaitez, sous *Limit*, entrez une limite de débit maximal, une limite d'IOPS maximale ou les deux.
 +
@@ -88,6 +92,15 @@ Modifiez le niveau de service de performances par défaut.
 +
 Les systèmes ASA r2 offrent deux niveaux de performances.  Le niveau de performance par défaut est *Extrême*, qui est le niveau le plus élevé disponible.  Vous pouvez abaisser le niveau à *Performance*.
 
+
+
+
+
+ a| 
+Modifiez la réserve de snapshots par défaut et activez la suppression automatique des snapshots.
+ a| 
+.. Sous *% de réserve de snapshots*, saisissez la valeur numérique du pourcentage de l'espace de l'unité de stockage que vous souhaitez allouer aux snapshots.
+.. Sélectionnez *Supprimer automatiquement les anciens instantanés*.
 
 
 

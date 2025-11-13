@@ -23,11 +23,11 @@ Gestionnaire de clés intégré ou gestionnaire de clés externe
 
 
 
-| Niveau SVM uniquement | Gestionnaire de clés externe uniquement 
+| Niveau de machine virtuelle de stockage uniquement | Gestionnaire de clés externe uniquement 
 
 
  a| 
-Au niveau du cluster et du SVM
+Le niveau de la machine virtuelle du cluster et du stockage
  a| 
 Une des combinaisons de gestionnaire de clés suivantes :
 
@@ -36,14 +36,14 @@ Une des combinaisons de gestionnaire de clés suivantes :
 Niveau cluster : gestionnaire de clés intégré
 
 +
-Niveau SVM : gestionnaire de clés externe
+Niveau de la machine virtuelle de stockage : Gestionnaire de clés externe
 
 * Option 2
 +
 Niveau cluster : gestionnaire de clés externe
 
 +
-Niveau SVM : gestionnaire de clés externe
+Niveau de la machine virtuelle de stockage : Gestionnaire de clés externe
 
 
 
@@ -75,13 +75,13 @@ security key-manager external create-config
 +
 [source, cli]
 ----
-security key-manager keystore enable -vserver <svm_name> -type KMIP
+security key-manager keystore enable -vserver <storage_vm_name> -type KMIP
 ----
 . Supprimez la configuration du gestionnaire de clés intégré :
 +
 [source, cli]
 ----
-security key-manager keystore delete-config -vserver <svm_name> -type OKM
+security key-manager keystore delete-config -vserver <storage_vm_name> -type OKM
 ----
 . Définissez le niveau de privilège sur admin :
 +
@@ -111,13 +111,13 @@ security key-manager onboard create-config
 +
 [source, cli]
 ----
-security key-manager keystore enable -vserver <svm_name> -type OKM
+security key-manager keystore enable -vserver <storage_vm_name> -type OKM
 ----
 . Supprimez la configuration du gestionnaire de clés externe
 +
 [source, cli]
 ----
-security key-manager keystore delete-config -vserver <svm_name> -type KMIP
+security key-manager keystore delete-config -vserver <storage_vm_name> -type KMIP
 ----
 . Définissez le niveau de privilège sur admin :
 +
@@ -146,7 +146,7 @@ set -privilege advanced
 +
 [source, cli]
 ----
-security key-manager key migrate -from-vserver <svm_name> -to-vserver <svm_name>
+security key-manager key migrate -from-vserver <storage_vm_name> -to-vserver <storage_vm_name>
 ----
 . Définissez le niveau de privilège sur admin :
 +

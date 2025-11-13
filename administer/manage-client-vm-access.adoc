@@ -138,7 +138,7 @@ set -privilege advanced
 +
 [source, cli]
 ----
-network interface service-policy create -vserver <SVM_name> -policy <service_policy_name> -services data-core,data-iscsi
+network interface service-policy create -vserver <storage_VM_name> -policy <service_policy_name> -services data-core,data-iscsi
 ----
 . Vérifiez que la politique de service a été créée :
 +
@@ -158,7 +158,7 @@ set -privilege admin
 
 === Créer des LIF uniquement iSCSI avec basculement automatique des LIF
 
-Si sur le SVM des LIF iSCSI ne sont pas activées pour le basculement automatique des LIF, vos nouvelles LIF ne seront pas non plus activées pour le basculement automatique des LIF. Si le basculement automatique de LIF n'est pas activé et qu'un événement de basculement se produit, vos LIFs iSCSI ne migrent pas.
+Si des LIF iSCSI présentes sur la VM de stockage ne sont pas activées pour le basculement automatique des LIF, vos LIF nouvellement créées ne seront pas non plus activées pour le basculement automatique des LIF.  Si le basculement automatique des LIF n'est pas activé et qu'un événement de basculement se produit, vos LIF iSCSI ne migreront pas.
 
 .Avant de commencer
 Vous devez avoir créé une stratégie de service LIF iSCSI uniquement personnalisée.
@@ -168,7 +168,7 @@ Vous devez avoir créé une stratégie de service LIF iSCSI uniquement personnal
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
+network interface create -vserver <storage_VM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
 ----
 +
 ** Il est recommandé de créer deux LIF iSCSI sur chaque nœud, un pour la structure A et l'autre pour la structure B. Cela assure la redondance et l'équilibrage de charge de votre trafic iSCSI. Dans l'exemple suivant, quatre LIF iSCSI sont créés : deux sur chaque nœud et un pour chaque structure.

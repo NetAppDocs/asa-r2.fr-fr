@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: data-protection/snapshot-reserve.html 
+keywords: asa r2, snapshot reserve, percentage 
+summary: 'La réserve d"instantanés correspond à l"espace de l"unité de stockage réservé spécifiquement aux instantanés.  Lorsque la réserve d"instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l"espace utilisé par les instantanés dépasse la réserve d"instantanés.' 
+---
+= Découvrez la réservation de snapshots ONTAP sur le stockage ASA r2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La réserve de snapshots correspond à l'espace de l'unité de stockage réservé spécifiquement aux snapshots.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.  Cela empêche les instantanés de consommer de l'espace dans votre unité de stockage destiné aux données utilisateur.
+
+La réserve instantanée est définie en pourcentage de la taille totale de l'unité de stockage.  Par exemple, si l'unité de stockage est de 50 Go et que vous définissez la réserve d'instantanés à 10 %, l'espace réservé aux instantanés est de 5 Go.  Lorsque l'espace utilisé par les instantanés atteint 5 Go, les instantanés les plus anciens sont automatiquement supprimés pour faire de la place aux nouveaux.  Si la taille de l'unité de stockage passe à 100 Go, la réserve de snapshots passe à 10 Go.  La réserve maximale de snapshots que vous pouvez définir est de 200 %.  Si votre unité de stockage atteint la taille maximale de 128 To, une réserve de snapshots de 200 % vous permet de prendre 2 snapshots complets.
+
+Par défaut, la réserve de snapshots est fixée à 0 % et la suppression automatique des snapshots n'est pas activée.
+
+À partir d' ONTAP 9.18.1, vous pouvez modifier la réserve de snapshot par défaut pendant ou après la création d'unités de stockage et pendant la création de groupes de cohérence.  Vous pouvez également modifier la réserve de snapshots par défaut sur les machines virtuelles de stockage existantes (VM).  Dans ONTAP 9.17.1 et versions antérieures, vous ne pouvez pas modifier ces paramètres.
+
+La réserve d'instantané est définie sur le même pourcentage pour toutes les unités de stockage d'un groupe de cohérence au moment de la création de ce groupe.  La réserve d'instantané doit être définie individuellement pour chaque unité de stockage ajoutée ultérieurement.

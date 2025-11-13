@@ -24,13 +24,25 @@ entries:
       url: "/manage-data/move-storage-units.html"
     - title: Supprimer les unités de stockage
       url: "/manage-data/delete-storage-units.html"
+  - title: Migrer les machines virtuelles de stockage
+    entries:
+    - title: Migrer une machine virtuelle de stockage depuis un cluster ASA
+      url: "/manage-data/migrate-svm.html"
+    - title: Basculer les clients et nettoyer la machine virtuelle de stockage source
+      url: "/manage-data/svm-post-migrate-cutover-cleanup.html"
   - title: Limites de stockage
     url: "/manage-data/storage-limits.html"
 - title: Protégez vos données
   entries:
   - title: Créer des instantanés
     url: "/data-protection/create-snapshots.html"
-  - title: Créer une relation homologue SVM
+  - title: Gérer la réserve d'instantanés
+    entries:
+    - title: Découvrez la réserve instantanée
+      url: "/data-protection/snapshot-reserve.html"
+    - title: Réserve de modification d'instantané
+      url: "/data-protection/snapshot-reserve-modify.html"
+  - title: Créer une relation de pairage entre machines virtuelles de stockage
     url: "/data-protection/create-svm-peer-relationship.html"
   - title: Configuration de la réplication Snapshot
     entries:

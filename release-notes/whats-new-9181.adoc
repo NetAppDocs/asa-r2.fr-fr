@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9181.html 
+keywords: 'what"s new, release notes, 9.18.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les systèmes ASA r2. 
+---
+= Nouveautés d' ONTAP 9.18.1 pour les systèmes ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les systèmes ASA r2.
+
+
+
+== Protection des données
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../data-protection/snapmirror-active-sync.html["Prise en charge accrue des configurations de synchronisation active SnapMirror"] | La prise en charge de la synchronisation active SnapMirror est étendue des clusters à deux nœuds aux clusters à quatre nœuds. 
+|===
+
+
+== Réseautage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../secure-data/iscsi-nvme-tcp-connections.html["Déchargement matériel IPsec, prise en charge d'IPv6"] | La prise en charge du déchargement matériel IPsec est étendue à IPv6. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#fips-compliance["Algorithmes PQC d'OpenSSL"] | ONTAP prend en charge les algorithmes cryptographiques post-quantiques pour SSL.  Ces algorithmes offrent une protection supplémentaire contre d'éventuelles futures attaques informatiques quantiques et sont disponibles lorsque le mode SSL FIPS est désactivé. 
+|===
+
+
+== Migration de données SAN
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../manage-data/migrate-svm.html["Prise en charge de la migration des machines virtuelles de stockage"] | Vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d'un cluster ASA vers un cluster ASA r2.  Cela permet de déplacer les charges de travail par blocs vers les systèmes ASA r2 tout en préservant l'intégrité des données et en garantissant l'absence d'impact sur les applications.  Le processus de migration est conçu pour maintenir les mappages hôtes et les configurations LUN existants, réduisant ainsi les efforts opérationnels et les risques pendant la migration. 
+|===
+
+
+== Efficacité du stockage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#san-protocols["Prise en charge du déchargement de copie NVMe"] | La fonction de déchargement de copie NVMe permet à un hôte NVMe de décharger les opérations de copie de son processeur vers le processeur du contrôleur de stockage ONTAP .  L'hôte peut copier des données d'un espace de noms NVMe à un autre tout en réservant ses ressources CPU pour les charges de travail applicatives. 
+
+
+| link:../data-protection/snapshot-reserve-modify.html["Prise en charge de la modification de la réserve d'instantanés et de la suppression automatique des instantanés"] | Vous pouvez modifier la réserve de snapshots et activer la suppression automatique des snapshots pour limiter l'espace utilisé pour les snapshots dans vos unités de stockage ASA r2.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.  Cela évite les interruptions d'application en empêchant les instantanés de consommer de l'espace dans votre unité de stockage destiné aux données utilisateur. 
+|===

@@ -18,7 +18,7 @@ Bien que les procédures du gestionnaire système pour la configuration de SnapM
 link:../learn-more/hardware-comparison.html#personality-differences["En savoir plus sur les personnalités ONTAP"] .
 
 
-NOTE: Pour les systèmes ASA r2, la synchronisation active SnapMirror est prise en charge uniquement sur les configurations de cluster à deux nœuds.
+NOTE: À partir d' ONTAP 9.18.1, la synchronisation active SnapMirror est prise en charge sur les configurations à quatre nœuds.  Dans ONTAP 9.17.1, la synchronisation active SnapMirror est prise en charge uniquement sur les configurations à deux nœuds.
 
 link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["En savoir plus sur la synchronisation active de SnapMirror"^] .
 

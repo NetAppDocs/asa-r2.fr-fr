@@ -12,5 +12,5 @@ entries:
     url: "/learn-more/cli-support.html"
   - title: Prise en charge de REST API
     url: "/learn-more/rest-api-support.html"
-  - title: Prise en charge des fonctionnalités ONTAP courantes
-    url: "/learn-more/additional-supported-ontap-features.html"
+- title: Prise en charge des fonctionnalités ONTAP courantes
+  url: "/learn-more/additional-supported-ontap-features.html"

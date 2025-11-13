@@ -17,11 +17,37 @@ Pour les systèmes ASA r2, IPSec est disponible pour les hôtes iSCSI et NVMe/TC
 
 Sur certains systèmes ASA r2, plusieurs opérations cryptographiques, telles que le cryptage et les contrôles d'intégrité, peuvent être déchargées sur une carte réseau (NIC) prise en charge. Le débit pour les opérations déchargées sur la carte NIC est d'environ 5 % ou moins. Cela peut considérablement améliorer les performances et le débit du trafic réseau protégé par IPsec.
 
-Les cartes NIC suivantes sont prises en charge pour le déchargement matériel sur les systèmes ASA r2 suivants :
+À partir d' ONTAP 9.18.1, le déchargement matériel IPsec pris en charge est étendu au trafic IPv6.
 
-[cols="2"]
+Les cartes réseau suivantes sont prises en charge pour le déchargement matériel sur les systèmes ASA r2 et les versions ONTAP suivants :
+
+[cols="3"]
 |===
-| Carte réseau prise en charge | Systèmes ASA r2 
+| Carte réseau prise en charge | Systèmes ASA r2 | Version ONTAP 
+
+
+ a| 
+X50135A (contrôleur Ethernet 2p, 40G/100G)
+ a| 
+* ASA A1K
+* ASA A90
+* ASA A70
+
+ a| 
+ONTAP 9.17.1 et versions ultérieures
+
+
+
+ a| 
+X60135A (contrôleur Ethernet 2p, 40G/100G)
+ a| 
+* ASA A50
+* ASA A30
+* ASA A20
+
+ a| 
+ONTAP 9.17.1 et versions ultérieures
+
 
 
  a| 
@@ -31,6 +57,8 @@ X50131A - (contrôleur Ethernet 2p, 40G/100G/200G/400G)
 * ASA A90
 * ASA A70
 
+ a| 
+ONTAP 9.16.1 et versions ultérieures
 
 
 
@@ -41,7 +69,11 @@ X60132A - (contrôleur Ethernet 4p, 10G/25G)
 * ASA A30
 * ASA A20
 
+ a| 
+ONTAP 9.16.1 et versions ultérieures
 
 |===
+Voir lelink:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour plus d'informations sur les systèmes et cartes compatibles.
+
 .Et la suite ?
-link:https://docs.netapp.com/us-en/ontap/networking/ipsec-configure.html["Configurer la sécurité IP pour le réseau ONTAP"]
+La configuration d'IPsec sur votre système ASA r2 est identique à celle des autres systèmes ONTAP . Pour plus d'informations, voir link:https://docs.netapp.com/us-en/ontap/networking/ipsec-prepare.html["Préparez-vous à configurer la sécurité IP pour le réseau ONTAP"^].
