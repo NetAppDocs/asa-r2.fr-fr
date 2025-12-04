@@ -18,15 +18,17 @@ Lorsque vous provisionnez le stockage, vos hôtes SAN peuvent lire et écrire de
 
 == Créer des unités de stockage
 
-Sur un système ASA r2, une unité de stockage met de l'espace de stockage à la disposition de vos hôtes SAN pour les opérations de données.  Une unité de stockage désigne un LUN pour les hôtes SCSI ou un espace de noms NVMe pour les hôtes NVMe.  Si votre cluster est configuré pour prendre en charge les hôtes SCSI, vous serez invité à créer un LUN.  Si votre cluster est configuré pour prendre en charge les hôtes NVMe, vous serez invité à créer un espace de noms NVMe.  Une unité de stockage ASA r2 a une capacité maximale de 128 To.
+Sur un système ASA r2, une unité de stockage met de l'espace de stockage à la disposition de vos hôtes SAN pour les opérations de données. Une unité de stockage désigne un LUN pour les hôtes SCSI ou un espace de noms NVMe pour les hôtes NVMe. Si votre cluster est configuré pour prendre en charge les hôtes SCSI, vous serez invité à créer un LUN. Si votre cluster est configuré pour prendre en charge les hôtes NVMe, vous serez invité à créer un espace de noms NVMe.
 
-Consultez le link:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour connaître les limites de stockage les plus récentes pour les systèmes ASA r2.
+Une unité de stockage ASA r2 a une capacité maximale de 128 To. Voir lelink:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour connaître les limites de stockage les plus récentes pour les systèmes ASA r2.
 
-Les initiateurs hôtes sont ajoutés et mappés sur l'unité de stockage dans le cadre du processus de création de l'unité de stockage. Vous pouvez également link:provision-san-storage.html#add-host-initiators["ajoutez des initiateurs hôtes"]link:provision-san-storage.html#map-the-storage-unit-to-a-host["carte"]les et sur vos unités de stockage une fois les unités de stockage créées.
+Vous ajoutez et associez les initiateurs hôtes à l'unité de stockage dans le cadre du processus de création de l'unité de stockage.  Vous pouvez égalementlink:provision-san-storage.html#add-host-initiators["ajouter"] etlink:provision-san-storage.html#map-the-storage-unit-to-a-host["carte"] Les initiateurs hôtes après la création des unités de stockage.
 
-À partir d' ONTAP 9.18.1, vous pouvez modifier la réserve de snapshots et activer la suppression automatique des snapshots lors de la création d'une unité de stockage.  La réserve de snapshots correspond à l'espace de l'unité de stockage réservé spécifiquement aux snapshots.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.
+À partir d' ONTAP 9.18.1, vous pouvez modifier la réserve de snapshots et activer la suppression automatique des snapshots lors de la création d'une unité de stockage. La réserve de snapshots correspond à l'espace de l'unité de stockage réservé spécifiquement aux snapshots. Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.
 
 link:../data-protection/snapshot-reserve.html["Découvrez plus d'informations sur la réserve de snapshots sur les systèmes ASA r2"].
+
+Les unités de stockage sont provisionnées dynamiquement par défaut.  Le provisionnement fin permet à l'unité de stockage d'atteindre la taille allouée, mais ne réserve pas l'espace à l'avance.  L'espace est alloué dynamiquement en fonction des besoins, à partir de l'espace libre disponible.  Cela vous permet d'obtenir une plus grande efficacité de stockage en _surdimensionnant_ votre espace disponible.  Par exemple, supposons que vous disposiez de 1 To d'espace libre et que vous deviez créer quatre unités de stockage de 1 To.  Au lieu d'ajouter immédiatement 3 To de capacité de stockage supplémentaire à votre système, vous pouvez créer les unités de stockage, surveiller l'utilisation de l'espace et augmenter votre capacité de stockage au fur et à mesure que les unités de stockage consomment de l'espace réel. En savoir plus surlink:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["provisionnement fin"^] .
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*, puis sélectionnez image:icon_add_blue_bg.png["icône rectangulaire sur fond bleu et le mot se centre en lettres blanches"].
@@ -35,13 +37,20 @@ link:../data-protection/snapshot-reserve.html["Découvrez plus d'informations su
 +
 Si vous créez plusieurs unités de stockage, chaque unité est créée avec la même capacité, le même système d'exploitation hôte et le même mappage d'hôte.
 
++
+Pour optimiser l'équilibrage de la charge de travail dans la zone de disponibilité du stockage, créez un nombre pair d'unités de stockage.
+
 . Entrez la capacité de l'unité de stockage, puis sélectionnez le système d'exploitation hôte.
++
+
+CAUTION: Si vous créez plusieurs unités de stockage, chaque unité aura la même capacité.  Multipliez le nombre d'unités de stockage que vous créez par la capacité souhaitée pour vous assurer de disposer d'un espace utilisable suffisant.  Si vous ne disposez pas de suffisamment d'espace libre et que vous avez choisi de surdimensionner votre stockage, surveillez attentivement son utilisation afin d'éviter toute rupture d'espace et toute perte de données.
+
 . Acceptez le *mappage d'hôte* sélectionné automatiquement ou sélectionnez un autre groupe d'hôtes pour l'unité de stockage à mapper.
 +
 *Mappage d'hôte* fait référence au groupe d'hôtes sur lequel la nouvelle unité de stockage sera mappée.  S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôte.  Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement ou sélectionner un autre groupe d'hôtes.
 
 +
-S'il n'existe aucun groupe d'hôtes préexistant pour les hôtes exécutés sur le système d'exploitation que vous avez spécifié, ONTAP crée automatiquement un nouveau groupe d'hôtes.
+S’il n’existe pas de groupe d’hôtes préexistant pour les hôtes exécutés sur le système d’exploitation que vous avez spécifié, ONTAP crée automatiquement un nouveau groupe d’hôtes.
 
 . Si vous souhaitez effectuer l'une des opérations suivantes, sélectionnez *plus d'options* et suivez les étapes requises.
 +
@@ -148,7 +157,7 @@ TLS chiffre toutes les données envoyées sur le réseau entre vos hôtes NVMe/T
 
 .. Sélectionnez *Ajouter initiateur* pour ajouter d'autres initiateurs.
 +
-Le NQN hôte doit être formaté en <nqn.yyyy-mm> suivi d'un nom de domaine complet. L'année doit être égale ou ultérieure à 1970. La longueur maximale totale doit être de 223. Exemple d'initiateur NVMe valide : nqn.2014-08.com.example:string
+Formatez le NQN de l'hôte comme <nqn.yyyy-mm> suivi d'un nom de domaine pleinement qualifié.  L'année doit être égale ou postérieure à 1970.  La longueur maximale totale doit être de 223.  Un exemple d'initiateur NVMe valide est nqn.2014-08.com.example:string
 
 
 
@@ -233,7 +242,7 @@ Vos hôtes sont ajoutés au système ASA r2 et vous pouvez mapper vos hôtes sur
 
 == Mappez l'unité de stockage sur un hôte
 
-Après avoir créé vos unités de stockage ASA r2 et ajouté des initiateurs hôtes, vous devez mapper vos hôtes sur vos unités de stockage pour assurer le service des données. Les unités de stockage sont mappées aux hôtes dans le cadre du processus de création de l'unité de stockage. Vous pouvez également mapper les unités de stockage existantes à tout moment sur des hôtes nouveaux ou existants.
+Après avoir créé des unités de stockage ASA r2 et ajouté des initiateurs hôtes, associez les hôtes aux unités de stockage pour commencer à diffuser les données.  Les unités de stockage sont associées à des hôtes dans le cadre du processus de création des unités de stockage.  Vous pouvez également associer à tout moment des unités de stockage existantes à des hôtes nouveaux ou existants.
 
 .Étapes
 . Sélectionnez *stockage*.
