@@ -53,21 +53,7 @@ La couche de stockage des systèmes FAS, AFF et ASA utilise les agrégats comme 
 .Systèmes ASA r2
 Au lieu d'agrégats, la couche de stockage des systèmes ASA r2 utilise des zones de disponibilité de stockage. Une zone de disponibilité de stockage est un pool commun de stockage accessible aux deux nœuds d'une même paire HA. Les deux nœuds de la paire HA ont accès à tous les disques disponibles dans leur zone de disponibilité de stockage partagée. Par exemple, dans un cluster ONTAP ASA r2 à deux nœuds, il existe une zone de disponibilité de stockage, accessible aux deux nœuds du cluster. Dans un cluster ONTAP ASA r2 à quatre nœuds, il existe deux zones de disponibilité de stockage. Chaque paire HA du cluster a accès à l'une des zones de disponibilité de stockage.
 
-Lorsqu'une unité de stockage (basée sur un LUN ou un espace de noms NVMe) est créée, ONTAP crée automatiquement un volume dans la zone de disponibilité de stockage appropriée pour l'héberger. Le volume nouvellement créé est automatiquement placé dans la zone de disponibilité de stockage pour des performances optimales et une utilisation équilibrée de la capacité. Selon votre version d' ONTAP, les systèmes ASA r2 prennent également en charge le rééquilibrage automatique des unités de stockage dans la zone de disponibilité de stockage et des charges de travail entre les nœuds d'une paire HA.
-
-* Rééquilibrage automatique des unités de stockage
-+
-À partir d' ONTAP 9.16.1, si une unité de stockage augmente ou diminue d'une manière qui crée un déséquilibre dans l'utilisation du stockage dans la zone de disponibilité du stockage, ONTAP déplace automatiquement les unités de stockage selon les besoins pour rééquilibrer l'utilisation et optimiser les performances.
-
-* Rééquilibrage automatique de la charge de travail
-+
-À partir d' ONTAP 9.17.1, ONTAP rééquilibre automatiquement les charges de travail entre les nœuds d'une paire de systèmes HA ASA r2 pour des performances optimales. Par exemple, si l'utilisation d'un nœud atteint 70 % alors que celle de son partenaire HA n'est que de 30 %, ONTAP déplace automatiquement les charges de travail afin que l'utilisation de chaque nœud soit plus homogène. Comme les nœuds de la paire HA partagent la même zone de disponibilité de stockage, le rééquilibrage des charges de travail est une opération sans copie et sans impact sur les performances. Le rééquilibrage automatique des charges de travail est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ASA r2 ONTAP 9.17.1. Vous pouvez link:../administer/rebalance-workloads.html["modifier le paramètre par défaut"] pour activer ou désactiver le rééquilibrage automatique de la charge de travail, ou pour le définir dans un état consultatif pour signaler les charges de travail déséquilibrées sans les déplacer automatiquement.
-
-
-
-
-
-== Récapitulatif des différences entre les systèmes ASA r2
+Lorsqu'une unité de stockage (basée sur un LUN ou un espace de noms NVMe) est créée, ONTAP crée automatiquement un volume dans la zone de disponibilité de stockage appropriée pour l'héberger. Le volume nouvellement créé est automatiquement placé dans la zone de disponibilité de stockage pour des performances optimales et une utilisation équilibrée de la capacité. Résumé des différences du système ASA r2
 
 Les systèmes ASA r2 diffèrent des systèmes FAS, AFF et ASA des manières suivantes :
 
