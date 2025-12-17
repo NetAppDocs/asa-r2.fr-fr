@@ -16,6 +16,8 @@ entries:
   url: "/administer/manage-cluster-networking.html"
 - title: Surveillez l'utilisation et augmentez la capacité
   entries:
+  - title: Apprenez-en davantage sur l'équilibrage de l'espace
+    url: administer/space-balancing.html
   - title: Contrôle des performances du stockage
     url: "/monitor/monitor-performance.html"
   - title: Surveillez l'utilisation du stockage

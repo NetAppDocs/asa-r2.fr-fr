@@ -46,6 +46,9 @@ Les systèmes ASA r2 prennent en charge les limites de stockage suivantes :
 | Unités de stockage par groupe de cohérence | 256 | 256 
 
 
+| Groupes de cohérence enfant par groupe de cohérence parent | 64 | 64 
+
+
 | machines virtuelles de stockage  a| 
 * 256 (ONTAP 9.18.1 et versions ultérieures)
 * 32 (ONTAP 9.17.1 et versions antérieures)

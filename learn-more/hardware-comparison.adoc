@@ -53,7 +53,11 @@ La couche de stockage des systèmes FAS, AFF et ASA utilise les agrégats comme 
 .Systèmes ASA r2
 Au lieu d'agrégats, la couche de stockage des systèmes ASA r2 utilise des zones de disponibilité de stockage. Une zone de disponibilité de stockage est un pool commun de stockage accessible aux deux nœuds d'une même paire HA. Les deux nœuds de la paire HA ont accès à tous les disques disponibles dans leur zone de disponibilité de stockage partagée. Par exemple, dans un cluster ONTAP ASA r2 à deux nœuds, il existe une zone de disponibilité de stockage, accessible aux deux nœuds du cluster. Dans un cluster ONTAP ASA r2 à quatre nœuds, il existe deux zones de disponibilité de stockage. Chaque paire HA du cluster a accès à l'une des zones de disponibilité de stockage.
 
-Lorsqu'une unité de stockage (basée sur un LUN ou un espace de noms NVMe) est créée, ONTAP crée automatiquement un volume dans la zone de disponibilité de stockage appropriée pour l'héberger. Le volume nouvellement créé est automatiquement placé dans la zone de disponibilité de stockage pour des performances optimales et une utilisation équilibrée de la capacité. Résumé des différences du système ASA r2
+Lorsqu'une unité de stockage (basée sur un LUN ou un espace de noms NVMe) est créée, ONTAP crée automatiquement un volume dans la zone de disponibilité de stockage appropriée pour l'héberger. Le volume nouvellement créé est automatiquement placé dans la zone de disponibilité de stockage pour des performances optimales et une utilisation équilibrée de la capacité. L'utilisation de la capacité est équilibrée au sein de la zone de disponibilité du stockage en fonction de votre version d' ONTAP. link:administer/space-balancing.html["Découvrez comment équilibrer la capacité dans un cluster ASA r2"^].
+
+
+
+== Résumé des différences du système ASA r2
 
 Les systèmes ASA r2 diffèrent des systèmes FAS, AFF et ASA des manières suivantes :
 

@@ -25,7 +25,7 @@ Découvrez plus d'informations sur les fonctionnalités de protection des donné
 
 === Serveurs de clés externes en cluster
 
-Vous pouvez configurer la connectivité à des serveurs de gestion de clés externes en cluster sur une machine virtuelle de stockage.  Avec les serveurs de clés en cluster, vous pouvez désigner des serveurs de clés primaires et secondaires sur une machine virtuelle de stockage.  Lors de l'enregistrement des clés, ONTAP tentera d'abord d'accéder à un serveur de clés primaire avant de tenter successivement d'accéder aux serveurs secondaires jusqu'à ce que l'opération se termine avec succès, empêchant ainsi la duplication des clés.
+Vous pouvez configurer la connectivité à des serveurs de gestion de clés externes en cluster sur une machine virtuelle de stockage. Avec les serveurs de clés en cluster, vous pouvez désigner des serveurs de clés primaires et secondaires sur une machine virtuelle de stockage. Lors de l'enregistrement des clés, ONTAP tentera d'abord d'accéder à un serveur de clés primaire avant de tenter successivement d'accéder aux serveurs secondaires jusqu'à ce que l'opération se termine avec succès, empêchant ainsi la duplication des clés.
 
 link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-key-server-task.html["Apprenez à configurer des serveurs de clés externes en cluster"^].
 

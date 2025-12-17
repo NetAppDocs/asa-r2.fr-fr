@@ -30,7 +30,7 @@ Certaines configurations de cluster ASA r2 nécessitent que vous preniez des mes
 Si vous revenez à ONTAP 9.17.1 sur un système ASA r2, vous devez effectuer les actions suivantes avant de commencer la restauration :
 
 
-NOTE: link:rebalance-workloads.html["Rééquilibrage automatique de la charge de travail"]est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ONTAP 9.17.1 ASA r2. Vous ne pouvez pas revenir à ONTAP 9.17.1 sur votre système ASA r2 une fois le rééquilibrage automatique de la charge de travail activé.
+NOTE: link:space-balancing.html["équilibrage dynamique de l'espace"]est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ONTAP 9.17.1 ASA r2.  Vous ne pouvez pas revenir à la version ONTAP 9.17.1 sur votre système ASA r2 après l'activation de l'équilibrage dynamique de l'espace.
 
 [cols="2"]
 |===
