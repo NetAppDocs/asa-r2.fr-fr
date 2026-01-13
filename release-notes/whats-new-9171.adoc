@@ -56,5 +56,5 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.17.1 pour les
 | Mise à jour | Description 
 
 
-| link:../learn-more/hardware-comparison.html["Prise en charge de l'équilibrage automatique de la charge de travail"] | Les charges de travail sont automatiquement équilibrées entre les nœuds d’une paire HA pour optimiser les performances et l’utilisation des ressources. 
+| link:../administer/space-balancing.html["Prise en charge de l'équilibrage automatique de la charge de travail"] | Les charges de travail sont automatiquement équilibrées entre les nœuds d’une paire HA pour optimiser les performances et l’utilisation des ressources. 
 |===

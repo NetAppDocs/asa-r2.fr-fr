@@ -2085,7 +2085,6 @@
   <block id="ab3721eb6cf69168eba216763f76f9d8" category="cell">ARP/AI peut être activé sur les unités de stockage ASA r2. ARP/AI offre une protection supplémentaire des données en détectant et en signalant les attaques potentielles de ransomware sans période d'apprentissage.</block>
   <block id="f231c7e641e6d267354740a6c9850600" category="cell">SnapMirror Active Sync prend désormais en charge les charges de travail VMware avec accès hôte NVMe/TCP et NVMe/FC pour les clusters ONTAP à deux nœuds. La prise en charge des charges de travail VMware pour NVMe/TCP dépend de la résolution du bug VMware n° TR1049746.</block>
   <block id="2595874d578967634d23bb05c5c7197c" category="inline-link-macro">Prise en charge de l'équilibrage automatique de la charge de travail</block>
-  <block id="c33e823e9a93260b53fe781334bf0f34" category="cell"><block ref="c33e823e9a93260b53fe781334bf0f34" category="inline-link-macro-rx"></block></block>
   <block id="f5f208592c87b0ba3e87b3ad6fad7fa6" category="cell">Les charges de travail sont automatiquement équilibrées entre les nœuds d’une paire HA pour optimiser les performances et l’utilisation des ressources.</block>
   <block id="cc9afe53172875d5c9c85e52f0ecbf07" category="summary">Activez ARP/AI pour détecter les menaces potentielles de ransomware, prendre automatiquement des mesures pour protéger vos données et afficher un message d'avertissement dans le Gestionnaire système pour vous alerter de toute activité suspecte.</block>
   <block id="7cd792910eb45c6b7d750838a44c4fe3" category="doc">Activez la protection autonome contre les ransomwares avec l'IA sur vos systèmes de stockage ASA r2</block>
@@ -2735,4 +2734,5 @@
   <block id="354d3bc6178c825e83ed9c7eb99644cb" category="paragraph">Si vous ne souhaitez pas activer ARP/AI sur toutes les unités de stockage d'une machine virtuelle de stockage, vous pouvez sélectionner les unités spécifiques que vous souhaitez activer.</block>
   <block id="6938dcbd34a520f0105bf12cf29cbdce" category="sidebar">Apprenez-en davantage sur l'équilibrage de l'espace</block>
   <block id="72f3763acb9cf34e72f0598e6d1bebf8" category="sidebar">Créer une relation de pairage entre machines virtuelles de stockage</block>
+  <block id="bbaf1d1dee5098cd15496cd4ba1a66da" category="cell"><block ref="bbaf1d1dee5098cd15496cd4ba1a66da" category="inline-link-macro-rx"></block></block>
 </blocks>
