@@ -16,6 +16,8 @@ ONTAP System Manager vous guide tout au long d'un workflow simple et rapide pour
 
 Lors de la configuration des clusters, votre machine virtuelle de stockage de données par défaut est créée. Vous pouvez également activer le DNS (Domain Name System) pour résoudre les noms d'hôte, configurer votre cluster pour qu'il utilise le NTP (Network Time Protocol) pour la synchronisation de l'heure et activer le chiffrement des données au repos.
 
+Dans certains cas, vous pourriez avoir besoin de link:../learn-more/cli-support.html#set-up-an-ontap-asa-r2-cluster-using-the-cli["Utilisez l'interface de ligne de commande (CLI) ONTAP pour configurer votre cluster."]. Vous devriez utiliser l'interface de ligne de commande (CLI), par exemple, si vos protocoles de sécurité ne vous permettent pas de connecter un ordinateur portable à vos commutateurs de gestion, ou si vous utilisez un système d'exploitation autre que Windows.
+
 .Avant de commencer
 Rassemblez les informations suivantes :
 

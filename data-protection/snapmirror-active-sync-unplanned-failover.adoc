@@ -17,6 +17,7 @@ Un basculement automatique non planifié (AUFO) se produit lorsque le cluster pr
 * La relation de synchronisation active SnapMirror doit être synchronisée.
 * Vous ne pouvez pas lancer un basculement planifié lorsqu'une opération non perturbatrice, telle qu'un déplacement d'unité de stockage, est en cours.
 * Le médiateur ONTAP doit être configuré, connecté et en quorum.
+* Pour récupérer les chemins d'E/S perdus ou mettre à jour l'état des chemins d'E/S sur vos hôtes, vous devez effectuer une nouvelle analyse du stockage/des adaptateurs sur les hôtes après la reprise du fonctionnement du cluster de stockage principal.
 
 
 .Étapes
@@ -25,6 +26,3 @@ Un basculement automatique non planifié (AUFO) se produit lorsque le cluster pr
 . Attendez que le statut de la relation affiche *InSync*.
 . Sélectionner image:icon_kabob.gif["trois points bleus verticaux"] ; puis sélectionnez *Failover* pour reprendre les opérations sur le cluster principal d'origine.
 
-
-.Et la suite
-Pour éviter la perte des chemins d’E/S vers vos hôtes, vous devez réanalyser les chemins d’hôte après la reprise des opérations sur le cluster principal.
