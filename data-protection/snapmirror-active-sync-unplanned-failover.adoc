@@ -11,7 +11,9 @@ summary: Découvrez comment rétablir les relations de synchronisation active Sn
 
 
 [role="lead"]
-Un basculement automatique non planifié (AUFO) se produit lorsque le cluster principal est hors service ou isolé. Le médiateur détecte un basculement et exécute un basculement automatique non planifié vers le cluster secondaire. Ce dernier devient alors le cluster principal et commence à servir les clients.
+Sur les systèmes ASA r2, SnapMirror active sync prend en charge les configurations actives/actives symétriques. Dans une configuration active/active symétrique, les deux sites peuvent accéder au stockage local pour les E/S actives. Si le cluster source tombe en panne ou est isolé, le médiateur déclenche un basculement automatique non planifié (AUFO) et prend en charge toutes les E/S depuis le cluster de destination jusqu'à la récupération du cluster source.
+
+Si vous rencontrez une AUFO de votre SnapMirror active sync relationship, vous devez rétablir la relation et reprendre les opérations sur le cluster source d'origine une fois celui-ci remis en ligne.
 
 .Avant de commencer
 * La relation de synchronisation active SnapMirror doit être synchronisée.
