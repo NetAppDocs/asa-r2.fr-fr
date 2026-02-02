@@ -13,7 +13,7 @@ summary:
 [role="lead"]
 Si vous rencontrez un problème qui nécessite de l'aide, utilisez le Gestionnaire système ONTAP pour soumettre un dossier au support technique. Vous pouvez également utiliser ONTAP System Manager pour afficher les dossiers clos ou en cours d'exécution.
 
-Vous devez link:https://activeiq-link.netapp.com/["Enregistré auprès de Active IQ"]afficher les dossiers de demande de support de votre système ASA r2.
+Vous devez être link:https://docs.netapp.com/us-en/active-iq/task_login_activeiq.html["Enregistré auprès de Active IQ"^] pour consulter les demandes d'assistance concernant votre système ASA r2.
 
 .Étapes
 . Pour soumettre un dossier d'assistance, dans le Gestionnaire système, sélectionnez *Cluster > support*, puis sélectionnez *aller au support NetApp*.

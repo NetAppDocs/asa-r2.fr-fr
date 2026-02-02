@@ -43,3 +43,6 @@ S'il y a une activité anormale sur l'unité de stockage, un message s'affiche s
 . Sélectionnez *Choisir une action*.
 . Sélectionnez *Marquer comme faux positif* ou sélectionnez *Marquer comme attaque potentielle par ransomware*.
 
+
+.Et la suite ?
+Si vous constatez des pics d'activité dans votre unité de stockage, qu'il s'agisse de pics ponctuels ou d'une augmentation caractéristique d'une nouvelle norme, vous devez les signaler comme étant sans danger. Le signalement manuel de ces pics comme étant sans danger contribue à améliorer la précision des évaluations des menaces d'ARP. Découvrez comment link:https://docs.netapp.com/us-en/ontap/anti-ransomware/manage-parameters-task.html#report-known-surges["signaler les pics connus d'ARP/IA"^].

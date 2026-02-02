@@ -54,6 +54,17 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 |===
 
 
+== Sécurité
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../secure-data/disable-default-anti-ransomware-protection.html["Prise en charge de l’activation automatique ARP/AI"] | Lorsque vous initialisez un nouveau cluster ASA r2 9.18.1 ou que vous mettez à niveau votre cluster vers 9.18.1, ARP/AI est automatiquement activé par défaut sur toutes les nouvelles unités de stockage après un délai de grâce de 12 heures. Si vous ne désactivez pas ARP/AI pendant le délai de grâce, il est activé à l’échelle du cluster pour les nouvelles unités de stockage créées lorsque le délai de grâce prend fin. 
+|===
+
+
 == Efficacité du stockage
 
 [cols="2,4"]
