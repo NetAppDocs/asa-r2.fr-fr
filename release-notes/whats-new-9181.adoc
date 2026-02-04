@@ -65,7 +65,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 |===
 
 
-== Gestion du stockage
+== Efficacité du stockage
 
 [cols="2,4"]
 |===
