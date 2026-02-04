@@ -2768,4 +2768,5 @@
   <block id="b86583f9a9fc89f434a369308432e10e" category="inline-link-macro">signaler les pics connus d'ARP/IA</block>
   <block id="114bbec71af5be00be6f74b75bcf02d1" category="paragraph">Si vous constatez des pics d'activité dans votre unité de stockage, qu'il s'agisse de pics ponctuels ou d'une augmentation caractéristique d'une nouvelle norme, vous devez les signaler comme étant sans danger. Le signalement manuel de ces pics comme étant sans danger contribue à améliorer la précision des évaluations des menaces d'ARP. Découvrez comment <block ref="8dee558f5c9b6bedf916b9781132862f" category="inline-link-macro-rx"></block>.</block>
   <block id="b27281dcf866cc70bd075c0d39310671" category="sidebar">Désactiver l'activation par défaut d'ARP/AI</block>
+  <block id="74c34cd79314b0b0543df58dce891912" category="cell">La prise en charge de la synchronisation active SnapMirror est étendue des clusters à deux nœuds aux clusters à quatre nœuds.</block>
 </blocks>
