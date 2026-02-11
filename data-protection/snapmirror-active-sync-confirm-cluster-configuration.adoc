@@ -28,7 +28,7 @@ link:create-svm-peer-relationship.html["Créer une relation homologue de machine
 
 . Confirmez qu’au moins un LIF est créé sur chaque nœud du cluster.
 +
-link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Créer un FRV"]
+link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Créer un FRV"].
 
 . Confirmez que les unités de stockage nécessaires sont créées et mappées aux groupes d’hôtes.
 +

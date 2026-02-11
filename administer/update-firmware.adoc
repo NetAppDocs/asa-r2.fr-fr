@@ -35,7 +35,7 @@ Les mises à jour recommandées sont automatiquement téléchargées et install�
 
 == Désactiver les mises à jour automatiques
 
-Désactivez les mises à jour automatiques si vous souhaitez pouvoir afficher les mises à jour recommandées avant leur installation. Si vous désactivez les mises à jour automatiques, vous devez effectuer les mises à jour du micrologiciel et des fichiers système manuellement.
+Désactivez les mises à jour automatiques uniquement si vous souhaitez gérer entièrement les mises à jour vous-même. Avec les mises à jour automatiques désactivées, le système ne vous notifiera pas, ne téléchargera pas et n’installera pas de mises à jour. Vous êtes responsable de surveiller, télécharger, planifier et installer toutes les mises à jour manuellement.
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
