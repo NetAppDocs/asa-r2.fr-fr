@@ -11,7 +11,7 @@ summary: 'Répondez aux modifications des performances et des données du systè
 
 
 [role="lead"]
-Pour optimiser les performances de votre système ASA r2, vous devrez peut-être modifier vos unités de stockage afin d'augmenter leur capacité, mettre à jour les règles de QoS ou modifier les hôtes mappés sur les unités. Par exemple, si une nouvelle charge de travail applicative stratégique est ajoutée à une unité de stockage existante, vous devrez peut-être modifier la règle de qualité de service (QoS) appliquée à l'unité de stockage afin de prendre en charge le niveau de performance requis pour la nouvelle application.
+Pour optimiser les performances de votre système ASA r2, vous devrez peut-être modifier vos unités de stockage afin d’augmenter leur capacité, mettre à jour les politiques QoS ou changer les hôtes qui sont mappés aux unités. Par exemple, si une nouvelle charge de travail applicative est ajoutée à une unité de stockage existante, vous devrez peut-être modifier la politique de Quality of Service (QoS) appliquée à l’unité de stockage pour prendre en charge le niveau de performance requis pour la nouvelle application.
 
 .Augmentation de la capacité
 Augmentez la taille d'une unité de stockage avant qu'elle n'atteigne sa pleine capacité afin d'éviter une perte d'accès aux données qui peut se produire si l'unité de stockage manque d'espace inscriptible. La capacité d'une unité de stockage peut être augmentée à 128 To, ce qui correspond à la taille maximale autorisée par ONTAP.

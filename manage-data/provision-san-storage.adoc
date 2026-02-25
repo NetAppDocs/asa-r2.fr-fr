@@ -28,7 +28,7 @@ Vous ajoutez et associez les initiateurs hôtes à l'unité de stockage dans le 
 
 link:../data-protection/snapshot-reserve.html["Découvrez plus d'informations sur la réserve de snapshots sur les systèmes ASA r2"].
 
-Les unités de stockage sont provisionnées dynamiquement par défaut.  Le provisionnement fin permet à l'unité de stockage d'atteindre la taille allouée, mais ne réserve pas l'espace à l'avance.  L'espace est alloué dynamiquement en fonction des besoins, à partir de l'espace libre disponible.  Cela vous permet d'obtenir une plus grande efficacité de stockage en _surdimensionnant_ votre espace disponible.  Par exemple, supposons que vous disposiez de 1 To d'espace libre et que vous deviez créer quatre unités de stockage de 1 To.  Au lieu d'ajouter immédiatement 3 To de capacité de stockage supplémentaire à votre système, vous pouvez créer les unités de stockage, surveiller l'utilisation de l'espace et augmenter votre capacité de stockage au fur et à mesure que les unités de stockage consomment de l'espace réel. En savoir plus surlink:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["provisionnement fin"^] .
+Les unités de stockage sont configurées en allocation dynamique par défaut. L'allocation dynamique permet à l'unité de stockage d'atteindre la taille allouée sans réserver l'espace à l'avance. L'espace est alloué dynamiquement à partir de l'espace libre disponible, selon les besoins. Cela vous permet d'obtenir une plus grande efficacité de stockage en _surprovisionnant_ votre espace disponible. Par exemple, supposons que vous disposiez de 1 To d'espace libre et que vous deviez créer quatre unités de stockage de 1 To. Au lieu d'ajouter immédiatement 3 To de stockage supplémentaire à votre système, vous pouvez créer les unités de stockage, surveiller l'utilisation de l'espace et augmenter votre capacité de stockage au fur et à mesure que les unités de stockage consomment de l'espace réel. En savoir plus sur link:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["provisionnement fin"^].
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*, puis sélectionnez image:icon_add_blue_bg.png["icône rectangulaire sur fond bleu et le mot se centre en lettres blanches"].
@@ -43,14 +43,14 @@ Pour optimiser l'équilibrage de la charge de travail dans la zone de disponibil
 . Entrez la capacité de l'unité de stockage, puis sélectionnez le système d'exploitation hôte.
 +
 
-CAUTION: Si vous créez plusieurs unités de stockage, chaque unité aura la même capacité.  Multipliez le nombre d'unités de stockage que vous créez par la capacité souhaitée pour vous assurer de disposer d'un espace utilisable suffisant.  Si vous ne disposez pas de suffisamment d'espace libre et que vous avez choisi de surdimensionner votre stockage, surveillez attentivement son utilisation afin d'éviter toute rupture d'espace et toute perte de données.
+CAUTION: Si vous créez plus d'une unité de stockage, chaque unité est créée avec la même capacité. Multipliez le nombre d'unités de stockage que vous créez par la capacité souhaitée pour vous assurer de disposer de suffisamment d'espace utilisable. Si vous n'avez pas assez d'espace libre et que vous choisissez de surprovisionner, surveillez attentivement l'utilisation afin d'éviter de manquer d'espace et de perdre des données.
 
 . Acceptez le *mappage d'hôte* sélectionné automatiquement ou sélectionnez un autre groupe d'hôtes pour l'unité de stockage à mapper.
 +
 *Mappage d'hôte* fait référence au groupe d'hôtes sur lequel la nouvelle unité de stockage sera mappée.  S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôte.  Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement ou sélectionner un autre groupe d'hôtes.
 
 +
-S’il n’existe pas de groupe d’hôtes préexistant pour les hôtes exécutés sur le système d’exploitation que vous avez spécifié, ONTAP crée automatiquement un nouveau groupe d’hôtes.
+S'il n'existe pas de groupe d'hôtes préexistant pour les hôtes exécutant le système d'exploitation que vous avez spécifié, ONTAP crée automatiquement un nouveau groupe d'hôtes.
 
 . Si vous souhaitez effectuer l'une des opérations suivantes, sélectionnez *plus d'options* et suivez les étapes requises.
 +
