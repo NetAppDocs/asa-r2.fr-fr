@@ -799,7 +799,7 @@ Connectez chaque contrôleur aux modules NSM des deux tiroirs NS224. Les graphiq
 .. Connectez le port e11a au port e0a NSM A du tiroir 1.
 .. Connectez le port e11b au port e0b du tiroir 2 NSM B.
 .. Connectez le port e10a au port e0a NSM A du tiroir 2.
-.. Connectez le port e10b au port e0b du tiroir 1 NSM A.
+.. Connectez le port e10b au port e0b du NSM B de l'étagère 1.
 +
 image:../media/drw_a1k_2shelf_cabling_a_ieops-1705.svg["Connexions contrôleur à tiroir pour le contrôleur A"]
 
