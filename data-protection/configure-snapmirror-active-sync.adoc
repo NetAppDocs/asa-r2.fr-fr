@@ -15,8 +15,8 @@ Configurez la synchronisation active SnapMirror pour créer une copie de vos don
 
 Sur les systèmes ASA r2, SnapMirror Active Sync prend en charge les configurations symétriques actives/actives. Dans une telle configuration, les deux sites peuvent accéder au stockage local pour les E/S actives.
 
-
-NOTE: Si vous utilisez le protocole iSCSI ou FC et utilisez les outils ONTAP pour VMware Sphere, vous pouvez éventuellement link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["utilisez ONTAP Tools pour VMware pour configurer SnapMirror Active Sync"^] .
+.Description de la tâche
+Si vous utilisez le protocole iSCSI ou FC et utilisez les outils ONTAP pour VMware Sphere, vous pouvez éventuellement link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["utilisez ONTAP Tools pour VMware pour configurer SnapMirror Active Sync"^] .
 
 .Avant de commencer
 link:create-snapshots.html#step-1-optionally-create-a-consistency-group["Créer un groupe de cohérence"] sur le site principal avec de nouvelles unités de stockage. Si vous souhaitez créer une configuration active/active symétrique non uniforme, créez également un groupe de cohérence sur le site secondaire avec de nouvelles unités de stockage.
