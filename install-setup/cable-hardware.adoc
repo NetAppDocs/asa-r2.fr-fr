@@ -592,7 +592,7 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[C�
 .ASA A20, A30 et A50 avec un module d'E/S FC 64 Gb/s à 4 ports
 [%collapsible]
 =====
-Sur chaque contrôleur, connectez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
+Sur chaque contrôleur, connectez les ports 2a, 2b, 2c et 2d aux commutateurs réseau hôtes FC.
 
 *Câbles FC 64 Gbit/s*
 
@@ -653,11 +653,13 @@ image::../media/drw_isi_a30-50_host_2p_40-100gbe_1card_cabling_ieops-1923.svg[C�
 
 
 =====
+*Câblage hôte FC*
+
 .ASA C30 avec un module d'E/S FC 64 Gb/s à 4 ports
 [%collapsible]
 =====
 .Étapes
-. Sur chaque contrôleur, reliez les ports 1a, 1b, 1c et 1D aux commutateurs réseau hôte FC.
+. Sur chaque contrôleur, câblez les ports 2a, 2b, 2c et 2d aux commutateurs réseau hôtes FC.
 +
 *Câbles FC 64 Gbit/s*
 

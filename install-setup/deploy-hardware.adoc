@@ -19,6 +19,9 @@ Après avoir préparé l'installation du système de stockage ASA r2, installez 
 * Assurez-vous que le flux d'air qui traverse le système de stockage pénètre par l'avant où le cadre ou les embouts sont installés et sort par l'arrière où se trouvent les ports.
 
 
+
+CAUTION: Portez systématiquement un bracelet antistatique relié à une prise de terre vérifiée lors des opérations d'installation et de maintenance. Le non-respect des précautions ESD appropriées peut causer des dommages permanents aux nœuds de contrôleur, aux baies de stockage et aux commutateurs réseau.
+
 .Étapes
 . Installez les kits de rails pour votre système de stockage et les étagères de stockage, selon les besoins, en suivant les instructions fournies avec les kits.
 . Installez et sécurisez votre système de stockage dans l'armoire ou le rack de télécommunications :
