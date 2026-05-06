@@ -17,7 +17,17 @@ entries:
   - title: Installer le matériel de fixation
     url: "/install-setup/deploy-hardware.html"
   - title: Matériel de câblage
-    url: "/install-setup/cable-hardware.html"
+    entries:
+    - title: Vue d'ensemble du câblage
+      url: "/install-setup/cable-hardware.html"
+    - title: Câble ASA A1K
+      url: "/install-setup/cable-hardware-a1k.html"
+    - title: Câble ASA A70 et A90
+      url: "/install-setup/cable-hardware-a70-90.html"
+    - title: Câble ASA A20, A30 et A50
+      url: "/install-setup/cable-hardware-a20-30-50.html"
+    - title: Câble ASA C30
+      url: "/install-setup/cable-hardware-c30.html"
   - title: Mettez le système sous tension
     url: "/install-setup/power-on-hardware.html"
 - title: Configurez votre système ASA r2
