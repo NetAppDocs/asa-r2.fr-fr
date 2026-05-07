@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: data-protection/configure-snapmirror-active-sync.html 
-keywords: asa r2, data protection, protect data, configure, snapmirror active sync, ,disaster recovery, symmetric active/active 
+keywords: asa r2, data protection, protect data, configure, snapmirror active sync, ,disaster recovery, symmetric active active 
 summary: Découvrez comment configurer la synchronisation active SnapMirror pour garantir la continuité des activités en créant une copie secondaire des données et en activant le basculement automatique en cas de sinistre. 
 ---
 = Configurer la synchronisation active SnapMirror sur les systèmes ASA r2
@@ -17,6 +17,9 @@ Sur les systèmes ASA r2, SnapMirror Active Sync prend en charge les configurati
 
 .Description de la tâche
 Si vous utilisez le protocole iSCSI ou FC et utilisez les outils ONTAP pour VMware Sphere, vous pouvez éventuellement link:https://docs.netapp.com/us-en/netapp-solutions/vmware/vmware-vmsc-with-smas.html["utilisez ONTAP Tools pour VMware pour configurer SnapMirror Active Sync"^] .
+
+
+NOTE: À partir d'ONTAP 9.19.1 RC, la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans les relations SAN synchronisées actives SnapMirror sur les systèmes ASA r2. ARP/AI s'exécute sur les unités de stockage principales actives, crée des instantanés ARP dédiés à ces unités et assure la détection des ransomwares par apprentissage automatique. Pour activer ARP/AI, consultez link:../secure-data/enable-anti-ransomware-protection.html["Activez la protection autonome contre les ransomwares grâce à l'IA"].
 
 .Avant de commencer
 link:create-snapshots.html#step-1-optionally-create-a-consistency-group["Créer un groupe de cohérence"] sur le site principal avec de nouvelles unités de stockage. Si vous souhaitez créer une configuration active/active symétrique non uniforme, créez également un groupe de cohérence sur le site secondaire avec de nouvelles unités de stockage.

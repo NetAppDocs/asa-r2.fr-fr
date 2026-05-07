@@ -1,0 +1,101 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9191.html 
+keywords: 'what"s new, release notes, 9.19.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.19.1 pour les systèmes ASA r2. 
+---
+= Nouveautés d’ONTAP 9.19.1 pour les systèmes ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.19.1 pour les systèmes ASA r2.
+
+
+
+== Protection des données
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../data-protection/prepare-aix-snapmirror-active-sync.html["Prise en charge de l’hôte AIX pour la synchronisation active SnapMirror"] | Le basculement transparent des applications pour AIX est pris en charge avec la synchronisation active SnapMirror dans les configurations symétriques actives/actives. 
+|===
+
+
+== Migration de données SAN
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../install-setup/set-up-data-access.html#migrate-data-from-a-third-party-storage-system["Prise en charge de l'importation de LUN externes (FLI) ONTAP pour le protocole iSCSI"] | L'importation de LUN étrangères ONTAP (FLI) prend en charge le protocole iSCSI pour la connectivité du backend. 
+|===
+
+
+== Configuration SAN
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#san-direct-attachment["Prise en charge des configurations FC à connexion directe"] | Un commutateur FC n'est pas nécessaire pour établir des connexions entre les hôtes FC et FC-NVMe et le stockage ONTAP. Les hôtes peuvent être connectés directement aux ports adaptateurs FC sur les systèmes ASA r2. Cette capacité de connexion directe s'avère particulièrement précieuse sur les sites distants et dans les environnements hybrides où la simplicité est primordiale. 
+|===
+
+
+== Sécurité
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../secure-data/enable-anti-ransomware-protection.html["Prise en charge d'ARP/AI avec les relations de synchronisation active SnapMirror"] | La protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans les relations de synchronisation active SnapMirror sur les systèmes ASA r2. ARP/AI s'exécute sur les unités de stockage principales actives, crée des instantanés ARP uniquement primaires et fournit une détection des ransomwares basée sur l'apprentissage automatique pour ces unités de stockage. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#tls-hardware-offload["Prise en charge du déchargement matériel TLS"] | Vous pouvez décharger le chiffrement et le déchiffrement Transport Layer Security (TLS) de l'ensemble de votre cluster sur des cartes Ethernet compatibles. Cela réduit la charge du processeur et améliore les performances des systèmes utilisant TLS. 
+|===
+
+
+== Efficacité du stockage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#global-deduplication["Prise en charge de la déduplication globale"] | La déduplication globale étend les économies d'espace de déduplication ONTAP existantes à l'ensemble de la Storage Availability Zone (SAZ). En éliminant les blocs de données dupliqués sur toutes les unités de stockage de la SAZ, elle peut améliorer considérablement l'efficacité du stockage et réduire le coût de possession. La déduplication globale est activée par défaut et fonctionne de manière transparente, sans nécessiter de configuration administrative. 
+|===
+
+
+== Gestion des ressources de stockage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../monitor/monitor-storage.html#monitor-storage-availability-zone-utilization["Prise en charge des alertes de capacité de zone de disponibilité du stockage dans System Manager"] | Une alerte s'affiche dans System Manager si une zone de disponibilité de stockage de votre système ASA r2 approche de sa capacité maximale. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#modify-default-settings-that-control-automatic-qos-throughput-ceiling-increases["Prise en charge de la modification des paramètres par défaut qui contrôlent les augmentations automatiques du plafond de débit QoS"] | Vous pouvez modifier les paramètres par défaut qui déterminent comment les groupes de stratégies QoS augmentent automatiquement le plafond de débit QoS en réponse à des besoins ponctuels de performances accrues. Ces paramètres ne sont pas modifiables dans ONTAP 9.18.1 et les versions antérieures. 
+|===
+
+
+== Mise à niveau
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../administer/upgrade-ontap.html["Amélioration des rapports pour les vérifications automatisées préalables à la mise à niveau"] | Lors de l'exécution des vérifications automatisées préalables à la mise à niveau, les erreurs et les avertissements sont affichés séparément afin de vous aider à identifier facilement les problèmes qui doivent être résolus avant la mise à niveau. 
+|===

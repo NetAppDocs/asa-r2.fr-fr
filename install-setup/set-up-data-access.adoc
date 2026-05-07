@@ -44,8 +44,9 @@ Les unités de stockage ASA r2 sont provisionnées dynamiquement par défaut.  L
 
 FLI prend en charge les migrations en ligne et hors ligne. Lors d'une migration en ligne, le système client reste en ligne pendant la copie des données du système de stockage tiers vers le système de stockage ONTAP . Les migrations en ligne sont prises en charge par les systèmes d'exploitation hôtes Windows, Linux et ESXi. Lors d'une migration hors ligne, le système client est mis hors ligne, les données LUN sont copiées du système de stockage tiers vers le système de stockage ONTAP , puis le système client est remis en ligne.
 
-* Apprenez à effectuer une link:https://docs.netapp.com/us-en/ontap-fli/san-migration//concept_fli_offline_workflow.html["Migration hors ligne FLI"^] .
-* Apprenez à effectuer une link:https://docs.netapp.com/us-en/ontap-fli/san-migration//concept_fli_online_workflow.html["Migrations en ligne FLI"^] .
+À partir d'ONTAP 9.19.1, FLI prend en charge le protocole iSCSI pour la connectivité du backend.
+
+* En savoir plus sur le lien : https://docs.netapp.com/us-en/ontap-fli/get-started/learn-about-data-migration.html[ONTAP FLI migrations^].
 
 
 

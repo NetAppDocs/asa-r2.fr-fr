@@ -35,9 +35,11 @@ Si l'espace de votre cluster est insuffisant ou s'il ne dispose pas de la capaci
 
 == Surveiller l'utilisation de la zone de disponibilité du stockage
 
-Chaque paire haute disponibilité d'un système ASA r2 utilise un pool de stockage commun appelé _zone de disponibilité du stockage_. La zone de disponibilité du stockage a accès à tous les disques disponibles dans le système de stockage et est visible pour les deux nœuds de la paire haute disponibilité.
+Chaque paire haute disponibilité dans un système ASA r2 utilise un pool de stockage commun appelé . La zone de disponibilité de stockage a accès à tous les disques disponibles du système de stockage et est visible par les deux nœuds de la paire haute disponibilité. La surveillance de l'espace disponible dans vos zones de disponibilité de stockage vous permet de diminuer l'utilisation ou d'augmenter la capacité selon les besoins afin d'éviter des échecs de charges de travail dus à un espace insuffisant.
 
 Si votre cluster comporte 4 nœuds ou plus, vous pouvez afficher la quantité d'espace utilisée par la zone de disponibilité du stockage pour chaque paire haute disponibilité. Cette métrique n'est pas disponible pour les clusters à 2 nœuds.
+
+À partir d'ONTAP 9.19.1, une alerte s'affiche dans System Manager *Insights* si une zone de disponibilité de stockage dans l'une de vos paires haute disponibilité ASA r2 approche de sa capacité. En savoir plus sur System Manager link:view-insights.html["Informations"].
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster*, puis *Présentation*.
@@ -49,12 +51,12 @@ Un récapitulatif de l'utilisation de la zone de disponibilité du stockage s'af
 Sous *vue d'ensemble*, la capacité de la zone de disponibilité du stockage, la quantité d'espace utilisé et le taux de réduction des données sont affichés.
 
 +
-Sous *unités de stockage*, une liste de toutes les unités de stockage de la zone de disponibilité de stockage s'affiche.
+Sous *Unités de stockage*, une liste de toutes les unités de stockage dans la zone de disponibilité de stockage est affichée.
 
 
 
 .Et la suite ?
-Si le niveau d'espace de votre zone de disponibilité du stockage est faible, envisagez link:../manage-data/move-storage-units.html["déplacer les unités de stockage"]d'utiliser une autre zone de disponibilité du stockage pour équilibrer l'utilisation du stockage dans le cluster.
+Si votre zone de disponibilité de stockage manque d'espace, vous devriez prévoir de link:../manage-data/move-storage-units.html["déplacer les unités de stockage"] migrer vers une autre zone de disponibilité de stockage afin d'équilibrer l'utilisation du stockage sur l'ensemble du cluster, de supprimer des instantanés pour libérer de l'espace ou d'ajouter des disques supplémentaires à vos nœuds pour augmenter la capacité.
 
 
 

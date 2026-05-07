@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: secure-data/enable-anti-ransomware-protection.html 
-keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, arp/ai, enable 
-summary: 'Activez ARP/AI pour détecter les menaces potentielles de ransomware, prendre automatiquement des mesures pour protéger vos données et afficher un message d"avertissement dans le Gestionnaire système pour vous alerter de toute activité suspecte.' 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, ai, enable 
+summary: 'Activez ARP avec IA pour détecter les menaces potentielles de ransomware, prendre automatiquement des mesures pour protéger vos données et afficher un message d"avertissement dans le Gestionnaire système pour vous alerter en cas d"activité suspecte.' 
 ---
 = Activez la protection autonome contre les ransomwares grâce à l'IA sur vos systèmes de stockage ASA r2
 :allow-uri-read: 
@@ -13,15 +13,16 @@ summary: 'Activez ARP/AI pour détecter les menaces potentielles de ransomware, 
 [role="lead"]
 À partir d' ONTAP 9.17.1, vous pouvez utiliser la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) pour protéger les données de votre système ASA r2. ARP/AI détecte rapidement les menaces potentielles de ransomware, crée automatiquement un instantané ARP pour protéger vos données et affiche un message d'avertissement dans le Gestionnaire système pour vous avertir de toute activité suspecte.
 
-ARP améliore la cyber-résilience en adoptant un modèle d'apprentissage automatique pour l'analyse anti-ransomware qui détecte les formes de ransomware en constante évolution avec une précision de 98 % dans les environnements SAN. Le modèle d'apprentissage automatique d'ARP est pré-entraîné sur un vaste ensemble de fichiers, à la fois avant et après une attaque par ransomware simulée. Cet entraînement gourmand en ressources est effectué en dehors d'ONTAP, et le modèle pré-entraîné résultant de cet entraînement est inclus sur la boîte avec ONTAP. Ce modèle n'est pas accessible ni modifiable. ARP/AI est actif immédiatement après l'activation ; il n'y a pas link:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html#learning-and-active-modes["période d'apprentissage"^].
+ARP améliore la cyber-résilience grâce à un modèle d'apprentissage automatique pour l'analyse anti-ransomware, capable de détecter les formes de ransomware en constante évolution dans les environnements SAN. Le modèle d'apprentissage automatique d'ARP est pré-entraîné sur un vaste ensemble de données de fichiers, avant et après une simulation d'attaque par ransomware. Cet entraînement, gourmand en ressources, est réalisé en dehors d'ONTAP, et le modèle pré-entraîné qui en résulte est inclus dans ONTAP. Ce modèle n'est ni accessible ni modifiable. ARP/IA est actif immédiatement après activation ; il n'y a pas link:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html#learning-and-active-modes["période d'apprentissage"^].
 
 
 NOTE: Aucun système de détection ou de prévention des ransomwares ne peut complètement garantir la sécurité contre une attaque de ransomware. Bien qu'une attaque puisse passer inaperçue, ARP/AI agit comme une couche de défense supplémentaire importante si le logiciel antivirus ne parvient pas à détecter une intrusion.
 
 .Description de la tâche
 * Le support ARP/AI est inclus avec le link:https://kb.netapp.com/onprem/ontap/os/ONTAP_9.10.1_and_later_licensing_overview["Licence ONTAP One"] .
-* ARP/AI n'est pas pris en charge sur les unités de stockage protégées par SnapMirror active sync, SnapMirror synchrone ou SnapLock.
+* À partir d'ONTAP 9.19.1 RC, la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans les relations SAN synchronisées actives SnapMirror sur les systèmes ASA r2. ARP/AI s'exécute sur les unités de stockage principales actives, crée des instantanés ARP dédiés à ces unités et assure la détection des ransomwares par apprentissage automatique.
 * À partir de ONTAP 9.18.1, ARP/AI est activé par défaut sur toutes les nouvelles unités de stockage créées 12 heures après la mise à niveau vers ONTAP 9.18.1 ou l'initialisation d'un nouveau cluster ONTAP 9.18.1 ASA r2.
+* ARP/AI n'est pas pris en charge sur les unités de stockage protégées par SnapLock.
 * Après avoir activé ARP/AI, vous devez link:../administer/update-firmware.html#enable-automatic-updates["activer les mises à jour automatiques de vos fichiers de sécurité"] pour recevoir automatiquement les nouvelles mises à jour de sécurité.
 
 

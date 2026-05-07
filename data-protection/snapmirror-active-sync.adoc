@@ -13,16 +13,17 @@ summary: 'Utilisez la synchronisation active SnapMirror pour protéger les appli
 [role="lead"]
 La protection des données ONTAP SnapMirror Active Sync permet aux services métier de continuer à fonctionner même en cas de panne totale du site, en permettant le basculement transparent des applications via une copie secondaire. Aucune intervention manuelle ni script personnalisé ne sont requis pour déclencher un basculement avec SnapMirror Active Sync.
 
-Bien que les procédures du gestionnaire système pour la configuration de SnapMirror Active Sync soient différentes sur les systèmes ASA r2 et sur les systèmes NetApp FAS, AFF et ASA exécutant la personnalité ONTAP unifiée, les exigences, l'architecture et le fonctionnement de SnapMirror Active Sync sont les mêmes.
+Bien que les procédures du System Manager pour configurer la synchronisation active SnapMirror soient différentes sur les systèmes ASA r2 par rapport aux systèmes NetApp FAS, AFF et ASA exécutant la personnalité ONTAP unifiée, les exigences, l’architecture et le fonctionnement de la synchronisation active SnapMirror sont les mêmes. link:https://www.netapp.com/pdf.html?item=/media/138366-sb-3457-san-disaster-recovery-netapp-asa.pdf["En savoir plus sur la reprise après sinistre avec SnapMirror Active Sync sur votre système ASA r2"^]
+
+Sur les systèmes ASA r2, SnapMirror active sync prend en charge les configurations actives/actives symétriques. Dans une configuration active/active symétrique, les deux sites peuvent accéder au stockage local pour les E/S actives. En savoir plus sur link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/architecture-concept.html#symmetric-activeactive["configurations symétriques actives/actives"^].
 
 .Description de la tâche
-À partir d' ONTAP 9.18.1, la synchronisation active SnapMirror est prise en charge sur les configurations à quatre nœuds.  Dans ONTAP 9.17.1, la synchronisation active SnapMirror est prise en charge uniquement sur les configurations à deux nœuds.
+* À partir d' ONTAP 9.18.1, la synchronisation active SnapMirror est prise en charge sur les configurations à quatre nœuds.  Dans ONTAP 9.17.1, la synchronisation active SnapMirror est prise en charge uniquement sur les configurations à deux nœuds.
+* À partir d'ONTAP 9.19.1 RC, la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans les relations SAN synchronisées actives SnapMirror sur les systèmes ASA r2. ARP/AI s'exécute sur les unités de stockage principales actives, crée des instantanés ARP dédiés à ces unités et assure la détection des ransomwares basée sur l'apprentissage automatique pour ces unités de stockage. Pour connaître la procédure d'activation d'ARP/AI, consultez link:../secure-data/enable-anti-ransomware-protection.html["Activez la protection autonome contre les ransomwares grâce à l'IA"].
 
-link:https://www.netapp.com/pdf.html?item=/media/138366-sb-3457-san-disaster-recovery-netapp-asa.pdf["En savoir plus sur la reprise après sinistre avec SnapMirror Active Sync sur votre système ASA r2"^]
 
-Sur les systèmes ASA r2, SnapMirror Active Sync prend en charge les configurations symétriques actives/actives. Dans une telle configuration, les deux sites peuvent accéder au stockage local pour les E/S actives.
-
-En savoir plus sur link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/architecture-concept.html#symmetric-activeactive["configurations symétriques actives/actives"^] .
+.Avant de commencer
+Si vous utilisez ONTAP 9.19.1 ou une version ultérieure et que vous activez la synchronisation active SnapMirror pour un hôte AIX, vous devriez link:prepare-aix-snapmirror-active-sync.html["préparer l'hôte AIX"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Préparez-vous à configurer la synchronisation active de SnapMirror .
 [role="quick-margin-para"]
@@ -46,5 +47,4 @@ link:configure-snapmirror-active-sync.html["Configurer la synchronisation active
 
 .Informations associées
 * link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["En savoir plus sur la synchronisation active de SnapMirror"^] .
-* link:../learn-more/hardware-comparison.html#personality-differences["En savoir plus sur les personnalités ONTAP"].
 

@@ -45,6 +45,9 @@ Pour optimiser l'équilibrage de la charge de travail dans la zone de disponibil
 
 CAUTION: Si vous créez plus d'une unité de stockage, chaque unité est créée avec la même capacité. Multipliez le nombre d'unités de stockage que vous créez par la capacité souhaitée pour vous assurer de disposer de suffisamment d'espace utilisable. Si vous n'avez pas assez d'espace libre et que vous choisissez de surprovisionner, surveillez attentivement l'utilisation afin d'éviter de manquer d'espace et de perdre des données.
 
++
+À partir d'ONTAP 9.19.1, si vous créez un LUN AIX que vous prévoyez d'activer pour la protection SnapMirror active sync, sous *Informations sur l’hôte*, sélectionnez *local* pour le *Mode d’accès*. Ceci est nécessaire pour activer le basculement transparent des applications.
+
 . Acceptez le *mappage d'hôte* sélectionné automatiquement ou sélectionnez un autre groupe d'hôtes pour l'unité de stockage à mapper.
 +
 *Mappage d'hôte* fait référence au groupe d'hôtes sur lequel la nouvelle unité de stockage sera mappée.  S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôte.  Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement ou sélectionner un autre groupe d'hôtes.

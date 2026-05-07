@@ -80,6 +80,14 @@ link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authenticat
 
 
 
+=== déchargement matériel TLS
+
+Vous pouvez décharger le chiffrement et le déchiffrement Transport Layer Security (TLS) de l'ensemble de votre cluster sur des cartes Ethernet compatibles. Cela réduit la charge du processeur et améliore les performances des systèmes utilisant TLS.
+
+link:https://docs.netapp.com/us-en/ontap/networking/configure_tls_hardware_offload.html["Apprenez à configurer le déchargement matériel TLS"^].
+
+
+
 == Réseautage
 
 Découvrez plus d'informations sur les fonctionnalités réseau courantes prises en charge par les systèmes ASA r2.
@@ -105,6 +113,35 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 
 
+== Performances
+
+En savoir plus sur les fonctionnalités de performance courantes prises en charge sur les systèmes ASA r2.
+
+
+
+=== Modifier les paramètres par défaut qui contrôlent les augmentations automatiques du plafond de débit QoS
+
+Les groupes de stratégies QoS adaptatifs et non adaptatifs sont activés automatiquement pour augmenter temporairement le plafond de débit d’une charge de travail de 50 % pendant une seconde afin de répondre par défaut aux demandes ponctuelles de performances accrues. À partir d’ONTAP 9.19.1, vous pouvez modifier ces paramètres par défaut. Dans ONTAP 9.18.1 et les versions antérieures, ces paramètres ne peuvent pas être modifiés.
+
+link:https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-qos-task.html["Apprenez-en davantage sur les plafonds de débit QoS"^].
+
+
+
+== Configuration SAN
+
+Un réseau de stockage (SAN) est constitué d'une solution de stockage connectée à des hôtes via un protocole de transport SAN tel que iSCSI ou FC. Vous pouvez configurer votre SAN de sorte que votre solution de stockage se connecte à vos hôtes par l'intermédiaire d'un ou plusieurs commutateurs. Si vous utilisez iSCSI, vous pouvez également configurer votre SAN pour que votre solution de stockage se connecte directement à votre hôte sans passer par un commutateur.
+
+
+
+=== Connexion directe SAN
+
+À partir d'ONTAP 9.19.1, un commutateur FC n'est pas requis pour établir des connexions entre les hôtes FC et FC-NVMe et le stockage ONTAP. Les hôtes peuvent être connectés directement aux ports d'adaptateur FC sur les systèmes ASA r2. La capacité de connexion directe peut être particulièrement précieuse sur les sites distants et dans les environnements hybrides où la simplicité est essentielle.
+
+* link:https://docs.netapp.com/us-en/ontap/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html#direct-attach-fc-and-fc-nvme-configurations["Apprenez-en davantage sur la connexion directe SAN"^].
+
+
+
+
 == Protocoles SAN
 
 Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).
@@ -124,6 +161,22 @@ Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe
 
 
 
+
+
+
+== Efficacité du stockage
+
+L'efficacité du stockage est la mesure de la façon dont un système de stockage utilise efficacement l'espace disponible en optimisant les ressources de stockage, en minimisant l'espace gaspillé et en réduisant l'encombrement physique des données écrites.
+
+ONTAP propose diverses technologies d'efficacité du stockage qui peuvent vous aider à optimiser l'utilisation du stockage et à réduire les coûts.
+
+link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.html["Découvrez-en plus sur les technologies d'efficacité de stockage ONTAP"].
+
+
+
+=== Déduplication globale
+
+À partir d'ONTAP 9.19.1, la déduplication globale s'étend de link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["économies d'espace ONTAP grâce à la déduplication existante"^] au niveau de l'unité de stockage à l'ensemble de la Storage Availability Zone (SAZ). En éliminant les blocs de données dupliqués sur toutes les unités de stockage de la SAZ, l'efficacité du stockage peut être considérablement améliorée et le coût de possession réduit. La déduplication globale ne nécessite aucune licence de fonctionnalité, est activée par défaut, s'intègre parfaitement aux technologies d'efficacité du stockage existantes et fonctionne de manière transparente avec un impact minimal sur les performances et sans configuration administrative.
 
 
 

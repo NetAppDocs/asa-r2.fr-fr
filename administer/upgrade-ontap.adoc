@@ -13,8 +13,18 @@ summary: Les mises à niveau du logiciel ONTAP pour les systèmes ASA r2 suivent
 [role="lead"]
 Lorsque vous mettez à niveau votre logiciel ONTAP sur votre système ASA r2, vous pouvez bénéficier des nouvelles fonctionnalités ONTAP améliorées pour réduire les coûts, accélérer les charges de travail stratégiques, améliorer la sécurité et étendre la portée de la protection des données disponible pour votre entreprise.
 
-Les mises à niveau du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que celles des autres systèmes ONTAP. Il est recommandé de commencer par link:https://docs.netapp.com/us-en/ontap/upgrade/create-upgrade-plan.html["Préparation de votre mise à niveau avec Upgrade Advisor dans Active IQ Digital Advisor ou Upgrade Health Checker"].
+Les mises à niveau du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que celles des autres systèmes ONTAP. Il est recommandé de commencer par link:https://docs.netapp.com/us-en/ontap/upgrade/create-upgrade-plan.html["Préparation de votre mise à niveau avec Upgrade Advisor dans Active IQ Digital Advisor ou Upgrade Health Checker"^].
 
-Après avoir préparé votre mise à niveau, il est recommandé d'effectuer les mises à niveau à l'aide de link:https://docs.netapp.com/us-en/ontap/upgrade/task_upgrade_andu_sm.html["Mise à niveau automatisée sans interruption (ANDU) depuis System Manager"]. ANDU exploite la technologie de basculement haute disponibilité d'ONTAP pour assurer le service des données sans interruption lors de la mise à niveau.
+Après avoir préparé votre mise à niveau, il est recommandé d’effectuer la mise à niveau à l’aide de link:https://docs.netapp.com/us-en/ontap/upgrade/task_upgrade_andu_sm.html["Mise à niveau automatisée sans interruption (ANDU) depuis System Manager"^]. ANDU tire parti de la technologie de basculement haute disponibilité (HA) d’ONTAP pour garantir que les clusters continuent de fournir des données sans interruption pendant la mise à niveau.
 
-En savoir plus sur link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Mises à niveau du logiciel ONTAP"].
+En savoir plus sur link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Mises à niveau du logiciel ONTAP"^].
+
+
+
+== Effectuez des vérifications préalables automatisées avant une mise à niveau planifiée
+
+Il n'est pas nécessaire d'être en cours de mise à niveau de votre logiciel ONTAP pour exécuter les vérifications préalables à la mise à niveau automatisée d'ONTAP. L'exécution de ces vérifications indépendamment du processus de mise à niveau automatisée d'ONTAP vous permet de voir quelles vérifications sont effectuées sur votre cluster et vous donne une liste des erreurs ou avertissements à corriger avant de commencer la mise à niveau proprement dite.
+
+À partir d'ONTAP 9.19.1, les erreurs et les avertissements sont affichés séparément pour vous aider à identifier facilement les problèmes qui doivent être résolus avant la mise à niveau.
+
+Découvrez comment link:https://docs.netapp.com/us-en/ontap/upgrade/automated-pre-checks.html["exécuter les vérifications préalables automatisées de la mise à niveau ONTAP"^].
