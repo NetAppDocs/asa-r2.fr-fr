@@ -46,7 +46,7 @@ FLI prend en charge les migrations en ligne et hors ligne. Lors d'une migration 
 
 À partir d'ONTAP 9.19.1, FLI prend en charge le protocole iSCSI pour la connectivité du backend.
 
-* En savoir plus sur le lien : https://docs.netapp.com/us-en/ontap-fli/get-started/learn-about-data-migration.html[ONTAP FLI migrations^].
+* En savoir plus sur link:https://docs.netapp.com/us-en/ontap-fli/get-started/learn-about-data-migration.html["Migrations ONTAP FLI"^].
 
 
 

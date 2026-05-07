@@ -84,7 +84,7 @@ link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authenticat
 
 Vous pouvez décharger le chiffrement et le déchiffrement Transport Layer Security (TLS) de l'ensemble de votre cluster sur des cartes Ethernet compatibles. Cela réduit la charge du processeur et améliore les performances des systèmes utilisant TLS.
 
-link:https://docs.netapp.com/us-en/ontap/networking/configure_tls_hardware_offload.html["Apprenez à configurer le déchargement matériel TLS"^].
+link:https://docs.netapp.com/us-en/ontap/networking/configure-tls-offload.html["Apprenez à configurer le déchargement matériel TLS"^].
 
 
 
