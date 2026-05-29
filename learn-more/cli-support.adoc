@@ -15,6 +15,8 @@ Au lieu d'agrégats, la couche de stockage des systèmes ASA r2 utilise des zone
 
 En raison de cette approche simplifiée de la gestion du stockage,  `storage aggregate` Les commandes ne sont pas prises en charge sur les systèmes ASA r2. Prise en charge de certaines  `lun` ,  `storage` et  `volume` les commandes et les paramètres sont également limités.
 
+Sauf indication contraire, toutes les autres commandes dans le link:https://docs.netapp.com/us-en/ontap-cli/["Référence des commandes ONTAP"] sont prises en charge pour les systèmes ASA r2.
+
 Les commandes et jeux de commandes suivants ne sont pas pris en charge sur ASA sous r2 :
 
 .Commandes <code> </code> non prises en charge
@@ -139,9 +141,6 @@ Le  `volume modify` La commande n'est pas disponible lorsqu'elle est utilisée a
 
 
 ====
-.Pour en savoir plus
-link:https://docs.netapp.com/us-en/ontap-cli/["Référence des commandes ONTAP"]Pour obtenir la liste complète des commandes prises en charge, reportez-vous au
-
 
 
 == Configurez un cluster ONTAP ASA r2 à l'aide de l'interface de ligne de commande
