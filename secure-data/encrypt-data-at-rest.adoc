@@ -21,7 +21,11 @@ NOTE: Dans les systèmes ASA r2, les SED ne sont pris en charge que pour les SSD
 
 Utilisez le gestionnaire de clés intégré ASA r2 ou un gestionnaire de clés externe pour transmettre des clés d'authentification à vos nœuds.
 
-En plus de NSE, vous pouvez également activer le chiffrement logiciel afin d'ajouter une couche supplémentaire de sécurité à vos données.
+Outre NSE, vous pouvez également activer le chiffrement logiciel pour ajouter une couche supplémentaire de sécurité à vos données. Les systèmes ASA r2 utilisent la technologie NetApp Volume Encryption (NVE) pour chiffrer les données au niveau logiciel. NetApp Aggregate Encryption (NAE) n'est pas pris en charge sur les systèmes ASA r2, car la couche de stockage dans les systèmes ASA r2 utilise des zones de disponibilité de stockage au lieu d'agrégats.
+
+En savoir plus sur link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Chiffrement de volume NetApp"^].
+
+En savoir plus sur link:https://docs.netapp.com/us-en/asa-r2/learn-more/hardware-comparison.html["les différences entre les systèmes ASA r2 et les autres systèmes ONTAP"].
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.

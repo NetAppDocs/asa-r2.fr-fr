@@ -24,6 +24,7 @@ Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement d
 * FabricPool
 * Provisionnement lourd des LUN
 * MetroCluster
+* Chiffrement d'agrégat NetApp (NAE)
 * Protocoles d'objet
 * API ONTAP S3 SnapMirror et S3
 
@@ -35,7 +36,7 @@ link:../secure-data/ransomware-protection.html["Découvrez comment verrouiller d
 
 * Chiffrement double couche
 +
-link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] Aux données de votre système ASA r2.
+Les systèmes ASA r2 prennent en charge le chiffrement matériel à l'aide de disques à chiffrement automatique (SED) et le chiffrement logiciel à l'aide de la technologie NetApp Volume Encryption (NVE). link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] des données sur votre système ASA r2.
 
 
 

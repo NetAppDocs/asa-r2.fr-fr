@@ -40,7 +40,6 @@ NOTE: Le  `lun move-in-volume` la commande est remplacée par la  `lun rename` e
 ====
 * `storage failover show-takeover`
 * `storage failover show-giveback`
-* `storage aggregate relocation`
 * `storage disk assign`
 * `storage disk partition`
 * `storage disk reassign`
