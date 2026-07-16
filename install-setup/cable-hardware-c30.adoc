@@ -30,6 +30,7 @@ image:../media/drw_cable_pull_tab_direction_ieops-1699.svg["Direction de la lang
 
 
 
+[[step-1-cable-the-clusterha-connections]]
 == Étape 1 : câblez les connexions du cluster/haute disponibilité
 
 Câblez les contrôleurs pour établir les connexions du cluster ONTAP. Pour les clusters sans commutateur, connectez les contrôleurs entre eux. Pour les clusters avec commutateur, connectez les contrôleurs aux commutateurs réseau du cluster.
@@ -144,6 +145,7 @@ image::../media/drw_isi_a30-50_2p_100gbe_1card_switched_cabling_ieops-1926.svg[R
 ====
 
 
+[[step-2-cable-the-host-network-connections]]
 == Étape 2 : câblez les connexions réseau de l'hôte
 
 Connectez les ports de module Ethernet ou Fibre Channel (FC) à votre réseau hôte.
@@ -193,6 +195,7 @@ image::../media/drw_isi_a30-50_4p_64gb_fc_1card_cabling_ieops-1924.svg[Câble ve
 ====
 
 
+[[step-3-cable-the-management-network-connections]]
 == Étape 3 : branchement des câbles du réseau de gestion
 
 Connectez les contrôleurs à votre réseau de gestion.
@@ -210,6 +213,7 @@ IMPORTANT: Ne branchez pas encore les cordons d'alimentation.
 
 
 
+[[step-4-cable-the-shelf-connections]]
 == Étape 4 : branchement des tiroirs sur le câble
 
 La procédure de câblage du plateau NS224 utilise des modules NSM100B au lieu de modules NSM100. Le câblage est identique quel que soit le type de modules NSM utilisé ; seuls les noms de ports diffèrent :

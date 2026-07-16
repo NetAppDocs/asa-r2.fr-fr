@@ -18,6 +18,7 @@ L'API REST de ASA r2 est basée sur l'API REST fournie avec la personnalité ONT
 
 
 
+[[types-of-api-changes]]
 == Types de modifications d'API
 
 Il existe plusieurs types de différences entre l'API REST du système ASA r2 et l'API REST ONTAP unifiée disponible avec les systèmes FAS, AFF et ASA. Comprendre les types de modifications vous aidera à mieux utiliser la documentation de référence de l'API en ligne.
@@ -45,6 +46,7 @@ Plusieurs modifications ont été apportées à la façon dont ASA r2 traite cer
 
 
 
+[[enhanced-security-with-oauth-2-0]]
 == Sécurité améliorée avec OAuth 2.0
 
 OAuth 2.0 est le cadre d'autorisation standard de l'industrie. Elle permet de restreindre et de contrôler l'accès aux ressources protégées en fonction de jetons d'accès signés. Vous pouvez configurer OAuth 2.0 à l'aide du Gestionnaire système pour protéger les ressources système de ASA r2.
@@ -53,6 +55,7 @@ Une fois OAuth 2.0 configuré avec System Manager, l'accès par les clients de l
 
 
 
+[[access-the-asa-r2-api-reference-documentation-through-the-swagger-ui]]
 == Accédez à la documentation de référence de l'API ASA r2 via l'interface utilisateur swagger
 
 Vous pouvez accéder à la documentation de référence de l'API REST via l'interface utilisateur swagger de votre système ASA r2.

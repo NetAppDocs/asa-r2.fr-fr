@@ -15,6 +15,7 @@ Pour une protection renforcée contre les attaques par ransomware, répliquez le
 
 
 
+[[initialize-the-snaplock-compliance-clock]]
 == Initialiser l'horloge SnapLock Compliance
 
 Avant de pouvoir créer des instantanés inviolables, vous devez initialiser l'horloge SnapLock Compliance sur vos clusters locaux et de destination.

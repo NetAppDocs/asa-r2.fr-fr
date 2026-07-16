@@ -19,6 +19,7 @@ Le clonage des données crée des copies d'unités de stockage et de groupes de 
 
 
 
+[[clone-storage-units]]
 == Cloner les unités de stockage
 
 Lorsque vous clonez une unité de stockage, vous créez une nouvelle unité de stockage sur votre système ASA r2 qui est une copie inscriptible instantanée de l'unité de stockage que vous avez clonée.
@@ -74,6 +75,7 @@ Vous avez créé une nouvelle unité de stockage identique à l'unité de stocka
 
 
 
+[[clone-consistency-groups]]
 == Cloner des groupes de cohérence
 
 Lorsque vous clonez un groupe de cohérence, vous créez un nouveau groupe de cohérence dont la structure, les unités de stockage et les données sont identiques au groupe de cohérence que vous avez cloné. Utilisez un clone de groupe de cohérence pour tester les applications ou migrer les données. Supposons, par exemple, que vous deviez migrer une charge de travail de production à partir d'un groupe de cohérence. Vous pouvez cloner le groupe de cohérence pour créer une copie de votre charge de travail de production à conserver en tant que sauvegarde jusqu'à la fin de la migration.
@@ -153,6 +155,7 @@ Pour protéger vos données, vous devez link:../data-protection/create-snapshots
 
 
 
+[[split-consistency-group-clone]]
 == Séparer le clone du groupe de cohérence
 
 Lorsque vous fractionnez un clone de groupe de cohérence, vous dissociez le clone du groupe de cohérence source et allouez de l'espace disque au clone. Le clone devient un groupe de cohérence autonome pouvant être utilisé indépendamment du groupe de cohérence source.

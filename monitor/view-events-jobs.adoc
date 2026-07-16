@@ -53,6 +53,7 @@ Sélectionnez *journaux d'audit*.
 
 
 
+[[send-email-notifications-for-cluster-events-and-audit-logs]]
 == Envoyez des notifications par e-mail pour les événements du cluster et les journaux d'audit
 
 Configurez votre système pour qu'il envoie une notification à des adresses e-mail spécifiques en cas d'entrée de journal d'audit ou d'événement de cluster.

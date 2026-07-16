@@ -15,6 +15,7 @@ Câblez votre système de stockage ASA r2 pour permettre la communication du clu
 
 
 
+[[overview-of-hardware-cabling]]
 == Aperçu du câblage matériel
 
 Le câblage diffère selon le modèle de plateforme, car chaque modèle ASA r2 possède des emplacements de slots, des affectations de ports et des configurations de modules d'E/S uniques. Sélectionnez la procédure correspondant à votre modèle ASA r2 :
@@ -47,6 +48,7 @@ Connectez les contrôleurs aux étagères de stockage NS224 pour fournir une cap
 
 
 
+[[additional-resources]]
 == Ressources supplémentaires
 
 Les procédures de câblage présentées illustrent les configurations courantes. Le câblage spécifique dépend des composants commandés pour votre système de stockage. Pour des informations complètes sur la configuration et la priorité des emplacements, consultez link:https://hwu.netapp.com["NetApp Hardware Universe"^].

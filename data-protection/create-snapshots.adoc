@@ -16,6 +16,7 @@ Créez un instantané pour sauvegarder les données de votre système ASA r2.  U
 
 
 
+[[step-1-optionally-create-a-consistency-group]]
 == Étape 1 : créez un groupe de cohérence éventuellement
 
 Un groupe de cohérence est un ensemble d'unités de stockage gérées comme une seule unité. Créez des groupes de cohérence pour simplifier la gestion du stockage et la protection des données pour les charges de travail applicatives sur plusieurs unités de stockage. Supposons par exemple que vous disposez d'une base de données constituée de 10 unités de stockage dans un groupe de cohérence et que vous devez sauvegarder l'ensemble de la base de données. Au lieu de sauvegarder chaque unité de stockage, vous pouvez sauvegarder l'ensemble de la base de données en ajoutant simplement la protection des données Snapshot au groupe de cohérence.
@@ -101,6 +102,7 @@ Vous avez créé un groupe de cohérence contenant les unités de stockage que v
 ====
 
 
+[[step-2-create-a-snapshot]]
 == Étape 2 : créer un instantané
 
 Un snapshot est une copie locale en lecture seule de vos données, que vous pouvez utiliser pour restaurer des unités de stockage à des points spécifiques dans le temps.

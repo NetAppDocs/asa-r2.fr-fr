@@ -142,6 +142,7 @@ Le  `volume modify` La commande n'est pas disponible lorsqu'elle est utilisée a
 ====
 
 
+[[set-up-an-ontap-asa-r2-cluster-using-the-cli]]
 == Configurez un cluster ONTAP ASA r2 à l'aide de l'interface de ligne de commande
 
 Il est recommandé que vous link:../install-setup/initialize-ontap-cluster.html["Utilisez System Manager pour configurer votre cluster ONTAP ASA r2"]. System Manager propose un workflow guidé rapide et facile pour rendre votre cluster opérationnel. Toutefois, si vous avez l'habitude de travailler avec des commandes ONTAP, l'interface de ligne de commandes de ONTAP peut éventuellement être utilisée pour la configuration des clusters. La configuration de clusters à l'aide de l'interface de ligne de commandes n'offre aucune option ni aucun avantage supplémentaire que la configuration de clusters à l'aide de System Manager.

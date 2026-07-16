@@ -15,6 +15,7 @@ summary: 'Utilisez des groupes de cohérence pour effectuer diverses actions sur
 
 
 
+[[promote-an-existing-consistency-group-into-a-parent-consistency-group]]
 == Promouvoir un groupe de cohérence existant en groupe de cohérence parent
 
 Si vous promouvez un groupe de cohérence existant en parent, un nouveau groupe de cohérence enfant est créé et les unités de stockage appartenant au groupe de cohérence promu sont déplacées vers le nouveau groupe de cohérence enfant.  Les unités de stockage ne peuvent pas être directement associées à un groupe de cohérence parent.
@@ -35,6 +36,7 @@ Vous pouvez créer des groupes de cohérence enfants supplémentaires sous le gr
 
 
 
+[[demote-a-parent-consistency-group-to-a-single-consistency-group]]
 == Rétrograder un groupe de cohérence parent en un seul groupe de cohérence
 
 Lorsque vous rétrogradez un groupe de cohérence parent en un groupe de cohérence unique, les unités de stockage des groupes de cohérence enfants associés sont ajoutées au groupe de cohérence parent.  Les groupes de cohérence enfants sont supprimés et le parent est alors géré comme un groupe de cohérence unique.
@@ -54,6 +56,7 @@ link:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["Ajo
 
 
 
+[[create-a-child-consistency-group]]
 == Créer un groupe de cohérence enfant
 
 La création de groupes de cohérence enfants vous permet d'appliquer des stratégies d'instantanés individuelles à chaque enfant.  À partir d' ONTAP 9.17.1, vous pouvez également appliquer des stratégies de réplication individuelles directement à chaque enfant.  Dans ONTAP 9.16.1, les politiques de réplication ne peuvent être appliquées qu'au niveau parent.
@@ -104,6 +107,7 @@ Après avoir créé un groupe de cohérence enfant, vous pouvezlink:policies-sch
 
 
 
+[[detach-a-child-consistency-group-from-a-parent-consistency-group]]
 == Détachez un groupe de cohérence enfant d'un groupe de cohérence parent
 
 Lorsque vous détachez un groupe de cohérence enfant d'un groupe de cohérence parent, le groupe de cohérence enfant est supprimé du groupe de cohérence parent et est géré comme un groupe de cohérence unique.  La politique de réplication appliquée au parent n’est plus appliquée au groupe de cohérence enfant détaché.

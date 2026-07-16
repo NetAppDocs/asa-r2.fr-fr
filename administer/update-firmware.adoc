@@ -15,6 +15,7 @@ Par défaut, ONTAP télécharge et met à jour automatiquement les fichiers syst
 
 
 
+[[enable-automatic-updates]]
 == Activer les mises à jour automatiques
 
 Les mises à jour recommandées pour le micrologiciel de stockage, le micrologiciel SP/BMC et les fichiers système sont automatiquement téléchargées et installées sur votre système ASA r2 par défaut. Si les mises à jour automatiques ont été désactivées, vous pouvez les activer pour rétablir le comportement par défaut.
@@ -33,6 +34,7 @@ Les mises à jour recommandées sont automatiquement téléchargées et install�
 
 
 
+[[disable-automatic-updates]]
 == Désactiver les mises à jour automatiques
 
 Désactivez les mises à jour automatiques uniquement si vous souhaitez gérer entièrement les mises à jour vous-même. Avec les mises à jour automatiques désactivées, le système ne vous notifiera pas, ne téléchargera pas et n’installera pas de mises à jour. Vous êtes responsable de surveiller, télécharger, planifier et installer toutes les mises à jour manuellement.
@@ -47,6 +49,7 @@ Les mises à jour automatiques sont désactivées. Vous devez régulièrement v�
 
 
 
+[[view-automatic-updates]]
 == Afficher les mises à jour automatiques
 
 Afficher la liste des mises à jour de firmware et de fichiers système qui ont été téléchargées sur le cluster et dont l'installation automatique est prévue Affichez également les mises à jour qui ont été installées automatiquement au préalable.
@@ -58,6 +61,7 @@ Afficher la liste des mises à jour de firmware et de fichiers système qui ont 
 
 
 
+[[edit-automatic-updates]]
 == Modifier les mises à jour automatiques
 
 Vous pouvez choisir de télécharger et d'installer automatiquement les mises à jour recommandées pour votre micrologiciel de stockage, votre micrologiciel SP/BMC et vos fichiers système sur votre cluster, ou de faire en sorte que les mises à jour recommandées soient automatiquement rejetées. Si vous souhaitez contrôler manuellement l'installation ou le rejet des mises à jour, sélectionnez pour être averti lorsqu'une mise à jour recommandée est disponible ; vous pouvez alors sélectionner manuellement l'installation ou le rejet.
@@ -74,6 +78,7 @@ Les mises à jour automatiques sont modifiées en fonction de vos sélections.
 
 
 
+[[update-firmware-manually]]
 == Mettre à jour le micrologiciel manuellement
 
 Si vous souhaitez pouvoir afficher les mises à jour recommandées avant de les télécharger et de les installer, vous pouvez désactiver les mises à jour automatiques et mettre à jour votre micrologiciel manuellement.

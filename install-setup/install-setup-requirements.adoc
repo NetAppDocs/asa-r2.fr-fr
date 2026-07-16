@@ -15,6 +15,7 @@ Vérifiez l'équipement nécessaire et les précautions de levage pour votre sys
 
 
 
+[[equipment-needed-for-install]]
 == Équipement nécessaire pour l'installation
 
 Pour installer votre système de stockage ASA r2, vous avez besoin de l'équipement et des outils suivants.
@@ -29,12 +30,14 @@ Pour installer votre système de stockage ASA r2, vous avez besoin de l'équipem
 
 
 
+[[lifting-precautions]]
 == Précautions de levage
 
 Les systèmes de stockage et tiroirs de stockage ASA r2 sont très lourds. Faites preuve de prudence lorsque vous soulevez et déplacez ces éléments.
 
 
 
+[[storage-system-weights]]
 === Poids du système de stockage
 
 Prenez les précautions nécessaires lors du déplacement ou du levage de votre système de stockage ASA r2.
@@ -72,6 +75,7 @@ image::../media/drw_g_lifting_weight_ieops-1831.svg[Icône d'avertissement de po
 ====
 
 
+[[storage-shelf-weights]]
 === Poids des étagères de stockage
 
 Prenez les précautions nécessaires lorsque vous déplacez ou soulevez votre tablette.
@@ -82,7 +86,7 @@ Prenez les précautions nécessaires lorsque vous déplacez ou soulevez votre ta
 --
 Une étagère NS224 peut peser jusqu'à 30.29 kg (66.78 lb). Pour soulever la tablette, faites appel à deux personnes ou à un dispositif de levage hydraulique. Conservez tous les composants dans la tablette (à l'avant et à l'arrière) pour éviter de rééquilibrer le poids de la tablette.
 
-image::../media/drw_ns224_lifting_weight_ieops-1716.svg[NS224 NSM100 attention de levage]
+image::../media/drw_ns224_lifting_weight_2_ieops-2960.svg[NS224 NSM100 attention de levage]
 
 --
 .Tiroir NS224 avec modules NSM100B

@@ -15,6 +15,7 @@ Après la migration d'une machine virtuelle de stockage (VM) d'un cluster ASA ve
 
 
 
+[[manually-cut-over-clients-to-an-asa-r2-system-after-a-storage-vm-migration]]
 == Basculer manuellement les clients vers un système ASA r2 après une migration de machine virtuelle de stockage
 
 Si vous désactivez la bascule automatique du client lors de la migration d'une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2, une fois la migration terminée avec succès, effectuez la bascule manuellement afin que la machine virtuelle de stockage ASA r2 puisse fournir des données aux clients.
@@ -42,6 +43,7 @@ Vous êtes maintenant prêt à supprimer la machine virtuelle de stockage du clu
 
 
 
+[[manually-remove-an-asa-storage-vm-after-migration-to-an-asa-r2-cluster]]
 == Supprimer manuellement une machine virtuelle de stockage ASA après la migration vers un cluster ASA r2
 
 Si vous désactivez le nettoyage automatique de la source lors de la migration d'une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2, une fois la migration terminée, supprimez la machine virtuelle de stockage du cluster ASA pour libérer l'espace de stockage.

@@ -21,6 +21,7 @@ Les groupes de cohérence hiérarchiques vous permettent d'appliquer des règles
 
 
 
+[[consistency-groups-in-replication-relationships]]
 == Groupes de cohérence dans les relations de réplication
 
 À partir d' ONTAP 9.17.1, vous pouvez apporter les modifications de géométrie suivantes aux groupes de cohérence dans une relation de réplication asynchrone ou dans une relation de synchronisation active SnapMirror sans interrompre ou supprimer la relation.  Lorsqu'un changement de géométrie se produit sur le groupe de cohérence principal, le changement est répliqué sur le groupe de cohérence secondaire.

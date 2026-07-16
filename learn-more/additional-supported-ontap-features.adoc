@@ -17,12 +17,14 @@ Pour plus d'informations sur les fonctionnalités et fonctions courantes, consul
 
 
 
+[[data-protection]]
 == Protection des données
 
 Découvrez plus d'informations sur les fonctionnalités de protection des données courantes prises en charge par les systèmes ASA r2.
 
 
 
+[[clustered-external-key-servers]]
 === Serveurs de clés externes en cluster
 
 Vous pouvez configurer la connectivité à des serveurs de gestion de clés externes en cluster sur une machine virtuelle de stockage. Avec les serveurs de clés en cluster, vous pouvez désigner des serveurs de clés primaires et secondaires sur une machine virtuelle de stockage. Lors de l'enregistrement des clés, ONTAP tentera d'abord d'accéder à un serveur de clés primaire avant de tenter successivement d'accéder aux serveurs secondaires jusqu'à ce que l'opération se termine avec succès, empêchant ainsi la duplication des clés.
@@ -31,6 +33,7 @@ link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-ke
 
 
 
+[[external-key-management-for-encryption-at-rest]]
 === Gestion externe des clés pour le chiffrement au repos
 
 Vous pouvez utiliser un ou plusieurs serveurs KMIP pour sécuriser les clés utilisées par le cluster pour accéder aux données chiffrées.
@@ -41,12 +44,14 @@ Vous pouvez utiliser un ou plusieurs serveurs KMIP pour sécuriser les clés uti
 
 
 
+[[data-security]]
 == Sécurité des données
 
 Découvrez plus d'informations sur les fonctionnalités de sécurité des données courantes prises en charge par les systèmes ASA r2.
 
 
 
+[[administrator-access-management]]
 === Gestion des accès administrateur
 
 Le rôle attribué à un administrateur détermine les fonctions qu'il peut effectuer.  Le gestionnaire système fournit des rôles prédéfinis pour les administrateurs de cluster et les administrateurs de machines virtuelles de stockage.  Vous attribuez le rôle lors de la création du compte administrateur, ou vous pouvez attribuer un rôle différent ultérieurement.
@@ -56,6 +61,7 @@ Le rôle attribué à un administrateur détermine les fonctions qu'il peut effe
 
 
 
+[[client-authentication-and-authorization]]
 === Authentification et autorisation du client
 
 ONTAP utilise des méthodes standard pour sécuriser l'accès des clients et des administrateurs au stockage et pour se protéger contre les virus.  Des technologies avancées sont disponibles pour le chiffrement des données au repos et pour le stockage WORM.  ONTAP authentifie une machine cliente et un utilisateur en vérifiant leur identité auprès d'une source fiable.  ONTAP autorise un utilisateur à accéder à un fichier ou à un répertoire en comparant ses informations d'identification avec les autorisations configurées sur le fichier ou le répertoire.
@@ -64,6 +70,7 @@ link:https://docs.netapp.com/us-en/ontap/concepts/client-access-storage-concept.
 
 
 
+[[oauth-2-0-authentication]]
 === Authentification OAuth 2.0
 
 Vous pouvez utiliser le framework Open Authorization (OAuth 2.0) pour contrôler l'accès à vos clusters ONTAP .  OAuth 2.0 restreint et contrôle l'accès aux ressources protégées à l'aide de jetons d'accès signés.
@@ -72,6 +79,7 @@ link:https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["En
 
 
 
+[[saml-authentication-and-administrator-access]]
 === Authentification SAML et accès administrateur
 
 Vous pouvez configurer et activer l'authentification SAML (Security Assertion Markup Language) pour les services Web.  SAML authentifie les utilisateurs par l'intermédiaire d'un fournisseur d'identité externe (IdP) au lieu des fournisseurs de services d'annuaire tels qu'Active Directory et LDAP.
@@ -80,6 +88,7 @@ link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authenticat
 
 
 
+[[tls-hardware-offload]]
 === déchargement matériel TLS
 
 Vous pouvez décharger le chiffrement et le déchiffrement Transport Layer Security (TLS) de l'ensemble de votre cluster sur des cartes Ethernet compatibles. Cela réduit la charge du processeur et améliore les performances des systèmes utilisant TLS.
@@ -88,12 +97,14 @@ link:https://docs.netapp.com/us-en/ontap/networking/configure-tls-offload.html["
 
 
 
+[[networking]]
 == Réseautage
 
 Découvrez plus d'informations sur les fonctionnalités réseau courantes prises en charge par les systèmes ASA r2.
 
 
 
+[[fips-compliance]]
 === Conformité FIPS
 
 ONTAP est conforme aux normes fédérales de traitement de l'information (FIPS) 140-2 pour toutes les connexions SSL.  Vous pouvez activer et désactiver le mode SSL FIPS, définir les protocoles SSL globalement et désactiver les chiffrements faibles tels que RC4 dans ONTAP.
@@ -105,6 +116,7 @@ ONTAP est conforme aux normes fédérales de traitement de l'information (FIPS) 
 
 
 
+[[link-aggregation-groups-lags]]
 === Groupes d'agrégation de liens (LAG)
 
 Un groupe d'interfaces, également appelé groupe d'agrégation de liens (LAG), est créé en combinant deux ou plusieurs ports physiques sur le même nœud en un seul port logique.  Le port logique offre une résilience accrue, une disponibilité accrue et un partage de charge.
@@ -113,12 +125,14 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 
 
+[[performance]]
 == Performances
 
 En savoir plus sur les fonctionnalités de performance courantes prises en charge sur les systèmes ASA r2.
 
 
 
+[[modify-default-settings-that-control-automatic-qos-throughput-ceiling-increases]]
 === Modifier les paramètres par défaut qui contrôlent les augmentations automatiques du plafond de débit QoS
 
 Les groupes de stratégies QoS adaptatifs et non adaptatifs sont activés automatiquement pour augmenter temporairement le plafond de débit d’une charge de travail de 50 % pendant une seconde afin de répondre par défaut aux demandes ponctuelles de performances accrues. À partir d’ONTAP 9.19.1, vous pouvez modifier ces paramètres par défaut. Dans ONTAP 9.18.1 et les versions antérieures, ces paramètres ne peuvent pas être modifiés.
@@ -127,12 +141,14 @@ link:https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-
 
 
 
+[[san-configuration]]
 == Configuration SAN
 
 Un réseau de stockage (SAN) est constitué d'une solution de stockage connectée à des hôtes via un protocole de transport SAN tel que iSCSI ou FC. Vous pouvez configurer votre SAN de sorte que votre solution de stockage se connecte à vos hôtes par l'intermédiaire d'un ou plusieurs commutateurs. Si vous utilisez iSCSI, vous pouvez également configurer votre SAN pour que votre solution de stockage se connecte directement à votre hôte sans passer par un commutateur.
 
 
 
+[[san-direct-attachment]]
 === Connexion directe SAN
 
 À partir d'ONTAP 9.19.1, un commutateur FC n'est pas requis pour établir des connexions entre les hôtes FC et FC-NVMe et le stockage ONTAP. Les hôtes peuvent être connectés directement aux ports d'adaptateur FC sur les systèmes ASA r2. La capacité de connexion directe peut être particulièrement précieuse sur les sites distants et dans les environnements hybrides où la simplicité est essentielle.
@@ -142,6 +158,7 @@ Un réseau de stockage (SAN) est constitué d'une solution de stockage connecté
 
 
 
+[[san-protocols]]
 == Protocoles SAN
 
 Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).
@@ -164,6 +181,7 @@ Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe
 
 
 
+[[storage-efficiency]]
 == Efficacité du stockage
 
 L'efficacité du stockage est la mesure de la façon dont un système de stockage utilise efficacement l'espace disponible en optimisant les ressources de stockage, en minimisant l'espace gaspillé et en réduisant l'encombrement physique des données écrites.
@@ -174,12 +192,14 @@ link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.ht
 
 
 
+[[global-deduplication]]
 === Déduplication globale
 
 À partir d'ONTAP 9.19.1, la déduplication globale s'étend de link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["économies d'espace ONTAP grâce à la déduplication existante"^] au niveau de l'unité de stockage à l'ensemble de la Storage Availability Zone (SAZ). En éliminant les blocs de données dupliqués sur toutes les unités de stockage de la SAZ, l'efficacité du stockage peut être considérablement améliorée et le coût de possession réduit. La déduplication globale ne nécessite aucune licence de fonctionnalité, est activée par défaut, s'intègre parfaitement aux technologies d'efficacité du stockage existantes et fonctionne de manière transparente avec un impact minimal sur les performances et sans configuration administrative.
 
 
 
+[[system-manager]]
 == System Manager
 
 Vous pouvez rechercher diverses actions, objets et sujets d'information dans le Gestionnaire système.  Vous pouvez également rechercher des entrées spécifiques dans les données du tableau.

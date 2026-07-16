@@ -25,6 +25,7 @@ En savoir plus sur link:https://docs.netapp.com/us-en/ontap/san-config/configure
 
 
 
+[[zoning-recommendation-for-fc-hosts]]
 == Recommandation de segmentation pour les hôtes FC
 
 Vous devez configurer vos hôtes FC pour qu'ils utilisent la segmentation. Les systèmes ASA r2 suivent les mêmes recommandations et instructions de segmentation des hôtes FC que tous les autres systèmes ONTAP.

@@ -13,16 +13,32 @@ summary: Visionnez de courtes vidéos qui expliquent comment utiliser ONTAP Syst
 [role="lead"]
 Visionnez de courtes vidéos qui expliquent comment utiliser ONTAP System Manager pour effectuer rapidement et facilement des tâches courantes sur vos systèmes de stockage ASA r2.
 
-.Configurez les protocoles SAN sur votre système ASA r2
+
+
+[[configure-san-protocols-on-your-asa-r2-system]]
+== Configurez les protocoles SAN sur votre système ASA r2
+
+Vous pouvez utiliser ONTAP System Manager pour configurer rapidement et facilement vos protocoles SAN. Dans cet exemple, nous allons configurer les adresses IP des interfaces réseau iSCSI.
+
 video::96cf3b2d-1cbd-4fff-a6e7-b1f0014ef793[panopto]
 link:video_transcript_configure_san_protocols.html["Transcription vidéo"]
 
-[#video_transcript_return_configure_san_protocols]
-.Provisionnez le stockage SAN sur votre système ASA r2
+
+
+[[provision-san-storage-on-your-asa-r2-system]]
+== Provisionnez le stockage SAN sur votre système ASA r2
+
+Vous pouvez utiliser ONTAP System Manager pour provisionner rapidement et facilement des unités de stockage pour les hôtes de votre système de stockage ASA r2. Dans cet exemple, nous allons créer six nouvelles unités de stockage pour un hôte VMware.
+
 video::1d3e1a18-7dbe-44e9-a53d-b1f0014ef7c5[panopto]
 link:video_transcript_provision_san_storage.html["Transcription vidéo"]
 
-[#video_transcript_return_provision_san_storage]
-.Répliquez les données sur un cluster distant à partir d'un système ASA r2
+
+
+[[replicate-data-to-a-remote-cluster-from-an-asa-r2-storage-system]]
+== Répliquez les données sur un cluster distant à partir d'un système de stockage ASA r2
+
+Vous pouvez utiliser ONTAP System Manager pour protéger vos données en planifiant des instantanés de vos unités de stockage ou groupes de cohérence et en les répliquant vers un emplacement distant. Dans cet exemple, nous allons planifier des instantanés pour les unités de stockage existantes.
+
 video::4b78312d-1bfa-4df5-afac-b1f0014ef80e[panopto]
 link:video_transcript_replicate_data.html["Transcription vidéo"]

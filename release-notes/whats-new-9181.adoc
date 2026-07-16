@@ -18,6 +18,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 
 
 
+[[data-protection]]
 == Protection des données
 
 [cols="2,4"]
@@ -29,6 +30,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 |===
 
 
+[[networking]]
 == Réseautage
 
 [cols="2,4"]
@@ -43,6 +45,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 |===
 
 
+[[san-data-migration]]
 == Migration de données SAN
 
 [cols="2,4"]
@@ -54,6 +57,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 |===
 
 
+[[security]]
 == Sécurité
 
 [cols="2,4"]
@@ -65,6 +69,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.18.1 pour les
 |===
 
 
+[[storage-efficiency]]
 == Efficacité du stockage
 
 [cols="2,4"]

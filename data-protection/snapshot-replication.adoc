@@ -25,6 +25,7 @@ link:manage-hierarchical-consistency-groups.html["En savoir plus sur les groupes
 
 
 
+[[step-1-create-a-cluster-peer-relationship]]
 == Étape 1 : créer une relation entre clusters
 
 Avant de pouvoir protéger vos données en les répliquant sur un cluster distant, vous devez créer une relation entre les pairs de cluster entre le cluster local et distant.
@@ -46,6 +47,7 @@ Vous avez effectué un peering pour le cluster ASA r2 local avec un cluster dist
 
 
 
+[[step-2-optionally-create-a-custom-replication-policy]]
 == Étape 2 : (facultatif) Créez une politique de réplication personnalisée
 
 La politique de réplication définit quand les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.  ONTAP inclut diverses politiques de protection des données prédéfinies que vous pouvez utiliser pour vos relations de réplication.  Si les politiques prédéfinies ne répondent pas à vos besoins, vous pouvez créer une politique de réplication personnalisée.
@@ -79,6 +81,7 @@ En savoir plus sur link:../administer/manage-client-vm-access.html["Machines vir
 
 
 
+[[step-3-create-a-replication-relationship]]
 == Étape 3 : création d'une relation de réplication
 
 Une relation de réplication de snapshot établit une connexion entre le système ASA r2 et un emplacement distant afin que vous puissiez répliquer des groupes de cohérence vers un cluster distant. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.
@@ -170,6 +173,7 @@ Maintenant que vous avez créé une règle de réplication et une relation, votr
 
 
 
+[[step-4-test-replication-failover]]
 == Étape 4 : test du basculement de réplication
 
 Vous pouvez également vérifier que vous pouvez transmettre les données à partir d'unités de stockage répliquées sur un cluster distant si le cluster source est hors ligne.

@@ -18,6 +18,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.0 pour les
 
 
 
+[[systems]]
 == Systèmes
 
 [cols="2,4"]
@@ -36,6 +37,7 @@ Les systèmes NetApp ASA r2 suivants sont disponibles.  Ces systèmes offrent un
 |===
 
 
+[[system-manager]]
 == System Manager
 
 [cols="2,4"]
@@ -47,6 +49,7 @@ Les systèmes NetApp ASA r2 suivants sont disponibles.  Ces systèmes offrent un
 |===
 
 
+[[storage-management]]
 == Gestion du stockage
 
 [cols="2,4"]
@@ -64,6 +67,7 @@ Pour une gestion du stockage simplifiée, les systèmes ASA r2 utilisent des uni
 |===
 
 
+[[data-security]]
 == Sécurité des données
 
 [cols="2,4"]

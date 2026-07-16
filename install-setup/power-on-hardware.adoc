@@ -15,6 +15,7 @@ Une fois que vous avez installé le matériel en rack du système de stockage AS
 
 
 
+[[step-1-power-on-the-shelf-and-assign-shelf-id]]
 == Étape 1 : mettez le tiroir sous tension et attribuez l'ID de tiroir
 
 Chaque tiroir se distingue par un ID de tiroir unique. Cet ID garantit que le tiroir est distinct dans la configuration de votre système de stockage.
@@ -125,6 +126,7 @@ Une alimentation est mise sous tension dès que le cordon d'alimentation est bra
 
 
 
+[[step-2-power-on-the-controllers]]
 == Étape 2 : mettez les contrôleurs sous tension
 
 Une fois que vous avez allumé vos tiroirs de stockage et attribué des ID uniques, mettez les contrôleurs de stockage sous tension.
@@ -173,12 +175,12 @@ image::../media/drw_g_isi_console_serial_port_cabling_ieops-1882.svg[Connexions 
 ====
 .A1K
 --
-image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
+image::../media/drw_a1k_70-90_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
 
 --
 .A70 et A90
 --
-image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
+image::../media/drw_a1k_70-90_power_source_icon_ieops-1700.svg[Schéma de connexion du système de stockage A1K et de l'alimentation A70 ou A90]
 
 --
 .A20, A30 ET A50

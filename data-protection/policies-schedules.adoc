@@ -15,6 +15,7 @@ Utilisez les règles de snapshot pour protéger les données de vos groupes de c
 
 
 
+[[create-a-new-protection-policy-schedule]]
 == Créez un nouveau planning de stratégie de protection
 
 Une planification de règle de protection définit la fréquence à laquelle une règle de snapshots est exécutée. Vous pouvez créer des horaires à exécuter à intervalles réguliers en fonction d'un certain nombre de jours, d'heures ou de minutes. Par exemple, vous pouvez créer un programme à exécuter toutes les heures ou une seule fois par jour. Vous pouvez également créer des horaires à exécuter à des heures spécifiques sur des jours spécifiques de la semaine ou du mois. Par exemple, vous pouvez créer un programme à exécuter à 12:15 le 20 de chaque mois.
@@ -33,6 +34,7 @@ Maintenant que vous avez créé une nouvelle planification de règles, vous pouv
 
 
 
+[[create-a-snapshot-policy]]
 == Création d'une règle de snapshots
 
 Une règle définit la fréquence de création des snapshots, le nombre maximal de snapshots autorisés et la durée de conservation des snapshots.
@@ -51,6 +53,7 @@ Une fois que vous avez créé une politique de snapshots, vous pouvez l'applique
 
 
 
+[[apply-a-snapshot-policy-to-a-consistency-group]]
 == Applique une politique de snapshot à un groupe de cohérence
 
 Appliquez une règle de snapshot à un groupe de cohérence pour créer, conserver et étiqueter automatiquement les snapshots du groupe de cohérence.
@@ -67,6 +70,7 @@ Maintenant que vos données sont protégées avec des snapshots, vous devez link
 
 
 
+[[edit-delete-or-disable-a-snapshot-policy]]
 == Modifiez, supprimez ou désactivez une règle de snapshots
 
 Modifiez une règle de snapshot pour modifier le nom de la règle, le nombre maximal de snapshots ou le libellé SnapMirror. Supprimez une règle pour la supprimer du cluster, ainsi que les données de sauvegarde qui y sont associées. Désactivez une règle pour arrêter temporairement la création ou le transfert de snapshots spécifiés par la règle.
@@ -82,6 +86,7 @@ Vous avez modifié, supprimé ou désactivé la règle de snapshot.
 
 
 
+[[edit-a-replication-policy]]
 == Modifier une règle de réplication
 
 Modifiez une règle de réplication pour modifier la description de la règle, la planification du transfert et les règles. Vous pouvez également modifier la stratégie pour activer ou désactiver la compression réseau.

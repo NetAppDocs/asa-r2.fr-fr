@@ -15,6 +15,7 @@ Augmentez ou diminuez la taille d’un groupe de cohérence en modifiant le nomb
 
 
 
+[[add-storage-units-to-a-consistency-group]]
 == Ajouter des unités de stockage à un groupe de cohérence
 
 Augmentez la capacité de stockage gérée par un groupe de cohérence en ajoutant des unités de stockage nouvelles ou existantes à ce groupe.
@@ -75,6 +76,7 @@ Les snapshots existants du groupe de cohérence n'incluent pas les nouvelles uni
 
 
 
+[[remove-a-storage-unit-from-a-consistency-group]]
 == Supprimer une unité de stockage d'un groupe de cohérence
 
 Retirez une unité de stockage d'un groupe de cohérence pour la supprimer, la gérer dans le cadre d'un autre groupe de cohérence ou cesser de protéger ses données.  La suppression d'une unité de stockage d'un groupe de cohérence rompt la relation entre l'unité de stockage et le groupe de cohérence, mais ne supprime pas l'unité de stockage.

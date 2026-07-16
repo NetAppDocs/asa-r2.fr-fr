@@ -15,6 +15,7 @@ Vous pouvez utiliser ONTAP System Manager pour administrer le réseau de stockag
 
 
 
+[[add-a-broadcast-domain]]
 == Ajouter un domaine de diffusion
 
 Utilisez les domaines de diffusion pour simplifier la gestion de votre réseau de clusters en regroupant les ports réseau appartenant au même réseau de couche 2. Les machines virtuelles de stockage peuvent ensuite utiliser les ports du groupe pour le trafic de données ou de gestion.
@@ -49,6 +50,7 @@ Vous avez ajouté un nouveau domaine de diffusion.
 
 
 
+[[reassign-ports-to-a-different-broadcast-domain]]
 == Réaffectez des ports à un autre domaine de diffusion
 
 Les ports ne peuvent appartenir qu'à un seul domaine de diffusion. Si vous souhaitez modifier le domaine de diffusion auquel appartient un port, vous devez réaffecter le port de son domaine de diffusion existant à un nouveau domaine de diffusion.
@@ -66,6 +68,7 @@ Vous avez réattribué des ports à un autre domaine de diffusion.
 
 
 
+[[create-a-vlan]]
 == Créer un VLAN
 
 Un VLAN est constitué de ports de commutateur regroupés dans un domaine de diffusion. Les VLAN vous permettent d'améliorer la sécurité, d'isoler les problèmes et de limiter les chemins disponibles au sein de votre infrastructure réseau IP.

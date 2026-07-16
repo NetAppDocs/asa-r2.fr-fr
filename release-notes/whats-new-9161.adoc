@@ -18,6 +18,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.16.1 pour les
 
 
 
+[[systems]]
 == Systèmes
 
 [cols="2,4"]
@@ -37,6 +38,7 @@ Les systèmes NetApp ASA r2 suivants sont pris en charge à partir d' ONTAP 9.16
 |===
 
 
+[[data-protection]]
 == Protection des données
 
 [cols="2,4"]
@@ -51,6 +53,7 @@ Les systèmes NetApp ASA r2 suivants sont pris en charge à partir d' ONTAP 9.16
 |===
 
 
+[[protocol-support]]
 == Protocoles pris en charge
 
 [cols="2,4"]
@@ -62,6 +65,7 @@ Les systèmes NetApp ASA r2 suivants sont pris en charge à partir d' ONTAP 9.16
 |===
 
 
+[[storage-efficiency]]
 == Efficacité du stockage
 
 [cols="2,4"]

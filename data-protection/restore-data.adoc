@@ -15,6 +15,7 @@ Les données d'un groupe de cohérence ou d'une unité de stockage protégé par
 
 
 
+[[restore-a-consistency-group]]
 == Restaurez un groupe de cohérence
 
 La restauration d'un groupe de cohérence remplace les données de toutes les unités de stockage du groupe de cohérence par les données d'un snapshot. Les modifications apportées aux unités de stockage après la création de l'instantané ne sont pas restaurées.
@@ -56,6 +57,7 @@ Votre groupe de cohérence est restauré à partir du point dans le temps du sna
 
 
 
+[[restore-a-storage-unit]]
 == Restaurer une unité de stockage
 
 La restauration d'une unité de stockage remplace toutes les données de l'unité de stockage par les données d'un instantané. Les modifications apportées à l'unité de stockage après la création de l'instantané ne sont pas restaurées.

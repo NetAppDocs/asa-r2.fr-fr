@@ -16,6 +16,7 @@ Utilisez ONTAP System Manager pour surveiller l'utilisation du stockage et vous 
 
 
 
+[[monitor-cluster-utilization]]
 == Surveillance de l'utilisation du cluster
 
 Surveillez régulièrement la quantité de stockage consommée par votre cluster afin de vous assurer que, si nécessaire, vous êtes prêt à étendre la capacité du cluster avant de manquer d'espace.
@@ -33,6 +34,7 @@ Si l'espace de votre cluster est insuffisant ou s'il ne dispose pas de la capaci
 
 
 
+[[monitor-storage-availability-zone-utilization]]
 == Surveiller l'utilisation de la zone de disponibilité du stockage
 
 Chaque paire haute disponibilité dans un système ASA r2 utilise un pool de stockage commun appelé . La zone de disponibilité de stockage a accès à tous les disques disponibles du système de stockage et est visible par les deux nœuds de la paire haute disponibilité. La surveillance de l'espace disponible dans vos zones de disponibilité de stockage vous permet de diminuer l'utilisation ou d'augmenter la capacité selon les besoins afin d'éviter des échecs de charges de travail dus à un espace insuffisant.
@@ -60,6 +62,7 @@ Si votre zone de disponibilité de stockage manque d'espace, vous devriez prévo
 
 
 
+[[monitor-storage-unit-utilization]]
 == Surveiller l'utilisation de l'unité de stockage
 
 Surveillez la quantité de stockage consommée par une unité de stockage afin d'augmenter de manière proactive la taille de l'unité de stockage en fonction des besoins de votre entreprise.

@@ -42,6 +42,7 @@ Les systèmes ASA r2 prennent en charge le chiffrement matériel à l'aide de di
 
 
 
+[[support-for-snapmirror-replication]]
 == Prise en charge de la réplication SnapMirror
 
 La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :

@@ -15,6 +15,7 @@ Utilisez System Manager pour configurer l'accès au contrôleur de domaine Activ
 
 
 
+[[configure-active-directory-domain-controller-access]]
 == Configurer l'accès au contrôleur de domaine Active Directory
 
 Configurez l'accès du contrôleur de domaine Active Directory (AD) à votre cluster ou à votre machine virtuelle de stockage afin de pouvoir activer l'accès au compte AD.
@@ -29,6 +30,7 @@ Vous pouvez désormais activer l'accès au compte AD sur votre système ASA r2.
 
 
 
+[[configure-ldap]]
 == Configurer LDAP
 
 Configurez un serveur LDAP (Lightweight Directory Access Protocol) pour gérer de manière centralisée les informations utilisateur à des fins d'authentification.
@@ -47,6 +49,7 @@ Vous pouvez désormais utiliser LDAP pour les informations utilisateur et l'auth
 
 
 
+[[configure-saml-authentication]]
 == Configurez l'authentification SAML
 
 L'authentification SAML (Security assertion Markup Language) permet aux utilisateurs d'être authentifiés par un fournisseur d'identité sécurisé (IDP) au lieu des fournisseurs de services directs tels qu'Active Directory et LDAP.
@@ -80,6 +83,7 @@ Vous pouvez désormais utiliser l'authentification SAML pour vos comptes d'utili
 
 
 
+[[create-user-account-roles]]
 == Créer des rôles de compte d'utilisateur
 
 Les rôles des administrateurs de cluster et des administrateurs des VM de stockage sont automatiquement créés lors de l'initialisation du cluster. Créez des rôles de compte d'utilisateur supplémentaires pour définir des fonctions spécifiques que les utilisateurs affectés aux rôles peuvent exécuter sur votre cluster.
@@ -100,6 +104,7 @@ Un nouveau compte utilisateur est créé et peut être utilisé sur votre systè
 
 
 
+[[create-an-administrator-account]]
 == Créez un compte administrateur
 
 Créez un compte utilisateur administrateur pour permettre à l'utilisateur du compte d'effectuer des actions spécifiques sur votre cluster en fonction du rôle attribué au compte. Pour améliorer la sécurité du compte, configurez l'authentification multifacteur (MFA) lorsque vous créez le compte.

@@ -11,7 +11,10 @@ summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, 
 
 
 [role="lead"]
-À partir d' ONTAP 9.18.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) de n'importe quel cluster ASA vers n'importe quel cluster ASA r2.  La migration d'un cluster ASA vers un cluster ASA r2 vous permet d'adopter l'architecture simplifiée et rationalisée des systèmes ASA r2 pour les environnements SAN uniquement.
+À partir d'ONTAP 9.18.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) de n'importe quel cluster ASA standard vers n'importe quel cluster ASA r2. La migration d'un cluster ASA standard vers un cluster ASA r2 vous permet d'adopter l'architecture simplifiée et rationalisée des systèmes ASA r2 pour les environnements exclusivement SAN.
+
+
+NOTE: Vous ne pouvez pas migrer une machine virtuelle de stockage d’un ASA MetroCluster vers un cluster ASA r2. Les systèmes ASA r2 ne prennent pas en charge les configurations MetroCluster.
 
 La migration des machines virtuelles de stockage entre les systèmes de stockage ASA et ASA r2 est prise en charge comme suit :
 
@@ -46,8 +49,7 @@ La migration des machines virtuelles de stockage entre les systèmes de stockage
 
 
 |===
-
-NOTE: Pour obtenir la liste la plus récente des systèmes ASA et ASA r2, consultezlink:https://hwu.netapp.com/["NetApp Hardware Universe"^] .  Les systèmes ASA r2 sont répertoriés dans NetApp Hardware Universe sous le nom de «ASA série A/série C (nouveau) ».
+Pour obtenir la liste la plus récente des systèmes ASA et ASA r2, consultezlink:https://hwu.netapp.com/["NetApp Hardware Universe"^] .  Les systèmes ASA r2 sont répertoriés dans NetApp Hardware Universe sous le nom de «ASA série A/série C (nouveau) ».
 
 Vous pouvez migrer une machine virtuelle de stockage vers un cluster ASA r2 uniquement à partir d'un cluster ASA .  La migration depuis tout autre type de système ONTAP n'est pas prise en charge.
 
@@ -56,6 +58,7 @@ Tous les nœuds du cluster ASA r2 et du cluster ASA doivent exécuter ONTAP 9.18
 
 
 
+[[step-1-verify-the-status-of-the-asa-storage-vm]]
 == Étape 1 : Vérifier l’état de la machine virtuelle de stockage ASA
 
 Avant de migrer une VM de stockage depuis un système ASA , aucun espace de noms NVMe ni vVols ne doit être présent et chaque volume de la VM de stockage ne doit contenir qu'un seul LUN.  La migration des espaces de noms NVMe et des vVols n'est pas prise en charge.  L'architecture des systèmes ASA r2 exige que les volumes contiennent un seul LUN.
@@ -95,6 +98,7 @@ Vous êtes prêt à créer une relation de pair à pair entre vos clusters ASA e
 
 
 
+[[step-2-create-a-cluster-peer-relationship-between-your-asa-and-asa-r2-clusters]]
 == Étape 2 : Créez une relation de pair à pair entre vos clusters ASA et ASA r2
 
 Avant de pouvoir migrer une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2, vous devez créer une relation de pair à pair.  Une relation d'égal à égal définit les connexions réseau qui permettent aux clusters ONTAP et aux machines virtuelles de stockage d'échanger des données en toute sécurité.
@@ -165,6 +169,7 @@ Vous êtes prêt à préparer votre machine virtuelle de stockage ASA pour la mi
 
 
 
+[[step-3-prepare-for-storage-vm-migration-from-an-asa-to-an-asa-r2-cluster]]
 == Étape 3 : Préparer la migration des machines virtuelles de stockage d’un ASA vers un cluster ASA r2
 
 Avant de migrer une machine virtuelle de stockage (VM) d'un cluster ASA vers un cluster ASA r2, vous devez effectuer une vérification préalable de la migration et corriger les problèmes éventuels.  Vous ne pouvez pas effectuer la migration tant que la vérification préalable n'a pas été réussie.
@@ -186,6 +191,7 @@ Vous êtes prêt à migrer votre machine virtuelle de stockage de votre cluster 
 
 
 
+[[step-4-migrate-an-asa-storage-vm-to-an-asa-r2-cluster]]
 == Étape 4 : Migrer une machine virtuelle de stockage ASA vers un cluster ASA r2
 
 Une fois votre cluster ASA préparé et la relation de pair de cluster nécessaire créée avec le cluster ASA r2, vous pouvez commencer la migration de la VM de stockage.

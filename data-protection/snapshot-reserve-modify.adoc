@@ -17,6 +17,7 @@ link:snapshot-reserve.html["Découvrez-en plus sur la réserve de snapshots sur 
 
 
 
+[[modify-snapshot-reserve-on-storage-units]]
 == Modifier la réserve d'instantané sur les unités de stockage
 
 Pour définir des valeurs de réserve de snapshots différentes, configurez chaque unité de stockage individuellement.  Pour utiliser la même valeur pour toutes les unités de stockage, modifiez la réserve d'instantanés sur la machine virtuelle de stockage.
@@ -35,6 +36,7 @@ La réserve d'instantanés est définie sur le pourcentage que vous avez spécif
 
 
 
+[[modify-snapshot-reserve-on-a-storage-vm]]
 == Modifier la réserve de snapshot sur une machine virtuelle de stockage
 
 Pour définir la même réserve de snapshots pour toutes les unités de stockage d'une VM de stockage, appliquez le pourcentage souhaité à la VM de stockage. .  Lorsque la réserve d'instantané est appliquée à la machine virtuelle de stockage, elle est appliquée à toutes les unités de stockage nouvellement créées au sein de cette machine virtuelle.  Cela ne s'applique pas aux unités de stockage créées avant que vous ne modifiiez ce paramètre.

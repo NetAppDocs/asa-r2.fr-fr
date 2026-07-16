@@ -18,6 +18,7 @@ Supposons par exemple qu'une application stratégique connaît une latence élev
 
 
 
+[[monitor-cluster-performance]]
 == Contrôle des performances du cluster
 
 Utilisez les metrics de performance du cluster pour déterminer si vous devez déplacer des charges de travail afin de minimiser la latence et d'optimiser les IOPS et le débit pour vos applications stratégiques.
@@ -33,6 +34,7 @@ Utilisez vos metrics de performance du cluster pour déterminer si vous devez mo
 
 
 
+[[monitor-storage-unit-performance]]
 == Surveiller les performances de l'unité de stockage
 
 Utilisez les metrics de performance de l'unité de stockage pour déterminer l'impact de certaines applications sur la latence, les IOPS et le débit.

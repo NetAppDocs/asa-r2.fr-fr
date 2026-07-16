@@ -15,6 +15,7 @@ Ajoutez des disques à un nœud ou à un tiroir pour augmenter la capacité de s
 
 
 
+[[use-netapp-hardware-universe-to-prepare-for-installation-of-a-new-drive]]
 == Utilisez NetApp Hardware Universe pour préparer l'installation d'un nouveau lecteur
 
 Avant d'installer un nouveau disque sur un nœud ou une étagère, utilisez NetApp Hardware Universe pour vérifier que le disque que vous souhaitez ajouter est pris en charge par votre système ASA r2 et pour identifier l'emplacement approprié pour le nouveau disque.  Les emplacements appropriés pour l'ajout de disques varient en fonction du modèle du système et de la version ONTAP .  Dans certains cas, il est nécessaire d'ajouter les disques à des emplacements spécifiques, dans l'ordre.
@@ -33,6 +34,7 @@ Vous avez confirmé que votre nouveau lecteur est pris en charge et que vous con
 
 
 
+[[install-a-new-drive-on-the-asa-r2]]
 == Installez un nouveau lecteur sur ASA r2
 
 Le nombre minimum de disques que vous devez ajouter en une seule procédure est de six. L'ajout d'un disque unique peut réduire les performances.

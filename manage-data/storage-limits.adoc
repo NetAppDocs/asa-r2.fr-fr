@@ -64,6 +64,7 @@ Les systèmes ASA r2 prennent en charge les limites de stockage suivantes :
 |===
 
 
+[[limits-for-snapmirror-asynchronous-relationships]]
 == Limites des relations asynchrones SnapMirror
 
 Les limites suivantes s’appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication asynchrone SnapMirror . Pour obtenir la liste complète des limites de stockage les plus récentes ASA r2,link:https://hwu.netapp.com/["NetApp Hardware Universe"^] .
@@ -80,6 +81,7 @@ Les limites suivantes s’appliquent aux unités de stockage et aux groupes de c
 |===
 
 
+[[limits-for-snapmirror-active-sync-relationship]]
 == Limites de la relation de synchronisation active SnapMirror
 
 Les limites suivantes s'appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication de synchronisation active SnapMirror . La synchronisation active SnapMirror est prise en charge à partir d' ONTAP 9.17.1 uniquement sur les clusters à deux nœuds.  À partir d' ONTAP 9.18.1, la synchronisation active SnapMirror est prise en charge sur les clusters à quatre nœuds.

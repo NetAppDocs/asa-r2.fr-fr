@@ -46,6 +46,7 @@ La prise en charge de la synchronisation active SnapMirror sur les systèmes ASA
 
 
 
+[[nvme-protocol-limitations-with-snapmirror-active-sync-on-asa-r2-systems]]
 == Limitations du protocole NVMe avec la synchronisation active SnapMirror sur les systèmes ASA r2
 
 Avant de configurer SnapMirror Active Sync sur un système ASA r2 avec des hôtes NVMe, vous devez connaître certaines limitations du protocole NVMe.

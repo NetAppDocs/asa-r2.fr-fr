@@ -20,6 +20,7 @@ Vous devez être administrateur du cluster pour gérer AutoSupport.
 
 
 
+[[test-autosupport-connectivity]]
 == Tester la connectivité AutoSupport
 
 Une fois le cluster configuré, testez la connectivité AutoSupport pour vérifier que le support technique recevra les messages générés par AutoSupport.
@@ -35,6 +36,7 @@ Vous avez confirmé que le support technique peut recevoir des messages AutoSupp
 
 
 
+[[add-autosupport-recipients]]
 == Ajouter des destinataires AutoSupport
 
 Ajoutez des membres de votre organisation de support interne à la liste des adresses e-mail qui reçoivent des messages AutoSupport.
@@ -55,6 +57,7 @@ Les adresses e-mail que vous avez ajoutées recevront de nouveaux messages AutoS
 
 
 
+[[send-autosupport-data]]
 == Envoyer des données AutoSupport
 
 En cas de problème sur votre système ASA r2, les données AutoSupport réduisent considérablement le temps nécessaire à l'identification et à la résolution des problèmes.
@@ -70,6 +73,7 @@ Vos données AutoSupport sont envoyées au support technique.
 
 
 
+[[suppress-support-case-generation]]
 == Supprimer la génération de dossier de support
 
 Si vous effectuez une mise à niveau ou une maintenance sur votre système ASA r2, vous pouvez supprimer les dossiers de demande de support de la génération AutoSupport jusqu'à ce que votre mise à niveau ou votre maintenance soit terminée.
@@ -86,6 +90,7 @@ Les dossiers AutoSupport ne seront pas générés pendant le temps que vous avez
 
 
 
+[[resume-support-case-generation]]
 == Reprendre la génération du dossier de support
 
 Si vous avez supprimé la génération de dossiers de support pendant une fenêtre de mise à niveau ou de maintenance, vous devez reprendre la génération de dossiers de support immédiatement après la fin de votre mise à niveau ou de votre maintenance.

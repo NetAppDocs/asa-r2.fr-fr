@@ -16,6 +16,7 @@ Les unités de stockage d'un système ASA r2 sont contenues dans des machines vi
 
 
 
+[[create-a-storage-vm]]
 == Créez une machine virtuelle de stockage
 
 Lors de la configuration des clusters, votre machine virtuelle de stockage de données par défaut est créée. Toutes les nouvelles unités de stockage sont créées à l'intérieur de votre VM de stockage de données par défaut, sauf si vous créez et sélectionnez une autre VM de stockage. Vous pouvez créer une VM de stockage supplémentaire pour séparer vos unités de stockage pour différentes applications, différents services ou clients. Par exemple, vous pouvez créer une VM de stockage pour votre environnement de développement et une autre VM de stockage pour votre environnement de production, ou bien créer une VM de stockage pour votre département financier et une autre VM de stockage pour votre département marketing.
@@ -38,6 +39,7 @@ Vous avez créé une VM de stockage. Vous pouvez maintenant utiliser la machine 
 
 
 
+[[create-ipspaces]]
 == Créez les IPspaces
 
 Un IPspace est un espace d'adresse IP distinct dans lequel résident les VM de stockage. Lorsque vous créez des IPspaces, vos machines virtuelles de stockage peuvent disposer de leur propre stockage, administration et routage sécurisés. Vous activez également les clients dans des domaines réseau distincts d'un point de vue administratif pour utiliser des adresses IP redondantes à partir de la même plage de sous-réseaux d'adresses IP.
@@ -59,6 +61,7 @@ Maintenant que vous avez créé un IPspace, vous pouvez l'utiliser pour créer u
 
 
 
+[[create-subnets]]
 == Créer des sous-réseaux
 
 Un sous-réseau vous permet d'allouer des blocs spécifiques d'adresses IPv4 ou IPv6 à utiliser lors de la création d'une LIF (interface réseau) . Un sous-réseau simplifie la création de LIF en vous permettant de spécifier le nom de sous-réseau à la place d'une adresse IP et d'un masque réseau spécifiques pour chaque LIF.
@@ -89,6 +92,7 @@ Vous avez créé un sous-réseau que vous pouvez utiliser pour simplifier la cr�
 
 
 
+[[create-a-lif-network-interface]]
 == Créer une LIF (interface réseau)
 
 Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder à des données. Les VM de stockage fournissent des données aux clients via une ou plusieurs LIF. En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique, afin que la communication réseau ne soit pas interrompue.
@@ -121,6 +125,7 @@ Vous pouvez utiliser l'interface de ligne de commande (CLI) ONTAP pour créer un
 
 
 
+[[create-a-custom-iscsi-only-lif-service-policy]]
 === Créer une stratégie de service LIF iSCSI uniquement personnalisée
 
 Si vous souhaitez créer des LIF iSCSI uniquement avec basculement LIF automatique, vous devez d'abord créer une stratégie de service LIF iSCSI uniquement personnalisée.
@@ -156,6 +161,7 @@ set -privilege admin
 
 
 
+[[create-iscsi-only-lifs-with-automatic-lif-failover]]
 === Créer des LIF uniquement iSCSI avec basculement automatique des LIF
 
 Si des LIF iSCSI présentes sur la VM de stockage ne sont pas activées pour le basculement automatique des LIF, vos LIF nouvellement créées ne seront pas non plus activées pour le basculement automatique des LIF.  Si le basculement automatique des LIF n'est pas activé et qu'un événement de basculement se produit, vos LIF iSCSI ne migreront pas.
@@ -197,6 +203,7 @@ network interface show -lif iscsi*
 
 
 
+[[modify-a-lif-network-interfaces]]
 == Modification d'une LIF (interfaces réseau)
 
 Les LIF peuvent être désactivées ou renommées selon les besoins. Vous pouvez également modifier l'adresse IP et le masque de sous-réseau de la LIF.
