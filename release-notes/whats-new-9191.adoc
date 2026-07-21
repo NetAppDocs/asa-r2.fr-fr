@@ -30,6 +30,18 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.19.1 pour les
 |===
 
 
+[[performance]]
+== Performances
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#performance["Améliorations des performances TCP"] | ONTAP améliore les performances de transfert de données TCP sur les liaisons WAN sujettes aux pertes et à une latence élevée en intégrant deux fonctions de récupération des pertes, PRR et RACK, dans la pile TCP d'ONTAP. 
+|===
+
+
 [[san-data-migration]]
 == Migration de données SAN
 
@@ -62,7 +74,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.19.1 pour les
 | Mise à jour | Description 
 
 
-| link:../secure-data/enable-anti-ransomware-protection.html["Prise en charge d'ARP/AI avec les relations de synchronisation active SnapMirror"] | La protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans les relations de synchronisation active SnapMirror sur les systèmes ASA r2. ARP/AI s'exécute sur les unités de stockage principales actives, crée des instantanés ARP uniquement primaires et fournit une détection des ransomwares basée sur l'apprentissage automatique pour ces unités de stockage. 
+| link:../secure-data/enable-anti-ransomware-protection.html["Prise en charge d'ARP/AI avec les relations de synchronisation active SnapMirror"] | La protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans des relations SnapMirror active sync sur les systèmes ASA r2. ARP/AI s’exécute sur les unités de stockage principales actives, crée des instantanés ARP réservés aux unités principales et fournit une détection des ransomwares basée sur l’apprentissage automatique pour ces unités de stockage. Les clusters mis à niveau vers ONTAP 9.19.1, dont l’activation par défaut d’ARP avait été supprimée en raison de relations de réplication synchrone, verront cette activation automatiquement rétablie. Un avertissement avant la mise à jour informe les administrateurs et leur offre la possibilité de la désactiver. 
 
 
 | link:../learn-more/additional-supported-ontap-features.html#tls-hardware-offload["Prise en charge du déchargement matériel TLS"] | Vous pouvez décharger le chiffrement et le déchiffrement Transport Layer Security (TLS) de l'ensemble de votre cluster sur des cartes Ethernet compatibles. Cela réduit la charge du processeur et améliore les performances des systèmes utilisant TLS. 
