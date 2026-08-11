@@ -29,7 +29,7 @@ En savoir plus sur  https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/#
 .Étapes
 . Dans System Manager, sélectionnez *protection > groupes de cohérence*.
 . Passez la souris sur le nom du groupe de cohérence que vous souhaitez protéger avec la synchronisation active SnapMirror .
-. Sélectionner image:icon_kabob.gif["trois points bleus verticaux"] puis sélectionnez *Protéger*.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis sélectionnez *Protéger*.
 . Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
 . Sélectionnez un homologue de cluster existant ou choisissez d'*en ajouter un nouveau*.
 . Sélectionnez la machine virtuelle de stockage.

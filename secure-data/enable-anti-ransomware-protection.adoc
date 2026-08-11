@@ -37,7 +37,7 @@ Dans ONTAP 9.18.1 et versions ultérieures, ARP/AI est activé par défaut sur t
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. À côté de *Anti-ransomware*, sélectionnez image:icon_kabob.gif["Modifier les paramètres anti-ransomware"] puis sélectionnez *Activer sur toutes les unités de stockage existantes*.
+. À côté de *Anti-ransomware*, sélectionnez image:icon_kabob.gif["Modifier les paramètres anti-ransomware"], puis sélectionnez *Activer sur toutes les unités de stockage existantes*.
 . Sélectionnez *Activer*.
 
 

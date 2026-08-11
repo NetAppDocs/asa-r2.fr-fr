@@ -21,7 +21,7 @@ Vous devez utiliser ONTAP 9.19.1 ou une version ultérieure. Si vous utilisez ON
 .Étapes
 . Dans System Manager, sélectionnez *Storage*.
 . Survolez le nom de l'unité de stockage AIX que vous souhaitez préparer pour la protection SnapMirror active sync.
-. Sélectionnez image:icon_kabob.gif["icône de sélection de menu"] puis sélectionnez *Modifier*.
+. Sélectionnez image:icon_kabob.gif["icône de sélection de menu"], puis sélectionnez *Modifier*.
 . Sous *Informations sur l’hôte*, sélectionnez *local* pour le *mode d’accès*, puis sélectionnez *Modifier*.
 
 

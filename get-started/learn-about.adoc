@@ -12,7 +12,7 @@ searchtitle: En savoir plus sur les systèmes ASA A1K, A90, A70, A50, A30 A20 et
 
 
 [role="lead"]
-Les systèmes NetApp ASA r2 apportent une solution matérielle et logicielle unifiée qui simplifie l'expérience et répond parfaitement aux besoins des clients SAN.
+Les systèmes NetApp ASA r2 offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée, spécifique aux besoins des clients exclusivement SAN. Sur un système ASA r2, les logiciels ONTAP et System Manager sont rationalisés pour fournir une prise en charge de la fonctionnalité SAN essentielle tout en supprimant les fonctionnalités et fonctions non prises en charge dans les environnements SAN.
 
 Les éléments suivants sont classés comme systèmes ASA r2 :
 
@@ -25,10 +25,7 @@ Les éléments suivants sont classés comme systèmes ASA r2 :
 * ASA C30
 
 
-Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).  Les protocoles iSCSI, FC, NVMe/FC et NVMe/TCP prennent en charge l'architecture active-active symétrique pour le multivoie afin que tous les chemins entre les hôtes et le stockage soient actifs/optimisés.  Les protocoles iSCSI et NVMe/TCP prennent en charge la connexion directe entre les hôtes et le stockage.  Pour les protocoles Fibre Channel et NVMe/FC, la connexion directe n'est pas prise en charge.
-
-Sur un système ASA r2, le logiciel ONTAP et System Manager sont optimisés pour prendre en charge les fonctionnalités SAN essentielles tout en supprimant les fonctionnalités et fonctionnalités non prises en charge dans les environnements SAN.
-
+.Unités de stockage et groupes de cohérence
 Les systèmes ASA r2 introduisent l'utilisation d'unités de stockage avec groupes de cohérence :
 
 * Une _unité de stockage_ permet à vos hôtes SAN de disposer de l'espace de stockage pour les opérations de données. Une unité de stockage désigne une LUN pour les hôtes SCSI ou un namespace NVMe pour les hôtes NVMe.
@@ -37,7 +34,15 @@ Les systèmes ASA r2 introduisent l'utilisation d'unités de stockage avec group
 
 Les systèmes ASA r2 utilisent des unités de stockage avec des groupes de cohérence pour simplifier la gestion du stockage et la protection des données.  Par exemple, supposons que vous disposez d’une base de données composée de 10 unités de stockage dans un groupe de cohérence et que vous devez sauvegarder l’intégralité de la base de données.  Au lieu de sauvegarder chaque unité de stockage individuellement, vous pouvez protéger l’intégralité de la base de données en sauvegardant le groupe de cohérence.
 
-Pour protéger vos données contre les attaques malveillantes telles que le vol ou les rançongiciels, les systèmes ASA r2 prennent en charge un gestionnaire de clés intégré, un chiffrement double couche, une authentification multifacteur et une vérification multi-administrateur. Les instantanés inviolables sont également pris en charge sur les systèmes ASA r2 secondaires.
+Pour protéger vos données contre les attaques malveillantes telles que le vol ou les ransomwares, les systèmes ASA r2 prennent en charge un gestionnaire de clés intégré, un chiffrement à double couche, l’authentification multifacteur et la vérification multi-administrateurs. Vous pouvez également répliquer des instantanés vers un emplacement secondaire et utiliser SnapLock pour SnapVault afin de protéger les instantanés de destination contre toute suppression accidentelle ou malveillante.
+
+.Protocoles pris en charge, multipathing et configurations
+Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Tous les protocoles prennent en charge une architecture active-active symétrique pour le multipathing, de sorte que tous les chemins entre les hôtes et le stockage sont actifs/optimisés. Les protocoles iSCSI et NVMe/TCP prennent en charge les configurations réseau et de connexion directe pour toutes les versions ONTAP prises en charge. Les protocoles FC et NVMe/FC prennent en charge les configurations réseau pour toutes les versions ONTAP prises en charge et, à partir de ONTAP 9.19.1, prennent également en charge la configuration de connexion directe.
+
+* En savoir plus sur link:https://docs.netapp.com/us-en/ontap/san-admin/multipath-automatic-lif-failover-support.html["Prise en charge du multipath SAN"^].
+* En savoir plus sur link:https://docs.netapp.com/us-en/ontap/san-config/configure-iscsi-san-hosts-ha-pairs-reference.html["configurations pour les protocoles iSCSI et NVMe/TCP"^].
+* En savoir plus sur link:https://docs.netapp.com/us-en/ontap/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html["configurations pour les protocoles FC et NVMe/FC"^].
+
 
 Les systèmes ASA r2 ne prennent pas en charge le mixage de clusters avec les systèmes ASA, AFF ou FAS .
 

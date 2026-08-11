@@ -27,7 +27,7 @@ Vous pouvez désactiver l'activation par défaut pendant ou après le délai de 
 +
 ** Pour désactiver pendant le délai de grâce de 12 heures :
 +
-... Sous *Anti-ransomware*, sélectionnez *Ne pas activer* puis sélectionnez *Désactiver*.
+... Sous *Anti-ransomware*, sélectionnez *Ne pas activer*, puis sélectionnez *Désactiver*.
 
 
 ** Pour désactiver après le délai de grâce de 12 heures :

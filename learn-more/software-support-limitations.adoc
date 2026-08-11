@@ -14,47 +14,35 @@ summary: Bien que les systèmes ASA r2 proposent une prise en charge étendue de
 Bien que les systèmes ASA r2 proposent une prise en charge étendue des solutions SAN, certaines fonctionnalités du logiciel ONTAP ne sont pas prises en charge.
 
 .Les systèmes ASA r2 ne prennent pas en charge les éléments suivants :
-* Basculement automatique de LIF iSCSI par défaut
-+
-Sur les systèmes ASA r2, la LIF réseau par défaut est partagée entre les hôtes NVMe et SCSI, de sorte que le basculement automatique ne soit pas pris en charge. Pour activer le basculement automatique de LIF iSCSI, vous devez link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Créez une LIF iSCSI uniquement"]. Le basculement automatique est activé par défaut sur les LIF iSCSI uniquement.
-
-+
-Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.
-
 * FabricPool
 * Provisionnement lourd des LUN
 * MetroCluster
 * Chiffrement d'agrégat NetApp (NAE)
 * Protocoles d'objet
 * API ONTAP S3 SnapMirror et S3
-
-
-.Les systèmes ASA r2 prennent en charge les éléments suivants :
 * SnapLock
 +
-link:../secure-data/ransomware-protection.html["Découvrez comment verrouiller des instantanés"] Sur votre système ASA r2.
+SnapLock Compliance et Enterprise ne sont pas pris en charge sur les clusters principaux dans les environnements SAN. SnapLock pour SnapVault est pris en charge sur les clusters secondaires.
 
-* Chiffrement double couche
+* La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :
 +
-Les systèmes ASA r2 prennent en charge le chiffrement matériel à l'aide de disques à chiffrement automatique (SED) et le chiffrement logiciel à l'aide de la technologie NetApp Volume Encryption (NVE). link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] des données sur votre système ASA r2.
+** La réplication synchrone SnapMirror n'est pas prise en charge.
+** La réplication asynchrone SnapMirror est prise en charge uniquement entre deux systèmes ASA r2. La réplication asynchrone SnapMirror n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF ou FAS ou le cloud.
++
+En savoir plus surlink:../data-protection/pre-defined-protection-policies.html["Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2."] .
 
-
-
-
-
-[[support-for-snapmirror-replication]]
-== Prise en charge de la réplication SnapMirror
-
-La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :
-
-* La réplication synchrone SnapMirror n'est pas prise en charge.
-* La synchronisation active SnapMirror est prise en charge uniquement entre deux systèmes ASA r2.
+** La synchronisation active SnapMirror est prise en charge uniquement entre deux systèmes ASA r2.
 +
 En savoir plus surlink:../data-protection/snapmirror-active-sync.html["Synchronisation active SnapMirror sur les systèmes ASA r2"] .
 
-* La réplication asynchrone SnapMirror est prise en charge uniquement entre deux systèmes ASA r2. La réplication asynchrone SnapMirror n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF ou FAS ou le cloud.
+
+
+
+
+.Les systèmes ASA r2 prennent en charge les éléments suivants :
+* Chiffrement double couche
 +
-En savoir plus surlink:../data-protection/pre-defined-protection-policies.html["Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2."] .
+Les systèmes ASA r2 prennent en charge le chiffrement matériel à l'aide de disques à chiffrement automatique (SED) et le chiffrement logiciel à l'aide de la technologie NetApp Volume Encryption (NVE). link:../secure-data/encrypt-data-at-rest.html["Découvrez comment appliquer le chiffrement double couche"] des données sur votre système ASA r2.
 
 
 

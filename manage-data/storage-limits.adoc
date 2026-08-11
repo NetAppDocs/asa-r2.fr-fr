@@ -1,100 +1,30 @@
 ---
 sidebar: sidebar 
 permalink: manage-data/storage-limits.html 
-keywords: storage limits, cluster limits, maximum lun size, maximum, nodes per cluster, storage unit size, supported protocols, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20,asa c30 
+keywords: storage limits, cluster limits, maximum lun size, maximum, nodes per cluster, storage unit size, supported protocols, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20, asa c30 
 summary: Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de ASA r2. 
 ---
-= Limites de stockage de ASA r2
+= Déterminez les limites de stockage de votre système ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de l'ASA r2.
+Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de ASA r2.
 
-Pour obtenir la liste complète des limites de stockage ASA r2 les plus récentes, reportez-vous à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]la section .
-
-Les systèmes ASA r2 prennent en charge les limites de stockage suivantes :
-
-[cols="3"]
-|===
-|  | Maximum par paire d'aides auditives | Maximum par groupe 
+Les limites peuvent varier en fonction de votre système ASA r2 et de votre version ONTAP. Consultez link:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour obtenir la liste complète des limites les plus récentes applicables à votre système spécifique.
 
 
-| Groupes de cohérence | 256 | 256 
+NOTE: Les systèmes ASA r2 sont répertoriés dans NetApp Hardware Universe sous *Products* en tant que plateformes « ASA ».
+
+.Étapes
+. Accédez à link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+. Sélectionnez *Products*.
+. Sous *Plateformes*, sélectionnez *ASA* comme type de système.
+. Sélectionnez votre système spécifique, puis sélectionnez votre version ONTAP.
+. Sélectionnez *Afficher les résultats*.
 
 
-| Applications d'entreprise | 100 | 350 
-
-
-| Nœuds | 2 | 12 
-
-
-| Groupes de réplication | 50 | 50 
-
-
-| Taille de la zone de disponibilité de stockage | 2 PB | 2 PB 
-
-
-| Unités de stockage | 10 000 | 30 000 
-
-
-| Taille de l'unité de stockage | 128 TO | 128 TO 
-
-
-| Unités de stockage par groupe de cohérence | 256 | 256 
-
-
-| Groupes de cohérence enfant par groupe de cohérence parent | 64 | 64 
-
-
-| machines virtuelles de stockage  a| 
-* 256 (ONTAP 9.18.1 et versions ultérieures)
-* 32 (ONTAP 9.17.1 et versions antérieures)
-
- a| 
-* 256 (ONTAP 9.18.1 et versions ultérieures)
-* 32 (ONTAP 9.17.1 et versions antérieures)
-
-
-
-
-| Machines virtuelles | 800 | 1200 
-|===
-
-
-[[limits-for-snapmirror-asynchronous-relationships]]
-== Limites des relations asynchrones SnapMirror
-
-Les limites suivantes s’appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication asynchrone SnapMirror . Pour obtenir la liste complète des limites de stockage les plus récentes ASA r2,link:https://hwu.netapp.com/["NetApp Hardware Universe"^] .
-
-[cols="3"]
-|===
-| Limite maximale | Par paire HA | Par cluster 
-
-
-| Groupes de cohérence | 250 | 750 
-
-
-| Unités de stockage | 4 000 | 6 000 
-|===
-
-
-[[limits-for-snapmirror-active-sync-relationship]]
-== Limites de la relation de synchronisation active SnapMirror
-
-Les limites suivantes s'appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication de synchronisation active SnapMirror . La synchronisation active SnapMirror est prise en charge à partir d' ONTAP 9.17.1 uniquement sur les clusters à deux nœuds.  À partir d' ONTAP 9.18.1, la synchronisation active SnapMirror est prise en charge sur les clusters à quatre nœuds.
-
-Pour obtenir la liste complète des limites de stockage les plus récentes ASA r2,link:https://hwu.netapp.com/["NetApp Hardware Universe"^] .
-
-[cols="2"]
-|===
-| Limite maximale | Par paire HA 
-
-
-| Groupes de cohérence | 50 
-
-
-| Unités de stockage | 400 
-|===
+.Résultats
+Les limites prises en charge pour votre système ASA r2 et votre version ONTAP spécifiques sont affichées.

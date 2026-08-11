@@ -86,53 +86,27 @@ En savoir plus sur link:../administer/manage-client-vm-access.html["Machines vir
 
 Une relation de réplication de snapshot établit une connexion entre le système ASA r2 et un emplacement distant afin que vous puissiez répliquer des groupes de cohérence vers un cluster distant. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.
 
-Pour une protection contre les attaques par ransomware, lorsque vous configurez votre relation de réplication, vous pouvez choisir de verrouiller les snapshots de destination. Les snapshots verrouillés ne peuvent pas être supprimés accidentellement ou de manière malveillante. Vous pouvez utiliser des snapshots verrouillés pour restaurer des données si une unité de stockage est compromise par une attaque par ransomware.
+Pour une sécurité accrue contre les attaques de ransomware, créez une relation de réplication SnapLock pour SnapVault.
 
 .Avant de commencer
 * link:pre-defined-protection-policies.html["En savoir plus sur les politiques de réplication"] .
 +
 Lorsque vous créez une relation de réplication, vous devez sélectionner la stratégie de réplication appropriée pour votre relation de réplication.  Vous pouvez utiliser une politique prédéfinie ou créer une politique personnalisée.
 
-* Si vous souhaitez verrouiller vos snapshots de destination, vous devez d'link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["Initialiser l'horloge de conformité de snapshot"]abord créer la relation de réplication.
 
 
-Créer une relation de réplication avec ou sans snapshots de destination verrouillés.
-
-[role="tabbed-block"]
-====
-.Avec instantanés verrouillés
---
-.Étapes
-. Dans System Manager, sélectionnez *protection > groupes de cohérence*.
-. Sélectionnez un groupe de cohérence.
-. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *protéger*.
-. Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
-. Sélectionnez la *règle de réplication*.
-+
-Vous devez sélectionner une règle de réplication _vault_.
-
-. Sélectionnez *Paramètres de destination*.
-. Sélectionnez *Verrouiller les instantanés de destination pour empêcher la suppression*
-. Entrez la période de conservation maximale et minimale des données.
-. Pour retarder le début du transfert de données, désélectionnez *Démarrer immédiatement le transfert*.
-+
-Le transfert de données initial commence immédiatement par défaut.
-
-. Si vous le souhaitez, sélectionnez *Paramètres de destination* pour remplacer le programme de transfert par défaut, puis *remplacer le programme de transfert*.
-+
-Votre planning de transfert doit être d'au moins 30 minutes pour être pris en charge.
-
-. Sélectionnez *Enregistrer*.
 
 
---
-.Sans snapshots verrouillés
---
+[[create-a-relationship-to-replicate-snapshots-to-a-remote-cluster]]
+=== Créez une relation pour répliquer les instantanés vers un cluster distant
+
+Protégez vos données en répliquant des instantanés sur un cluster distant. Les instantanés répliqués de vos groupes de cohérence peuvent être utilisés pour la reprise après sinistre ou pour la migration des données.
+
 .Étapes
 . Dans System Manager, sélectionnez *protection > réplication*.
 . Sélectionnez cette option pour créer la relation de réplication avec la destination locale ou la source locale.
 +
-[cols="2,2"]
+[cols="1,2"]
 |===
 | Option | Étapes 
 
@@ -150,24 +124,59 @@ Le groupe de cohérence _source_ fait référence au groupe de cohérence de vot
 | Sources locales  a| 
 .. Sélectionnez *sources locales*, puis sélectionnez image:icon_replicate_blue_bg.png["rectangle avec fond bleu et le mot reproduit en lettres blanches"] .
 .. Recherchez et sélectionnez le groupe de cohérence source.
-.. Sous *destination de la réplication*, sélectionnez le cluster vers lequel effectuer la réplication, puis sélectionnez la machine virtuelle de stockage.
+.. Sous *Destination de réplication*, sélectionnez le cluster vers lequel répliquer, puis sélectionnez la machine virtuelle de stockage.
 
 
 |===
 . Sélectionnez une règle de réplication.
-. Pour retarder le début du transfert de données, sélectionnez *Paramètres de destination*, puis désélectionnez *Démarrer immédiatement le transfert*.
+. Pour retarder le début du transfert de données, sélectionnez *Paramètres de destination*, puis désélectionnez *Démarrer le transfert immédiatement*.
 +
 Le transfert de données initial commence immédiatement par défaut.
 
-. Si vous le souhaitez, sélectionnez *Paramètres de destination* pour remplacer le programme de transfert par défaut, puis *remplacer le programme de transfert*.
+. Pour remplacer l'horaire de transfert par défaut, sélectionnez *Paramètres de destination*, puis sélectionnez *Remplacer l'horaire de transfert*.
 +
 Votre planning de transfert doit être d'au moins 30 minutes pour être pris en charge.
 
 . Sélectionnez *Enregistrer*.
 
 
---
-====
+.Et la suite ?
+Maintenant que vous avez créé une stratégie de réplication et une relation, votre transfert de données initial commence comme défini dans votre stratégie de réplication. Vous pouvez éventuellement tester le basculement de la réplication pour vérifier qu'un basculement réussi peut avoir lieu si votre système ASA r2 est mis hors ligne.
+
+
+
+[[create-a-relationship-to-replicate-snapshots-with-snaplock-for-snapvault]]
+=== Créez une relation pour répliquer les instantanés avec SnapLock pour SnapVault
+
+Pour assurer une protection contre les attaques de ransomware, lors de la configuration de votre relation de réplication, vous pouvez activer SnapLock pour SnapVault en sélectionnant une stratégie de réplication Vault, puis en choisissant de verrouiller les instantanés de destination. Les instantanés protégés par SnapLock pour SnapVault ne peuvent être supprimés ni accidentellement ni de manière malveillante.
+
+
+NOTE: Les systèmes ASA r2 ne prennent pas en charge le mode SnapLock Compliance ni le mode SnapLock Enterprise. La création d'une relation de réplication SnapLock pour SnapVault permet uniquement le verrouillage des instantanés de destination. Cela n'active pas le mode SnapLock Compliance ni le mode Enterprise.
+
+.Avant de commencer
+Vous devez link:../secure-data/snaplock.html#initialize-the-snaplock-compliance-clock["initialiser l’horloge de conformité SnapLock"].
+
+.Étapes
+. Dans le Gestionnaire système, sélectionnez *Protection > Groupes de cohérence*, puis sélectionnez un groupe de cohérence.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis sélectionnez *Protéger*.
+. Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
+. Sélectionnez la *règle de réplication*.
++
+Vous devez sélectionner une règle de réplication _vault_.
+
+. Sélectionnez *Paramètres de destination*, puis sélectionnez *Verrouiller les instantanés de destination pour empêcher leur suppression*.
+. Entrez la période de conservation maximale et minimale des données.
+. Pour retarder le début du transfert de données, désélectionnez *Démarrer immédiatement le transfert*.
++
+Le transfert de données initial commence immédiatement par défaut.
+
+. Pour remplacer l'horaire de transfert par défaut, sélectionnez *Paramètres de destination*, puis sélectionnez *Remplacer l'horaire de transfert*.
++
+Votre planning de transfert doit être d'au moins 30 minutes pour être pris en charge.
+
+. Sélectionnez *Enregistrer*.
+
+
 .Et la suite ?
 Maintenant que vous avez créé une règle de réplication et une relation, votre transfert de données initial commence comme défini dans votre règle de réplication. Vous pouvez également tester votre basculement de réplication pour vérifier qu'il peut se produire si votre système ASA r2 est hors ligne.
 

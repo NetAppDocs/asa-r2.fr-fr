@@ -2,15 +2,16 @@
 section: learn-more
 title: En savoir plus >>
 entries:
-- title: ASA r2 pour utilisateurs intensifs ONTAP
+- title: Comparer les systèmes matériels
+  url: "/learn-more/hardware-comparison.html"
+- title: Prise en charge des fonctionnalités ONTAP courantes
+  url: "/learn-more/additional-supported-ontap-features.html"
+- title: Prise en charge logicielle et limitations
+  url: "/learn-more/software-support-limitations.html"
+- title: Prise en charge de l'interface de ligne de commande (CLI) et de l'API REST
+    ASA r2 pour les utilisateurs avancés d'ONTAP
   entries:
-  - title: Comparer les systèmes matériels
-    url: "/learn-more/hardware-comparison.html"
-  - title: Prise en charge logicielle et limitations
-    url: "/learn-more/software-support-limitations.html"
   - title: Prise en charge CLI
     url: "/learn-more/cli-support.html"
   - title: Prise en charge de REST API
     url: "/learn-more/rest-api-support.html"
-- title: Prise en charge des fonctionnalités ONTAP courantes
-  url: "/learn-more/additional-supported-ontap-features.html"

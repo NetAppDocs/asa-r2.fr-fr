@@ -37,7 +37,7 @@ Vous avez confirmé que votre nouveau lecteur est pris en charge et que vous con
 [[install-a-new-drive-on-the-asa-r2]]
 == Installez un nouveau lecteur sur ASA r2
 
-Le nombre minimum de disques que vous devez ajouter en une seule procédure est de six. L'ajout d'un disque unique peut réduire les performances.
+Le nombre minimum de disques que vous devez ajouter en une seule procédure est de trois. L'ajout d'un seul disque peut réduire les performances.
 
 .Description de la tâche
 Vous devez répéter les étapes de cette procédure pour chaque lecteur.

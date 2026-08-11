@@ -14,7 +14,6 @@
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Résultat</block>
   <block id="185a1f8fef7e6cf81a581dd2a40a152d" category="paragraph">Vous avez confirmé que votre nouveau lecteur est pris en charge et que vous connaissez le logement approprié pour l'installation.</block>
   <block id="eff30216681f42753f0004bfaa72a1d8" category="section-title">Installez un nouveau lecteur sur ASA r2</block>
-  <block id="4305fddb87da90a117081f11c31b97be" category="paragraph">Le nombre minimum de disques que vous devez ajouter en une seule procédure est de six. L'ajout d'un disque unique peut réduire les performances.</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">Description de la tâche</block>
   <block id="ab8d4a8595207b62032f838aac5d0ec5" category="paragraph">Vous devez répéter les étapes de cette procédure pour chaque lecteur.</block>
   <block id="42fceed144d93d382eb9bdcc9b1254d2" category="list-text">Mettez-vous à la terre.</block>
@@ -108,7 +107,6 @@
   <block id="fa12509cfb8e8ccded16e2a254e988c4" category="list-text">Sélectionnez *Ajouter*.</block>
   <block id="ed7898c08720b7f938fd473f200d7f27" category="paragraph">Vous avez créé un sous-réseau que vous pouvez utiliser pour simplifier la création de vos LIF.</block>
   <block id="753ad49162ca6621affe67bf28ce6a1e" category="section-title">Créer une LIF (interface réseau)</block>
-  <block id="be23cf7af156de0532411edfa91f3361" category="paragraph">Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder à des données. Les VM de stockage fournissent des données aux clients via une ou plusieurs LIF. En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique, afin que la communication réseau ne soit pas interrompue.</block>
   <block id="21f332db2a0aeb6d30c08d58804c1f1a" category="list-text">Le port réseau physique ou logique sous-jacent doit avoir été configuré sur le<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> statut administratif.</block>
   <block id="0b7a56152c376f386379636394d6eee1" category="list-text">Si vous prévoyez d'utiliser un nom de sous-réseau pour allouer la valeur de l'adresse IP et du masque de réseau à une LIF, le sous-réseau doit déjà exister.</block>
   <block id="9ad4be6eef992b371fa173aecc5c7bd0" category="list-text">Une LIF gérant le trafic intracluster entre des nœuds ne doit pas se trouver sur le même sous-réseau que le trafic de gestion d'une LIF ou encore le trafic de données géré par une LIF.</block>
@@ -435,24 +433,13 @@
   <block id="308d9e6951d14df38557244f728d31ec" category="paragraph">En savoir plus sur <block ref="b2f7d76a0b614957304f0bebec8320f7" category="inline-link-macro-rx"></block>.</block>
   <block id="ce587252d09bb3dfb2d53f154ba81d93" category="section-title">Étape 3 : création d'une relation de réplication</block>
   <block id="1ff21cfe2a98ae8b4a02a199611aa91d" category="paragraph">Une relation de réplication de snapshot établit une connexion entre le système ASA r2 et un emplacement distant afin que vous puissiez répliquer des groupes de cohérence vers un cluster distant. Les groupes de cohérence répliqués peuvent être utilisés pour la reprise après incident ou la migration des données.</block>
-  <block id="620ffa86718c6f06b66b158b0a4bab51" category="paragraph">Pour une protection contre les attaques par ransomware, lorsque vous configurez votre relation de réplication, vous pouvez choisir de verrouiller les snapshots de destination. Les snapshots verrouillés ne peuvent pas être supprimés accidentellement ou de manière malveillante. Vous pouvez utiliser des snapshots verrouillés pour restaurer des données si une unité de stockage est compromise par une attaque par ransomware.</block>
-  <block id="bf5d4ab274f571d57107a348e35cb081" category="inline-link-macro">Initialiser l'horloge de conformité de snapshot</block>
-  <block id="a2070fe1416691eeb91c53762fd2a74c" category="paragraph">Si vous souhaitez verrouiller vos snapshots de destination, vous devez d'<block ref="27d9d0ff36409c51abdcd0a6f30da304" category="inline-link-macro-rx"></block>abord créer la relation de réplication.</block>
-  <block id="f07148b3f2fd0f0a23b807626916df29" category="paragraph">Créer une relation de réplication avec ou sans snapshots de destination verrouillés.</block>
-  <block id="b581751404702669bf568b5f9581e76c" category="open-title">Avec instantanés verrouillés</block>
-  <block id="02934a3c9c75bfb962ac39201fdf6f3d" category="list-text">Sélectionnez un groupe de cohérence.</block>
-  <block id="15217bdc015a8a108f980bdb8c2e1a23" category="list-text">Sélectionnez <block ref="c2bfb9c080f7666b2b95fa7dd1fddf25" category="inline-image-macro-rx" type="image"></block>, puis *protéger*.</block>
   <block id="ac59bb95e3695bc7bee3aef9c11cc7ec" category="list-text">Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.</block>
   <block id="7e1e6a3712eae4789ecd885097e5a4e7" category="list-text">Sélectionnez la *règle de réplication*.</block>
   <block id="7d4ac3ed3440432276ca5b8085ed49e5" category="paragraph">Vous devez sélectionner une règle de réplication _vault_.</block>
-  <block id="fcb838cd8f6e32d4a616ee3de4983333" category="list-text">Sélectionnez *Paramètres de destination*.</block>
-  <block id="b554adedaaae05384ba07663a14834e4" category="list-text">Sélectionnez *Verrouiller les instantanés de destination pour empêcher la suppression*</block>
   <block id="c4c50145f9cafae0b0fd638f59da1c0b" category="list-text">Entrez la période de conservation maximale et minimale des données.</block>
   <block id="9e3c1427208e1336b5583fb9b78c3cc4" category="list-text">Pour retarder le début du transfert de données, désélectionnez *Démarrer immédiatement le transfert*.</block>
   <block id="9625f43e1bf117d60569d5ad051c6f03" category="paragraph">Le transfert de données initial commence immédiatement par défaut.</block>
-  <block id="84a616a14078ce4e20513888ef5be141" category="list-text">Si vous le souhaitez, sélectionnez *Paramètres de destination* pour remplacer le programme de transfert par défaut, puis *remplacer le programme de transfert*.</block>
   <block id="eb9b31e6e7ba2bbd9f868ff108f65a0c" category="paragraph">Votre planning de transfert doit être d'au moins 30 minutes pour être pris en charge.</block>
-  <block id="b89eff40453beaa28eca7c9de402f85f" category="open-title">Sans snapshots verrouillés</block>
   <block id="656858cfe23bc7754225f82e6331e77e" category="list-text">Sélectionnez cette option pour créer la relation de réplication avec la destination locale ou la source locale.</block>
   <block id="8edc642197b3fad6a6bfff2ea0a3c89d" category="cell">Destinations locales</block>
   <block id="eb46393253f3ac3c5696c2c6245f4718" category="inline-image-macro">rectangle avec fond bleu et le mot reproduit en lettres blanches</block>
@@ -461,9 +448,7 @@
   <block id="d93ef2e9c8bf5236698bd94aa380ccdf" category="paragraph">Le groupe de cohérence _source_ fait référence au groupe de cohérence de votre cluster local que vous souhaitez répliquer.</block>
   <block id="f731460115898cdd49151a66d75556b6" category="cell">Sources locales</block>
   <block id="5833acf9cb6206654194780dbf5bb4e0" category="list-text">Sélectionnez *sources locales*, puis sélectionnez <block ref="08a74c2de12fbe2628462227f788ae6a" category="inline-image-macro-rx" type="image"></block> .</block>
-  <block id="5a5499e4c4ae6b36a67583b6af81a9c3" category="list-text">Sous *destination de la réplication*, sélectionnez le cluster vers lequel effectuer la réplication, puis sélectionnez la machine virtuelle de stockage.</block>
   <block id="a18a6418cfbf231c4bb22f6553628bd0" category="list-text">Sélectionnez une règle de réplication.</block>
-  <block id="9572d425e8b443dcc7db3f94da93573b" category="list-text">Pour retarder le début du transfert de données, sélectionnez *Paramètres de destination*, puis désélectionnez *Démarrer immédiatement le transfert*.</block>
   <block id="7ab1f0b2182b6c6f36937d583dfeac9c" category="paragraph">Maintenant que vous avez créé une règle de réplication et une relation, votre transfert de données initial commence comme défini dans votre règle de réplication. Vous pouvez également tester votre basculement de réplication pour vérifier qu'il peut se produire si votre système ASA r2 est hors ligne.</block>
   <block id="55af8fe36cb88367588d3f92024db64d" category="section-title">Étape 4 : test du basculement de réplication</block>
   <block id="920b6f48db05908e2d7fdde6821a89e3" category="paragraph">Vous pouvez également vérifier que vous pouvez transmettre les données à partir d'unités de stockage répliquées sur un cluster distant si le cluster source est hors ligne.</block>
@@ -512,7 +497,6 @@
   <block id="18aec681e94562add9f015e57e17b8d0" category="list-text">Pour soumettre un dossier d'assistance, dans le Gestionnaire système, sélectionnez *Cluster &gt; support*, puis sélectionnez *aller au support NetApp*.</block>
   <block id="ce3bbf8e2056eaff8c2c9a52eb4ce4dc" category="list-text">Pour afficher un cas soumis précédemment, dans System Manager, sélectionnez *Cluster &gt; support*, puis *Afficher mes cas*.</block>
   <block id="e995d56efd9e31d97825dd79be4d1383" category="doc">En savoir plus sur les systèmes de stockage ASA r2</block>
-  <block id="4c09e6dc15402ad1dfdd0de9dde9ced3" category="paragraph">Sur un système ASA r2, le logiciel ONTAP et System Manager sont optimisés pour prendre en charge les fonctionnalités SAN essentielles tout en supprimant les fonctionnalités et fonctionnalités non prises en charge dans les environnements SAN.</block>
   <block id="8ba78ca0516a69b587aca58206efc01f" category="paragraph">Les systèmes ASA r2 introduisent l'utilisation d'unités de stockage avec groupes de cohérence :</block>
   <block id="db202dbb9a4a22e347c683ae7290b969" category="list-text">Une _unité de stockage_ permet à vos hôtes SAN de disposer de l'espace de stockage pour les opérations de données. Une unité de stockage désigne une LUN pour les hôtes SCSI ou un namespace NVMe pour les hôtes NVMe.</block>
   <block id="e2969be58319571a8d10cc30d53f9a3b" category="list-text">_Un groupe de cohérence_ est un ensemble d'unités de stockage gérées comme une seule unité.</block>
@@ -621,7 +605,6 @@
   <block id="7e043f500d316c07931a265899f256e5" category="paragraph">System Manager s'ouvre.</block>
   <block id="c34c9f445f071064b5ad57fa56a4966a" category="list-text">Sous *Mot de passe*, créez un mot de passe fort pour le compte admin.</block>
   <block id="94b83670319c428bbd5d0731ec0a776c" category="paragraph">Le mot de passe doit comporter au moins huit caractères et doit contenir au moins une lettre et un chiffre.</block>
-  <block id="2bb39a27652ab0bfe0f806e7eb0a69da" category="list-text">Saisissez à nouveau le mot de passe pour confirmer, puis sélectionnez *Continuer*.</block>
   <block id="2e7cdddcc85c09e4ce2bbc7e09e8e9b7" category="list-text">Sous *adresses réseau*, entrez un nom de système de stockage ou acceptez le nom par défaut.</block>
   <block id="d6103bdebb0cdea1f299898bf5aa537c" category="paragraph">Si vous modifiez le nom du système de stockage par défaut, le nouveau nom doit commencer par une lettre et doit comporter moins de 44 caractères. Vous pouvez utiliser un point (.), un tiret (-) ou un trait de soulignement (_) dans le nom.</block>
   <block id="70f6758d7d964f49a57485250ec5f376" category="list-text">Entrez l'adresse IP de gestion du cluster, le masque de sous-réseau, l'adresse IP de la passerelle et l'adresse IP du nœud partenaire, puis sélectionnez *Continuer*.</block>
@@ -943,11 +926,8 @@
   <block id="f1345c9c1d33e2624cdc41782fec6885" category="list-text">Protocoles d'objet</block>
   <block id="372f3c3be292ea7811b9c24f14765c78" category="list-text">API ONTAP S3 SnapMirror et S3</block>
   <block id="fa445878b9d320833cecf582e9e36c4b" category="list-title">Les systèmes ASA r2 prennent en charge les éléments suivants :</block>
-  <block id="7c2e86b53f6831d08fa968613cefaa23" category="list-text">SnapLock</block>
   <block id="272175c607c14852d532cd2cf2304f90" category="list-text">Chiffrement double couche</block>
   <block id="fcaf713648f48750892f53f60d9c5578" category="list-text"><block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block>Pour plus d'informations sur la prise en charge matérielle et les limitations de ASA r2, reportez-vous au.</block>
-  <block id="4428c7556a1eea23721f907d8d23eb21" category="inline-link-macro">Découvrez comment verrouiller des instantanés</block>
-  <block id="19deecdd8b763ce6f48eadb0070d24cd" category="list-text"><block ref="f5c7881d0f64c83ae31bbc947dffd4c1" category="inline-link-macro-rx"></block> Sur votre système ASA r2.</block>
   <block id="a45dbe7c067a9974c8fca40e2b212fd6" category="inline-link-macro">Découvrez comment appliquer le chiffrement double couche</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Mentions légales</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Les mentions légales donnent accès aux déclarations de copyright, aux marques, aux brevets, etc.</block>
@@ -1137,9 +1117,6 @@
   <block id="cbb4ea3ae0ace3dd5cedae78f9d2a805" category="paragraph">Vous avez terminé le processus de provisionnement et êtes prêt à transférer des données. Vous pouvez désormais <block ref="13282ab1c43cc291d62099de29c76969" category="inline-link-macro-rx"></block>protéger les données stockées sur votre système ASA r2.</block>
   <block id="94751ffa48a4135b11ac22ac2dae643e" category="inline-link-macro">Documentation de l'hôte SAN ONTAP</block>
   <block id="88e865c72412e4a1327806858c6d2784" category="paragraph">Pour plus d'informations sur la configuration côté hôte, reportez-vous à <block ref="5045572e3d187366935cbd2a743bcd07" category="inline-link-macro-rx"></block>la section correspondant à votre hôte spécifique.</block>
-  <block id="b6e8a44e2a75e79622ab8bca1270a5ce" category="doc">Limites de stockage de ASA r2</block>
-  <block id="d0bb632fcdb31cf3c729c1c59f826d4f" category="cell">128 TO</block>
-  <block id="bebabfeb2bb62750bf38ee33a0e54982" category="paragraph">Pour obtenir la liste complète des limites de stockage ASA r2 les plus récentes, reportez-vous à <block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block>la section .</block>
   <block id="fcfb17e140eb359d2e4bf0ffb8fc90f2" category="summary">Surveillez les performances de votre cluster et des unités de stockage pour déterminer l'impact de la latence, des IOPS et du débit sur vos applications stratégiques.</block>
   <block id="7210645d4515e7cb96d5b26a294a9f25" category="searchtitle">Contrôle des performances du cluster à l'aide du gestionnaire système ONTAP | ASA r2</block>
   <block id="064023636601914c7dfacc81fa4e3b57" category="doc">Surveillance des performances du cluster et de l'unité de stockage sur les systèmes de stockage ASA r2</block>
@@ -1261,13 +1238,10 @@
   <block id="47d36da0620e65d065bfa9c8dd0f9034" category="list-text">Si vous utilisez le protocole NVMe/TCP, sélectionnez *nécessite TLS (transport Layer Security)*.</block>
   <block id="24e39c7cf4f63ba3319caf3373485701" category="paragraph">La sécurité de vos données est renforcée par l'authentification intrabande et/ou TLS.</block>
   <block id="f82f9abf9d39b3ea7e9931fe0ec02989" category="summary">Sécurisez vos données à l'aide de snapshots inviolables. Les snapshots inviolables ne peuvent pas être supprimés et peuvent être utilisés pour restaurer les données compromises en cas d'attaque par ransomware.</block>
-  <block id="bb09a1295cce99402c216baed3c2b937" category="paragraph">Pour une protection renforcée contre les attaques par ransomware, répliquez les snapshots sur un cluster distant, puis verrouillez les snapshots de destination pour les protéger contre toute tentative d'altération. Les snapshots verrouillés ne peuvent pas être supprimés accidentellement ou de manière malveillante. Vous pouvez utiliser des snapshots verrouillés pour restaurer des données si une unité de stockage n'est jamais compromise par une attaque par ransomware.</block>
   <block id="7e59070af3e4cd3a421461f7774f3c87" category="list-text">Sélectionnez *Cluster &gt; Présentation*.</block>
   <block id="045e8ceb02be472a9bc3e54ba6f1d811" category="list-text">Dans la section *nœuds*, sélectionnez *initialiser horloge SnapLock Compliance*.</block>
-  <block id="2012a4286c3a1864d4fa11ba1cb42b1c" category="list-text">Vérifiez que l'horloge de conformité est initialisée.</block>
   <block id="2bc6e7414d5cb75e3addfdeb234222a1" category="inline-image-macro">trois colonnes bleues sur fond blanc</block>
   <block id="ff632b6925cddc0c770d38368ff3755e" category="list-text">Dans la section *nœuds*, sélectionnez <block ref="db89dee19aae8a41518f426597d8cb6e" category="inline-image-macro-rx" type="image"></block>; puis *SnapLock Compliance horloge*.</block>
-  <block id="c19a0c09a1a9acec430b36accfdb5ac8" category="inline-link-macro">créer une relation de réplication avec des snapshots verrouillés</block>
   <block id="25abedf12d26e4bc8960557833ebe68d" category="summary">Visionnez de courtes vidéos qui expliquent comment utiliser ONTAP System Manager pour effectuer rapidement et facilement des tâches courantes sur vos systèmes de stockage ASA r2.</block>
   <block id="9e9e90703a7077203260b19a3af9704a" category="doc">Configurez les protocoles SAN sur votre système ASA r2</block>
   <block id="21d3b12a5a9f6ff0d25b8b5e5e00b7ff" category="paragraph">La transcription suivante est fournie pour la vidéo<block ref="1ef61309a2d73f2fc4d83b527ce1790e" prefix=" " category="inline-code"></block>.</block>
@@ -1356,7 +1330,6 @@
   <block id="658c5031b9786c4f9023925fcf23cf70" category="sidebar">Configurez votre système ASA r2</block>
   <block id="e23243448b3ec49d7f5b13275d7f6335" category="sidebar">Configurer le cluster</block>
   <block id="27e94778a46e91ef4cb224d22fc1b5e1" category="sidebar">Configurez l'accès aux données</block>
-  <block id="6561e9a6669528b215c28d49379cb719" category="sidebar">ASA r2 pour utilisateurs intensifs ONTAP</block>
   <block id="979756fd032c6ae260ffff6ed788d4cd" category="sidebar">Comparer les systèmes matériels</block>
   <block id="7e2ea756a457a94ace36e49a65d26ac5" category="sidebar">Prise en charge logicielle et limitations</block>
   <block id="f554b6d60fa8d0d2c734310ba3e4bea6" category="sidebar">Prise en charge CLI</block>
@@ -1388,9 +1361,6 @@
   <block id="514854c9f2116902eea3ece0f40e8154" category="paragraph-title">Modifications de la compression des données</block>
   <block id="097c1368589d519db55e5ac8f141a847" category="paragraph">L'efficacité du stockage sensible à la température n'est pas appliquée aux systèmes ASA r2. Sur les systèmes ASA r2, la compression n'est pas basée sur des données _hot_ (fréquemment utilisées) ou _Cold_ (rarement consultées). La compression commence sans attendre que les données soient inactives.</block>
   <block id="e9dac8f777563b18c14aec6d0406e876" category="list-text">Dans System Manager, sélectionnez *Cluster &gt; Paramètres*.</block>
-  <block id="b16351f807fbda6965666255eef268dd" category="section-title">Initialiser l'horloge SnapLock Compliance</block>
-  <block id="6f7e58f2fc20167d69dc971955e6bb11" category="paragraph">Avant de pouvoir créer des instantanés inviolables, vous devez initialiser l'horloge SnapLock Compliance sur vos clusters locaux et de destination.</block>
-  <block id="71c1cda56d6fad5ca8b28cabd1f98042" category="paragraph">Après avoir initialisé l'horloge SnapLock Compliance sur vos clusters locaux et de destination, vous êtes prêt à <block ref="9e34609081a00054138ac6c8cbbd66f1" category="inline-link-macro-rx"></block>.</block>
   <block id="253b40ae359ba25b56231803430c4873" category="section-title">ONTAP</block>
   <block id="7634d59040fd3f0630abac42ed05842e" category="inline-link-macro">Les systèmes ASA r2 par rapport aux systèmes ASA</block>
   <block id="0a1c5c73cbf93d4b2d88ff0be84d2900" category="list-text">En savoir plus sur <block ref="c736257475481e43d317d6d66a81a5cb" category="inline-link-macro-rx"></block>.</block>
@@ -1445,10 +1415,6 @@
   <block id="b57ea9712535452d1a9c410e0f1f4f93" category="list-text"><block ref="b57ea9712535452d1a9c410e0f1f4f93" category="inline-link-macro-rx"></block></block>
   <block id="8182eb8f155278176f93ebb4d84774dc" category="list-text"><block ref="8182eb8f155278176f93ebb4d84774dc" category="inline-link-macro-rx"></block></block>
   <block id="8027cf82d29e89bcd72c0f7ae984c222" category="paragraph">Les systèmes ASA r2 sont pris en charge par <block ref="6a0b5c767b375da41f0e7140f5d8129e" category="inline-link-macro-rx"></block> et les versions ultérieures.</block>
-  <block id="f08b07b736a8c5201accc4549e8a0762" category="list-text">Basculement automatique de LIF iSCSI par défaut</block>
-  <block id="4b3d6eefe10e552e93669e44e3908ab2" category="inline-link-macro">Créez une LIF iSCSI uniquement</block>
-  <block id="c32fddd27ad2252ef230f0871f34068f" category="paragraph">Sur les systèmes ASA r2, la LIF réseau par défaut est partagée entre les hôtes NVMe et SCSI, de sorte que le basculement automatique ne soit pas pris en charge. Pour activer le basculement automatique de LIF iSCSI, vous devez <block ref="80674e801e3a84767641d7c52bb7dcab" category="inline-link-macro-rx"></block>. Le basculement automatique est activé par défaut sur les LIF iSCSI uniquement.</block>
-  <block id="22f4d4e3ef9ad886ae95608e10f828cb" category="paragraph">Lorsque le basculement automatique de LIF iSCSI est activé, si un basculement du stockage se produit, la LIF iSCSI est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.</block>
   <block id="e51f73897cef482e683893c74ad0aebf" category="doc">Ajoutez des nœuds ASA r2 à un cluster ONTAP</block>
   <block id="97a5a9f5366a279a2160c428ad458079" category="list-text">Adresse IP du nœud</block>
   <block id="d08cd309dd95d7aa27f8f977cf1a060e" category="list-text">Adresse IP de l'interface réseau intercluster</block>
@@ -1527,7 +1493,6 @@
   <block id="2cb253331363d78b30ad71dd5d7edd19" category="paragraph">Modifiez le niveau de service de performances par défaut.</block>
   <block id="337c483d117ff7e78ed214b1799b666f" category="list-text">Sous *stockage et optimisation*, en regard du niveau de service *Performance*, sélectionnez <block ref="b3b2ed9f542d1ec15ba7a198ec58e0b4" category="inline-image-macro-rx" type="image"></block>.</block>
   <block id="06a4e0373e144570a83a3fcfaa55ff46" category="list-text">Sélectionnez *Performance*.</block>
-  <block id="c20ad4d76fe97759aa27a0c99bff6710" category="cell">12</block>
   <block id="455f024d5e786170a224f947b09bd74a" category="section-title">Surveiller l'utilisation de la zone de disponibilité du stockage</block>
   <block id="c54830fa97aef91a8bc830d439dc004a" category="paragraph">Si votre cluster comporte 4 nœuds ou plus, vous pouvez afficher la quantité d'espace utilisée par la zone de disponibilité du stockage pour chaque paire haute disponibilité. Cette métrique n'est pas disponible pour les clusters à 2 nœuds.</block>
   <block id="dd7cd8aba78024bcc6ec1c67f3987760" category="list-text">Dans System Manager, sélectionnez *Cluster*, puis *Présentation*.</block>
@@ -1581,7 +1546,6 @@
   <block id="cc1a9524f9ddd8574a5553ccd90ee9c3" category="paragraph">Vous pouvez utiliser l'interface de ligne de commandes ONTAP pour migrer les clés entre le gestionnaire de clés au niveau du cluster et un gestionnaire de clés au niveau de la machine virtuelle de stockage.</block>
   <block id="5efbf2392161773688bf42568dd2c8c6" category="list-text">Migration des clés :</block>
   <block id="f7d82610ce1c76769575f4a95bb11e80" category="sidebar">Migration des clés de chiffrement des données entre les gestionnaires de clés</block>
-  <block id="feb8007866385642b73ef1e6524ba327" category="paragraph">Les systèmes NetApp ASA r2 apportent une solution matérielle et logicielle unifiée qui simplifie l'expérience et répond parfaitement aux besoins des clients SAN.</block>
   <block id="3ee9bc9a210bd85fa921ca63bdeef612" category="list-text">ASA A50</block>
   <block id="e21bdbd552261278be0a5ad02fbc6fa7" category="list-text">ASA A30</block>
   <block id="3c609b480f1311eaec9774146ac50e79" category="list-text">ASA A20</block>
@@ -1684,11 +1648,9 @@
   <block id="86c79aae612f98a6019861f950eeb1a3" category="cell">Lorsque vous basculez du gestionnaire de clés intégré ONTAP vers un gestionnaire de clés externe au niveau du cluster, vous pouvez utiliser l'interface de ligne de commandes ONTAP pour migrer facilement les clés de chiffrement d'un gestionnaire de clés vers un autre.</block>
   <block id="f06feed69dbf0f5f7721d9ea53af616f" category="list-text">Découverte de votre réseau de clusters</block>
   <block id="6875b01c5e1cd1eaa394cb250554d067" category="paragraph">Sur un système ASA r2, le logiciel ONTAP est optimisé pour prendre en charge les fonctionnalités SAN essentielles, tout en limitant la visibilité et la disponibilité des fonctionnalités non liées à SAN. Par exemple, System Manager exécuté sur un système ASA r2 n'affiche pas les options permettant de créer des répertoires locaux pour les clients NAS. Cette version simplifiée de ONTAP est identifiée comme la personnalité _ASA r2_. ONTAP exécuté sur des systèmes ASA est identifié comme _ASA ONTAP Personality_. ONTAP exécuté sur des systèmes AFF et FAS ONTAP est identifié comme _personnalité ONTAP unifiée_. Les différences entre les personnalités ONTAP sont référencées dans la référence de commande ONTAP (pages man), la spécification de l'API REST et les messages EMS, le cas échéant.</block>
-  <block id="fda16306cdb213cc2a2b4bf98efbf826" category="paragraph">Si vous souhaitez activer le basculement automatique de LIF iSCSI, vous devez créer une LIF IP pour le trafic iSCSI uniquement. Lorsque le basculement automatique de LIF iSCSI est activé, en cas de basculement du stockage, la LIF iSCSI IP est automatiquement migrée de son nœud ou port de rattachement vers son nœud ou port partenaire haute disponibilité, puis de nouveau une fois le basculement terminé. Ou, si le port d'une LIF iSCSI IP est défectueux, la LIF est automatiquement migrée vers un port sain de son nœud de rattachement actuel, puis revient sur son port d'origine une fois le port refonctionnel.</block>
   <block id="bca36b0a086865a5988c326bd3a3c6ef" category="list-text">Le système lance le processus de démarrage. La séquence de démarrage initiale peut prendre jusqu'à huit minutes.</block>
   <block id="f3e09817ba15a4f8685cb156fe2ade6f" category="list-text">Pendant le processus de démarrage, vous verrez les voyants clignoter et les ventilateurs s'activer, indiquant que les contrôleurs sont en cours de mise sous tension.</block>
   <block id="86450f6a6524d00aefa9dda44e7aee80" category="list-text">N'oubliez pas que les ventilateurs peuvent émettre un niveau de bruit élevé lors de leur premier démarrage. Le bruit du ventilateur au démarrage est normal.</block>
-  <block id="c8aaa99aa53241360c3c889fc0ceba93" category="paragraph">Sur un système ASA r2, vous pouvez créer des LIF IP, FC et NVMe/FC. Une LIF de données IP peut traiter le trafic iSCSI et NVMe/TCP par défaut. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.</block>
   <block id="f137f93169cc0e3caf4322bfd35b3f03" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> <block ref="90572de4b12061d10d3adbe91dd02ace" category="inline-link-macro-rx"></block></block>
   <block id="9938ec4aaa5e9affe1e87bdd3406a54f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> <block ref="364d625567d09103e7911f1934bc8d24" category="inline-link-macro-rx"></block></block>
   <block id="0b226b2a00795026190da142779bab13" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> <block ref="65a058a30efdac510219d9d7c74f3657" category="inline-link-macro-rx"></block></block>
@@ -1760,12 +1722,10 @@
   <block id="434872b119bd955476c150025f7da4b2" category="searchtitle">Installer et configurer les systèmes de stockage ASA A1K, A90, A70, A50, A30, A20 et C30</block>
   <block id="c3993bfac3ec8dac794fe31c3a3f3195" category="summary">Certaines commandes ONTAP ne sont pas prises en charge sur les systèmes ASA r2 (ASA A1K, ASA 90, ASA 70, ASA A50, ASA A30, ASA A20, ASA C30).</block>
   <block id="13af08b425d55aad64c53d60ae2a530a" category="sidebar">Les systèmes NetApp ASA r2 (ASA A1K, ASA A90, ASA A70, ASA A50, ASA A30, ASA A20, ASA C30) offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée spécifique aux besoins des clients SAN uniquement.</block>
-  <block id="3087fbc39029f766e18398db33407a03" category="paragraph">Pour protéger vos données contre les attaques malveillantes telles que le vol ou les rançongiciels, les systèmes ASA r2 prennent en charge un gestionnaire de clés intégré, un chiffrement double couche, une authentification multifacteur et une vérification multi-administrateur. Les instantanés inviolables sont également pris en charge sur les systèmes ASA r2 secondaires.</block>
   <block id="80b47f1753b3cb7e47c4279f47da1cd4" category="admonition">Le <block ref="787f67886dcefe1e2ad298992552116f" prefix=" " category="inline-code"></block> la commande est remplacée par la <block ref="80d8c5e05b7dc47d7d3de5d888476621" prefix=" " category="inline-code"></block> et le <block ref="53707b9f629f540e205f4dfa772722ca" prefix=" " category="inline-code"></block> commandes.</block>
   <block id="80c0eacc1ee22ae50cd37d4e7eaf12a0" category="paragraph">Le <block ref="9f9fc58b577820fbcd41ff15739ed6f0" prefix=" " category="inline-code"></block> La commande n'est pas disponible lorsqu'elle est utilisée avec les paramètres suivants :</block>
   <block id="faa3fdb36806e35e16c52a72aae6308a" category="paragraph">Vous pouvez utiliser l'interface de ligne de commande (CLI) ONTAP pour créer un LIF iSCSI uniquement avec basculement automatique.</block>
   <block id="9551e06ebe54ea44317c627f8c2826c8" category="section-title">Créer une stratégie de service LIF iSCSI uniquement personnalisée</block>
-  <block id="570b2b21a29be6a88b3740541a9eb85d" category="paragraph">Si vous souhaitez créer des LIF iSCSI uniquement avec basculement LIF automatique, vous devez d'abord créer une stratégie de service LIF iSCSI uniquement personnalisée.</block>
   <block id="c3d907ed0368d8bf0168908898f88bc6" category="paragraph">Vous devez utiliser l’interface de ligne de commande (CLI) ONTAP pour créer la stratégie de service personnalisée.</block>
   <block id="4cd29e77b3bfa0af4a0bd555e4fdcc60" category="list-text">Créer une stratégie de service LIF iSCSI uniquement personnalisée :</block>
   <block id="318d3e69df3e554645af42601afb06e0" category="list-text">Vérifiez que la politique de service a été créée :</block>
@@ -1811,7 +1771,6 @@
   <block id="ff87f3496332b96a8889cb81479a38fa" category="inline-link">non uniforme</block>
   <block id="e76f9f952d4ae03cbdf70a44d35aa24e" category="paragraph">En savoir plus sur <block ref="935fe0cb90646c70dc96a5e0cb47b577" category="inline-link-rx"></block> configurations symétriques actives/actives.</block>
   <block id="630834f0748c8b7f280bfe47e1587403" category="list-text">Passez la souris sur le nom du groupe de cohérence que vous souhaitez protéger avec la synchronisation active SnapMirror .</block>
-  <block id="67dd4a232a8f494f5bc9d4741af70d11" category="list-text">Sélectionner <block ref="c2bfb9c080f7666b2b95fa7dd1fddf25" category="inline-image-macro-rx" type="image"></block> puis sélectionnez *Protéger*.</block>
   <block id="1dc72651a61ba43cf6bc85d4753c47e8" category="list-text">Sélectionnez un homologue de cluster existant ou choisissez d'*en ajouter un nouveau*.</block>
   <block id="842dcef5223aaf88ec80c981db6281af" category="list-text">Sélectionnez la machine virtuelle de stockage.</block>
   <block id="533fb0f30c2a24bf44c7a68b00aed588" category="list-text">Pour la politique de réplication, sélectionnez *AutomatedFailOverDuplex*.</block>
@@ -1960,8 +1919,6 @@
   <block id="6fc817dfbe9e8303d43dd345dfc8d0a6" category="list-text">Sélectionnez *Plus*, puis sélectionnez *Supprimer*.</block>
   <block id="d1dde57285c34e792a5945a2584acc2e" category="list-text">Sélectionnez pour vérifier que vous souhaitez continuer, puis sélectionnez *Supprimer*.</block>
   <block id="d8c055944ceedab265fa23bd4dac431a" category="paragraph">Le groupe d'hôtes est supprimé. Les hôtes qui le composaient n'ont plus accès aux unités de stockage qui y étaient mappées.</block>
-  <block id="8487699fb65ed58bf886a609cc850b23" category="cell">30 000</block>
-  <block id="4d1d2462172575416e653835e7623c79" category="cell">2 PB</block>
   <block id="246838e6a2baa5417bc2bb181dffaefd" category="cell"><block ref="246838e6a2baa5417bc2bb181dffaefd" category="inline-link-macro-rx"></block></block>
   <block id="b41dd2df01d053ae559a639dee1a223a" category="summary">Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.17.1 pour les systèmes ASA r2.</block>
   <block id="31fb0b1f6028acebe178d193a0d4e57e" category="doc">Nouveautés d' ONTAP 9.17.1 pour les systèmes ASA r2</block>
@@ -2016,7 +1973,6 @@
   <block id="5cda9545c48d9b6f5f36b4ce856eaf47" category="list-text">Sélectionnez les unités de stockage pour lesquelles vous souhaitez reprendre ARP/AI.</block>
   <block id="8e1667e545dde536a2a34599f2a208a4" category="list-text">Sélectionnez *Reprendre l'anti-ransomware*.</block>
   <block id="18a871e39c4db6e8fdaffd71c7141248" category="paragraph">L’analyse des attaques potentielles de ransomware reprend et les activités suspectes vous sont signalées dans le Gestionnaire système.</block>
-  <block id="0dd10bd0f2a6a0ae25f679d61fe6376d" category="doc">Créez des instantanés inviolables pour vous protéger contre les attaques de ransomware sur les systèmes de stockage ASA r2</block>
   <block id="a779502493c8672d764e9893228ff604" category="paragraph">Si la protection autonome contre les ransomwares avec intelligence artificielle (ARP/IA) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, un avertissement s'affiche sur le tableau de bord du Gestionnaire système. Consultez l'avertissement, vérifiez l'activité et, si nécessaire, prenez les mesures nécessaires pour contrer toute menace potentielle pesant sur vos données.</block>
   <block id="c0e52aa291208452d8e4daf52f19e352" category="paragraph">Si un message d'avertissement ARP/AI s'affiche, avant d'agir, utilisez le vérificateur d'intégrité des applications approprié pour vérifier l'intégrité des données sur l'unité de stockage. Vérifier l'intégrité des données de l'unité de stockage vous permet de déterminer si l'activité est acceptable ou s'il s'agit d'une attaque potentielle par rançongiciel.</block>
   <block id="d72f2cfc4586d8ec238fbb54c4e19dfb" category="cell">Si l'activité anormale est...</block>
@@ -2048,7 +2004,6 @@
   <block id="9f2970594362084647462609d4b2d054" category="sidebar">Gérer la synchronisation active de SnapMirror</block>
   <block id="e39b47ff21b06cf5168c2115e34abb73" category="sidebar">Effectuer un basculement planifié avec SnapMirror Active Sync</block>
   <block id="e9a1e0623ef8495e8c5eb4f577eebc56" category="sidebar">Rétablir la synchronisation active de SnapMirror après un basculement imprévu</block>
-  <block id="df725f855f8b01777334f385329956d1" category="sidebar">Créez des instantanés inviolables</block>
   <block id="fe18efbe14ea4b4efa0f9218d380a795" category="sidebar">Activer ARP/AI</block>
   <block id="46f622f33eeac9bf018664dde7a317f2" category="sidebar">Modifier les périodes de conservation des instantanés ARP/AI</block>
   <block id="2a1d671c971c0af470fbdc7401172b0f" category="sidebar">Répondre aux alertes ARP/AI</block>
@@ -2237,33 +2192,6 @@
   <block id="8472fc4ccb1079c9fe1f338f10dae548" category="list-text">Depuis la CLI, entrez :<block ref="f0af09467abded8f889764e0118fc371" prefix=" " category="inline-code"></block></block>
   <block id="6e3ec6c33e748e95fcc9a00b80c75047" category="paragraph">Pour les systèmes ASA r2, la _personnalité_ est _ASA r2_ et le statut _is-disaggregated_ est _true_.</block>
   <block id="0212dda5b736d4e3ac685d52c9fe59e3" category="paragraph">Si l'unité de stockage que vous souhaitez supprimer se trouve dans un groupe de cohérence en relation de réplication, vous devez<block ref="741fafaed1397e844d655f1c5d2c2470" category="inline-link-macro-rx"></block> avant de le supprimer.</block>
-  <block id="c2870e89f5360d8c60cf537f2608a42a" category="paragraph">Les systèmes ASA r2 prennent en charge les limites de stockage suivantes :</block>
-  <block id="6d6dc550f66f75893e42478842ea745f" category="cell">Limite maximale</block>
-  <block id="690fbea35c70c2451fa2a171900ea6a7" category="cell">Par paire HA</block>
-  <block id="dd1714009b4f40cdf1943390ef2782eb" category="cell">Par cluster</block>
-  <block id="f718499c1c8cef6730f9fd03c8125cab" category="cell">256</block>
-  <block id="b0dae11b82e63781abdc8f893c41b3c0" category="cell">Applications d'entreprise</block>
-  <block id="f899139df5e1059396431415e770c6dd" category="cell">100</block>
-  <block id="9de6d14fff9806d4bcd1ef555be766cd" category="cell">350</block>
-  <block id="187c6ad3a74cc93ac6c2229d398e383e" category="cell">Nœuds</block>
-  <block id="c81e728d9d4c2f636f067f89cc14862c" category="cell">2</block>
-  <block id="d5fbc4c880281f3e9c4fff78066996a5" category="cell">Groupes de réplication</block>
-  <block id="c0c7c76d30bd3dcaefc96f40275bdc0a" category="cell">50</block>
-  <block id="8ee7e496c0e2a65e2ee8666fe7de92f0" category="cell">Taille de la zone de disponibilité de stockage</block>
-  <block id="04207e7bb62b9b5d14bdb603f74e683c" category="cell">10 000</block>
-  <block id="40b9cfa6016513b4c254ea34fe34198c" category="cell">Taille de l'unité de stockage</block>
-  <block id="9afb5dac442eac92e8a891cc81c846f3" category="cell">Unités de stockage par groupe de cohérence</block>
-  <block id="137f19e6e2dc1219f33553b812627bc2" category="cell">Machines virtuelles</block>
-  <block id="7a53928fa4dd31e82c6ef826f341daec" category="cell">800</block>
-  <block id="fe2d010308a6b3799a3d9c728ee74244" category="cell">1200</block>
-  <block id="e935f176337f588ca3f944c87464e3be" category="section-title">Limites des relations asynchrones SnapMirror</block>
-  <block id="6165c4352e1504dbaeef34d0cc50c187" category="cell">Groupes de cohérence</block>
-  <block id="6c9882bbac1c7093bd25041881277658" category="cell">250</block>
-  <block id="b137fdd1f79d56c7edf3365fea7520f2" category="cell">750</block>
-  <block id="a078c2a6f2d4313df0b942ebf9d6b940" category="cell">4 000</block>
-  <block id="3339aa4f121546a4cdc082621ff25a06" category="cell">6 000</block>
-  <block id="2500434603f5238c62790336bd12c2b3" category="section-title">Limites de la relation de synchronisation active SnapMirror</block>
-  <block id="18d8042386b79e2c279fd162df0205c8" category="cell">400</block>
   <block id="b50f5f8469f7f4269e80570d419c9f8e" category="inline-link-macro">Prise en charge des modifications géométriques des groupes de cohérence dans les relations de réplication</block>
   <block id="42071aa0f3867fbd6baf2685ca27c2ff" category="cell"><block ref="42071aa0f3867fbd6baf2685ca27c2ff" category="inline-link-macro-rx"></block></block>
   <block id="65476b287593ea7b99cab3c73a759847" category="cell">Les systèmes ASA r2 prennent en charge les modifications de géométrie apportées aux groupes de cohérence dans une synchronisation active SnapMirror ou une relation de réplication asynchrone sans supprimer la relation de synchronisation active SnapMirror ni rompre la relation asynchrone.  Lorsqu'une modification de géométrie se produit sur le groupe de cohérence principal, la modification est répliquée sur le groupe de cohérence secondaire.</block>
@@ -2283,13 +2211,11 @@
   <block id="36bed646725e085252916c3131fbf1b2" category="sidebar">Gérer les groupes de cohérence hiérarchique</block>
   <block id="e130096a0ace158c7893eedbd19e7115" category="inline-link-macro">La synchronisation NTP échoue après le changement d'IP LIF</block>
   <block id="31fea35e33141cfa7edd94a1254d7007" category="paragraph">ONTAP utilise le protocole NTP (Network Time Protocol) pour synchroniser l'heure sur le cluster. Après avoir modifié les adresses IP LIF, vous devrez peut-être mettre à jour la configuration NTP pour éviter les échecs de synchronisation. Pour plus d'informations, reportez-vous à l'article de la base de connaissances<block ref="eb416b4e77f6226862164baac134c11c" category="inline-link-macro-rx"></block> .</block>
-  <block id="5971035c0734629ac0d154a4b60ca9e9" category="paragraph">Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP).  Les protocoles iSCSI, FC, NVMe/FC et NVMe/TCP prennent en charge l'architecture active-active symétrique pour le multivoie afin que tous les chemins entre les hôtes et le stockage soient actifs/optimisés.  Les protocoles iSCSI et NVMe/TCP prennent en charge la connexion directe entre les hôtes et le stockage.  Pour les protocoles Fibre Channel et NVMe/FC, la connexion directe n'est pas prise en charge.</block>
   <block id="d55bb9dedbbb937989198b01ce6688da" category="paragraph">*Mappage d'hôte* fait référence au groupe d'hôtes sur lequel la nouvelle unité de stockage sera mappée.  S'il existe un groupe d'hôtes préexistant pour le type d'hôte que vous avez sélectionné pour votre nouvelle unité de stockage, le groupe d'hôtes préexistant est automatiquement sélectionné pour votre mappage d'hôte.  Vous pouvez accepter le groupe d'hôtes sélectionné automatiquement ou sélectionner un autre groupe d'hôtes.</block>
   <block id="83e804a6917baea37d43dfd34c66ac73" category="paragraph">Les systèmes ASA r2 offrent deux niveaux de performances.  Le niveau de performance par défaut est *Extrême*, qui est le niveau le plus élevé disponible.  Vous pouvez abaisser le niveau à *Performance*.</block>
   <block id="19b78e8ad6af7cf1ea82e76fdac1aa7f" category="admonition">Les systèmes ASA r2 ne prennent pas en charge la réplication synchrone.</block>
   <block id="2e360c76c16280fe84148c9706ad34d6" category="list-text">Pour le *type de politique*, sélectionnez *Asynchrone*.</block>
   <block id="f1f7f77e02139ed937613a8043556351" category="admonition">Avec la politique asynchrone, les données sont copiées sur le site distant après avoir été écrites à la source. La réplication synchrone n'est pas prise en charge pour les systèmes ASA r2.</block>
-  <block id="ea67212f425c599ae5520184dd5dea87" category="section-title">Prise en charge de la réplication SnapMirror</block>
   <block id="078f057957ee3112500c8f235bb0352f" category="paragraph">La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :</block>
   <block id="387dae8bc04454e56a9780e8507821e5" category="list-text">La réplication synchrone SnapMirror n'est pas prise en charge.</block>
   <block id="74618c54a0d6a05f0dbccbfa9f4bc480" category="list-text">La synchronisation active SnapMirror est prise en charge uniquement entre deux systèmes ASA r2.</block>
@@ -2301,7 +2227,6 @@
   <block id="1aa27e548926ddcd6302762a8969ac70" category="paragraph">Avant d'installer un nouveau disque sur un nœud ou une étagère, utilisez NetApp Hardware Universe pour vérifier que le disque que vous souhaitez ajouter est pris en charge par votre système ASA r2 et pour identifier l'emplacement approprié pour le nouveau disque.  Les emplacements appropriés pour l'ajout de disques varient en fonction du modèle du système et de la version ONTAP .  Dans certains cas, il est nécessaire d'ajouter les disques à des emplacements spécifiques, dans l'ordre.</block>
   <block id="8166ee61f44dadb1490d12e6d19db8d1" category="list-text">Sélectionnez votre système ASA r2.</block>
   <block id="14118424a52e5faf27de83ea1ae0b462" category="list-text">Retirez délicatement le cadre de la face avant du système.</block>
-  <block id="667f84288468da12d93807057967a3d5" category="paragraph">Si des LIF iSCSI présentes sur la VM de stockage ne sont pas activées pour le basculement automatique des LIF, vos LIF nouvellement créées ne seront pas non plus activées pour le basculement automatique des LIF.  Si le basculement automatique des LIF n'est pas activé et qu'un événement de basculement se produit, vos LIF iSCSI ne migreront pas.</block>
   <block id="9a44429a1187d19af63f6055071c6f51" category="cell"><block ref="3151003a976b1d39b8d92ef0ca3c387c" category="inline-link-macro-rx"></block>.</block>
   <block id="612e15a252b552b4f1a691dcf559bd2f" category="inline-link-macro">Découvrez les relations d'importation</block>
   <block id="aac7492833a857a8b4c5206032836546" category="cell">Supprimez les relations d'importation actives. <block ref="a36e5e6c083c81494c70601f299e7a00" category="inline-link-macro-rx"></block>.</block>
@@ -2485,15 +2410,6 @@
   <block id="5ae2b91104e852585ddf073635450cf8" category="paragraph">Modifiez la réserve de snapshots par défaut et activez la suppression automatique des snapshots.</block>
   <block id="715a6e64eed03295b4e2bc3df4da2dc6" category="list-text">Sous *% de réserve de snapshots*, saisissez la valeur numérique du pourcentage de l'espace de l'unité de stockage que vous souhaitez allouer aux snapshots.</block>
   <block id="162edb1432d7c690ed0b5b42fa399a29" category="summary">Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de ASA r2.</block>
-  <block id="fd846e358dfb9fb7815602e30d94cc0e" category="paragraph">Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de l'ASA r2.</block>
-  <block id="7c7efee58e6438c6a2c454a7ad4f04a8" category="cell">Maximum par paire d'aides auditives</block>
-  <block id="28cd6ded3f5c67ae3840cefeae4e70b9" category="cell">Maximum par groupe</block>
-  <block id="4d2caccc34711835f6ff99da411ac04e" category="cell">machines virtuelles de stockage</block>
-  <block id="420472b5a3fa74ab8271c101fdf7bf31" category="list-text">256 (ONTAP 9.18.1 et versions ultérieures)</block>
-  <block id="153ab40caa18652c7730f5cfc37c32f7" category="list-text">32 (ONTAP 9.17.1 et versions antérieures)</block>
-  <block id="43d910e74e713c9754f63f6931e45d1b" category="paragraph">Les limites suivantes s’appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication asynchrone SnapMirror . Pour obtenir la liste complète des limites de stockage les plus récentes ASA r2,<block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block> .</block>
-  <block id="4272202cbf36ae010c1042426026ae36" category="paragraph">Les limites suivantes s'appliquent aux unités de stockage et aux groupes de cohérence dans une relation de réplication de synchronisation active SnapMirror . La synchronisation active SnapMirror est prise en charge à partir d' ONTAP 9.17.1 uniquement sur les clusters à deux nœuds.  À partir d' ONTAP 9.18.1, la synchronisation active SnapMirror est prise en charge sur les clusters à quatre nœuds.</block>
-  <block id="37b8b62a5ecb1339bc961c051f24141d" category="paragraph">Pour obtenir la liste complète des limites de stockage les plus récentes ASA r2,<block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block> .</block>
   <block id="9027c61cfac0613d2e6d2a3e9f8dce46" category="doc">Basculer les clients et nettoyer la machine virtuelle de stockage source après la migration vers un système ASA r2</block>
   <block id="a36422a2f9f3777ca6a112c936b8ffc7" category="paragraph">Après la migration d'une machine virtuelle de stockage (VM) d'un cluster ASA vers un cluster ASA r2, par défaut, les clients sont automatiquement basculés vers le cluster ASA r2 et la VM de stockage sur le cluster ASA est automatiquement supprimée.  Si vous avez choisi de désactiver le basculement automatique et la suppression de la machine virtuelle de stockage ASA pendant la migration, vous devrez effectuer ces étapes manuellement une fois la migration terminée.</block>
   <block id="b1a60764d65e294c75af5b4d8f70838b" category="section-title">Basculer manuellement les clients vers un système ASA r2 après une migration de machine virtuelle de stockage</block>
@@ -2597,8 +2513,6 @@
   <block id="299c5db3cbde057ebd5a919711b1d2e1" category="paragraph">Vous pouvez configurer la connectivité à des serveurs de gestion de clés externes en cluster sur une machine virtuelle de stockage. Avec les serveurs de clés en cluster, vous pouvez désigner des serveurs de clés primaires et secondaires sur une machine virtuelle de stockage. Lors de l'enregistrement des clés, ONTAP tentera d'abord d'accéder à un serveur de clés primaire avant de tenter successivement d'accéder aux serveurs secondaires jusqu'à ce que l'opération se termine avec succès, empêchant ainsi la duplication des clés.</block>
   <block id="9f71ddf310db058a3a89122693392a68" category="inline-link-macro">Découvrez comment équilibrer la capacité dans un cluster ASA r2</block>
   <block id="d480af7e6686a5e56e9006fab126c8e7" category="section-title">Résumé des différences du système ASA r2</block>
-  <block id="2be27a1e2f13957646665cd7fef8000d" category="cell">Groupes de cohérence enfant par groupe de cohérence parent</block>
-  <block id="ea5d2f1c4608232e07d3aa3d998e5135" category="cell">64</block>
   <block id="542b4f4e36f442f64960052e5e90dc97" category="section-title">Activez ARP/AI sur toutes les unités de stockage d'une machine virtuelle de stockage.</block>
   <block id="4a8ba6399b21b6bd034b8e0eaf51d276" category="section-title">Activer ARP/AI sur des unités de stockage spécifiques dans une machine virtuelle de stockage</block>
   <block id="6938dcbd34a520f0105bf12cf29cbdce" category="sidebar">Apprenez-en davantage sur l'équilibrage de l'espace</block>
@@ -2620,7 +2534,6 @@
   <block id="89282cacdaeec6ad949d1fee8ef83b96" category="paragraph">Vous pouvez désactiver l'activation par défaut pendant ou après le délai de grâce initial de 12 heures.</block>
   <block id="06f738cd9e1ffd61cee9f2f7298af898" category="list-text">Désactiver ARP:</block>
   <block id="9aa3a30140e694c88ae8dc5d1d6baeb9" category="list-text">Pour désactiver pendant le délai de grâce de 12 heures :</block>
-  <block id="3f89c840d19029a97a24bc85a1f4bc2a" category="list-text">Sous *Anti-ransomware*, sélectionnez *Ne pas activer* puis sélectionnez *Désactiver*.</block>
   <block id="8a142e162a74e2269d6374226b8deab8" category="list-text">Pour désactiver après le délai de grâce de 12 heures :</block>
   <block id="7dce122004969d56ae2e0245cb754d35" category="inline-image-macro">Modifier</block>
   <block id="3506bfed41b9e706367e09a6ee264e4a" category="list-text">Sous *Anti-ransomware*, sélectionnez <block ref="cd4fada87571e8da586532fce60b382a" category="inline-image-macro-rx" type="image"></block> puis désélectionnez *Enable for new storage units*.</block>
@@ -2634,7 +2547,6 @@
   <block id="4a30706558af49bc475c9076f39c5043" category="paragraph">Si vous utilisez ONTAP 9.17.1, vous pouvez activer ARP/AI sur toutes les unités de stockage créées dans le cluster par défaut.</block>
   <block id="b3d26117cd7cf369132a7f5c1b0e1b21" category="paragraph">Dans ONTAP 9.18.1 et versions ultérieures, ARP/AI est activé par défaut sur toutes les nouvelles unités de stockage. Si vous avez des unités de stockage créées dans ONTAP 9.17.1 pour lesquelles ARP/AI n'est pas activé, vous pouvez l'activer manuellement.</block>
   <block id="1ce5b5693fce06d8eab0db104f812a23" category="inline-image-macro">Modifier les paramètres anti-ransomware</block>
-  <block id="50d605f03d486d36ef3d11420980afa9" category="list-text">À côté de *Anti-ransomware*, sélectionnez <block ref="09996779530a0566a9742876e9ffd4f1" category="inline-image-macro-rx" type="image"></block> puis sélectionnez *Activer sur toutes les unités de stockage existantes*.</block>
   <block id="1d6ca6ff92e87645e0e1be4c8c4254c1" category="paragraph">Si vous utilisez ONTAP 9.17.1, vous pouvez activer ARP/AI par défaut sur toutes les unités de stockage créées dans une storage virtual machine (VM). Cela signifie que toute nouvelle unité de stockage créée dans la storage VM aura ARP/AI activé automatiquement. Vous pouvez également appliquer ARP/AI aux unités de stockage existantes dans la storage VM.</block>
   <block id="f3a115988cb09dfd534467f2d9511859" category="paragraph">Si vous utilisez ONTAP 9.17.1 et que vous ne souhaitez pas activer ARP/AI sur toutes les unités de stockage dans une storage VM, vous pouvez sélectionner les unités spécifiques que vous souhaitez activer.</block>
   <block id="b86583f9a9fc89f434a369308432e10e" category="inline-link-macro">signaler les pics connus d'ARP/IA</block>
@@ -2778,7 +2690,6 @@
   <block id="13cf50fcf318293df5a3adeadda4221c" category="paragraph">Vous devez utiliser ONTAP 9.19.1 ou une version ultérieure. Si vous utilisez ONTAP 9.18.1 ou une version antérieure, une demande de dérogation à la politique de fonctionnalités (FPVR) est requise pour la prise en charge de la synchronisation active SnapMirror par l'hôte AIX.</block>
   <block id="49c7424b52c7ec83e7da5d72f7f13764" category="list-text">Survolez le nom de l'unité de stockage AIX que vous souhaitez préparer pour la protection SnapMirror active sync.</block>
   <block id="89b5596dc218f237904b988c0f8904cc" category="inline-image-macro">icône de sélection de menu</block>
-  <block id="21a7f37e0aaf9ac924df65177afb8228" category="list-text">Sélectionnez <block ref="2bf8f430922192bda6865bad87ff2a74" category="inline-image-macro-rx" type="image"></block> puis sélectionnez *Modifier*.</block>
   <block id="02b80ac4962fa1aa89a11e655a3bd996" category="list-text">Sous *Informations sur l’hôte*, sélectionnez *local* pour le *mode d’accès*, puis sélectionnez *Modifier*.</block>
   <block id="6d33f82590752283d027e2c7394ab829" category="paragraph">L'unité de stockage de l'hôte AIX est prête pour la protection par synchronisation active SnapMirror.</block>
   <block id="55aa696f6eeaf20f8cd5f18a42f214dd" category="paragraph">Bien que les procédures du System Manager pour configurer la synchronisation active SnapMirror soient différentes sur les systèmes ASA r2 par rapport aux systèmes NetApp FAS, AFF et ASA exécutant la personnalité ONTAP unifiée, les exigences, l’architecture et le fonctionnement de la synchronisation active SnapMirror sont les mêmes. <block ref="a4d3fa0a90b98ed30452a119486e6ae3" category="inline-link-macro-rx"></block></block>
@@ -2880,4 +2791,77 @@
   <block id="17ff1a352874a1bd5fb7c4707117cd86" category="cell">ONTAP améliore les performances de transfert de données TCP sur les liaisons WAN sujettes aux pertes et à une latence élevée en intégrant deux fonctions de récupération des pertes, PRR et RACK, dans la pile TCP d'ONTAP.</block>
   <block id="4910573cab7d204a834f1ef33d28e6aa" category="cell">La protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans des relations SnapMirror active sync sur les systèmes ASA r2. ARP/AI s’exécute sur les unités de stockage principales actives, crée des instantanés ARP réservés aux unités principales et fournit une détection des ransomwares basée sur l’apprentissage automatique pour ces unités de stockage. Les clusters mis à niveau vers ONTAP 9.19.1, dont l’activation par défaut d’ARP avait été supprimée en raison de relations de réplication synchrone, verront cette activation automatiquement rétablie. Un avertissement avant la mise à jour informe les administrateurs et leur offre la possibilité de la désactiver.</block>
   <block id="43711203668248fcdb2737c0b52f163a" category="list-text">À partir d'ONTAP 9.19.1, la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) prend en charge les unités de stockage principales en lecture-écriture dans les relations SAN SnapMirror active sync sur les systèmes ASA r2. ARP/AI s'exécute sur les unités de stockage principales actives, crée des instantanés ARP uniquement primaires et assure la détection des ransomwares basée sur l'apprentissage automatique pour ces unités de stockage.</block>
+  <block id="20290ba3bc660a6b1ec6d46adf0b0974" category="paragraph">Le nombre minimum de disques que vous devez ajouter en une seule procédure est de trois. L'ajout d'un seul disque peut réduire les performances.</block>
+  <block id="38964f69af54ac13a49e3e0955441258" category="paragraph">Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder aux données. Les Storage VMs distribuent les données aux clients via une ou plusieurs LIF. Sur un système ASA r2, vous pouvez créer des LIF IP, FC et NVMe/FC. Une LIF de données IP peut gérer par défaut le trafic iSCSI et NVMe/TCP. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.</block>
+  <block id="0da4b7c484f1bfa3f71126ddd8e221ce" category="paragraph-title">Basculement de LIF sur les systèmes ASA r2</block>
+  <block id="b7f8c7f57cc6cf3263d927fa39301bbe" category="paragraph">En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique afin d'assurer la continuité des communications réseau. À partir de ONTAP 9.19.1, le basculement automatique des LIF est pris en charge par défaut pour les LIF iSCSI, NVMe/TCP et IP partagées. Lorsque le basculement automatique des LIF est activé, en cas de défaillance du stockage, la LIF est automatiquement migrée de son nœud ou port d'origine vers son nœud ou port partenaire HA, puis de nouveau vers son nœud ou port d'origine une fois le basculement terminé. De même, si le port devient défaillant, la LIF est automatiquement migrée vers un port fonctionnel de son nœud d'origine, puis de nouveau vers son port d'origine une fois ce dernier rétabli.</block>
+  <block id="2f510f91f88e7ad0b5faca1d650d5c46" category="inline-link-macro">supprimer une LIF dans un environnement SAN</block>
+  <block id="773288d84a800e3b1d7803ab90036215" category="paragraph">Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF n'est pas pris en charge pour les LIF NVMe/TCP ni pour les LIF IP partagées. Lorsque vous créez des LIF iSCSI uniquement, le basculement automatique des LIF est activé par défaut, sauf si la machine virtuelle de stockage possède déjà des LIF iSCSI pour lesquelles le basculement automatique des LIF n'est pas activé. Si la machine virtuelle de stockage contient des LIF iSCSI uniquement pour lesquelles le basculement automatique des LIF n'est pas activé, vos nouvelles LIF ne seront pas activées non plus. Dans ce cas, vous devez d'abord supprimer les LIF iSCSI uniquement existantes, puis les recréer avec le basculement automatique des LIF activé. Découvrez comment <block ref="bd7be76bcbb9f56b8521a7457373f6cc" category="inline-link-macro-rx"></block>.</block>
+  <block id="16bbf9f716eb1b1f397ecd56fea6a475" category="inline-link-macro">ports persistants</block>
+  <block id="3ee1e150b971acda14b2f412bb3b363a" category="paragraph">Les ports persistants servent au basculement des interfaces logiques FC et NVMe/FC. En savoir plus sur <block ref="f05616066afed51c38bb80daf2d2c177" category="inline-link-macro-rx"></block> dans la documentation ONTAP.</block>
+  <block id="77fb55c5f214bb33b9bd943baa52258c" category="paragraph">Si vous souhaitez activer le basculement automatique des LIF iSCSI dans ONTAP 9.18.1 ou une version antérieure, vous devez d'abord créer une stratégie de service LIF uniquement iSCSI personnalisée.</block>
+  <block id="2a3ee0bdebde6bb4f90001e2d1ff5518" category="paragraph">Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF est activé par défaut lors de la création de LIF iSCSI uniquement si toutes les autres LIF iSCSI de la machine virtuelle de stockage sont également activées pour le basculement automatique des LIF. S'il existe des LIF iSCSI uniquement sur la machine virtuelle de stockage qui ne sont pas activées pour le basculement automatique des LIF, vos LIF nouvellement créées ne seront pas non plus activées pour le basculement automatique des LIF.</block>
+  <block id="c7e321fca2a8f7e1f3ab296539b0195c" category="inline-link-macro">Déplacer une LIF SAN</block>
+  <block id="061c16b0ed3909e672bb167f666657d2" category="list-text"><block ref="84859be9a33e5a2046d8b8f65121e08b" category="inline-link-macro-rx"></block>.</block>
+  <block id="a56c83faed28c1bd9c232e9aad91422d" category="inline-link-macro">Supprimez une interface LIF SAN d'un ensemble de ports</block>
+  <block id="39475d761f36ea805bf52bd0d85cd6fa" category="list-text"><block ref="6ee35dee3ff81a58e64cd1105fa8d841" category="inline-link-macro-rx"></block>.</block>
+  <block id="ca9419cb261d1f542e7ca3641ce02a6c" category="list-text">Sélectionnez <block ref="c2bfb9c080f7666b2b95fa7dd1fddf25" category="inline-image-macro-rx" type="image"></block>, puis sélectionnez *Protéger*.</block>
+  <block id="f033c9cc89aa0606022393d542e81b55" category="list-text">Sélectionnez <block ref="2bf8f430922192bda6865bad87ff2a74" category="inline-image-macro-rx" type="image"></block>, puis sélectionnez *Modifier*.</block>
+  <block id="0ca961272103b716d585866f80eab6e3" category="paragraph">SnapLock Enterprise et Compliance ne sont pas pris en charge avec la synchronisation active SnapMirror sur les systèmes ASA r2.</block>
+  <block id="67cef1b4fac3e04a2534e5c24d6ff1d8" category="paragraph">Pour une sécurité accrue contre les attaques de ransomware, créez une relation de réplication SnapLock pour SnapVault.</block>
+  <block id="2fbfff714da6fe67fdc80642e3dbe374" category="section-title">Créez une relation pour répliquer les instantanés vers un cluster distant</block>
+  <block id="e28ba81635d48007b3a993a09de5d664" category="paragraph">Protégez vos données en répliquant des instantanés sur un cluster distant. Les instantanés répliqués de vos groupes de cohérence peuvent être utilisés pour la reprise après sinistre ou pour la migration des données.</block>
+  <block id="369a5e64a49330b47ee668f619b9209e" category="list-text">Sous *Destination de réplication*, sélectionnez le cluster vers lequel répliquer, puis sélectionnez la machine virtuelle de stockage.</block>
+  <block id="605557b77df27b9cdb03cffdebc2fba5" category="list-text">Pour retarder le début du transfert de données, sélectionnez *Paramètres de destination*, puis désélectionnez *Démarrer le transfert immédiatement*.</block>
+  <block id="e8e8037cb49cfcc6b569476d4158d28c" category="list-text">Pour remplacer l'horaire de transfert par défaut, sélectionnez *Paramètres de destination*, puis sélectionnez *Remplacer l'horaire de transfert*.</block>
+  <block id="71cceacf2c6ce13c5632fc36b682d4e3" category="paragraph">Maintenant que vous avez créé une stratégie de réplication et une relation, votre transfert de données initial commence comme défini dans votre stratégie de réplication. Vous pouvez éventuellement tester le basculement de la réplication pour vérifier qu'un basculement réussi peut avoir lieu si votre système ASA r2 est mis hors ligne.</block>
+  <block id="a8e32fb8d0ed5e3f28397b61c26e653c" category="section-title">Créez une relation pour répliquer les instantanés avec SnapLock pour SnapVault</block>
+  <block id="69ac66d3ac16aaaef512ba01ab59771d" category="paragraph">Pour assurer une protection contre les attaques de ransomware, lors de la configuration de votre relation de réplication, vous pouvez activer SnapLock pour SnapVault en sélectionnant une stratégie de réplication Vault, puis en choisissant de verrouiller les instantanés de destination. Les instantanés protégés par SnapLock pour SnapVault ne peuvent être supprimés ni accidentellement ni de manière malveillante.</block>
+  <block id="d9533db08c814beff57a00219adeb0a9" category="admonition">Les systèmes ASA r2 ne prennent pas en charge le mode SnapLock Compliance ni le mode SnapLock Enterprise. La création d'une relation de réplication SnapLock pour SnapVault permet uniquement le verrouillage des instantanés de destination. Cela n'active pas le mode SnapLock Compliance ni le mode Enterprise.</block>
+  <block id="2234b105b0921f9b4ac94d71ce9a7939" category="inline-link-macro">initialiser l’horloge de conformité SnapLock</block>
+  <block id="e4b174c97062b84b94de5aec8d72c08f" category="paragraph">Vous devez <block ref="7f38abb4db0b33676ee7cc43f021c5dd" category="inline-link-macro-rx"></block>.</block>
+  <block id="881033f035c68f8afca68971d7048cb7" category="list-text">Dans le Gestionnaire système, sélectionnez *Protection &gt; Groupes de cohérence*, puis sélectionnez un groupe de cohérence.</block>
+  <block id="85908df832c10b0c1e39e90d02578829" category="list-text">Sélectionnez *Paramètres de destination*, puis sélectionnez *Verrouiller les instantanés de destination pour empêcher leur suppression*.</block>
+  <block id="1bbad3d34588dd1bc3c0367825d25780" category="paragraph">Les systèmes NetApp ASA r2 offrent une solution matérielle et logicielle unifiée qui crée une expérience simplifiée, spécifique aux besoins des clients exclusivement SAN. Sur un système ASA r2, les logiciels ONTAP et System Manager sont rationalisés pour fournir une prise en charge de la fonctionnalité SAN essentielle tout en supprimant les fonctionnalités et fonctions non prises en charge dans les environnements SAN.</block>
+  <block id="c6032ff25210fd8264d5f370b7924a96" category="paragraph-title">Unités de stockage et groupes de cohérence</block>
+  <block id="e13d282f1b6dc4032c4acd77d766ee11" category="paragraph">Pour protéger vos données contre les attaques malveillantes telles que le vol ou les ransomwares, les systèmes ASA r2 prennent en charge un gestionnaire de clés intégré, un chiffrement à double couche, l’authentification multifacteur et la vérification multi-administrateurs. Vous pouvez également répliquer des instantanés vers un emplacement secondaire et utiliser SnapLock pour SnapVault afin de protéger les instantanés de destination contre toute suppression accidentelle ou malveillante.</block>
+  <block id="4c78514417b4a0942051bcf756b5e689" category="paragraph-title">Protocoles pris en charge, multipathing et configurations</block>
+  <block id="e5dcf60b35d63934d42e3aac7f00c836" category="paragraph">Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe/FC, NVMe/TCP). Tous les protocoles prennent en charge une architecture active-active symétrique pour le multipathing, de sorte que tous les chemins entre les hôtes et le stockage sont actifs/optimisés. Les protocoles iSCSI et NVMe/TCP prennent en charge les configurations réseau et de connexion directe pour toutes les versions ONTAP prises en charge. Les protocoles FC et NVMe/FC prennent en charge les configurations réseau pour toutes les versions ONTAP prises en charge et, à partir de ONTAP 9.19.1, prennent également en charge la configuration de connexion directe.</block>
+  <block id="46fe1d288c9a0f1af878fd298319c1f5" category="inline-link-macro">Prise en charge du multipath SAN</block>
+  <block id="0e8a99bad4b792a0f1d2b26bca172d70" category="list-text">En savoir plus sur <block ref="e49bc3d33674d3c62051d808bc03b9aa" category="inline-link-macro-rx"></block>.</block>
+  <block id="e8010ed5357d34c65bda392b1759dc21" category="inline-link-macro">configurations pour les protocoles iSCSI et NVMe/TCP</block>
+  <block id="6a1c4a513168d2f956d3f60fd9a646fc" category="list-text">En savoir plus sur <block ref="1a8fd18116e09e5d15a17c026c705315" category="inline-link-macro-rx"></block>.</block>
+  <block id="ae8cecffd19eda1a3adfa78172bc6f93" category="inline-link-macro">configurations pour les protocoles FC et NVMe/FC</block>
+  <block id="8640f17f2139bac0467c18eee85556a3" category="list-text">En savoir plus sur <block ref="178fbdc7331e9c809820fe8dbccf3884" category="inline-link-macro-rx"></block>.</block>
+  <block id="c9de3246d61399dca0b1426ae4785aae" category="list-text">Saisissez à nouveau le mot de passe pour confirmer, puis sélectionnez *Continuer*.</block>
+  <block id="acdc6b4f6edd40f37bce01247a32ff86" category="list-text">SnapLock</block>
+  <block id="bc18555a4dceebd83eed97dc0d55e738" category="paragraph">SnapLock Compliance et Enterprise ne sont pas pris en charge sur les clusters principaux dans les environnements SAN. SnapLock pour SnapVault est pris en charge sur les clusters secondaires.</block>
+  <block id="884db16daad09820adcdd9f12c2233d6" category="doc">Déterminez les limites de stockage de votre système ASA r2</block>
+  <block id="0983f226fe7663bd6c4c28ac46840c50" category="paragraph">Les limites peuvent varier en fonction de votre système ASA r2 et de votre version ONTAP. Consultez <block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block> pour obtenir la liste complète des limites les plus récentes applicables à votre système spécifique.</block>
+  <block id="eedddce7629b34be6de6734237a6001d" category="admonition">Les systèmes ASA r2 sont répertoriés dans NetApp Hardware Universe sous *Products* en tant que plateformes « ASA ».</block>
+  <block id="ee2a8ad10ddae704cf49a89278c0d539" category="list-text">Accédez à <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>.</block>
+  <block id="f6c082e1c2313aca303adada02fafd4b" category="list-text">Sélectionnez *Products*.</block>
+  <block id="dadde3afb7480982ae18c09c676e02ef" category="list-text">Sous *Plateformes*, sélectionnez *ASA* comme type de système.</block>
+  <block id="ce263b9d5d590d134bdd1e5ed705c998" category="list-text">Sélectionnez votre système spécifique, puis sélectionnez votre version ONTAP.</block>
+  <block id="1276ca5f3c6a655be9a9622777bffe0d" category="list-text">Sélectionnez *Afficher les résultats*.</block>
+  <block id="fd69c5cf902969e6fb71d043085ddee6" category="paragraph-title">Résultats</block>
+  <block id="e76b5069871e2a0c42b0b2e86e9e5d0b" category="paragraph">Les limites prises en charge pour votre système ASA r2 et votre version ONTAP spécifiques sont affichées.</block>
+  <block id="e0f4fdf47233f69304e680fd1923eb88" category="cell">Prise en charge améliorée du basculement automatique des SAN LIF</block>
+  <block id="8a9840e8547ff441eef956289166e3cc" category="cell">Le basculement automatique par défaut des LIF est pris en charge pour les LIF iSCSI et NVMe/TCP.</block>
+  <block id="443ddb7ca2bd07f5946e8a824feee453" category="list-text">Sous *Anti-ransomware*, sélectionnez *Ne pas activer*, puis sélectionnez *Désactiver*.</block>
+  <block id="882422644d0036961f2ef9aed07712d6" category="list-text">À côté de *Anti-ransomware*, sélectionnez <block ref="09996779530a0566a9742876e9ffd4f1" category="inline-image-macro-rx" type="image"></block>, puis sélectionnez *Activer sur toutes les unités de stockage existantes*.</block>
+  <block id="6dc61dbf62f6b39ca07f06ff22297587" category="doc">Découvrez la protection des données SnapLock pour les systèmes de stockage ASA r2</block>
+  <block id="b28c237eff548aecf479a239a22f815e" category="paragraph">ONTAP SnapLock est une solution de conformité haute performance pour les organisations utilisant le stockage WORM afin de conserver les fichiers sous forme non modifiée à des fins réglementaires et de gouvernance. Vous pouvez exécuter SnapLock en mode Compliance ou Enterprise, qui offrent différents niveaux de protection des données WORM. Les modes SnapLock Compliance et Enterprise ne sont pas pris en charge sur les clusters principaux dans les environnements SAN, mais vous pouvez activer SnapLock pour SnapVault sur vos systèmes secondaires afin de protéger les snapshots secondaires contre toute suppression accidentelle ou malveillante.</block>
+  <block id="d518b6c93614020b83f8ca34dcf03ca0" category="paragraph">L'horloge de conformité SnapLock doit être initialisée pour protéger les instantanés sur vos systèmes secondaires avec SnapLock pour SnapVault.</block>
+  <block id="bd89ef986499f4ff1572bd4a4fa483d9" category="inline-link-macro">SnapLock pour SnapVault dans les environnements SAN</block>
+  <block id="5294938468fdefd1f2310e6e7293cb9b" category="list-text">En savoir plus sur <block ref="d75f88da20f7788e820767a9d46ee9a2" category="inline-link-macro-rx"></block>.</block>
+  <block id="af30d81f9a8c2c0f5b25d08da7858ddc" category="inline-link-macro">ONTAP SnapLock</block>
+  <block id="d86efdfbe80038867c854904dc8bfc91" category="list-text">En savoir plus sur <block ref="e5be20e426588130203bae7a7e597f79" category="inline-link-macro-rx"></block>.</block>
+  <block id="1aa5198de03ad6ef316bf6ea29a004a5" category="section-title">Initialiser l’horloge de conformité SnapLock</block>
+  <block id="92cc3b2a1d05f3fe426bdf43e298f42c" category="paragraph">Si vous souhaitez protéger les instantanés de destination sur un système secondaire avec SnapLock pour SnapVault, vous devez d'abord initialiser l'horloge de conformité SnapLock sur vos clusters locaux et de destination.</block>
+  <block id="bdb3c62480d4e3e45e23afa7944d222f" category="list-text">Vérifiez que l'horloge de conformité est initialisée.</block>
+  <block id="0f45969bf7bc3472106c4a23173a35bb" category="inline-link-macro">créer une relation de réplication avec SnapLock pour SnapVault</block>
+  <block id="1c455b71b9a6a19b8ab5534d9dd3545f" category="paragraph">Une fois que vous avez initialisé l’horloge de conformité SnapLock sur vos clusters locaux et de destination, vous êtes prêt à <block ref="716f8ed67937d4ffe779f9f204ed103b" category="inline-link-macro-rx"></block>.</block>
+  <block id="53ba0b0af13871c9c1e7a43da8f40ede" category="sidebar">Prise en charge de l'interface de ligne de commande (CLI) et de l'API REST ASA r2 pour les utilisateurs avancés d'ONTAP</block>
+  <block id="56487b0f66d25f7027042188a0b85f01" category="sidebar">Découvrez SnapLock</block>
 </blocks>
