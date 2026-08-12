@@ -38,7 +38,7 @@ Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.19.1 pour les
 | Mise à jour | Description 
 
 
-| Prise en charge améliorée du basculement automatique des SAN LIF | Le basculement automatique par défaut des LIF est pris en charge pour les LIF iSCSI et NVMe/TCP. 
+| link:../administer/manage-client-vm-access.html#create-a-lif-network-interface["Prise en charge améliorée du basculement automatique des SAN LIF"] | Le basculement automatique par défaut des LIF est pris en charge pour les LIF IP et NVMe/TCP. 
 |===
 
 

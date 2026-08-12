@@ -98,9 +98,9 @@ Vous avez créé un sous-réseau que vous pouvez utiliser pour simplifier la cr�
 Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder aux données. Les Storage VMs distribuent les données aux clients via une ou plusieurs LIF. Sur un système ASA r2, vous pouvez créer des LIF IP, FC et NVMe/FC. Une LIF de données IP peut gérer par défaut le trafic iSCSI et NVMe/TCP. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.
 
 .Basculement de LIF sur les systèmes ASA r2
-En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique afin d'assurer la continuité des communications réseau. À partir de ONTAP 9.19.1, le basculement automatique des LIF est pris en charge par défaut pour les LIF iSCSI, NVMe/TCP et IP partagées. Lorsque le basculement automatique des LIF est activé, en cas de défaillance du stockage, la LIF est automatiquement migrée de son nœud ou port d'origine vers son nœud ou port partenaire HA, puis de nouveau vers son nœud ou port d'origine une fois le basculement terminé. De même, si le port devient défaillant, la LIF est automatiquement migrée vers un port fonctionnel de son nœud d'origine, puis de nouveau vers son port d'origine une fois ce dernier rétabli.
+En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique, afin que la communication réseau ne soit pas interrompue. À partir de ONTAP 9.19.1, le basculement automatique des LIF IP est pris en charge par défaut. Lorsque le basculement automatique des LIF est activé, si un basculement du stockage se produit, la LIF est automatiquement migrée de son nœud ou port d'origine vers son nœud ou port partenaire HA, puis de nouveau vers son nœud ou port d'origine une fois le basculement terminé. Ou, si le port devient défaillant, la LIF est automatiquement migrée vers un port fonctionnel de son nœud d'origine, puis de nouveau vers son port d'origine une fois que le port est de nouveau opérationnel.
 
-Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF n'est pas pris en charge pour les LIF NVMe/TCP ni pour les LIF IP partagées. Lorsque vous créez des LIF iSCSI uniquement, le basculement automatique des LIF est activé par défaut, sauf si la machine virtuelle de stockage possède déjà des LIF iSCSI pour lesquelles le basculement automatique des LIF n'est pas activé. Si la machine virtuelle de stockage contient des LIF iSCSI uniquement pour lesquelles le basculement automatique des LIF n'est pas activé, vos nouvelles LIF ne seront pas activées non plus. Dans ce cas, vous devez d'abord supprimer les LIF iSCSI uniquement existantes, puis les recréer avec le basculement automatique des LIF activé. Découvrez comment link:https://docs.netapp.com/us-en/ontap/san-admin/delete-lif-san-environment-task.html["supprimer une LIF dans un environnement SAN"^].
+Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF n'est pas pris en charge pour les LIF IP utilisant à la fois le trafic iSCSI et NVMe/TCP. Lorsque vous créez des LIF uniquement iSCSI, le basculement automatique des LIF est activé par défaut, sauf si la machine virtuelle de stockage possède déjà des LIF iSCSI pour lesquelles le basculement automatique des LIF n'est pas activé. Si la machine virtuelle de stockage possède des LIF iSCSI pour lesquelles le basculement automatique des LIF n'est pas activé, les nouvelles LIF que vous créez ne seront pas activées non plus. Dans ce cas, vous devez d'abord supprimer les LIF iSCSI existantes, puis les recréer avec le basculement automatique des LIF. Découvrez comment link:https://docs.netapp.com/us-en/ontap/san-admin/delete-lif-san-environment-task.html["supprimer une LIF dans un environnement SAN"^].
 
 Les ports persistants servent au basculement des interfaces logiques FC et NVMe/FC. En savoir plus sur link:https://docs.netapp.com/us-en/ontap/san-config/asa-support-limitations.html#support-for-persistent-ports["ports persistants"^] dans la documentation ONTAP.
 
@@ -130,6 +130,7 @@ Vous avez créé une LIF pour l'accès aux données.
 
 Si vous souhaitez activer le basculement automatique des LIF iSCSI dans ONTAP 9.18.1 ou une version antérieure, vous devez d'abord créer une stratégie de service LIF uniquement iSCSI personnalisée.
 
+.Description de la tâche
 Vous devez utiliser l’interface de ligne de commande (CLI) ONTAP pour créer la stratégie de service personnalisée.
 
 .Étape
@@ -167,10 +168,13 @@ Vous pouvez utiliser l'interface de ligne de commande (CLI) ONTAP pour créer un
 [[create-iscsi-only-lifs-with-automatic-lif-failover]]
 === Créer des LIF uniquement iSCSI avec basculement automatique des LIF
 
-Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF est activé par défaut lors de la création de LIF iSCSI uniquement si toutes les autres LIF iSCSI de la machine virtuelle de stockage sont également activées pour le basculement automatique des LIF. S'il existe des LIF iSCSI uniquement sur la machine virtuelle de stockage qui ne sont pas activées pour le basculement automatique des LIF, vos LIF nouvellement créées ne seront pas non plus activées pour le basculement automatique des LIF.
+Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF est activé par défaut lors de la création de LIF iSCSI uniquement si toutes les autres LIF iSCSI de la machine virtuelle de stockage sont également activées pour le basculement automatique des LIF. Si certaines LIF iSCSI de la machine virtuelle de stockage ne sont pas activées pour le basculement automatique des LIF, les LIF nouvellement créées ne seront pas non plus activées pour le basculement automatique des LIF.
 
 .Avant de commencer
 Vous devez avoir créé une stratégie de service LIF iSCSI uniquement personnalisée.
+
+.Description de la tâche
+Vous devez utiliser l'interface de ligne de commandes (CLI) ONTAP pour créer une LIF iSCSI uniquement.
 
 .Étapes
 . Créez des LIF uniquement iSCSI avec basculement automatique des LIF :
@@ -226,6 +230,6 @@ ONTAP utilise le protocole NTP (Network Time Protocol) pour synchroniser l'heure
 Votre LIF a été modifiée.
 
 .Informations associées
-* link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["Déplacer une LIF SAN"].
-* link:https://docs.netapp.com/us-en/ontap/san-admin/remove-lif-from-portset-task.html["Supprimez une interface LIF SAN d'un ensemble de ports"].
+* link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["Déplacer une LIF SAN"^].
+* link:https://docs.netapp.com/us-en/ontap/san-admin/remove-lif-from-portset-task.html["Supprimez une interface LIF SAN d'un ensemble de ports"^].
 

@@ -178,7 +178,7 @@ Votre planning de transfert doit être d'au moins 30 minutes pour être pris en 
 
 
 .Et la suite ?
-Maintenant que vous avez créé une règle de réplication et une relation, votre transfert de données initial commence comme défini dans votre règle de réplication. Vous pouvez également tester votre basculement de réplication pour vérifier qu'il peut se produire si votre système ASA r2 est hors ligne.
+Une fois que vous avez créé une relation de réplication, votre transfert de données initial commence comme défini dans votre stratégie de réplication. Vous pouvez éventuellement tester le basculement de la réplication pour vérifier qu’un basculement réussi peut avoir lieu si votre système ASA r2 est mis hors ligne.
 
 
 
