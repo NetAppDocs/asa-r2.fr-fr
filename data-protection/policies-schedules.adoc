@@ -4,7 +4,7 @@ permalink: data-protection/policies-schedules.html
 keywords: data protection, polices, schedules, protect data, snapshot policies, snapshot schedules, replication policies 
 summary: Utilisez des règles et des calendriers de protection des données pour protéger les données selon un calendrier automatisé. 
 ---
-= Gérez les stratégies et les plannings de protection des données ONTAP sur les systèmes de stockage ASA r2
+= Gérez les politiques et les calendriers de protection des données sur les systèmes ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

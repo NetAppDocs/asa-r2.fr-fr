@@ -4,7 +4,7 @@ permalink: manage-data/svm-post-migrate-cutover-cleanup.html
 keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine, manual cutover, manual cleanup, remove source svm 
 summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d"équilibrer l"utilisation du stockage dans le cluster.' 
 ---
-= Basculer les clients et nettoyer la machine virtuelle de stockage source après la migration vers un système ASA r2
+= Basculement et nettoyage après une migration de machine virtuelle de stockage ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

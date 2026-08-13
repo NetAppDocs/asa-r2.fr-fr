@@ -4,7 +4,7 @@ permalink: data-protection/snapshot-reserve.html
 keywords: asa r2, snapshot reserve, percentage 
 summary: 'La réserve d"instantanés correspond à l"espace de l"unité de stockage réservé spécifiquement aux instantanés.  Lorsque la réserve d"instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l"espace utilisé par les instantanés dépasse la réserve d"instantanés.' 
 ---
-= Découvrez la réservation de snapshots ONTAP sur le stockage ASA r2
+= Découvrez la réserve de snapshots ONTAP sur les systèmes de stockage ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

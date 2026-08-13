@@ -4,7 +4,7 @@ permalink: videos/video_transcript_provision_san_storage.html
 keywords: frontmatter, front matter 
 summary: Visionnez de courtes vidéos qui expliquent comment utiliser ONTAP System Manager pour effectuer rapidement et facilement des tâches courantes sur vos systèmes de stockage ASA r2. 
 ---
-= Configurez le stockage SAN sur votre système ASA r2
+= Provisionnez le stockage SAN sur votre système ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
