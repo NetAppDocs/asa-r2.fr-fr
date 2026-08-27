@@ -11,9 +11,9 @@ summary: Créez des groupes d’hôtes pour fournir aux hôtes un accès aux uni
 
 
 [role="lead"]
-Sur un système ASA r2, un _groupe d'hôtes_ est le mécanisme utilisé pour donner aux hôtes l'accès aux unités de stockage. Un groupe d'hôtes désigne un groupe initiateur pour les hôtes SCSI ou un sous-système NVMe pour les hôtes NVMe. Un hôte ne peut voir que les unités de stockage qui sont mappées aux groupes d'hôtes auxquels il appartient. Lorsqu'un groupe d'hôtes est mappé sur une unité de stockage, les hôtes qui sont membres du groupe peuvent alors monter (créer des répertoires et des structures de fichiers sur) l'unité de stockage.
+Sur un système ASA r2, un _groupe d'hôtes_ est le mécanisme utilisé pour donner aux hôtes l'accès aux unités de stockage. Un groupe d'hôtes fait référence à un igroup pour les hôtes SCSI ou à un sous-système NVMe pour les hôtes NVMe. Un hôte ne peut voir que les unités de stockage qui sont mappées aux groupes d'hôtes auxquels il appartient. Lorsqu'un groupe d'hôtes est mappé à une unité de stockage, les hôtes membres du groupe sont alors en mesure de monter (créer des répertoires et des structures de fichiers sur) l'unité de stockage.
 
-Les groupes d'hôtes sont créés automatiquement ou manuellement lorsque vous créez vos unités de stockage. Vous pouvez éventuellement utiliser les étapes suivantes pour créer des groupes hôtes avant ou après la création de l'unité de stockage.
+Les groupes d'hôtes sont créés automatiquement ou manuellement lors de la création de vos unités de stockage. Vous pouvez éventuellement utiliser les étapes suivantes pour créer des groupes d'hôtes avant ou après la création des unités de stockage.
 
 .Étapes
 . Dans System Manager, sélectionnez *Host*.

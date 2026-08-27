@@ -15,7 +15,7 @@ searchtitle: 'Clonage des données à l"aide de ONTAP System Manager | ASA r2'
 
 
 [role="lead"]
-Le clonage des données crée des copies d'unités de stockage et de groupes de cohérence sur votre système ASA r2 à l'aide de ONTAP System Manager. Ces copies peuvent être utilisées pour le développement d'applications, les tests, les sauvegardes, la migration des données ou d'autres fonctions d'administration.
+Le clonage de données crée des copies des unités de stockage et des groupes de cohérence sur votre système ASA r2. Vous pouvez utiliser ces copies pour le développement d'applications, les tests, les sauvegardes, la migration des données et d'autres fonctions d'administration.
 
 
 
@@ -62,7 +62,7 @@ Créez un nouveau groupe d'hôtes
 Ajouter un nouvel hôte
  a| 
 .. Sous *Host mapping*, sélectionnez *New hosts*.
-.. Entrez le nom a du nouvel hôte, puis sélectionnez *FC* ou *iSCSI*.
+.. Saisissez un nom pour le nouvel hôte, puis sélectionnez *FC* ou *iSCSI*.
 .. Sélectionnez les initiateurs hôtes dans la liste des initiateurs existants ou sélectionnez *Ajouter* pour ajouter de nouveaux initiateurs pour l'hôte.
 
 
@@ -126,7 +126,7 @@ Créez un nouveau groupe d'hôtes
 Ajouter un nouvel hôte
  a| 
 .. Sous *Host mapping*, sélectionnez *New hosts*.
-.. Entrez le nouveau nom d'hôte, puis sélectionnez *FC* ou *iSCSI*.
+.. Saisissez un nom pour le nouvel hôte, puis sélectionnez *FC* ou *iSCSI*.
 .. Sélectionnez les initiateurs hôtes dans la liste des initiateurs existants ou sélectionnez *Ajouter un initiateur* pour ajouter de nouveaux initiateurs pour l'hôte.
 
 
@@ -162,7 +162,7 @@ Lorsque vous fractionnez un clone de groupe de cohérence, vous dissociez le clo
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > groupes de cohérence*.
-. Placez le curseur de la souris sur le clone de groupe de cohérence à diviser.
+. Survolez le clone du groupe de cohérence que vous souhaitez diviser.
 . Sélectionnez *Split clone*.
 . Sélectionnez *Fractionner*.
 

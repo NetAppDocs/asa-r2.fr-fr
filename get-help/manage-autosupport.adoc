@@ -11,9 +11,9 @@ summary:
 
 
 [role="lead"]
-AutoSupport est un mécanisme qui surveille de manière proactive l'état de votre système et envoie automatiquement des messages au support technique NetApp, à votre organisation de support interne et à un partenaire de support.
+AutoSupport surveille de manière proactive l'état de santé de votre système et envoie automatiquement des messages au support technique NetApp, à votre organisation de support interne et à un partenaire de support.
 
-Les messages AutoSupport envoyés au support technique sont activés par défaut lorsque vous configurez votre cluster. Vous devez définir les options correctes et disposer d'un hôte de messagerie valide pour que les messages soient envoyés à votre organisation de support interne. ONTAP commence à envoyer des messages AutoSupport 24 heures après leur activation.
+AutoSupport Les messages au support technique sont activés par défaut lors de la configuration de votre cluster. Vous devez configurer les options appropriées et disposer d'un serveur de messagerie valide pour envoyer des messages à votre organisation de support interne. ONTAP commence à envoyer des messages AutoSupport 24 heures après son activation.
 
 .Avant de commencer
 Vous devez être administrateur du cluster pour gérer AutoSupport.
@@ -45,11 +45,11 @@ Ajoutez des membres de votre organisation de support interne à la liste des adr
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . À côté de *AutoSupport*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez ; puis *plus d'options*.
 . En regard de *Email*, sélectionnez image:icon_edit_pencil_blue_outline.png["icône crayon"]; puis sélectionnez image:icon_add.gif["Signe plus bleu suivi du mot Ajouter"].
-. Saisissez l'adresse e-mail du destinataire, puis la catégorie de destinataire.
+. Saisissez l'adresse électronique du destinataire, puis sélectionnez la catégorie du destinataire.
 +
-Pour les partenaires, sélectionnez *partenaire* pour la catégorie de destinataires. Sélectionnez *général* pour les membres de votre organisation de soutien interne.
+Pour les partenaires, sélectionnez *Partenaire* comme catégorie de destinataire. Sélectionnez *Général* pour les membres de votre organisation de support interne.
 
-. Sélectionnez enregistrer.
+. Sélectionnez *Enregistrer*.
 
 
 .Et la suite ?
@@ -86,7 +86,7 @@ Si vous effectuez une mise à niveau ou une maintenance sur votre système ASA r
 
 
 .Et la suite ?
-Les dossiers AutoSupport ne seront pas générés pendant le temps que vous avez spécifié. Si vous effectuez la mise à niveau ou la maintenance avant l'expiration du délai spécifié, vous devez reprendre immédiatement la génération du dossier de support.
+AutoSupport Les tickets d'assistance ne sont pas générés pendant la période que vous avez spécifiée. Si vous terminez votre mise à niveau ou votre maintenance avant l'expiration de la période spécifiée, la génération des tickets d'assistance reprendra immédiatement.
 
 
 

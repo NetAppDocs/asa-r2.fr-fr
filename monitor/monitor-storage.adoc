@@ -30,7 +30,7 @@ Le taux de réduction des données représente l'espace économisé grâce à l'
 
 
 .Et la suite ?
-Si l'espace de votre cluster est insuffisant ou s'il ne dispose pas de la capacité nécessaire pour répondre à un nouveau besoin, envisagez d'link:../administer/increase-storage-capacity.html["ajouter de nouveaux lecteurs"]augmenter votre capacité de stockage avec votre système ASA r2.
+Si votre cluster manque d'espace ou n'a pas la capacité de répondre à la demande future, link:../administer/increase-storage-capacity.html["ajouter de nouveaux lecteurs"] à votre système ASA r2 pour augmenter votre capacité de stockage.
 
 
 
@@ -50,7 +50,7 @@ Un récapitulatif de l'utilisation de la zone de disponibilité du stockage s'af
 
 . Si vous souhaitez obtenir des mesures plus détaillées, sélectionnez une disponibilité spécifique du stockage.
 +
-Sous *vue d'ensemble*, la capacité de la zone de disponibilité du stockage, la quantité d'espace utilisé et le taux de réduction des données sont affichés.
+Sous *Aperçu*, la capacité de la zone de disponibilité du stockage, la quantité d'espace utilisé et le taux de réduction des données sont affichés.
 
 +
 Sous *Unités de stockage*, une liste de toutes les unités de stockage dans la zone de disponibilité de stockage est affichée.
@@ -58,7 +58,7 @@ Sous *Unités de stockage*, une liste de toutes les unités de stockage dans la 
 
 
 .Et la suite ?
-Si votre zone de disponibilité de stockage manque d'espace, vous devriez prévoir de link:../manage-data/move-storage-units.html["déplacer les unités de stockage"] migrer vers une autre zone de disponibilité de stockage afin d'équilibrer l'utilisation du stockage sur l'ensemble du cluster, de supprimer des instantanés pour libérer de l'espace ou d'ajouter des disques supplémentaires à vos nœuds pour augmenter la capacité.
+Si votre zone de disponibilité de stockage manque d'espace, link:../manage-data/move-storage-units.html["déplacer les unités de stockage"] vers une autre zone de disponibilité de stockage pour équilibrer l'utilisation du stockage sur l'ensemble du cluster, supprimez des snapshots pour libérer de l'espace, ou ajoutez des disques supplémentaires à vos nœuds pour augmenter la capacité.
 
 
 
@@ -76,7 +76,7 @@ Surveillez la quantité de stockage consommée par une unité de stockage afin d
 ** Quantité d'espace utilisé
 ** Ratio de réduction de données
 +
-Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage
+Le taux de réduction des données représente l'espace économisé grâce à l'efficacité du stockage.
 
 ** Snapshot utilisé
 +

@@ -11,7 +11,7 @@ summary: Utilisez ONTAP System Manager pour afficher la liste des erreurs ou ale
 
 
 [role="lead"]
-Utilisez ONTAP System Manager pour afficher la liste des erreurs ou alertes qui se sont produites dans votre système ainsi que les actions correctives recommandées. Vous pouvez également afficher les journaux d'audit du système et la liste des tâches actives, terminées ou ayant échoué.
+Utilisez ONTAP System Manager pour consulter une liste des erreurs ou alertes, des actions correctives recommandées, des journaux d'audit du système et des tâches actives, terminées ou ayant échoué.
 
 .Étapes
 . Dans System Manager, sélectionnez *Events & Jobs*.
@@ -67,4 +67,4 @@ Configurez votre système pour qu'il envoie une notification à des adresses e-m
 
 
 .Résultat
-L'adresse e-mail que vous avez ajoutée recevra à présent les notifications par e-mail spécifiées pour les événements du cluster et les journaux d'audit.
+L'adresse e-mail que vous avez ajoutée reçoit les notifications par e-mail spécifiées pour les événements du cluster et les journaux d'audit.

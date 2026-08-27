@@ -31,7 +31,7 @@ Générez une requête de signature de certificat (CSR) pour créer une clé pri
 
 
 .Résultat
-Vous avez généré une RSC à laquelle vous pouvez utiliser pour générer un certificat public.
+Vous avez généré une CSR qui peut être utilisée pour générer un certificat public.
 
 
 

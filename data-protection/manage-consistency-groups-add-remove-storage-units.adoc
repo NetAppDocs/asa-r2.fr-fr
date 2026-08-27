@@ -37,7 +37,7 @@ Vous pouvez modifier les paramètres par défaut des nouvelles unités de stocka
 link:snapshot-reserve.html["Découvrez-en plus sur la réserve de snapshots sur les systèmes de stockage ASA r2"].
 
 .Avant de commencer
-Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez développer se trouve dans une relation de synchronisation active SnapMirror , vous devezlink:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant de pouvoir ajouter des unités de stockage.  Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devezlink:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir développer le groupe de cohérence.  La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant l'extension d'un groupe de cohérence n'est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
+Si vous utilisez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez étendre est dans une relation de synchronisation active SnapMirror, vous devez link:snapmirror-active-sync-delete-relationship.html["supprimer la relation de synchronisation active SnapMirror"] avant de pouvoir ajouter des unités de stockage. Si vous utilisez ONTAP 9.16.1 et que le groupe de cohérence est dans une relation de réplication asynchrone, vous devez link:snapmirror-active-sync-break-relationship.html["rompre la relation"] avant de pouvoir étendre le groupe de cohérence. La suppression de la relation de synchronisation active SnapMirror ou la rupture de la relation asynchrone avant d’étendre un groupe de cohérence n’est pas requise dans ONTAP 9.17.1 et les versions ultérieures.
 
 [role="tabbed-block"]
 ====
@@ -66,8 +66,8 @@ Si vous créez plusieurs unités, chaque unité sera créée avec la même capac
 . Sélectionnez *développer*.
 
 
-.Et la suite
-Après avoir créé une nouvelle unité de stockage, vous devez link:../manage-data/provision-san-storage.html#add-host-initiators["ajoutez des initiateurs hôtes"] et link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["mappez l'unité de stockage nouvellement créée sur un hôte"]. L'ajout d'initiateurs hôtes permet aux hôtes d'accéder aux unités de stockage et d'effectuer des opérations de données. Le mappage d'une unité de stockage à un hôte permet à l'unité de stockage de commencer à transmettre des données à l'hôte auquel elle est mappée.
+.Et la suite ?
+Après avoir créé une nouvelle unité de stockage, vous devez link:../manage-data/provision-san-storage.html#add-host-initiators["ajoutez des initiateurs hôtes"] et link:../manage-data/provision-san-storage.html#map-the-storage-unit-to-a-host["mappez l'unité de stockage nouvellement créée sur un hôte"]. L'ajout d'initiateurs hôtes permet à ces hôtes d'accéder aux unités de stockage et d'effectuer des opérations sur les données. Associer une unité de stockage à un hôte permet à cette dernière de commencer à fournir des données à l'hôte auquel elle est associée.
 
 --
 ====
@@ -90,5 +90,5 @@ Retirez une unité de stockage d'un groupe de cohérence pour la supprimer, la g
 .Résultat
 L'unité de stockage n'est plus membre du groupe de cohérence.
 
-.Et la suite
+.Et la suite ?
 Si vous devez continuer à protéger les données de l'unité de stockage, ajoutez-la à un autre groupe de cohérence.

@@ -11,7 +11,7 @@ summary: 'Étant donné que les systèmes ASA r2 exécutent une version simplifi
 
 
 [role="lead"]
-Étant donné que les systèmes ASA r2 exécutent une version simplifiée d' ONTAP, de nombreuses tâches ONTAP courantes et fonctions du gestionnaire de système sont exécutées de la même manière sur les systèmes ASA r2 que sur les autres systèmes ONTAP .
+Étant donné que les systèmes ASA r2 exécutent une version simplifiée d'ONTAP, vous effectuez de nombreuses tâches ONTAP courantes et fonctions de System Manager de la même manière que sur d'autres systèmes ONTAP.
 
 Pour plus d'informations sur les fonctionnalités et fonctions courantes, consultez la documentation ONTAP suivante.
 
@@ -27,7 +27,7 @@ Découvrez plus d'informations sur les fonctionnalités de protection des donné
 [[clustered-external-key-servers]]
 === Serveurs de clés externes en cluster
 
-Vous pouvez configurer la connectivité à des serveurs de gestion de clés externes en cluster sur une machine virtuelle de stockage. Avec les serveurs de clés en cluster, vous pouvez désigner des serveurs de clés primaires et secondaires sur une machine virtuelle de stockage. Lors de l'enregistrement des clés, ONTAP tentera d'abord d'accéder à un serveur de clés primaire avant de tenter successivement d'accéder aux serveurs secondaires jusqu'à ce que l'opération se termine avec succès, empêchant ainsi la duplication des clés.
+Vous pouvez configurer la connectivité à des serveurs de gestion de clés externes en cluster sur une machine virtuelle de stockage. Avec des serveurs de clés en cluster, vous pouvez désigner des serveurs de clés primaires et secondaires sur une machine virtuelle de stockage. Lors de l'enregistrement des clés, ONTAP tente d'abord un serveur de clés primaire, puis essaie successivement les serveurs secondaires jusqu'à ce que l'opération réussisse, évitant ainsi les clés en double.
 
 link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-key-server-task.html["Apprenez à configurer des serveurs de clés externes en cluster"^].
 
@@ -107,7 +107,7 @@ Découvrez plus d'informations sur les fonctionnalités réseau courantes prises
 [[fips-compliance]]
 === Conformité FIPS
 
-ONTAP est conforme aux normes fédérales de traitement de l'information (FIPS) 140-2 pour toutes les connexions SSL.  Vous pouvez activer et désactiver le mode SSL FIPS, définir les protocoles SSL globalement et désactiver les chiffrements faibles tels que RC4 dans ONTAP.
+ONTAP est conforme à la norme Federal Information Processing Standards (FIPS) 140-2 pour toutes les connexions SSL. Vous pouvez activer ou désactiver le mode SSL FIPS, configurer les protocoles SSL globalement et désactiver les chiffrements faibles tels que RC4 dans ONTAP.
 
 À partir d' ONTAP 9.18.1, les algorithmes cryptographiques de calcul post-quantique sont pris en charge pour SSL.  Ces algorithmes offrent une protection supplémentaire contre d'éventuelles futures attaques informatiques quantiques et sont disponibles lorsque le mode SSL FIPS est désactivé.
 
@@ -135,7 +135,7 @@ En savoir plus sur les fonctionnalités de performance courantes prises en charg
 [[modify-default-settings-that-control-automatic-qos-throughput-ceiling-increases]]
 === Modifier les paramètres par défaut qui contrôlent les augmentations automatiques du plafond de débit QoS
 
-Les groupes de stratégies QoS adaptatifs et non adaptatifs sont activés automatiquement pour augmenter temporairement le plafond de débit d’une charge de travail de 50 % pendant une seconde afin de répondre par défaut aux demandes ponctuelles de performances accrues. À partir d’ONTAP 9.19.1, vous pouvez modifier ces paramètres par défaut. Dans ONTAP 9.18.1 et les versions antérieures, ces paramètres ne peuvent pas être modifiés.
+Les groupes de stratégies QoS adaptatives et non adaptatives augmentent temporairement le débit maximal d'une charge de travail de 50 % pendant une seconde par défaut afin de répondre aux demandes ponctuelles de performances accrues. À partir d'ONTAP 9.19.1, vous pouvez modifier ces paramètres. Dans ONTAP 9.18.1 et les versions antérieures, vous ne pouvez pas les modifier.
 
 link:https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-qos-task.html["Apprenez-en davantage sur les plafonds de débit QoS"^].
 
@@ -204,13 +204,13 @@ link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.ht
 [[global-deduplication]]
 === Déduplication globale
 
-À partir d'ONTAP 9.19.1, la déduplication globale s'étend de link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["économies d'espace ONTAP grâce à la déduplication existante"^] au niveau de l'unité de stockage à l'ensemble de la Storage Availability Zone (SAZ). En éliminant les blocs de données dupliqués sur toutes les unités de stockage de la SAZ, l'efficacité du stockage peut être considérablement améliorée et le coût de possession réduit. La déduplication globale ne nécessite aucune licence de fonctionnalité, est activée par défaut, s'intègre parfaitement aux technologies d'efficacité du stockage existantes et fonctionne de manière transparente avec un impact minimal sur les performances et sans configuration administrative.
+À partir d'ONTAP 9.19.1, la link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["économies d'espace ONTAP grâce à la déduplication existante"^]déduplication globale s'étend du niveau de l'unité de stockage à l'ensemble de la zone de disponibilité de stockage (SAZ). En éliminant les blocs de données dupliqués sur toutes les unités de stockage de la SAZ, l'efficacité du stockage peut être considérablement améliorée et le coût de possession réduit. La déduplication globale ne nécessite aucune licence de fonctionnalité, est activée par défaut, s'intègre parfaitement aux technologies d'efficacité du stockage existantes et fonctionne de manière transparente avec un impact minimal sur les performances et sans nécessiter de configuration administrative.
 
 
 
 [[system-manager]]
 == System Manager
 
-Vous pouvez rechercher diverses actions, objets et sujets d'information dans le Gestionnaire système.  Vous pouvez également rechercher des entrées spécifiques dans les données du tableau.
+Dans le Gestionnaire système, vous pouvez rechercher diverses actions, objets et sujets d'information. Vous pouvez également rechercher des données de table pour des entrées spécifiques.
 
 link:https://docs.netapp.com/us-en/ontap/task_admin_search_filter_sort.html["Apprenez à rechercher, filtrer et trier les informations dans System Manager"^].

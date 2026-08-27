@@ -36,21 +36,21 @@ Les conditions préalables à l'appairage de cluster sont les mêmes pour les sy
 .Étapes
 . Sur le cluster local, dans System Manager, sélectionnez *Cluster > Paramètres*.
 . Sous *intercluster Settings* en regard de *Cluster peers*, image:icon_kabob.gif["trois points bleus verticaux"]sélectionnez , puis *Ajouter un homologue de cluster*.
-. Sélectionnez *Lauch remote cluster* ; ceci génère une phrase de passe que vous utiliserez pour vous authentifier auprès du cluster distant.
+. Sélectionnez *Lancer le cluster distant* ; cela génère une phrase secrète que vous utiliserez pour vous authentifier auprès du cluster distant.
 . Une fois la phrase de passe du cluster distant générée, collez-la sous *Passphrase* sur le cluster local.
 . Sélectionner image:icon_add.gif["signe plus bleu suivi du mot ajouter en lettres bleues"], puis entrer l'adresse IP de l'interface réseau intercluster.
 . Sélectionnez *Initiate cluster peering*.
 
 
 .Et la suite ?
-Vous avez effectué un peering pour le cluster ASA r2 local avec un cluster distant. Il est maintenant possible de créer une relation de réplication.
+Vous avez appairé votre cluster ASA r2 local avec un cluster distant. Vous pouvez maintenant créer une relation de réplication.
 
 
 
 [[step-2-optionally-create-a-custom-replication-policy]]
 == Étape 2 : (facultatif) Créez une politique de réplication personnalisée
 
-La politique de réplication définit quand les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant.  ONTAP inclut diverses politiques de protection des données prédéfinies que vous pouvez utiliser pour vos relations de réplication.  Si les politiques prédéfinies ne répondent pas à vos besoins, vous pouvez créer une politique de réplication personnalisée.
+La stratégie de réplication définit le moment où les mises à jour effectuées sur le cluster ASA r2 sont répliquées sur le site distant. ONTAP inclut différentes stratégies de protection des données prédéfinies que vous pouvez utiliser pour vos relations de réplication. Si les stratégies prédéfinies ne répondent pas à vos besoins, vous pouvez créer une stratégie de réplication personnalisée.
 
 En savoir plus surlink:pre-defined-protection-policies.html["politiques de protection des données ONTAP prédéfinies"] .
 

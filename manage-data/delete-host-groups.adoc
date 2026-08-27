@@ -18,7 +18,7 @@ Sur un système ASA r2, un groupe d'hôtes est le mécanisme permettant aux hôt
 . Sous *Mappage d'hôte*, sélectionnez le groupe d'hôtes que vous souhaitez supprimer.
 . Sélectionnez *Stockage mappé*.
 . Sélectionnez *Plus*, puis sélectionnez *Supprimer*.
-. Sélectionnez pour vérifier que vous souhaitez continuer, puis sélectionnez *Supprimer*.
+. Sélectionnez l'option de confirmation pour vérifier que vous souhaitez continuer ; puis sélectionnez *Supprimer*.
 
 
 .Et la suite ?

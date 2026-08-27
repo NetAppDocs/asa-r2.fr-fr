@@ -57,7 +57,7 @@ Assurez-vous de fermer lentement la poignée de came de manière à ce qu'elle s
 
 . Vérifiez que le voyant d'activité du lecteur (vert) est allumé.
 +
-** SI le voyant est fixe, le disque est sous tension.
+** Si la LED est allumée en continu, le disque dispose de l'alimentation.
 ** Si le voyant clignote, le lecteur est sous tension et les E/S sont en cours. Le voyant clignote également si le micrologiciel du lecteur est en cours de mise à jour.
 +
 Le firmware des disques est automatiquement mis à jour (sans interruption) sur les nouveaux lecteurs qui ne disposent pas de versions de micrologiciel actuelles.

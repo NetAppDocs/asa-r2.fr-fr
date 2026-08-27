@@ -12,7 +12,7 @@ searchtitle: Différences entre ASA r2 et les autres systèmes ONTAP
 
 
 [role="lead"]
-Les systèmes ASA r2 offrent une solution matérielle et logicielle pour les environnements SAN uniquement, construits sur des solutions 100 % flash. ASA se distinguent des autres systèmes ONTAP (ASA, AFF et FAS) par la mise en œuvre de leur personnalité ONTAP , de leur couche de stockage et des protocoles pris en charge.
+Les systèmes ASA r2 sont des solutions matérielles et logicielles destinées aux environnements SAN uniquement, construites sur des systèmes entièrement flash. Ils se distinguent des autres systèmes ONTAP (ASA, AFF et FAS) par leur personnalité ONTAP, leur couche de stockage et les protocoles pris en charge.
 
 Les éléments suivants sont classés comme systèmes ASA r2 :
 
@@ -30,7 +30,7 @@ Les éléments suivants sont classés comme systèmes ASA r2 :
 [[personality-differences]]
 == Différences de personnalité
 
-Sur un système ASA r2, le logiciel ONTAP est optimisé pour prendre en charge les fonctionnalités SAN essentielles, tout en limitant la visibilité et la disponibilité des fonctionnalités non liées à SAN. Par exemple, System Manager exécuté sur un système ASA r2 n'affiche pas les options permettant de créer des répertoires locaux pour les clients NAS. Cette version simplifiée de ONTAP est identifiée comme la personnalité _ASA r2_. ONTAP exécuté sur des systèmes ASA est identifié comme _ASA ONTAP Personality_. ONTAP exécuté sur des systèmes AFF et FAS ONTAP est identifié comme _personnalité ONTAP unifiée_. Les différences entre les personnalités ONTAP sont référencées dans la référence de commande ONTAP (pages man), la spécification de l'API REST et les messages EMS, le cas échéant.
+Sur un système ASA r2, le logiciel ONTAP est rationalisé pour prendre en charge la fonctionnalité SAN essentielle tout en limitant la visibilité et la disponibilité des caractéristiques et fonctions non liées au SAN. Par exemple, System Manager s'exécutant sur un système ASA r2 n'affiche pas les options permettant de créer des répertoires de base pour les clients NAS. Cette version rationalisée d'ONTAP est identifiée sous le nom de _personnalité ASA r2_. ONTAP s'exécutant sur les systèmes ASA est identifié sous le nom de _personnalité ASA ONTAP_. ONTAP s'exécutant sur les systèmes AFF et FAS est identifié sous le nom de _personnalité ONTAP unifiée_. Les différences entre les personnalités ONTAP sont référencées dans la référence des commandes ONTAP (pages de manuel), la spécification de l'API REST et les messages EMS, le cas échéant.
 
 Vous pouvez vérifier le profil de votre stockage ONTAP dans System Manager ou via l'interface de ligne de commande ONTAP.
 
@@ -50,7 +50,7 @@ Impossible de modifier le profil de votre système de stockage ONTAP.
 Les systèmes ASA r2 utilisent une couche de stockage simplifiée qui est différente de la couche de stockage utilisée par les systèmes FAS, AFF et ASA .
 
 .Systèmes FAS, AFF et ASA
-La couche de stockage des systèmes FAS, AFF et ASA utilise les agrégats comme unité de base. Un agrégat possède un ensemble spécifique de disques disponibles dans un système de stockage. Il alloue l'espace sur les disques qu'il possède aux volumes pour les LUN et les espaces de noms. Avec ces systèmes, les utilisateurs ONTAP peuvent créer et modifier des agrégats, des volumes, des LUN et des espaces de noms.
+La couche de stockage des systèmes FAS, AFF et ASA utilise les agrégats comme unité de base de stockage. Un agrégat possède un ensemble spécifique de disques disponibles dans un système de stockage. L’agrégat alloue de l’espace sur les disques qu’il possède aux volumes pour les LUN et les espaces de noms. Avec ces systèmes, les utilisateurs d’ONTAP peuvent créer et modifier des agrégats, des volumes, des LUN et des espaces de noms.
 
 .Systèmes ASA r2
 Au lieu d'agrégats, la couche de stockage des systèmes ASA r2 utilise des zones de disponibilité de stockage. Une zone de disponibilité de stockage est un pool commun de stockage accessible aux deux nœuds d'une même paire HA. Les deux nœuds de la paire HA ont accès à tous les disques disponibles dans leur zone de disponibilité de stockage partagée. Par exemple, dans un cluster ONTAP ASA r2 à deux nœuds, il existe une zone de disponibilité de stockage, accessible aux deux nœuds du cluster. Dans un cluster ONTAP ASA r2 à quatre nœuds, il existe deux zones de disponibilité de stockage. Chaque paire HA du cluster a accès à l'une des zones de disponibilité de stockage.
@@ -93,7 +93,7 @@ En raison de cette approche automatisée et simplifiée de la gestion du stockag
 Les principales différences entre les systèmes ASA r2 et FAS, AFF et ASA concernant l'interface de ligne de commande et l'API REST de ONTAP sont décrites ci-dessous.
 
 .Création de VM de stockage par défaut avec services de protocole
-Les nouveaux clusters contiennent automatiquement une machine virtuelle (VM) de stockage de données par défaut avec les protocoles SAN activés.  Les interfaces logiques de données IP prennent en charge les protocoles iSCSI et NVMe/TCP et utilisent le `default-data-blocks` politique de service par défaut.
+Les nouveaux clusters contiennent automatiquement une machine virtuelle de stockage des données par défaut avec les protocoles SAN activés. Les interfaces logiques de données IP prennent en charge les protocoles iSCSI et NVMe/TCP et utilisent la  `default-data-blocks` stratégie de service par défaut.
 
 .Création automatique de volume
 La création d'une unité de stockage (LUN ou espace de noms) crée automatiquement un volume à partir de la zone de disponibilité du stockage. Il en résulte un namespace commun et simplifié. La suppression d'une unité de stockage supprime automatiquement le volume associé.

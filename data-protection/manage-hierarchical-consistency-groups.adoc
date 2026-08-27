@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/manage-hierarchical-consistency-groups.html 
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity 
-summary: 'Utilisez des groupes de cohérence pour effectuer diverses actions sur plusieurs unités de stockage en même temps au lieu d"effectuer des actions individuellement sur chaque unité.  Dans une structure hiérarchique, un ou plusieurs groupes de cohérence sont configurés comme enfants sous un groupe de cohérence parent.' 
+summary: Utilisez les groupes de cohérence pour effectuer simultanément diverses actions sur plusieurs unités de stockage, au lieu de les effectuer individuellement sur chaque unité. Dans une structure hiérarchique, un ou plusieurs groupes de cohérence sont configurés comme enfants sous un groupe de cohérence parent. 
 ---
 = Gérez les groupes de cohérence hiérarchique sur votre système ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Utilisez des groupes de cohérence pour effectuer diverses actions sur
 
 
 [role="lead"]
-À partir d' ONTAP 9.16.1, vous pouvez utiliser System Manager pour créer des groupes de cohérence hiérarchiques sur votre système ASA r2.  Dans une structure hiérarchique, un ou plusieurs groupes de cohérence sont configurés comme enfants sous un groupe de cohérence parent.  Vous pouvez appliquer des stratégies de snapshot individuelles à chaque groupe de cohérence enfant et répliquer les snapshots de tous les groupes de cohérence enfant sur un cluster distant en tant qu'unité unique en répliquant le parent.  Cela simplifie la protection et la gestion des données pour les structures de données complexes.
+À partir d'ONTAP 9.16.1, vous pouvez utiliser System Manager pour créer des groupes de cohérence hiérarchiques sur votre système ASA r2. Dans une structure hiérarchique, un ou plusieurs groupes de cohérence sont configurés comme enfants sous un groupe de cohérence parent. Vous pouvez appliquer des stratégies de snapshot individuelles à chaque groupe de cohérence enfant et répliquer les snapshots de tous les groupes de cohérence enfants vers un cluster distant en une seule unité en répliquant le parent. Cela simplifie la protection des données et la gestion pour les structures de données complexes.
 
 
 
@@ -25,14 +25,14 @@ Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > groupes de cohérence*.
-. Placez le curseur de la souris sur le groupe de cohérence à convertir en groupe de cohérence parent.
+. Survolez le groupe de cohérence que vous souhaitez convertir en groupe de cohérence parent.
 . Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis *promouvoir vers le groupe de cohérence parent*.
 . Saisissez un nom pour le nouveau groupe de cohérence enfant ou acceptez le nom par défaut, puis sélectionnez le type de composant du groupe de cohérence.
 . Sélectionnez *promouvoir*.
 
 
 .Et la suite ?
-Vous pouvez créer des groupes de cohérence enfants supplémentaires sous le groupe de cohérence parent.  Vous pouvez égalementlink:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"] pour copier les groupes de cohérence parents et enfants vers un emplacement géographiquement distant à des fins de sauvegarde et de reprise après sinistre.
+Vous pouvez créer des groupes de cohérence enfants supplémentaires sous le groupe de cohérence parent. Vous pouvez également link:snapshot-replication.html["configuration de la réplication snapshot"] copier les groupes de cohérence parent et enfant vers un emplacement géographiquement distant à des fins de sauvegarde et de reprise après sinistre.
 
 
 
@@ -102,7 +102,7 @@ Si vous choisissez de créer un nouveau groupe de cohérence parent, indiquez le
 
 --
 ====
-.Et la suite
+.Et la suite ?
 Après avoir créé un groupe de cohérence enfant, vous pouvezlink:policies-schedules.html#apply-a-snapshot-policy-to-a-consistency-group["appliquez des règles de protection de snapshots individuelles"] à chaque groupe de cohérence enfant.  Vous pouvez égalementlink:snapshot-replication.html["configurer des politiques de réplication"] sur les groupes de cohérence parents et enfants pour répliquer les groupes de cohérence vers un emplacement distant.
 
 
@@ -118,7 +118,7 @@ Si vous exécutez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez
 .Étapes
 . Dans System Manager, sélectionnez *protection > groupes de cohérence*.
 . Sélectionnez le groupe de cohérence parent.
-. Sélectionnez sur le groupe de cohérence enfant à détacher.
+. Survolez le groupe de cohérence enfant que vous souhaitez détacher.
 . Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"]; puis sélectionnez *détacher du parent*.
 . Indiquez le nouveau nom du groupe de cohérence que vous souhaitez détacher ou acceptez le nom par défaut, puis sélectionnez le type d'application du groupe de cohérence.
 . Sélectionnez *détacher*.

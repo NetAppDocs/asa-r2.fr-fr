@@ -25,7 +25,7 @@ Rassemblez les informations suivantes :
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Présentation*.
-. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] en regard du nœud que vous souhaitez joindre au cluster, puis sélectionnez *Ajouter un nœud*
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] à côté du nœud que vous souhaitez joindre au cluster ; puis sélectionnez *Ajouter un nœud*.
 . Entrez l'adresse IP de chaque nœud.
 . Indiquez l'adresse IP, le masque de sous-réseau et la passerelle de l'interface réseau intercluster.
 . Si vous souhaitez configurer le gestionnaire de clés intégré OKM, entrez la phrase de passe OKM.

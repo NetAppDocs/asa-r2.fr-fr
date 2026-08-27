@@ -19,7 +19,7 @@ Les unités de stockage d'un système ASA r2 sont contenues dans des machines vi
 [[create-a-storage-vm]]
 == Créez une machine virtuelle de stockage
 
-Lors de la configuration des clusters, votre machine virtuelle de stockage de données par défaut est créée. Toutes les nouvelles unités de stockage sont créées à l'intérieur de votre VM de stockage de données par défaut, sauf si vous créez et sélectionnez une autre VM de stockage. Vous pouvez créer une VM de stockage supplémentaire pour séparer vos unités de stockage pour différentes applications, différents services ou clients. Par exemple, vous pouvez créer une VM de stockage pour votre environnement de développement et une autre VM de stockage pour votre environnement de production, ou bien créer une VM de stockage pour votre département financier et une autre VM de stockage pour votre département marketing.
+Lors de la configuration du cluster, votre machine virtuelle de stockage des données (VM) par défaut est créée. Toutes les nouvelles unités de stockage sont créées dans votre VM de stockage des données par défaut, sauf si vous créez et sélectionnez une autre VM de stockage. Vous pouvez créer une VM de stockage supplémentaire afin de séparer vos unités de stockage pour différentes applications, départements ou clients. Par exemple, vous pouvez créer une VM de stockage pour votre environnement de développement et une autre VM de stockage pour votre environnement de production, ou encore une VM de stockage pour votre département financier et une autre pour votre département marketing.
 
 .Étapes
 . Sélectionnez *Cluster > VM de stockage*.

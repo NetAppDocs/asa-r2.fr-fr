@@ -13,9 +13,9 @@ summary: 'Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent 
 [role="lead"]
 Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les restaurations pour les autres systèmes ONTAP .
 
-La restauration d'un cluster ONTAP est perturbatrice. Vous devez mettre le cluster hors ligne pendant toute la durée de la restauration. Vous ne devez pas restaurer un cluster de production sans l'aide du support technique. Vous pouvez restaurer un nouveau cluster ou un cluster de test sans assistance. Si la restauration d'un nouveau système ou d'un cluster de test échoue ou réussit, mais que vous n'êtes pas satisfait des performances du cluster dans votre environnement de production, contactez le support technique pour obtenir de l'aide.
+La restauration d'un cluster ONTAP est une opération perturbatrice. Vous devez mettre le cluster hors ligne pendant toute la durée de la restauration. Vous ne devez pas restaurer un cluster de production sans l'assistance du support technique. Vous pouvez restaurer un cluster neuf ou de test sans assistance. Si la restauration d'un système neuf ou de test échoue, ou si elle réussit mais que les performances du cluster dans votre environnement de production ne vous satisfont pas, vous devez contacter le support technique pour obtenir de l'assistance.
 
-link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Rétablir un cluster ONTAP"] .
+Consultez link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Rétablir un cluster ONTAP"] pour la procédure de rétablissement complète.
 
 
 

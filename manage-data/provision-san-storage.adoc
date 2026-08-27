@@ -77,7 +77,7 @@ Si la stratégie QoS par défaut n'a pas été définie précédemment sur la ma
  a| 
 Création d'une règle de QoS
  a| 
-.. Sous *stockage et optimisation*, à côté de *qualité de service (QoS)*, sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"] .
+.. Sous *stockage et optimisation*, à côté de *qualité de service (QoS)*, sélectionnez image:icon_dropdown_arrow.gif["icône de flèche bleue pointant vers le bas"].
 .. Sélectionnez *définir une nouvelle stratégie*.
 .. Entrez un nom pour la nouvelle politique de QoS.
 .. Définissez une limite de QoS, une garantie de QoS, ou les deux.
@@ -161,7 +161,7 @@ TLS chiffre toutes les données envoyées sur le réseau entre vos hôtes NVMe/T
 
 .. Sélectionnez *Ajouter initiateur* pour ajouter d'autres initiateurs.
 +
-Formatez le NQN de l'hôte comme <nqn.yyyy-mm> suivi d'un nom de domaine pleinement qualifié.  L'année doit être égale ou postérieure à 1970.  La longueur maximale totale doit être de 223.  Un exemple d'initiateur NVMe valide est nqn.2014-08.com.example:string
+Formatez le NQN de l'hôte comme <nqn.yyyy-mm> suivi d'un domaine complet. L'année doit être égale ou postérieure à 1970. La longueur totale maximale doit être de 223. Un exemple d'initiateur NVMe valide est nqn.2014-08.com.example:string.
 
 
 

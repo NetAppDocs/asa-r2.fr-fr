@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/space-balancing.html 
 keywords: capacity, space, rebalancing, balanced, placement, balance, asa r2 
-summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conventions de nommage de votre entreprise ou pour d"autres raisons d"ordre administratif.' 
+summary: 'Pour les systèmes ASA r2, ONTAP utilise un placement équilibré, un équilibrage dynamique de l"espace ou un rééquilibrage de la charge de travail basé sur la copie pour maintenir une utilisation équilibrée du stockage entre les zones de disponibilité du stockage.' 
 ---
 = Découvrez comment équilibrer la capacité ONTAP dans un cluster ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conven
 
 
 [role="lead"]
-Pour les systèmes ASA r2, ONTAP utilise le _placement équilibré_ pour placer automatiquement les unités de stockage nouvellement créées dans la meilleure zone de disponibilité de stockage afin d'obtenir des performances optimales et une utilisation équilibrée du stockage.  Si vous utilisez ONTAP 9.17.1 ou une version ultérieure, l'espace consommé par les unités de stockage existantes est équilibré à l'aide de l'équilibrage dynamique de l'espace.  Si vous utilisez ONTAP 9.16.1, l'espace consommé par les unités de stockage existantes est équilibré à l'aide d'un rééquilibrage de charge de travail basé sur la copie.
+Pour les systèmes ASA r2, ONTAP utilise le _placement équilibré_ pour placer automatiquement les unités de stockage nouvellement créées dans la meilleure zone de disponibilité du stockage afin d'obtenir des performances optimales et une utilisation équilibrée du stockage. Si vous utilisez ONTAP 9.17.1 ou une version ultérieure, l'espace consommé par les unités de stockage existantes est équilibré à l'aide de l'_équilibrage dynamique de l'espace_. Si vous utilisez ONTAP 9.16.1, l'espace consommé par les unités de stockage existantes est équilibré à l'aide du _rééquilibrage de la charge de travail basé sur la copie_.
 
 [cols="2"]
 |===
@@ -27,10 +27,10 @@ Pour les systèmes ASA r2, ONTAP utilise le _placement équilibré_ pour placer 
 | Rééquilibrage de la charge de travail basé sur la copie | ONTAP 9.16.1 uniquement 
 |===
 .Placement équilibré
-Grâce au placement équilibré, les unités de stockage nouvellement créées sont automatiquement placées dans la zone de disponibilité de stockage optimale pour des performances optimales et une utilisation équilibrée du stockage.  Le placement équilibré est activé par défaut dans ONTAP 9.16.1 et versions ultérieures.
+Grâce au placement équilibré, les nouvelles unités de stockage sont automatiquement placées dans la meilleure zone de disponibilité de stockage pour des performances optimales et une utilisation équilibrée du stockage. Le placement équilibré est activé par défaut dans ONTAP 9.16.1 et versions ultérieures.
 
 .Équilibrage dynamique de l'espace
-Grâce à l'équilibrage dynamique de l'espace, ONTAP surveille activement la quantité d'espace libre dans le cluster et déplace automatiquement les unités de stockage au sein des zones de disponibilité de stockage afin de maintenir une utilisation équilibrée de l'espace.  Un avertissement EMS est automatiquement émis si le taux d'utilisation de la capacité à l'échelle du cluster atteint 80 %, et une alerte EMS est automatiquement émise si ce taux atteint 90 %.
+Grâce à l'équilibrage dynamique de l'espace, ONTAP surveille activement l'espace libre disponible dans le cluster et déplace automatiquement les unités de stockage au sein des zones de disponibilité de stockage afin de maintenir une utilisation équilibrée de l'espace. Un avertissement du système de gestion des événements (EMS) est automatiquement émis si le taux d'utilisation de la capacité du cluster atteint 80 % et une alerte EMS est automatiquement émise s'il atteint 90 %.
 
 L'équilibrage dynamique de l'espace est activé par défaut 14 jours après la mise à niveau ou l'installation ONTAP 9.17.1 ou version ultérieure.  Si vous devez modifier la période d'activation par défaut de 14 jours, contactez le support NetApp .  Il est impossible de revenir à la version ONTAP 9.17.1 une fois l'équilibrage dynamique de l'espace activé.
 

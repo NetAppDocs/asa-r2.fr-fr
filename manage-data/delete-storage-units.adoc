@@ -4,17 +4,17 @@ permalink: manage-data/delete-storage-units.html
 keywords: delete lun, delete namespace, delete storage unit, asa r2 
 summary: 'Supprimez des unités de stockage pour réduire la quantité de stockage physique nécessaire ou libérer de l"espace nécessaire pour d"autres applications hôtes.' 
 ---
-= Supprimez les unités de stockage sur les systèmes de stockage ASA r2
+= Supprimez les unités de stockage de votre système ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Supprimez une unité de stockage si vous n'avez plus besoin de conserver les données contenues dans l'unité. La suppression d'unités de stockage qui ne sont plus nécessaires peut vous aider à libérer de l'espace pour d'autres applications hôtes.
+Supprimez une unité de stockage si vous n'avez plus besoin de conserver les données qu'elle contient. La suppression des unités de stockage inutilisées peut vous aider à libérer de l'espace nécessaire pour d'autres applications hôtes.
 
 .Avant de commencer
-Si l'unité de stockage que vous souhaitez supprimer se trouve dans un groupe de cohérence en relation de réplication, vous devezlink:../data-protection/manage-consistency-groups-add-remove-storage-units.html#remove-a-storage-unit-from-a-consistency-group["retirez l'unité de stockage du groupe de cohérence"] avant de le supprimer.
+Si l'unité de stockage que vous souhaitez supprimer se trouve dans un groupe de cohérence qui est dans une relation de réplication, vous devez link:../data-protection/manage-consistency-groups-add-remove-storage-units.html#remove-a-storage-unit-from-a-consistency-group["retirez l'unité de stockage du groupe de cohérence"] avant de la supprimer.
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*.

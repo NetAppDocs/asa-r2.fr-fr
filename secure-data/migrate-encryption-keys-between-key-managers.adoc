@@ -4,14 +4,14 @@ permalink: secure-data/migrate-encryption-keys-between-key-managers.html
 keywords: onboard key manager, external key manager, configure, migrate keys, store keys, authentication keys, encryption keys, asa r2 
 summary: 'Vous pouvez utiliser le gestionnaire de clés intégré ONTAP sur votre système ASA r2 ou un gestionnaire de clés externe ou les deux (dans un cas) pour gérer les clés de chiffrement des données.' 
 ---
-= Migrez les clés de chiffrement des données ONTAP entre les gestionnaires de clés de votre système ASA r2
+= Migrez les clés de chiffrement des données ONTAP entre les gestionnaires de clés sur les systèmes ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez gérer vos clés de chiffrement des données à l'aide du gestionnaire de clés intégré ONTAP sur votre système ASA r2 ou d'un gestionnaire de clés externe (ou les deux). Les gestionnaires de clés externes ne peuvent être activés qu'au niveau des VM de stockage. Au niveau du cluster ONTAP, vous pouvez activer le gestionnaire de clés intégré ou un gestionnaire de clés externe.
+Vous pouvez gérer les clés de chiffrement des données avec le gestionnaire de clés intégré ONTAP de votre système ASA r2, un gestionnaire de clés externe, ou les deux dans des configurations prises en charge. Les gestionnaires de clés externes sont pris en charge uniquement au niveau de la machine virtuelle de stockage. Au niveau du cluster ONTAP, vous pouvez utiliser soit le gestionnaire de clés intégré, soit un gestionnaire de clés externe.
 
 [cols="2,2"]
 |===
@@ -53,11 +53,11 @@ Niveau de la machine virtuelle de stockage : Gestionnaire de clés externe
 [[migrate-keys-between-key-managers-at-the-ontap-cluster-level]]
 == Migration des clés entre les gestionnaires de clés au niveau du cluster ONTAP
 
-Depuis la version ONTAP 9.16.1, vous pouvez utiliser l'interface de ligne de commande ONTAP pour migrer les clés entre les gestionnaires de clés au niveau du cluster.
+À partir de ONTAP 9.16.1, vous pouvez utiliser l'interface de ligne de commandes (CLI) d'ONTAP pour migrer des clés entre les gestionnaires de clés au niveau du cluster.
 
 [role="tabbed-block"]
 ====
-.De la carte intégrée à la carte externe
+.Du gestionnaire de clés intégré au gestionnaire de clés externe
 --
 .Étapes
 . Définissez le niveau de privilège sur avancé :
@@ -93,7 +93,7 @@ set -privilege admin
 
 
 --
-.De l'externe à l'embarqué
+.Du gestionnaire de clés externe au gestionnaire de clés intégré
 --
 .Étapes
 . Définissez le niveau de privilège sur avancé :
@@ -135,7 +135,7 @@ set -privilege admin
 [[migrate-keys-between-key-managers-across-ontap-cluster-and-storage-vm-levels]]
 == Migration des clés entre les gestionnaires de clés au niveau du cluster ONTAP et des VM de stockage
 
-Vous pouvez utiliser l'interface de ligne de commandes ONTAP pour migrer les clés entre le gestionnaire de clés au niveau du cluster et un gestionnaire de clés au niveau de la machine virtuelle de stockage.
+Vous pouvez utiliser l'interface de ligne de commandes (CLI) ONTAP pour migrer des clés entre les gestionnaires de clés aux niveaux du cluster et de la machine virtuelle de stockage.
 
 .Étapes
 . Définissez le niveau de privilège sur avancé :

@@ -11,7 +11,7 @@ summary: 'Vous devrez peut-être redémarrer un nœud pour effectuer des opérat
 
 
 [role="lead"]
-Vous devrez peut-être redémarrer un nœud pour effectuer des opérations de maintenance, de dépannage, de mise à jour logicielle ou d'autres tâches d'administration. Lorsqu'un nœud est redémarré, son partenaire haute disponibilité exécute automatiquement un basculement. Le nœud partenaire effectue ensuite un rétablissement automatique après la remise en ligne du nœud rebooté.
+Il peut être nécessaire de redémarrer un nœud pour des raisons de maintenance, de dépannage, de mise à jour logicielle ou d'autres raisons administratives. Lorsqu'un nœud est redémarré, son partenaire HA exécute automatiquement une prise de contrôle. Le nœud partenaire effectue ensuite une restitution automatique après que le nœud redémarré soit de nouveau en ligne.
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Présentation*.
@@ -23,4 +23,4 @@ La raison pour laquelle vous entrez pour le redémarrage est enregistrée dans l
 
 
 .Et la suite ?
-Pendant le redémarrage du nœud, son partenaire haute disponibilité effectue un basculement afin qu'il n'y ait aucune interruption du service de données. Une fois le redémarrage terminé, le partenaire HA effectue un retour.
+Pendant le redémarrage du nœud, son partenaire HA prend le relais afin qu'il n'y ait aucune interruption du service de données. Une fois le redémarrage terminé, le partenaire HA effectue une restitution.

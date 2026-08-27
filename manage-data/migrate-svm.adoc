@@ -11,7 +11,7 @@ summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, 
 
 
 [role="lead"]
-À partir d'ONTAP 9.18.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) de n'importe quel cluster ASA standard vers n'importe quel cluster ASA r2. La migration d'un cluster ASA standard vers un cluster ASA r2 vous permet d'adopter l'architecture simplifiée et rationalisée des systèmes ASA r2 pour les environnements exclusivement SAN.
+À partir d'ONTAP 9.18.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) de n'importe quel cluster ASA standard vers n'importe quel cluster ASA r2 afin d'adopter l'architecture simplifiée et rationalisée des systèmes ASA r2 pour les environnements exclusivement SAN.
 
 
 NOTE: Vous ne pouvez pas migrer une machine virtuelle de stockage d’un ASA MetroCluster vers un cluster ASA r2. Les systèmes ASA r2 ne prennent pas en charge les configurations MetroCluster.
@@ -77,7 +77,7 @@ Si des entrées sont affichées, les objets NVMe doivent êtrelink:https://docs.
 +
 [source, cli]
 ----
-lun show -verser <storage_VM> -class protocol-endpoint,vvol
+lun show -vserver <storage_VM> -class protocol-endpoint,vvol
 ----
 +
 Si des vVols sont présents, ils doivent être copiés sur une autre machine virtuelle de stockage, puis supprimés de la machine virtuelle de stockage à migrer.  Voir le `lun copy` et `lun delete` commandes dans lelink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Référence des commandes ONTAP"^] pour plus d'informations.
@@ -86,7 +86,7 @@ Si des vVols sont présents, ils doivent être copiés sur une autre machine vir
 +
 [source, cli]
 ----
-lun show -verser <storage_VM>
+lun show -vserver <storage_VM>
 ----
 +
 Si un volume contient plusieurs LUN, utilisez le `volume create` et `lun move` commandes pour créer un ratio volume/LUN de 1:1. Voir lelink:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["Référence des commandes ONTAP"^] pour plus d'informations.
@@ -182,7 +182,7 @@ Avant de migrer une machine virtuelle de stockage (VM) d'un cluster ASA vers un 
 vserver migrate start -vserver <storage_VM> -source-cluster <asa_cluster> -check-only true
 ----
 +
-Si vous devez résoudre des problèmes pour préparer votre cluster ASA à la migration, le problème et la solution corrective sont affichés.  Corrigez le problème et répétez la vérification préalable jusqu'à ce qu'elle se termine avec succès.
+Si vous devez résoudre des problèmes pour préparer votre cluster ASA à la migration, le problème et la mesure corrective s'affichent. Corrigez le problème et répétez la vérification préalable jusqu'à ce qu'elle réussisse.
 
 
 

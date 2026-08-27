@@ -12,7 +12,7 @@ searchtitle: 'Les données au repos sont sécurisées grâce au chiffrement à l
 
 
 [role="lead"]
-Lorsque vous chiffrez les données au repos, elles ne peuvent pas être lues si un support de stockage est requalifié, perdu ou volé. Vous pouvez utiliser ONTAP System Manager pour chiffrer vos données au niveau matériel et logiciel afin de bénéficier d'une protection double couche.
+Une fois chiffrées, les données au repos restent illisibles si le support de stockage est réutilisé, restitué, égaré ou volé. Vous pouvez utiliser ONTAP System Manager pour appliquer un chiffrement matériel et logiciel afin d'assurer une protection à deux niveaux.
 
 NetApp Storage Encryption (NSE) prend en charge le chiffrement matériel à l'aide de disques à autochiffrement (SED). Les disques SED chiffrent les données au fur et à mesure de leur écriture. Chaque SED contient une clé de chiffrement unique. Les données chiffrées stockées sur le SED ne peuvent pas être lues sans la clé de chiffrement du SED. Les nœuds qui tentent de lire à partir d'un SED doivent être authentifiés pour accéder à la clé de cryptage du SED. Les nœuds sont authentifiés en obtenant une clé d'authentification auprès d'un gestionnaire de clés, puis en présentant la clé d'authentification au SED. Si la clé d'authentification est valide, le SED donnera au nœud sa clé de cryptage pour accéder aux données qu'il contient.
 
@@ -37,7 +37,7 @@ En savoir plus sur link:https://docs.netapp.com/us-en/asa-r2/learn-more/hardware
 | Option | Étapes 
 
 
-| Configurez le gestionnaire de clés intégré  a| 
+| Configurer le gestionnaire de clés intégré  a| 
 .. Sélectionnez *Onboard Key Manager* pour ajouter les serveurs de clés.
 .. Saisissez une phrase de passe.
 

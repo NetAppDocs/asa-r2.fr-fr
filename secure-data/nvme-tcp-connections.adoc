@@ -15,7 +15,7 @@ Si vous utilisez le protocole NVMe, vous pouvez configurer l'authentification in
 
 .Étapes
 . Sélectionnez *hosts*, puis *NVMe*.
-. Sélectionnez image:icon_add_blue_bg.png["Carré bleu avec un signe plus suivi du mot Ajouter en lettres blanches"] .
+. Sélectionnez image:icon_add_blue_bg.png["Carré bleu avec un signe plus suivi du mot Ajouter en lettres blanches"].
 . Entrez le nom d'hôte, puis sélectionnez le système d'exploitation hôte.
 . Entrez une description d'hôte, puis sélectionnez la VM de stockage à connecter à l'hôte.
 . Sélectionnez image:icon_dropdown_arrow.gif["flèche bleue orientée vers le bas"] en regard du nom d'hôte.

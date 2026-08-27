@@ -23,11 +23,11 @@ Un groupe de cohérence est un ensemble d'unités de stockage gérées comme une
 
 Créez un groupe de cohérence avec de nouvelles unités de stockage ou un groupe de cohérence avec des unités de stockage existantes.
 
-À partir d' ONTAP 9.18.1, vous pouvez définir le pourcentage de réserve de snapshots et activer la suppression automatique des snapshots lors de la création d'un groupe de cohérence avec de nouvelles unités de stockage.  La réserve d'instantanés correspond à l'espace de l'unité de stockage réservé spécifiquement aux instantanés.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.  Si la réservation d'instantanés et la suppression automatique des instantanés sont activées sur un groupe de cohérence parent, elles le sont également sur tous les groupes de cohérence enfants existants.  Si de nouveaux groupes de cohérence enfants sont ajoutés, ils n'héritent pas des paramètres de réservation et de suppression des instantanés du groupe parent.
+À partir d'ONTAP 9.18.1, vous pouvez définir le pourcentage de réserve de snapshot et activer la suppression automatique des snapshots lors de la création d'un groupe de cohérence avec de nouvelles unités de stockage. La réserve de snapshot correspond à l'espace dans l'unité de stockage réservé spécifiquement aux snapshots. Lorsque la réserve de snapshot est définie avec la suppression automatique des snapshots, les snapshots plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les snapshots dépasse la réserve de snapshot. Si la réserve de snapshot et la suppression automatique des snapshots sont activées sur un groupe de cohérence parent, elles sont activées sur tous les groupes de cohérence enfants existants. Si de nouveaux groupes de cohérence enfants sont ajoutés, ils n'héritent pas des paramètres de réserve de snapshot et de suppression de snapshot du parent.
 
 link:snapshot-reserve.html["Découvrez-en plus sur la réserve de snapshots sur les systèmes de stockage ASA r2"].
 
-À partir d' ONTAP 9.16.1, lorsque vous créez des groupes de cohérence à l'aide de nouvelles unités de stockage, vous pouvez configurer jusqu'à cinq groupes de cohérence enfants. link:manage-hierarchical-consistency-groups.html["Apprenez-en davantage sur les groupes de cohérence des enfants sur les systèmes ASA r2"].
+À partir d'ONTAP 9.16.1, lorsque vous créez des groupes de cohérence à l'aide de nouvelles unités de stockage, vous pouvez configurer jusqu'à cinq groupes de cohérence enfants. link:manage-hierarchical-consistency-groups.html["Apprenez-en davantage sur les groupes de cohérence des enfants sur les systèmes ASA r2"].
 
 [role="tabbed-block"]
 ====
@@ -185,7 +185,8 @@ Le transfert initial des données pour la réplication démarre immédiatement p
 .Étapes
 . Dans System Manager, sélectionnez *Storage*.
 . Placez le pointeur de la souris sur le nom de l'unité de stockage que vous souhaitez protéger.
-. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] , puis *protéger*. Si vous souhaitez créer un instantané immédiat à la demande, sous *protection locale*, sélectionnez *Ajouter un instantané maintenant*.
+. Sélectionnez image:icon_kabob.gif["trois points bleus verticaux"] , puis *protéger*.
+. Si vous souhaitez créer un instantané immédiat à la demande, sous *protection locale*, sélectionnez *Ajouter un instantané maintenant*.
 +
 La protection locale crée l'instantané sur le même cluster contenant l'unité de stockage.
 
@@ -232,4 +233,4 @@ Le transfert initial des données pour la réplication démarre immédiatement p
 --
 ====
 .Et la suite ?
-Maintenant que vos données sont protégées avec des snapshots, vous devez link:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.
+Maintenant que vos données sont protégées par des snapshots, vous devriez link:snapshot-replication.html["configuration de la réplication snapshot"] copier vos groupes de cohérence vers un emplacement géographiquement distant à des fins de sauvegarde et de reprise après sinistre.

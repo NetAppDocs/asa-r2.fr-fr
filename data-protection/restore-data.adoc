@@ -18,7 +18,7 @@ Les données d'un groupe de cohérence ou d'une unité de stockage protégé par
 [[restore-a-consistency-group]]
 == Restaurez un groupe de cohérence
 
-La restauration d'un groupe de cohérence remplace les données de toutes les unités de stockage du groupe de cohérence par les données d'un snapshot. Les modifications apportées aux unités de stockage après la création de l'instantané ne sont pas restaurées.
+La restauration d'un groupe de cohérence remplace les données de toutes les unités de stockage du groupe de cohérence par les données d'un snapshot. Les modifications apportées aux unités de stockage après la création du snapshot ne sont pas restaurées.
 
 Vous pouvez restaurer un groupe de cohérence à partir d'un snapshot local ou distant.
 

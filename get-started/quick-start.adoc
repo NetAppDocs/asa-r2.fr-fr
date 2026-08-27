@@ -12,7 +12,7 @@ searchtitle: Installer et configurer les systèmes de stockage ASA A1K, A90, A70
 
 
 [role="lead"]
-Pour être opérationnel avec votre système ASA r2, vous installez vos composants matériels, configurez votre cluster, configurez l'accès aux données depuis vos hôtes vers le système de stockage et provisionnez votre stockage.
+Pour mettre en service votre système ASA r2, vous installez vos composants matériels, configurez votre cluster, configurez l'accès aux données depuis vos clients SAN vers le système de stockage et provisionnez votre stockage.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez et configurez votre matériel
 [role="quick-margin-para"]

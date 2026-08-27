@@ -62,8 +62,8 @@ puis sélectionnez image:icon_dropdown_arrow.gif["flèche bleue pointant vers le
 . Sélectionnez *Enregistrer*.
 
 
-.Et la suite
-Maintenant que vos données sont protégées avec des snapshots, vous devez link:../secure-data/encrypt-data-at-rest.html["configuration de la réplication snapshot"]copier vos groupes de cohérence vers un site distant à des fins de sauvegarde et de reprise d'activité.
+.Et la suite ?
+Maintenant que vos données sont protégées par des snapshots, vous devriez link:snapshot-replication.html["configuration de la réplication snapshot"] copier vos groupes de cohérence vers un emplacement géographiquement distant à des fins de sauvegarde et de reprise après sinistre.
 
 
 

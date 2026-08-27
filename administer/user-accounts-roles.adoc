@@ -11,7 +11,7 @@ summary: 'Utilisez System Manager pour configurer l"accès au contrôleur de dom
 
 
 [role="lead"]
-Utilisez System Manager pour configurer l'accès au contrôleur de domaine Active Directory, l'authentification LDAP et SAML pour vos comptes d'utilisateurs. Créez des rôles de compte utilisateur pour définir des fonctions spécifiques que les utilisateurs affectés aux rôles peuvent exécuter sur votre cluster.
+Utilisez System Manager pour configurer l'accès aux contrôleurs de domaine Active Directory, ainsi que l'authentification LDAP et SAML pour vos comptes utilisateurs. Créez des rôles de comptes utilisateurs pour définir les fonctions spécifiques que les utilisateurs affectés à ces rôles peuvent effectuer sur votre cluster.
 
 
 
@@ -64,7 +64,7 @@ Pour plus d'informations sur la configuration, reportez-vous à la documentation
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. Sous *sécurité*, en regard de *authentification SAML*, sélectionnez image:icon_gear_white_bg.png["contour bleu d'un engrenage mécanique"] .
+. Sous *Sécurité*, à côté de *Authentification SAML*, sélectionnez image:icon_gear_white_bg.png["contour bleu d'un engrenage mécanique"].
 . Sélectionnez *Activer l'authentification SAML*.
 . Entrez l'URL de l'IDP et l'adresse IP du système hôte, puis sélectionnez *Enregistrer*.
 +
@@ -115,7 +115,7 @@ Créez un compte utilisateur administrateur pour permettre à l'utilisateur du c
 . Sous *utilisateurs*, sélectionnez image:icon_add_blue_bg.png["rectangle bleu contenant un signe plus suivi du mot ajouter en lettres blanches"].
 . Entrez un nom d'utilisateur, puis sélectionnez un rôle à attribuer à l'utilisateur.
 . Sélectionnez la méthode de connexion utilisateur et la méthode d'authentification.
-. Pour activer MFA, sélectionnez image:icon_add.gif["signe plus suivi du mot ajouter en lettres bleues"], puis sélectionnez une méthode de connexion secondaire et une méthode d'authentification
+. Pour activer l'authentification multifacteur (MFA), sélectionnez image:icon_add.gif["signe plus suivi du mot ajouter en lettres bleues"] ; puis sélectionnez une méthode de connexion secondaire et une méthode d'authentification.
 . Saisissez un mot de passe pour l'utilisateur.
 . Sélectionnez *Enregistrer*.
 

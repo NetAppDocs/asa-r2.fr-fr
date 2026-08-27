@@ -20,7 +20,7 @@ L'état de la connectivité hôte est indiqué en regard du nom du groupe d'hôt
 
 +
 ** *OK* : indique que tous les initiateurs sont connectés aux deux nœuds.
-** *Partiellement connecté* : indique que certains des initiateurs ne sont pas connectés aux deux nœuds.
+** *Connexion partielle* : Indique que certains des initiateurs ne sont pas connectés aux deux nœuds.
 ** *Aucun connecté* : indique qu'aucun initiateur n'est connecté.
 
 

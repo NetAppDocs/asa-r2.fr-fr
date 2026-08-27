@@ -11,9 +11,9 @@ summary: Affichez les avertissements concernant les attaques potentielles de ran
 
 
 [role="lead"]
-Si la protection autonome contre les ransomwares avec intelligence artificielle (ARP/IA) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, un avertissement s'affiche sur le tableau de bord du Gestionnaire système. Consultez l'avertissement, vérifiez l'activité et, si nécessaire, prenez les mesures nécessaires pour contrer toute menace potentielle pesant sur vos données.
+Si la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, System Manager affiche un avertissement sur le tableau de bord. Consultez l'avertissement, vérifiez l'activité et prenez des mesures si nécessaire pour protéger vos données.
 
-Si un message d'avertissement ARP/AI s'affiche, avant d'agir, utilisez le vérificateur d'intégrité des applications approprié pour vérifier l'intégrité des données sur l'unité de stockage. Vérifier l'intégrité des données de l'unité de stockage vous permet de déterminer si l'activité est acceptable ou s'il s'agit d'une attaque potentielle par rançongiciel.
+Si un message d'avertissement ARP/AI s'affiche, utilisez l'outil de vérification d'intégrité des applications approprié pour contrôler les données sur l'unité de stockage avant d'entreprendre toute action. La vérification de l'intégrité des données de l'unité de stockage vous aide à déterminer si l'activité est acceptable ou s'il s'agit d'une attaque potentielle par rançongiciel.
 
 [cols="2,2"]
 |===
@@ -26,12 +26,12 @@ Si un message d'avertissement ARP/AI s'affiche, avant d'agir, utilisez le vérif
 | Une attaque potentielle de ransomware | Marquez l’activité comme une attaque potentielle de ransomware. 
 
 
-| Indéterminé | N'agissez pas immédiatement. Surveillez l'unité de stockage pendant 7 jours maximum. Si l'unité de stockage continue de fonctionner normalement, signalez l'activité comme un faux positif. Si l'unité de stockage continue de présenter une activité anormale, signalez-la comme une attaque potentielle par rançongiciel. 
+| Indéterminé | N'agissez pas immédiatement. Surveillez l'unité de stockage pendant 7 jours maximum. Si l'unité de stockage continue de fonctionner normalement, marquez l'activité comme un faux positif. Si l'unité de stockage continue de présenter une activité anormale, marquez l'activité comme une attaque potentielle par rançongiciel. 
 |===
 .Étapes
 . Dans System Manager, sélectionnez *Dashboard*.
 +
-Si ARP a détecté une activité anormale sur une ou plusieurs unités de stockage, un message apparaît sous *Avertissements*.
+Si ARP/AI a détecté une activité anormale sur une ou plusieurs unités de stockage, un message apparaît sous *Avertissements*.
 
 . Sélectionnez le message d’avertissement.
 . Sous *Aperçu des événements*, sélectionnez le message *Avertissements* qui indique le nombre d'unités de stockage présentant une activité anormale.

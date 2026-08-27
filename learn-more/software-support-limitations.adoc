@@ -11,7 +11,7 @@ summary: Bien que les systèmes ASA r2 proposent une prise en charge étendue de
 
 
 [role="lead"]
-Bien que les systèmes ASA r2 proposent une prise en charge étendue des solutions SAN, certaines fonctionnalités du logiciel ONTAP ne sont pas prises en charge.
+Les systèmes ASA r2 prennent en charge un large éventail de fonctionnalités SAN, mais certaines fonctionnalités logicielles ONTAP ne sont pas prises en charge.
 
 .Les systèmes ASA r2 ne prennent pas en charge les éléments suivants :
 * FabricPool
@@ -27,7 +27,7 @@ SnapLock Compliance et Enterprise ne sont pas pris en charge sur les clusters pr
 * La réplication SnapMirror est prise en charge sur les systèmes ASA r2 avec les limitations suivantes :
 +
 ** La réplication synchrone SnapMirror n'est pas prise en charge.
-** La réplication asynchrone SnapMirror est prise en charge uniquement entre deux systèmes ASA r2. La réplication asynchrone SnapMirror n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF ou FAS ou le cloud.
+** SnapMirror la réplication asynchrone est prise en charge uniquement entre deux systèmes ASA r2. SnapMirror la réplication asynchrone n'est pas prise en charge entre un système ASA r2 et un système ASA, AFF, ou FAS, ni avec le cloud.
 +
 En savoir plus surlink:../data-protection/pre-defined-protection-policies.html["Les politiques de réplication SnapMirror sont prises en charge sur les systèmes ASA r2."] .
 

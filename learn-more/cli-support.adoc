@@ -11,13 +11,13 @@ summary: 'Certaines commandes ONTAP ne sont pas prises en charge sur les systèm
 
 
 [role="lead"]
-Au lieu d'agrégats, la couche de stockage des systèmes ASA r2 utilise des zones de disponibilité de stockage. Une zone de disponibilité de stockage est un pool commun de stockage accessible à une seule paire HA. Les deux nœuds de la paire HA ont accès à tous les disques disponibles dans leur zone de disponibilité de stockage partagée. Lorsqu'une unité de stockage (LUN ou espace de noms NVMe) est créée, ONTAP crée automatiquement un volume dans la zone de disponibilité de stockage appropriée pour l'héberger.
+Les systèmes ASA r2 utilisent des zones de disponibilité de stockage au lieu d'agrégats, de sorte que certaines commandes et certains paramètres de l'interface de ligne de commandes ONTAP ne sont pas pris en charge. Vous pouvez également utiliser l'interface de ligne de commandes pour configurer un cluster si vous la préférez à System Manager.
 
 En raison de cette approche simplifiée de la gestion du stockage,  `storage aggregate` Les commandes ne sont pas prises en charge sur les systèmes ASA r2. Prise en charge de certaines  `lun` ,  `storage` et  `volume` les commandes et les paramètres sont également limités.
 
 Sauf indication contraire, toutes les autres commandes dans le link:https://docs.netapp.com/us-en/ontap-cli/["Référence des commandes ONTAP"] sont prises en charge pour les systèmes ASA r2.
 
-Les commandes et jeux de commandes suivants ne sont pas pris en charge sur ASA sous r2 :
+Les commandes et ensembles de commandes suivants ne sont pas pris en charge sur ASA r2 :
 
 .Commandes <code> </code> non prises en charge
 [%collapsible]
@@ -145,9 +145,9 @@ Le  `volume modify` La commande n'est pas disponible lorsqu'elle est utilisée a
 [[set-up-an-ontap-asa-r2-cluster-using-the-cli]]
 == Configurez un cluster ONTAP ASA r2 à l'aide de l'interface de ligne de commande
 
-Il est recommandé que vous link:../install-setup/initialize-ontap-cluster.html["Utilisez System Manager pour configurer votre cluster ONTAP ASA r2"]. System Manager propose un workflow guidé rapide et facile pour rendre votre cluster opérationnel. Toutefois, si vous avez l'habitude de travailler avec des commandes ONTAP, l'interface de ligne de commandes de ONTAP peut éventuellement être utilisée pour la configuration des clusters. La configuration de clusters à l'aide de l'interface de ligne de commandes n'offre aucune option ni aucun avantage supplémentaire que la configuration de clusters à l'aide de System Manager.
+Il est recommandé que vous link:../install-setup/initialize-ontap-cluster.html["Utilisez System Manager pour configurer votre cluster ONTAP ASA r2"]. System Manager propose un flux de travail guidé simple et rapide pour mettre votre cluster en service. Cependant, si vous êtes habitué à travailler avec les commandes ONTAP, l’interface de ligne de commandes ONTAP (CLI) peut également être utilisée pour la configuration du cluster. La configuration du cluster avec la CLI n’offre aucune option ou avantage supplémentaire par rapport à System Manager.
 
-Lors de la configuration du cluster, votre machine virtuelle de stockage de données par défaut est créée, une unité de stockage initiale est créée et les LIF de données sont automatiquement découvertes. Vous pouvez également activer le système DNS (Domain Name System) pour résoudre les noms d'hôte, configurer votre cluster pour qu'il utilise le protocole NTS (Network Time Protocol) pour la synchronisation de l'heure et activer le chiffrement des données au repos.
+Lors de la configuration du cluster, ONTAP crée votre machine virtuelle de stockage des données par défaut, crée une unité de stockage initiale et détecte automatiquement vos LIF de données. Vous pouvez également activer le système de noms de domaine (DNS) pour la résolution des noms d’hôtes, configurer votre cluster pour utiliser le protocole NTP (Network Time Protocol) pour la synchronisation de l’heure et activer le chiffrement des données au repos.
 
 .Avant de commencer
 Rassemblez les informations suivantes :

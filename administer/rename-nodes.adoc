@@ -11,7 +11,7 @@ summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conven
 
 
 [role="lead"]
-Vous pouvez utiliser ONTAP System Manager pour renommer un nœud sur votre système ASA r2. Vous devrez peut-être renommer un nœud pour l'aligner sur les conventions de nommage de votre entreprise ou pour d'autres raisons d'ordre administratif.
+Vous pouvez utiliser System Manager pour renommer un nœud sur votre système ASA r2 afin de l’aligner sur les conventions d’appellation de votre organisation ou pour d’autres raisons administratives.
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Présentation*.
