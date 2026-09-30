@@ -32,6 +32,8 @@ entries:
   entries:
   - title: Ajouter des nœuds
     url: "/administer/add-nodes.html"
+  - title: Supprimer les nœuds
+    url: "/administer/remove-nodes.html"
   - title: Redémarrez, Takeover et back nœuds
     url: "/administer/reboot-take-over-give-back-nodes.html"
   - title: Renommer les nœuds

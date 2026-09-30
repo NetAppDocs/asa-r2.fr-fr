@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: administer/add-nodes.html 
-keywords: rename, node, renaming, asa r2 
-summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conventions de nommage de votre entreprise ou pour d"autres raisons d"ordre administratif.' 
+keywords: add, node, adding, asa r2, expand cluster 
+summary: 'Les systèmes de stockage ASA r2 prennent en charge jusqu"à 12 nœuds par cluster. Une fois les nouveaux nœuds d"une paire haute disponibilité câblés et mis sous tension, vous devez les intégrer au cluster.' 
 ---
 = Ajoutez des nœuds ASA r2 à un cluster ONTAP
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conven
 
 
 [role="lead"]
-À partir d' ONTAP 9.16.1, les systèmes de stockage ASA r2 prennent en charge jusqu'à 12 nœuds par cluster.  Une fois les nouveaux nœuds d’une paire HA câblés et mis sous tension, vous devez les joindre au cluster.
+Les systèmes de stockage ASA r2 prennent en charge jusqu'à 12 nœuds par cluster. Une fois les nouveaux nœuds d'une paire haute disponibilité câblés et mis sous tension, vous devez les intégrer au cluster.
 
 .Avant de commencer
 Rassemblez les informations suivantes :

@@ -1,0 +1,197 @@
+---
+sidebar: sidebar 
+permalink: administer/remove-nodes.html 
+keywords: remove, node, removing, asa r2 
+summary: 'Vous devrez peut-être renommer un nœud pour l"aligner sur les conventions de nommage de votre entreprise ou pour d"autres raisons d"ordre administratif.' 
+---
+= Supprimer les nœuds ASA r2 d’un cluster ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il peut être nécessaire de retirer un nœud du cluster pour des raisons de maintenance, de remplacement ou de mise hors service. Les nœuds doivent être retirés un par un. Si vous retirez un nœud, vous devez également retirer son partenaire HA.
+
+
+
+[[step-1-prepare-to-remove-nodes-from-an-asa-r2-cluster]]
+== Étape 1 : Préparez-vous à retirer des nœuds d’un cluster ASA r2
+
+Avant de retirer un nœud d’un cluster ASA r2, vous devez vérifier que le cluster est sain. Ensuite, vous devez migrer ou supprimer les unités de stockage, les VLAN et les LIF du nœud, puis désactiver le basculement du stockage.
+
+.Étapes
+. Vérifiez que le cluster est sain :
++
+[source, cli]
+----
+cluster show
+----
+. link:../manage-data/move-storage-units.html["Déplacer"] ou link:../manage-data/delete-storage-units.html["supprimer"] toutes les unités de stockage du nœud.
+. Si vous avez des unités de stockage SCSI (LUN) sur le nœud à retirer, link:https://docs.netapp.com/us-en/ontap/san-admin/modify-slm-reporting-nodes-task.html["Supprimez le nœud et son partenaire HA de la liste des nœuds de génération de rapports de la Selective LUN Map (SLM)"^].
++
+Si vous ne supprimez pas le nœud et son partenaire HA de la liste des nœuds de génération de rapports SLM, l'accès aux LUN précédemment sur le nœud peut être perdu, même si les LUN ont été déplacés vers un autre nœud.
+
+. link:https://docs.netapp.com/us-en/ontap/networking/delete_a_lif.html["Supprimer"^] ou link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["migrer"^] toutes les interfaces réseau (LIF) du nœud.
++
+** Les LIF de données doivent être déplacées vers un autre nœud ou supprimées.
++
+La migration des LIF iSCSI est limitée aux ports du nœud d’origine ou du partenaire HA uniquement ; elles doivent donc être supprimées.
+
+** Les LIFs intercluster doivent être supprimées.
++
+Lorsque vous supprimez des LIF d’intercluster, un avertissement s’affiche et vous pouvez l’ignorer.
+
+** La LIF de gestion du cluster doit être déplacée vers un autre nœud.
+
+
+. link:../administer/manage-cluster-networking.html#delete-a-vlan["Supprimer tous les VLAN"] sur le nœud.
+. Désactivez le basculement du stockage pour le nœud :
++
+[source, cli]
+----
+storage failover modify -enabled false -node <nodename>
+----
+
+
+.Et la suite ?
+Supprimez le premier nœud de la paire haute disponibilité du cluster, puis supprimez son partenaire haute disponibilité.
+
+
+
+[[step-2-remove-a-node-from-an-asa-r2-cluster]]
+== Étape 2 : Supprimer un nœud d’un cluster ASA r2
+
+Ne retirez un nœud d’un cluster ASA r2 qu’après avoir effectué les étapes nécessaires pour préparer le nœud à son retrait. Après avoir retiré un nœud du cluster, vous devez ensuite retirer son partenaire HA.
+
+.Avant de commencer
+Il est recommandé que vous link:../get-help/manage-autosupport.html#send-autosupport-data["émettre un message AutoSupport"] informiez le support technique de NetApp que vous retirez un nœud de votre cluster.
+
+
+NOTE: Ne supprimez pas un nœud du cluster et ne renommez pas un nœud lorsqu'une mise à niveau automatisée de ONTAP est en cours.
+
+.Description de la tâche
+* Si vous retirez deux nœuds d'un cluster à quatre nœuds, la haute disponibilité du cluster est automatiquement activée sur les deux nœuds restants.
+* Toutes les données système et utilisateur, de tous les disques connectés au nœud, doivent être rendues inaccessibles aux utilisateurs avant de retirer un nœud du cluster.
+* Si un nœud a été retiré par erreur d'un cluster, contactez le support NetApp pour obtenir de l'aide concernant les options de récupération.
+
+
+.Étapes
+. Changez le niveau de privilège en avancé :
++
+[source, cli]
+----
+set -privilege advanced
+----
+. Identifiez le nœud du cluster qui contient epsilon :
++
+[source, cli]
+----
+cluster show
+----
++
+Dans l'exemple suivant, "node0" contient actuellement epsilon :
+
++
+[listing]
+----
+cluster::*> cluster show
+Node                 Health  Eligibility  Epsilon
+-------------------- ------- ------------ ------------
+node0                true    true         true
+node1                true    true         false
+node2                true    true         false
+node3                true    true         false
+----
+. Si le nœud que vous supprimez contient epsilon, déplacez epsilon vers un nœud restant.
++
+.. Supprimez epsilon du nœud :
++
+[source, cli]
+----
+cluster modify -node <name_of_node_to_be_removed> -epsilon false
+----
+.. Déplacer epsilon vers un autre nœud :
++
+[source, cli]
+----
+cluster modify -node <node_name> -epsilon true
+----
+
+
+. Identifiez le nœud principal actuel :
++
+[source, cli]
+----
+cluster ring show
+----
++
+Le nœud principal est le nœud qui héberge des processus tels que mgmt, vldb, vifmgr, bcomd et crs.
+
+. Si le nœud que vous supprimez est le nœud principal actuel, permettez à un autre nœud du cluster d’être élu comme nœud principal.
++
+.. Rendre le nœud principal actuel inéligible à participer au cluster :
++
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility false
+----
++
+Lorsque le nœud principal devient inéligible, l'un des nœuds restants est élu par le quorum du cluster comme nouveau nœud principal. Si vous effectuez cette étape sur le premier nœud d'une paire haute disponibilité, marquez uniquement ce nœud comme inéligible. Ne modifiez pas l'état de son partenaire HA tant que ces étapes n'ont pas été répétées sur le partenaire.
+
++
+Si le nœud partenaire est élu comme nouveau nœud principal et détient epsilon, vous devez déplacer epsilon vers un autre nœud avant de déclarer le partenaire inéligible.
+
+.. Rendez à nouveau l'ancien nœud principal éligible pour participer au cluster :
++
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility true
+----
+
+
+. Connectez-vous à la LIF de gestion de nœud distant ou à la LIF de gestion de cluster sur un nœud que vous ne retirez pas du cluster.
+. Utilisez le nom du nœud ou son adresse IP pour le supprimer du cluster :
++
+Si vous disposez d'un cluster de versions mixtes et que vous supprimez le dernier nœud d'une version antérieure, utilisez le paramètre -skip-last-low-version-node-check avec ces commandes.
+
++
+** Utilisez le nom du nœud pour supprimer le nœud :
++
+[source, cli]
+----
+cluster remove-node -node <node_name>
+----
+** Utilisez l'adresse IP du nœud pour supprimer le nœud :
++
+[source, cli]
+----
+cluster remove-node -cluster_ip <node_ip>
+----
++
+Un message d'échec est généré si vous avez des conditions auxquelles vous devez remédier avant de supprimer le nœud. Dans ce cas, remédiez à ces conditions et exécutez de nouveau la `cluster remove-node` commande.
+
++
+Le nœud redémarre automatiquement après avoir été correctement retiré du cluster.
+
+
+
+
+
+.Et la suite ?
+Répétez ces étapes pour supprimer le partenaire de basculement du cluster.
+
+.Informations associées
+En savoir plus sur la commande link:https://docs.netapp.com/us-en/ontap-cli/cluster-remove-node.html["cluster remove-node"].
+
+
+
+[[step-3-optionally-erase-the-node-configuration-and-initialize-all-disks]]
+== Étape 3 : Effacez éventuellement la configuration du nœud et initialisez tous les disques
+
+Si vous réutilisez un nœud que vous avez retiré de votre cluster ASA r2, vous devez effacer la configuration du nœud et initialiser tous les disques avant qu'il puisse rejoindre un cluster.
+
+.Étapes
+. Pendant le processus de démarrage, lorsque vous y êtes invité, appuyez sur *Ctrl-C* pour afficher le menu de démarrage.
+. Sélectionnez l’option du menu de démarrage *(4) Nettoyer la configuration et initialiser tous les disques* ou l’option *(9) Configurer le partitionnement de disque avancé* pour effacer la configuration du nœud et initialiser tous les disques.
+

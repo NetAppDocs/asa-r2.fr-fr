@@ -123,12 +123,9 @@
   <block id="f3833c816c6fe5b26b4e4266ccfed699" category="paragraph">Votre LIF a été modifiée.</block>
   <block id="092a2a219a66f53ad918ecfca02a40cb" category="summary">Utilisez ONTAP System Manager pour effectuer des tâches d'administration réseau de stockage de base sur votre système ASA r2.</block>
   <block id="7727ebf2fbdb4d8c5b88383f3872253c" category="doc">Gestion de la mise en réseau des clusters sur les systèmes de stockage ASA r2</block>
-  <block id="dce69090c45af3d113621dac45bca7fb" category="paragraph">Vous pouvez utiliser ONTAP System Manager pour administrer le réseau de stockage de base sur votre système ASA r2. Par exemple, vous pouvez ajouter un domaine de diffusion ou réaffecter des ports à un autre domaine de diffusion.</block>
   <block id="142e63ab347e5afebe1ee3eddeb82dc4" category="section-title">Ajouter un domaine de diffusion</block>
   <block id="18021c31fe204f4bcb54336f24bb7958" category="paragraph">Utilisez les domaines de diffusion pour simplifier la gestion de votre réseau de clusters en regroupant les ports réseau appartenant au même réseau de couche 2. Les machines virtuelles de stockage peuvent ensuite utiliser les ports du groupe pour le trafic de données ou de gestion.</block>
   <block id="4d00d5474a9eac58d3c8b5a5efd05a9a" category="paragraph">Le broadcast domain « Default » et le broadcast « Cluster » sont créés lors du setup des cluster. Le broadcast domain « Default » contient les ports inclus dans l'IPspace « Default ». Ces ports servent principalement à transmettre des données. Les ports de management des clusters et de management des nœuds sont également présents dans ce broadcast domain. Le broadcast « Cluster » contient les ports situés dans le « Cluster » IPspace. Ces ports sont utilisés pour la communication de cluster et incluent tous les ports de cluster de tous les nœuds du cluster.</block>
-  <block id="98436b7b9537997727c62df8cd1c5b4b" category="paragraph">Vous pouvez créer d'autres domaines de diffusion après l'initialisation de votre cluster. Lorsque vous créez un broadcast domain, un failover group contenant les mêmes ports est automatiquement créé.</block>
-  <block id="67484e42ec7ef0f9c6081b26a7966a3f" category="paragraph">L'unité de transmission maximale (MTU) des ports ajoutés à un domaine de diffusion est mise à jour vers la valeur MTU définie dans le domaine de diffusion.</block>
   <block id="5be487237484d4edf568d618438fb533" category="list-text">Dans System Manager, sélectionnez *réseau &gt; Présentation*.</block>
   <block id="6169050a4730f8d024d60e5e811d6085" category="list-text">Sous *domaines de diffusion*, sélectionnez <block ref="120e8ce30fa09c1e015e32b4fdada4d3" category="inline-image-macro-rx" type="image"></block>.</block>
   <block id="01b73cca64689dc46d9d7ff592613e09" category="list-text">Entrez un nom pour le domaine de diffusion ou acceptez le nom par défaut.</block>
@@ -1931,7 +1928,6 @@
   <block id="4a9d271be00cfe80ccf9f2ae1e86c4ff" category="sidebar">Découvrez les solutions de disponibilité continue pour les environnements vSphere</block>
   <block id="07deeffbd26ae347c81cfaf3e2169044" category="sidebar">Meilleures pratiques pour les systèmes NetApp ASA</block>
   <block id="65393a1b15c3a63904bb446f4a99001a" category="sidebar">Guide de transition vers l'API REST</block>
-  <block id="eaeb215b56b171344d62780dd997477e" category="paragraph">À partir d' ONTAP 9.16.1, les systèmes de stockage ASA r2 prennent en charge jusqu'à 12 nœuds par cluster.  Une fois les nouveaux nœuds d’une paire HA câblés et mis sous tension, vous devez les joindre au cluster.</block>
   <block id="b8838348a8da924f377a5d293230f4f4" category="summary">Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les restaurations pour les autres systèmes ONTAP . La restauration d'un cluster ONTAP est perturbatrice.</block>
   <block id="b4a4e19f8caa5675ed75c7e4c2f95379" category="inline-link-macro">Supprimer la relation de synchronisation active SnapMirror</block>
   <block id="79bc5a42c0ce5e77f02d040d055dfae3" category="summary">Les mises à niveau du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les mises à niveau pour les autres systèmes ONTAP .  Lorsque vous mettez à niveau votre logiciel ONTAP sur votre système ASA r2, vous pouvez profiter de fonctionnalités ONTAP nouvelles et améliorées.</block>
@@ -2859,4 +2855,77 @@
   <block id="e7e7921d40004de3413b2feb5d015c04" category="paragraph">Si vous constatez des pics d'activité dans votre unité de stockage, qu'il s'agisse de pics ponctuels ou d'une augmentation caractéristique d'une nouvelle norme, vous devez les signaler comme étant sans danger. Le signalement manuel de ces pics comme étant sans danger contribue à améliorer la précision des évaluations des menaces d'ARP. Découvrez comment <block ref="8dee558f5c9b6bedf916b9781132862f" category="inline-link-macro-rx"></block>.</block>
   <block id="200e37440690270fcdf5d35f1f9f63c6" category="paragraph">ONTAP SnapLock est une solution de conformité haute performance pour les organisations utilisant le stockage WORM afin de conserver les fichiers sous forme non modifiée à des fins réglementaires et de gouvernance. Vous pouvez exécuter SnapLock en modes Compliance ou Enterprise, qui offrent différents niveaux de protection des données WORM. Les modes SnapLock Compliance et Enterprise ne sont pas pris en charge sur les clusters principaux dans les environnements SAN, mais vous pouvez activer SnapLock pour SnapVault sur vos systèmes secondaires afin de protéger les snapshots secondaires contre toute suppression accidentelle ou malveillante.</block>
   <block id="44ed1558e28022693124a32e31d67183" category="paragraph">Une fois que vous avez initialisé l’horloge de conformité SnapLock sur vos clusters locaux et de destination, vous êtes prêt à <block ref="716f8ed67937d4ffe779f9f204ed103b" category="inline-link-macro-rx"></block>.</block>
+  <block id="e237bf865e87bbdfd26ab56b61fc4b9e" category="summary">Les systèmes de stockage ASA r2 prennent en charge jusqu'à 12 nœuds par cluster. Une fois les nouveaux nœuds d'une paire haute disponibilité câblés et mis sous tension, vous devez les intégrer au cluster.</block>
+  <block id="cc7c52d2eca1519912be5504b86923e5" category="paragraph">ONTAP System Manager vous permet d'effectuer l'administration de base du réseau de stockage sur votre système ASA r2, comme l'ajout d'un domaine de diffusion ou la réaffectation de ports entre les domaines de diffusion, afin d'organiser le trafic réseau en fonction des besoins de votre infrastructure.</block>
+  <block id="ba9a7a46c6bc7f943d070bcccd364153" category="paragraph">Vous pouvez créer des domaines de diffusion supplémentaires après avoir initialisé votre cluster. Lorsque vous créez un domaine de diffusion, un groupe de basculement contenant les mêmes ports est automatiquement créé.</block>
+  <block id="8b32050d3c96b6bd0a885f98eb1416ea" category="paragraph">L'unité de transmission maximale (MTU) des ports ajoutés à un domaine de diffusion est mise à jour sur la valeur MTU définie dans le domaine de diffusion.</block>
+  <block id="81cbd40cd8660cff0ad2a901db8d929f" category="section-title">Supprimer un VLAN</block>
+  <block id="e6a55391d40a820f0fb96c2886a44b1b" category="paragraph">Il peut être nécessaire de supprimer un VLAN avant de retirer une carte réseau de son emplacement ou de retirer un nœud d'un cluster. Lorsque vous supprimez un VLAN, il est automatiquement supprimé de toutes les règles et de tous les groupes de basculement qui l'utilisent.</block>
+  <block id="dc4d5090d51115b6ed8141aa254c3b32" category="paragraph">Assurez-vous qu'aucune LIF n'est associée au VLAN.</block>
+  <block id="dd5e47c75e64cbe3996c8133e894e247" category="paragraph">La suppression du dernier VLAN d'un port peut entraîner une déconnexion temporaire du réseau du port.</block>
+  <block id="ac7d09a665b758116e45c0e4113cc186" category="paragraph">Vous pouvez utiliser System Manager ou l'interface de ligne de commande (CLI) pour supprimer un VLAN.</block>
+  <block id="cea11a3fe22277f7f45d6feb4b7f56bf" category="list-text">Dans System Manager, sélectionnez *Réseau &gt; port Ethernet &gt; VLAN*.</block>
+  <block id="1aae6a12505549a87c2e3ea5f5464f0f" category="list-text">Sélectionnez le VLAN que vous souhaitez supprimer.</block>
+  <block id="feb83dac816796145feb86b7475c73f5" category="list-text">Consultez vos VLAN :</block>
+  <block id="0f39a6bacc3fe5756c2bc83081df6c3a" category="list-text">Supprimer un VLAN :</block>
+  <block id="ac309ab0be86396fc6a66899780ddf5b" category="list-text">Vérifiez que le VLAN est supprimé :</block>
+  <block id="8bd15b309bcdb0c15b1b0e6adeb166d0" category="doc">Supprimer les nœuds ASA r2 d’un cluster ONTAP</block>
+  <block id="f46b886aa665a8d7c7a7a4c7aa9c6346" category="paragraph">Il peut être nécessaire de retirer un nœud du cluster pour des raisons de maintenance, de remplacement ou de mise hors service. Les nœuds doivent être retirés un par un. Si vous retirez un nœud, vous devez également retirer son partenaire HA.</block>
+  <block id="e0236ccc281e8e954020151e28594361" category="section-title">Étape 1 : Préparez-vous à retirer des nœuds d’un cluster ASA r2</block>
+  <block id="71b734249d4ab321665fcafc817c1579" category="paragraph">Avant de retirer un nœud d’un cluster ASA r2, vous devez vérifier que le cluster est sain. Ensuite, vous devez migrer ou supprimer les unités de stockage, les VLAN et les LIF du nœud, puis désactiver le basculement du stockage.</block>
+  <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">Vérifiez que le cluster est sain :</block>
+  <block id="6bc362dbf494c61ea117fe3c71ca48a5" category="inline-link-macro">Déplacer</block>
+  <block id="099af53f601532dbd31e0ea99ffdeb64" category="inline-link-macro">supprimer</block>
+  <block id="cd6171fad4b783d0411b357a70e025b9" category="list-text"><block ref="103126b24482021bd492866bc35410e7" category="inline-link-macro-rx"></block> ou <block ref="397d82cf73bd33098ee8615a2f9e95f3" category="inline-link-macro-rx"></block> toutes les unités de stockage du nœud.</block>
+  <block id="09a776ad2b6e83e1b754e6f7ebfafba3" category="inline-link-macro">Supprimez le nœud et son partenaire HA de la liste des nœuds de génération de rapports de la Selective LUN Map (SLM)</block>
+  <block id="ae6f4389297774f1a5988f7c44c7db66" category="list-text">Si vous avez des unités de stockage SCSI (LUN) sur le nœud à retirer, <block ref="2df19a9598282fc5088ade88859e3e79" category="inline-link-macro-rx"></block>.</block>
+  <block id="e84ba10869a172504b256da9f24370e6" category="paragraph">Si vous ne supprimez pas le nœud et son partenaire HA de la liste des nœuds de génération de rapports SLM, l'accès aux LUN précédemment sur le nœud peut être perdu, même si les LUN ont été déplacés vers un autre nœud.</block>
+  <block id="f2a6c498fb90ee345d997f888fce3b18" category="inline-link-macro">Supprimer</block>
+  <block id="f183fde1c1f409b21fc8463052ca49e5" category="inline-link-macro">migrer</block>
+  <block id="39b0e3c1790c5d7e62d9065fac6449c0" category="list-text"><block ref="a406326f89a3bbce30953ad7824da1f0" category="inline-link-macro-rx"></block> ou <block ref="7991084d788264d2f8515724f03312a6" category="inline-link-macro-rx"></block> toutes les interfaces réseau (LIF) du nœud.</block>
+  <block id="a1d06a7b7bc7900c0dc19460251f84e1" category="list-text">Les LIF de données doivent être déplacées vers un autre nœud ou supprimées.</block>
+  <block id="eea3b175d0f6393f8f1dbd8d7bdc392e" category="paragraph">La migration des LIF iSCSI est limitée aux ports du nœud d’origine ou du partenaire HA uniquement ; elles doivent donc être supprimées.</block>
+  <block id="2155c348c0a765e1cbd1204177de8f6b" category="list-text">Les LIFs intercluster doivent être supprimées.</block>
+  <block id="a9702b3847949399c05d5c3540819764" category="paragraph">Lorsque vous supprimez des LIF d’intercluster, un avertissement s’affiche et vous pouvez l’ignorer.</block>
+  <block id="284480082b3f00fd5851296324820748" category="list-text">La LIF de gestion du cluster doit être déplacée vers un autre nœud.</block>
+  <block id="c2031112d335614e483a8e73e8f0e80e" category="inline-link-macro">Supprimer tous les VLAN</block>
+  <block id="40f77f5330ce09a02647bfff9d2b11a1" category="list-text"><block ref="13cea30368888692a0a04edaddc87489" category="inline-link-macro-rx"></block> sur le nœud.</block>
+  <block id="7da250e00cfaee667a1544bb30473c35" category="list-text">Désactivez le basculement du stockage pour le nœud :</block>
+  <block id="df17f0e15b00039cb79f8c73233345dc" category="paragraph">Supprimez le premier nœud de la paire haute disponibilité du cluster, puis supprimez son partenaire haute disponibilité.</block>
+  <block id="400f2bdb4ba287bc175bb483c502645d" category="section-title">Étape 2 : Supprimer un nœud d’un cluster ASA r2</block>
+  <block id="47560f69aa17b178f049071f943efdc3" category="paragraph">Ne retirez un nœud d’un cluster ASA r2 qu’après avoir effectué les étapes nécessaires pour préparer le nœud à son retrait. Après avoir retiré un nœud du cluster, vous devez ensuite retirer son partenaire HA.</block>
+  <block id="ff13cd92e9c877582383685ad84e1408" category="inline-link-macro">émettre un message AutoSupport</block>
+  <block id="c742d6b26a30fa446c7ef8b5dab2c732" category="paragraph">Il est recommandé que vous <block ref="82761e960f0e30a8f5a0b51f2de27c3a" category="inline-link-macro-rx"></block> informiez le support technique de NetApp que vous retirez un nœud de votre cluster.</block>
+  <block id="add39e8e05dc6feabb5680336ff42056" category="admonition">Ne supprimez pas un nœud du cluster et ne renommez pas un nœud lorsqu'une mise à niveau automatisée de ONTAP est en cours.</block>
+  <block id="8b7e38ab7ab942e33ee9b58f43906ab5" category="list-text">Si vous retirez deux nœuds d'un cluster à quatre nœuds, la haute disponibilité du cluster est automatiquement activée sur les deux nœuds restants.</block>
+  <block id="ba20c2b3b00275ac5d310648e6ff4a27" category="list-text">Toutes les données système et utilisateur, de tous les disques connectés au nœud, doivent être rendues inaccessibles aux utilisateurs avant de retirer un nœud du cluster.</block>
+  <block id="2e926e0f22616c9494cae63cff92b8f5" category="list-text">Si un nœud a été retiré par erreur d'un cluster, contactez le support NetApp pour obtenir de l'aide concernant les options de récupération.</block>
+  <block id="8a3e1e55cf4f3f7698b5923333b44f7a" category="list-text">Changez le niveau de privilège en avancé :</block>
+  <block id="1e6d712b266f8755c066ccc30bde9fdc" category="list-text">Identifiez le nœud du cluster qui contient epsilon :</block>
+  <block id="9f964a34bab4b3112781e0b28258f5bb" category="paragraph">Dans l'exemple suivant, "node0" contient actuellement epsilon :</block>
+  <block id="b32cb3a5af2992203383db7140663697" category="list-text">Si le nœud que vous supprimez contient epsilon, déplacez epsilon vers un nœud restant.</block>
+  <block id="a688ab20f94fae358a349cab6d019da3" category="list-text">Supprimez epsilon du nœud :</block>
+  <block id="c7a7b8bd7c37d4318c7e769f4286f17b" category="list-text">Déplacer epsilon vers un autre nœud :</block>
+  <block id="49e8d819c7a12b23ca983a3bc99e1bdf" category="list-text">Identifiez le nœud principal actuel :</block>
+  <block id="7a76ce80b9cd6059ed18dca9be6af204" category="paragraph">Le nœud principal est le nœud qui héberge des processus tels que mgmt, vldb, vifmgr, bcomd et crs.</block>
+  <block id="a4fdc400f1c7bb92f441328b2a58ab2c" category="list-text">Si le nœud que vous supprimez est le nœud principal actuel, permettez à un autre nœud du cluster d’être élu comme nœud principal.</block>
+  <block id="1f915321f7e8155e5ee88f538eca12b5" category="list-text">Rendre le nœud principal actuel inéligible à participer au cluster :</block>
+  <block id="b774483fd19fa8acb4407780df5d4d87" category="paragraph">Lorsque le nœud principal devient inéligible, l'un des nœuds restants est élu par le quorum du cluster comme nouveau nœud principal. Si vous effectuez cette étape sur le premier nœud d'une paire haute disponibilité, marquez uniquement ce nœud comme inéligible. Ne modifiez pas l'état de son partenaire HA tant que ces étapes n'ont pas été répétées sur le partenaire.</block>
+  <block id="0d4121decd846754730f2b08483bac20" category="paragraph">Si le nœud partenaire est élu comme nouveau nœud principal et détient epsilon, vous devez déplacer epsilon vers un autre nœud avant de déclarer le partenaire inéligible.</block>
+  <block id="bbbdda94513cf5e245680f89dc7113d5" category="list-text">Rendez à nouveau l'ancien nœud principal éligible pour participer au cluster :</block>
+  <block id="2c3337f10b57ece73ad05be4f4418e0d" category="list-text">Connectez-vous à la LIF de gestion de nœud distant ou à la LIF de gestion de cluster sur un nœud que vous ne retirez pas du cluster.</block>
+  <block id="cd61023a75b13d7ddd81a51dd5fd5bad" category="list-text">Utilisez le nom du nœud ou son adresse IP pour le supprimer du cluster :</block>
+  <block id="c660a1ebe622089157d033f8e00d3b45" category="paragraph">Si vous disposez d'un cluster de versions mixtes et que vous supprimez le dernier nœud d'une version antérieure, utilisez le paramètre -skip-last-low-version-node-check avec ces commandes.</block>
+  <block id="6d2290891d47080550b5fed55fbf344f" category="list-text">Utilisez le nom du nœud pour supprimer le nœud :</block>
+  <block id="2935c03696a9fc643ed379f7af4ea5bf" category="list-text">Utilisez l'adresse IP du nœud pour supprimer le nœud :</block>
+  <block id="8a1cd083e3f95f4585c2102d6c2b05bf" category="paragraph">Un message d'échec est généré si vous avez des conditions auxquelles vous devez remédier avant de supprimer le nœud. Dans ce cas, remédiez à ces conditions et exécutez de nouveau la<block ref="b592ef8b0e17ac31ab55e93e7c1d10e1" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="ee3943d184071eb8b00fa718413c59da" category="paragraph">Le nœud redémarre automatiquement après avoir été correctement retiré du cluster.</block>
+  <block id="01d5d2ace7126b43c6c161bd5ee9a875" category="paragraph">Répétez ces étapes pour supprimer le partenaire de basculement du cluster.</block>
+  <block id="b592ef8b0e17ac31ab55e93e7c1d10e1" category="inline-link-macro">cluster remove-node</block>
+  <block id="07e709e4a23132b1e1dd12b1fd7fee71" category="paragraph">En savoir plus sur la commande <block ref="700df13594259d61712a860f23f94890" category="inline-link-macro-rx"></block>.</block>
+  <block id="6d554e0c9ffc1fe9e00235aea8dd5770" category="section-title">Étape 3 : Effacez éventuellement la configuration du nœud et initialisez tous les disques</block>
+  <block id="9cba5ce5176add967894dfbbc6536a52" category="paragraph">Si vous réutilisez un nœud que vous avez retiré de votre cluster ASA r2, vous devez effacer la configuration du nœud et initialiser tous les disques avant qu'il puisse rejoindre un cluster.</block>
+  <block id="895863970f247b187f4fcbba3ee248c3" category="list-text">Pendant le processus de démarrage, lorsque vous y êtes invité, appuyez sur *Ctrl-C* pour afficher le menu de démarrage.</block>
+  <block id="7d12381790ebb192cc4ad1b88892635d" category="list-text">Sélectionnez l’option du menu de démarrage *(4) Nettoyer la configuration et initialiser tous les disques* ou l’option *(9) Configurer le partitionnement de disque avancé* pour effacer la configuration du nœud et initialiser tous les disques.</block>
+  <block id="93fa60c43fe67fdb72ad8e06d21cbed0" category="sidebar">Supprimer les nœuds</block>
 </blocks>

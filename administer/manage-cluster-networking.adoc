@@ -11,7 +11,7 @@ summary: 'Utilisez ONTAP System Manager pour effectuer des tâches d"administrat
 
 
 [role="lead"]
-Vous pouvez utiliser ONTAP System Manager pour administrer le réseau de stockage de base sur votre système ASA r2. Par exemple, vous pouvez ajouter un domaine de diffusion ou réaffecter des ports à un autre domaine de diffusion.
+ONTAP System Manager vous permet d'effectuer l'administration de base du réseau de stockage sur votre système ASA r2, comme l'ajout d'un domaine de diffusion ou la réaffectation de ports entre les domaines de diffusion, afin d'organiser le trafic réseau en fonction des besoins de votre infrastructure.
 
 
 
@@ -22,10 +22,10 @@ Utilisez les domaines de diffusion pour simplifier la gestion de votre réseau d
 
 Le broadcast domain « Default » et le broadcast « Cluster » sont créés lors du setup des cluster. Le broadcast domain « Default » contient les ports inclus dans l'IPspace « Default ». Ces ports servent principalement à transmettre des données. Les ports de management des clusters et de management des nœuds sont également présents dans ce broadcast domain. Le broadcast « Cluster » contient les ports situés dans le « Cluster » IPspace. Ces ports sont utilisés pour la communication de cluster et incluent tous les ports de cluster de tous les nœuds du cluster.
 
-Vous pouvez créer d'autres domaines de diffusion après l'initialisation de votre cluster. Lorsque vous créez un broadcast domain, un failover group contenant les mêmes ports est automatiquement créé.
+Vous pouvez créer des domaines de diffusion supplémentaires après avoir initialisé votre cluster. Lorsque vous créez un domaine de diffusion, un groupe de basculement contenant les mêmes ports est automatiquement créé.
 
 .Description de la tâche
-L'unité de transmission maximale (MTU) des ports ajoutés à un domaine de diffusion est mise à jour vers la valeur MTU définie dans le domaine de diffusion.
+L'unité de transmission maximale (MTU) des ports ajoutés à un domaine de diffusion est mise à jour sur la valeur MTU définie dans le domaine de diffusion.
 
 .Étapes
 . Dans System Manager, sélectionnez *réseau > Présentation*.
@@ -95,3 +95,54 @@ Le VLAN ne peut pas être connecté à un port hébergeant une LIF de cluster ou
 
 .Résultat
 Vous avez créé un VLAN pour améliorer la sécurité, isoler les problèmes et limiter les chemins disponibles au sein de votre infrastructure réseau IP.
+
+
+
+[[delete-a-vlan]]
+== Supprimer un VLAN
+
+Il peut être nécessaire de supprimer un VLAN avant de retirer une carte réseau de son emplacement ou de retirer un nœud d'un cluster. Lorsque vous supprimez un VLAN, il est automatiquement supprimé de toutes les règles et de tous les groupes de basculement qui l'utilisent.
+
+.Avant de commencer
+Assurez-vous qu'aucune LIF n'est associée au VLAN.
+
+.Description de la tâche
+La suppression du dernier VLAN d'un port peut entraîner une déconnexion temporaire du réseau du port.
+
+.Étapes
+Vous pouvez utiliser System Manager ou l'interface de ligne de commande (CLI) pour supprimer un VLAN.
+
+[role="tabbed-block"]
+====
+.System Manager
+--
+. Dans System Manager, sélectionnez *Réseau > port Ethernet > VLAN*.
+. Sélectionnez le VLAN que vous souhaitez supprimer.
+. Sélectionnez *Supprimer*.
+
+
+--
+.CLI
+--
+. Consultez vos VLAN :
++
+[source, cli]
+----
+network port vlan show
+----
+. Supprimer un VLAN :
++
+[source, cli]
+----
+network port vlan delete -node <node> -vlan-name <vlan-name>
+----
+. Vérifiez que le VLAN est supprimé :
++
+[source, cli]
+----
+network port vlan show
+----
+
+
+--
+====
