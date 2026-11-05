@@ -1,0 +1,325 @@
+---
+sidebar: sidebar 
+permalink: manage-data/migrate-svm-from-asa-r2.html 
+keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine 
+summary: 'À partir d"ONTAP 9.20.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d’un cluster ASA r2 à 2 nœuds vers un cluster ASA à 2 nœuds ou un cluster AFF à 2 nœuds.' 
+---
+= Migrer une VM de stockage d’un cluster ASA r2 vers un cluster ASA ou AFF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À partir de ONTAP 9.20.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d’un cluster ASA r2 à 2 nœuds vers un cluster ASA à 2 nœuds ou un cluster AFF à 2 nœuds. Vous devrez peut-être migrer une VM de stockage pour consolider les charges de travail SAN et NAS, adopter des fonctionnalités ONTAP non disponibles pour les systèmes ASA r2, ou dans le cadre d’un renouvellement matériel de votre environnement. Les mappages hôtes et les configurations des unités de stockage existants pour les LUN et les namespaces sont conservés pendant la migration, ce qui réduit les efforts opérationnels et les risques.
+
+.Avant de commencer
+* Vous devez être administrateur du cluster.
+* Tous les nœuds des deux clusters doivent exécuter ONTAP 9.20.1 ou une version ultérieure.
+
+
+.Description de la tâche
+* Vous pouvez migrer une VM de stockage ASA r2 d’un cluster ASA r2 à 2 nœuds vers un cluster AFF à 2 nœuds uniquement.
++
+** Vous ne pouvez pas migrer une machine virtuelle de stockage ASA r2 vers un cluster FAS, ni vers un cluster ASA ou AFF comportant plus de 2 nœuds.
+** Vous ne pouvez pas migrer une machine virtuelle de stockage ASA r2 à partir d’un cluster ASA r2 comportant plus de 2 nœuds.
+
+
+* La migration des données d'un cluster ASA r2 vers un cluster AFF n'est pas réversible.
++
+Vous pouvez annuler une migration avant le basculement, mais une fois celui-ci lancé, vous ne pouvez ni l’interrompre ni annuler la migration. Une fois la migration terminée, vous ne pouvez pas migrer des données d’un cluster AFF vers un cluster ASA r2.
+
++
+Vous pouvez link:migrate-svm.html["migrer une SVM d'un ASA vers un cluster ASA r2"].
+
+* Vous ne pouvez migrer qu'une seule machine virtuelle de stockage à la fois.
+* La machine virtuelle de stockage peut contenir un maximum de 400 unités de stockage.
+* La machine virtuelle de stockage ne peut pas contenir d’unités de stockage de destination SnapMirror.
+
+
+
+
+[[step-1-create-a-cluster-peer-relationship]]
+== Étape 1 : créer une relation entre clusters
+
+Avant de pouvoir migrer une machine virtuelle de stockage depuis un cluster ASA r2, vous devez créer une relation de peering. Une relation de peering définit les connexions réseau qui permettent aux clusters ONTAP et aux machines virtuelles de stockage d'échanger des données en toute sécurité.
+
+.Description de la tâche
+Dans la procédure suivante, le cluster ASA ou AFF est le cluster _destination_ et le cluster ASA r2 est le cluster _source_.
+
+.Avant de commencer
+Vous devez avoir créé des LIF inter-clusters sur chaque nœud des clusters appariés en utilisant l'une des méthodes suivantes.
+
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-share-data-ports-task.html["Configurer les LIF inter-clusters sur les ports de données partagés"^]
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-use-dedicated-ports-task.html["Configurez les LIF inter-clusters sur des ports de données dédiés"^]
+* link:https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-use-ports-own-networks-task.html["Configurer les LIF inter-clusters dans des espaces IP personnalisés"^]
+
+
+.Étapes
+. Sur le cluster de destination, créez une relation entre clusters avec le cluster source et générez une phrase secrète :
++
+[source, cli]
+----
+cluster peer create -peer-addrs <source_cluster_LIF_IPs> -generate-passphrase
+----
++
+L'exemple suivant crée une relation d'homologue entre le cluster 1 et le cluster 2 et crée une phrase secrète générée par le système :
+
++
+[listing]
+----
+cluster1::> cluster peer create -peer-addrs 10.98.191.193 -generate-passphrase
+Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+            Peer Cluster Name: cluster2
+            Initial Allowed Vserver Peers: -
+            Expiration Time: 6/7/2017 09:16:10 +5:30
+            Intercluster LIF IP: 10.140.106.185
+Warning: make a note of the passphrase - it cannot be displayed again.
+
+----
+. Copiez la phrase secrète générée.
+. Sur le cluster source, créez une relation de peering avec le cluster de destination :
++
+[source, cli]
+----
+cluster peer create -peer-addrs <destination_cluster_LIF_IPs>
+----
+. Saisissez la phrase secrète générée sur le cluster de destination.
+. Vérifiez que la relation entre pairs du cluster est bien créée :
++
+[source, cli]
+----
+cluster peer show
+----
++
+L'exemple suivant illustre le résultat attendu pour des clusters appariés avec succès.
+
++
+[listing]
+----
+cluster1::> cluster peer show
+
+Peer Cluster Name   Cluster Serial Number   Availability   Authentication
+-----------------   ---------------------   -------------- --------------
+cluster2             1-80-123456             Available      ok
+----
+
+
+.Résultat
+Les clusters sont interconnectés. Les données des VM de stockage peuvent être transférées en toute sécurité.
+
+.Et la suite ?
+Vous êtes prêt à préparer votre VM de stockage ASA r2 pour la migration.
+
+
+
+[[step-2-prepare-the-asa-r2-storage-vm-for-migration]]
+== Étape 2 : Préparer la machine virtuelle de stockage ASA r2 pour la migration
+
+Avant de migrer une machine virtuelle de stockage (VM) à partir d’un cluster ASA r2, vous devez supprimer les relations de réplication et de synchronisation active de SnapMirror et effectuer diverses vérifications.
+
+.Étapes
+. link:../data-protection/snapmirror-active-sync-break-relationship.html["Supprimez toutes les relations de réplication existantes"].
+. link:../data-protection/snapmirror-active-sync-delete-relationship.html["Supprimez toutes les relations actives snyc existantes de SnapMirrror"].
+. Vérifiez si IPsec est activé :
++
+[source, cli]
+----
+security ipsec config show
+----
++
+.. Si IPsec est activé, désactivez-le :
++
+[source, cli]
+----
+security ipsec config modify -is-enabled -false
+----
++
+En savoir plus sur la commande link:https://docs.netapp.com/us-en/ontap-cli/security-ipsec-config-show.html["security ipsec config show"^].
+
+.. Vérifiez la présence de LIF IPv6 et de LIF d’IP virtuelles (VIP):
++
+[source, cli]
+----
+network interface show -vserver <storage_vm_name> -fields address-family, is-vip
+----
++
+Pour les LIF iPv6, le `-address-family` est `ipv6`. Pour les LIF VIP, le `-is-vip` paramètre est `true`.
+
+.. S'il existe des LIF iPv6 ou VIP, supprimez-les:
++
+[source, cli]
+----
+network interface delete -vserver <storage_vm_name> - lif <lif_name>
+----
+.. Vérifiez qu'il ne reste aucune LIF IPv6 ou VIP sur la VM de stockage :
++
+[source, cli]
+----
+network interface show -vserver <storage_VM_name>
+----
++
+Apprenez-en davantage sur les commandes link:https://docs.netapp.com/us-en/ontap-cli/network-interface-show.html["network interface show"^] et link:https://docs.netapp.com/us-en/ontap-cli/network-interface-delete.html["network interface delete"^].
+
+
+
+. Vérifiez si des groupes d'interfaces sont configurés :
++
+[source, cli]
+----
+network port ifgrp show
+----
++
+.. Si des groupes d'interfaces sont configurés, vérifiez si des LIF sur la VM de stockage sont liées à un groupe d'interfaces:
++
+[source, cli]
+----
+network interface show -vserver <storage_VM_name> -fields home,node, home-port, curr-node, curr-port
+----
+.. Si une LIF sur la VM de stockage est liée à un groupe d'interfaces, migrez la LIF vers un port physique différent :
++
+[source, cli]
+----
+network interface migrate -vserver <storage_VM_name> -lif <LIF> -des-node <destination_node> -dest-port <destination_port>
+----
++
+En savoir plus sur la commande link:https://docs.netapp.com/us-en/ontap-cli/network-port-ifgrp-show.html["network port ifgrp show"^].
+
+
+
+
+
+.Et la suite ?
+Vous êtes maintenant prêt à exécuter la vérification préalable de la migration.
+
+
+
+[[step-3-execute-the-migration-pre-check]]
+== Étape 3 : Exécuter la vérification préalable de la migration
+
+Avant de migrer une machine virtuelle de stockage depuis un cluster ASA r2, vous devez effectuer une vérification préalable de la migration et corriger tous les problèmes requis. Vous ne pouvez pas effectuer la migration tant que la vérification préalable n'a pas abouti.
+
+.Étape
+. Depuis votre cluster de destination, exécutez la vérification préalable de la migration :
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM> -source-cluster <sourcecluster> -check-only true
+----
++
+Si des problèmes doivent être corrigés en vue de préparer la migration, le problème et l'action corrective s'affichent. Corrigez le problème et répétez la vérification préalable jusqu'à ce qu'elle se termine avec succès.
+
+
+
+.Et la suite ?
+Vous êtes prêt à migrer votre machine virtuelle de stockage depuis votre cluster ASA r2.
+
+
+
+[[step-4-migrate-a-storage-vm-from-an-asa-r2-cluster]]
+== Étape 4 : Migrer une machine virtuelle de stockage à partir d’un cluster ASA r2
+
+Une fois que vous avez créé la relation entre clusters nécessaire entre les clusters ASA r2 et ASA ou AFF et que vous avez terminé les étapes de préparation des deux clusters, vous pouvez commencer la migration de la machine virtuelle de stockage.
+
+Lors de la migration d'une machine virtuelle de stockage, il est recommandé, comme bonne pratique, de laisser une marge de 30 % de CPU sur le cluster ASA r2 et le cluster AFF afin de permettre l'exécution du workload CPU de migration.
+
+.Description de la tâche
+* Après la migration de la machine virtuelle de stockage, les E/S client basculent en toute transparence vers le cluster de destination sans interruption, et la machine virtuelle de stockage sur le cluster ASA r2 est automatiquement supprimée. Le basculement automatique et la suppression automatique de la machine virtuelle de stockage sont activés par défaut. Vous pouvez éventuellement désactiver l’une ou l’autre de ces options, ou les deux, et les exécuter manuellement.
+* Le cluster ASA est le cluster source à partir duquel la machine virtuelle de stockage sera migrée, et le cluster ASA r2 est le cluster de destination vers lequel la machine virtuelle de stockage sera migrée.
+
+
+.Étapes
+. Depuis le cluster de destination, démarrez la migration de la machine virtuelle de stockage :
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM_name> -source-cluster <source_cluster>
+----
++
+Pour désactiver la bascule automatique, utilisez le `-auto-cutover false` paramètre. Pour désactiver la suppression automatique de la machine virtuelle de stockage source, utilisez le `-auto-source-cleanup false` paramètre.
+
+. Surveillez l'état de la migration
++
+[source, cli]
+----
+vserver migrate show -vserver <storage_VM_name>
+----
++
+Si vous devez suspendre ou annuler la migration avant le début du basculement automatique, utilisez la `vserver migrate pause` et le `vserver migrate abort` commandes.  Vous devez suspendre la migration avant de l'annuler.  Vous ne pouvez pas annuler la migration une fois la transition commencée.
+
++
+Si la bascule automatique est activée, une fois la migration terminée, le *status* s’affiche comme *migration-complete*. Si la bascule automatique est désactivée, le *status* s’affiche comme *Ready for source cleanup*.
+
+
+
+.Résultat
+La machine virtuelle de stockage est migrée du cluster ASA r2 vers le cluster de destination.
+
+.Et la suite ?
+Si vous avez désactivé le basculement automatique et la suppression automatique de la machine virtuelle de stockage, effectuez le basculement et le nettoyage post-migration afin de basculer manuellement vos clients ASA r2 vers votre cluster de destination et de supprimer la machine virtuelle de stockage du cluster ASA r2.
+
+
+
+[[step-5-post-migration-cutover-and-cleanup]]
+== Étape 5 : Basculement et nettoyage post-migration
+
+Lors d'une migration de machine virtuelle de stockage entre clusters, les E/S client sont transférées vers le cluster de destination et la machine virtuelle de stockage du cluster source est automatiquement supprimée. Si vous choisissez de désactiver le basculement automatique et la suppression de la machine virtuelle de stockage source pendant la migration, vous devrez effectuer ces étapes manuellement une fois que l'état de la migration aura atteint *Ready for source cleanup*.
+
+
+
+[[manually-cut-over-clients-after-a-storage-vm-migration]]
+=== Basculer manuellement les clients après une migration de machine virtuelle de stockage
+
+Si vous désactivez le basculement automatique du client lors de la migration inter-cluster d'une machine virtuelle de stockage, une fois la relation de migration prête pour le basculement, effectuez ce dernier manuellement afin que la machine virtuelle de stockage de destination puisse fournir des données aux clients.
+
+.Description de la tâche
+Effectuez cette tâche à partir du cluster de destination.
+
+.Étapes
+. Exécutez manuellement la bascule client :
++
+[source, cli]
+----
+vserver migrate cutover -vserver <storage_VM_name>
+----
+. Vérifiez que l'opération de basculement est terminée :
++
+[source, cli]
+----
+vserver migrate show
+----
+
+
+.Résultat
+Les données sont fournies à vos clients depuis la machine virtuelle de stockage de votre cluster de destination.
+
+.Et la suite ?
+Vous êtes maintenant prêt à retirer la machine virtuelle de stockage du cluster source.
+
+
+
+[[manually-remove-a-storage-vm-after-migration]]
+=== Supprimer manuellement une machine virtuelle de stockage après la migration
+
+Si vous désactivez le nettoyage automatique de la source lors d'une migration de machine virtuelle de stockage entre clusters, une fois la migration terminée, supprimez la machine virtuelle de stockage du cluster source pour libérer l'espace de stockage.
+
+.Avant de commencer
+Vos clients doivent fournir des données à partir du cluster de destination.
+
+.Étapes
+. À partir du cluster source, vérifiez que l'état de la machine virtuelle de stockage source est *Ready for source cleanup* :
++
+[source, cli]
+----
+vserver migrate show
+----
+. Supprimer la machine virtuelle de stockage source :
++
+[source, cli]
+----
+vserver migrate source-cleanup -vserver <storage_VM_name>
+----
+
+
+.Résultat
+La machine virtuelle de stockage de votre cluster source a été supprimée.

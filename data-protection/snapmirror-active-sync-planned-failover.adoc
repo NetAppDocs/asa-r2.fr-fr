@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-planned-failover.html 
 keywords: snapmirror active sync, planned failover, disaster recovery 
-summary: Découvrez comment effectuer un basculement planifié des relations de synchronisation active SnapMirror pour garantir la continuité des activités et la reprise après sinistre. 
+summary: 'Effectuez un basculement planifié d"une relation de synchronisation active SnapMirror afin de tester le processus de basculement ou d"effectuer une maintenance sur le site principal.' 
 ---
 = Basculer une relation de synchronisation active SnapMirror ASA r2
 :allow-uri-read: 

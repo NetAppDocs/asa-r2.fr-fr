@@ -17,7 +17,7 @@ SnapMirror Active Sync s'appuie sur des clusters appairés pour protéger vos do
 . Confirmez qu’une relation d’appairage de cluster existe entre les clusters.
 +
 
-NOTE: L'espace IP par défaut est requis par SnapMirror Active Sync pour les relations entre homologues de cluster. Un espace IP personnalisé n'est pas pris en charge.
+NOTE: SnapMirror active sync requiert l'IPspace par défaut pour les relations entre cluster. Un IPspace personnalisé n'est pas pris en charge.
 
 +
 link:snapshot-replication.html#step-1-create-a-cluster-peer-relationship["Créer une relation entre pairs de cluster"] .

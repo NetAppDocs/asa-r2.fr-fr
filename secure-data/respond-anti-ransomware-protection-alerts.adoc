@@ -46,3 +46,6 @@ S'il y a une activité anormale sur l'unité de stockage, un message s'affiche s
 
 .Et la suite ?
 Si vous constatez des pics d'activité dans votre unité de stockage, qu'il s'agisse de pics ponctuels ou d'une augmentation caractéristique d'une nouvelle norme, vous devez les signaler comme étant sans danger. Le signalement manuel de ces pics comme étant sans danger contribue à améliorer la précision des évaluations des menaces d'ARP. Découvrez comment link:https://docs.netapp.com/us-en/ontap/anti-ransomware/manage-parameters-task.html#report-known-surges["signaler les pics connus d'ARP/IA"^].
+
+
+NOTE: Si le paramètre link:modify-arp-snapshot-retention-period.html["politique de réponse d’instantané"] de l’unité de stockage est configuré pour générer uniquement des alertes ou créer uniquement des instantanés déclenchés par une attaque, aucun instantané ARP périodique n’apparaît pour cette unité de stockage, même lorsque ARP/AI est activé.

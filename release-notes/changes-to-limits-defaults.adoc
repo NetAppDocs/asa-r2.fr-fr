@@ -26,6 +26,9 @@ En savoir plus sur les modifications des limites et des valeurs par défaut affe
 | Fonction | Modification de limite | Modifié dans la version... 
 
 
+| Mise à l'échelle de l'enregistrement de réservation persistante SCSI | Le nombre maximal d'enregistrements de réservations persistantes SCSI-3 pris en charge par LUN passe de 182 à 256. | ONTAP 9.20.1 
+
+
 | Machines virtuelles de stockage par cluster | Le nombre maximal de machines virtuelles de stockage prises en charge (VM) par paire HA passe de 32 à 256. | ONTAP 9.18.1 
 
 

@@ -11,7 +11,7 @@ summary: Si vous configurez ONTAP Mediator ou ONTAP Cloud Mediator avec un certi
 
 
 [role="lead"]
-Si vous configurez ONTAP Mediator ou ONTAP Cloud Mediator avec un certificat auto-signé, vous pouvez reconfigurer le médiateur pour utiliser un certificat tiers.  Les certificats tiers peuvent être préférés ou exigés par votre organisation pour des raisons de sécurité.
+Reconfigurez ONTAP Mediator ou ONTAP Cloud Mediator pour utiliser un certificat tiers au lieu d'un certificat auto-signé. Votre organisation peut préférer ou exiger l'utilisation de certificats tiers pour des raisons de sécurité.
 
 
 
@@ -54,7 +54,7 @@ Après avoir supprimé le certificat auto-signé associé, vous pouvez reconfigu
 . Sélectionnez *Protection > Présentation*.
 . Dans le volet de droite, sous *Médiateurs*, sélectionnez *Ajouter un médiateur*.
 . Sélectionnez le *type de médiateur*.
-. Pour un médiateur *Cloud*, saisissez l'ID d'organisation, l'ID client et le secret client. Pour un médiateur *sur site*, saisissez l'adresse IP, le port, le nom d'utilisateur du médiateur et le mot de passe du médiateur.
+. Pour un médiateur *Cloud*, saisissez l'ID de l'organisation, l'ID client et le secret client. Pour un médiateur *Sur site*, saisissez l'adresse IP, le port, le nom d'utilisateur du médiateur et le mot de passe du médiateur.
 . Sélectionnez un homologue de cluster dans la liste des homologues de cluster éligibles ou sélectionnez *Ajouter un homologue de cluster* pour en ajouter un nouveau.
 . Sous *Certificat*, saisissez les informations du certificat tiers.
 . Sélectionnez *Ajouter*.

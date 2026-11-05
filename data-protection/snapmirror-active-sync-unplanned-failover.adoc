@@ -2,22 +2,22 @@
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-unplanned-failover.html 
 keywords: asa r2, reestablish, snapmirror active sync, unplanned failover, disaster recovery 
-summary: Découvrez comment rétablir les relations de synchronisation active SnapMirror après un basculement imprévu de vos clusters ASA r2. 
+summary: Rétablissez les relations de synchronisation actives de SnapMirror après un basculement imprévu de vos clusters ASA r2. 
 ---
-= Rétablir la synchronisation active SnapMirror après un basculement inattendu sur ASA r2
+= Rétablir SnapMirror active sync après un basculement imprévu sur ASA r2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Sur les systèmes ASA r2, SnapMirror active sync prend en charge les configurations actives/actives symétriques. Dans une configuration active/active symétrique, les deux sites peuvent accéder au stockage local pour les E/S actives. Si le cluster source tombe en panne ou est isolé, le médiateur déclenche un basculement automatique non planifié (AUFO) et prend en charge toutes les E/S depuis le cluster de destination jusqu'à la récupération du cluster source.
+Rétablissez votre relation de synchronisation active SnapMirror pour reprendre les opérations sur le cluster source d'origine après un basculement imprévu. Sur les systèmes ASA r2, la synchronisation active SnapMirror prend en charge les configurations actif/actif symétriques. Dans une configuration actif/actif symétrique, les deux sites peuvent accéder au stockage local pour les E/S actives. Si le cluster source tombe en panne ou est isolé, ONTAP Mediator déclenche un basculement automatique imprévu (AUFO) et assure toutes les E/S depuis le cluster de destination jusqu'au rétablissement du cluster source.
 
 Si vous rencontrez une AUFO de votre SnapMirror active sync relationship, vous devez rétablir la relation et reprendre les opérations sur le cluster source d'origine une fois celui-ci remis en ligne.
 
 .Avant de commencer
 * La relation de synchronisation active SnapMirror doit être synchronisée.
-* Vous ne pouvez pas lancer un basculement planifié lorsqu'une opération non perturbatrice, telle qu'un déplacement d'unité de stockage, est en cours.
+* Vous ne pouvez pas lancer un basculement planifié lorsqu'une opération sans interruption, telle qu'un déplacement d'unité de stockage, est en cours.
 * Le médiateur ONTAP doit être configuré, connecté et en quorum.
 * Pour récupérer les chemins d'E/S perdus ou mettre à jour l'état des chemins d'E/S sur vos hôtes, vous devez effectuer une nouvelle analyse du stockage/des adaptateurs sur les hôtes après la reprise du fonctionnement du cluster de stockage principal.
 

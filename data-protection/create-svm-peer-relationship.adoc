@@ -11,7 +11,7 @@ summary: 'Créez des relations d"homologue entre les VM de stockage de différen
 
 
 [role="lead"]
-Une relation d'homologue définit les connexions réseau permettant aux clusters et aux machines virtuelles de stockage (VM) d'échanger des données en toute sécurité. Créez des relations d'homologue entre les VM de stockage de différents clusters pour assurer la protection des données et la reprise après sinistre grâce à SnapMirror.
+Une relation d’homologue définit les connexions réseau qui permettent aux clusters et aux machines virtuelles de stockage (VM) d’échanger des données en toute sécurité. Créez des relations d’homologue entre des VM de stockage sur différents clusters afin de permettre la protection des données et la reprise après sinistre à l’aide de SnapMirror.
 
 link:https://docs.netapp.com/us-en/ontap/peering/peering-basics-concept.html["En savoir plus sur les relations entre pairs"^] .
 
@@ -20,7 +20,7 @@ Vous devez avoir établi une relation d'homologue de cluster entre les clusters 
 
 .Étapes
 . Dans le Gestionnaire système, sélectionnez *Protection > Présentation*.
-. Sous *Homologations de machines virtuelles de stockage*, sélectionnez *Ajouter une homologation de machines virtuelles de stockage*.
+. Sous *Homologues de VM de stockage*, sélectionnez *Ajouter un homologue de VM de stockage*.
 . Sélectionnez la machine virtuelle de stockage sur le cluster local, puis sélectionnez la machine virtuelle de stockage sur le cluster distant.
 . Sélectionnez *Ajouter un homologue de machine virtuelle de stockage*.
 

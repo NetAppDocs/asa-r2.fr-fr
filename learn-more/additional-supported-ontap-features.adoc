@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: learn-more/additional-supported-ontap-features.html 
 keywords: asa r2, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20, asa c30, cli, command line interface, clustered external key servers, external key management, encryption at rest, administrator access management, client authentication, oauth 2.0, saml authentication, fips compliance, link aggregation groups, iscsi, fibre channel, fc, nvme, nvme unmap, hole punch, deallocation, system manager 
-summary: 'Étant donné que les systèmes ASA r2 exécutent une version simplifiée d" ONTAP, de nombreuses tâches ONTAP courantes et fonctions du gestionnaire de système sont exécutées de la même manière sur les systèmes ASA r2 que sur les autres systèmes ONTAP .' 
+summary: Découvrez quelles fonctionnalités ONTAP courantes, notamment le chiffrement, l’authentification, la mise en réseau, les protocoles SAN et l’efficacité du stockage, fonctionnent de la même manière sur les systèmes ASA r2. 
 ---
 = Fonctionnalités ONTAP courantes prises en charge sur les systèmes ASA r2
 :allow-uri-read: 
@@ -14,6 +14,15 @@ summary: 'Étant donné que les systèmes ASA r2 exécutent une version simplifi
 Étant donné que les systèmes ASA r2 exécutent une version simplifiée d'ONTAP, vous effectuez de nombreuses tâches ONTAP courantes et fonctions de System Manager de la même manière que sur d'autres systèmes ONTAP.
 
 Pour plus d'informations sur les fonctionnalités et fonctions courantes, consultez la documentation ONTAP suivante.
+
+
+
+[[autosupport]]
+== AutoSupport
+
+À partir d'ONTAP 9.20.1, System Manager affiche des alertes AutoSupport si AutoSupport est configuré pour le protocole SMTP au lieu du protocole HTTPs, si AutoSupport est désactivé mais que les destinataires des e-mails des clients et des partenaires restent configurés, et si une transmission AutoSupport échoue en raison d'un problème DNS.
+
+link:https://docs.netapp.com/us-en/ontap/system-admin/manage-autosupport-concept.html["Apprenez-en davantage sur AutoSupport"^].
 
 
 
@@ -38,6 +47,8 @@ link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-cluster-ke
 
 Vous pouvez utiliser un ou plusieurs serveurs KMIP pour sécuriser les clés utilisées par le cluster pour accéder aux données chiffrées.
 
+À partir de ONTAP 9.20.1, lorsque vous activez un gestionnaire de clés externe sur une machine virtuelle de stockage des données, ONTAP migre automatiquement les clés de chiffrement de volume de cette machine virtuelle de stockage du gestionnaire de clés de portée administrateur vers le nouveau gestionnaire de clés de la machine virtuelle de stockage des données. Cela simplifie la transition vers la gestion externe des clés et élimine la nécessité d’une étape de migration manuelle distincte dans le flux de travail standard.
+
 * link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-external-key-management-96-later-hw-task.html["Activer la gestion des clés externes"^].
 * link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-external-key-management-96-later-nve-task.html["Activer la gestion des clés externes (NVE)"^] .
 
@@ -54,10 +65,9 @@ Découvrez plus d'informations sur les fonctionnalités de sécurité des donné
 [[administrator-access-management]]
 === Gestion des accès administrateur
 
-Le rôle attribué à un administrateur détermine les fonctions qu'il peut effectuer.  Le gestionnaire système fournit des rôles prédéfinis pour les administrateurs de cluster et les administrateurs de machines virtuelles de stockage.  Vous attribuez le rôle lors de la création du compte administrateur, ou vous pouvez attribuer un rôle différent ultérieurement.
+Le rôle attribué à un administrateur détermine les fonctions qu'il peut exécuter. System Manager propose des rôles prédéfinis pour les administrateurs du cluster et les administrateurs de VM de stockage. Vous attribuez le rôle lors de la création du compte de l'administrateur, ou vous pouvez lui attribuer un rôle différent ultérieurement.
 
-* link:https://docs.netapp.com/us-en/ontap/task_security_administrator_access.html["Apprenez à gérer les accès administrateur avec System Manager"^].
-
+link:https://docs.netapp.com/us-en/ontap/task_security_administrator_access.html["Apprenez à gérer les accès administrateur avec System Manager"^].
 
 
 
@@ -67,6 +77,23 @@ Le rôle attribué à un administrateur détermine les fonctions qu'il peut effe
 ONTAP utilise des méthodes standard pour sécuriser l'accès des clients et des administrateurs au stockage et pour se protéger contre les virus.  Des technologies avancées sont disponibles pour le chiffrement des données au repos et pour le stockage WORM.  ONTAP authentifie une machine cliente et un utilisateur en vérifiant leur identité auprès d'une source fiable.  ONTAP autorise un utilisateur à accéder à un fichier ou à un répertoire en comparant ses informations d'identification avec les autorisations configurées sur le fichier ou le répertoire.
 
 link:https://docs.netapp.com/us-en/ontap/concepts/client-access-storage-concept.html["En savoir plus sur l'authentification et l'autorisation des clients"^] .
+
+
+
+[[fc-sp-3-authentication-and-encryption]]
+=== Authentification et chiffrement FC-SP-3
+
+À partir de ONTAP 9.20.1, ONTAP prend en charge l'authentification et le chiffrement Fibre Channel Security Protocol 3 (FC-SP-3) sur les HBA sécurisés Broadcom avec les systèmes ASA r2. La prise en charge de FC-SP-3 permet le chiffrement de bout en bout au niveau matériel et l'authentification des périphériques afin de protéger les données en transit entre les hôtes SAN FC et NVMe/FC et les systèmes de stockage ONTAP, tout en respectant les normes de sécurité Fibre Channel T11.
+
+* link:https://docs.netapp.com/us-en/ontap/san-admin/fc-sp-3-security-support.html["Découvrez l’authentification et le chiffrement FC-SP-3"^].
+
+
+
+
+[[multi-admin-verification-mav]]
+=== Vérification multi-administrateurs (MAV)
+
+À partir d'ONTAP 9.20.1, les groupes d'approbation MAV peuvent inclure des groupes de fournisseur d'identité (IdP), d'Active Directory (AD) et de LDAP (nsswitch) en tant qu'approbateurs, en plus des administrateurs individuels. Les types de groupes pris en charge incluent Entra ID, ADFS, les groupes de domaine AD et les groupes LDAP. L'ajout ou la suppression d'utilisateurs dans l'annuaire IdP, AD ou LDAP ne nécessite aucune modification de la configuration MAV. link:https://docs.netapp.com/us-en/ontap/multi-admin-verify/index.html["En savoir plus sur MAV"^].
 
 
 
@@ -84,7 +111,18 @@ link:https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["En
 
 Vous pouvez configurer et activer l'authentification SAML (Security Assertion Markup Language) pour les services Web.  SAML authentifie les utilisateurs par l'intermédiaire d'un fournisseur d'identité externe (IdP) au lieu des fournisseurs de services d'annuaire tels qu'Active Directory et LDAP.
 
-link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authentication-task.html["Apprenez à configurer l'authentification SAML"^] .
+link:https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authentication-task.html["Apprenez à configurer l'authentification SAML"^].
+
+
+
+[[snmp]]
+=== SNMP
+
+À partir d'ONTAP 9.20.1, ONTAP prend en charge l'authentification SHA-512 pour les utilisateurs SNMPv3. Cette amélioration permet d'utiliser une authentification SNMPv3 plus robuste pour les clients SNMP externes et pour la surveillance des commutateurs, y compris ceux qui requièrent l'authentification SHA-512.
+
+* link:https://docs.netapp.com/us-en/ontap/networking/configure_snmpv3_users_in_a_cluster.html["Apprenez à configurer les utilisateurs SNMPv3"^].
+* link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cshm/config-snmpv3.html["Apprenez à configurer SNMPv3 sur les commutateurs"^].
+
 
 
 
@@ -178,7 +216,7 @@ Les systèmes ASA r2 prennent en charge tous les protocoles SAN (iSCSI, FC, NVMe
 +
 ** link:https://docs.netapp.com/us-en/ontap/san-admin/nvme-copy-offload.html["Apprenez à configurer le déchargement de copie NVMe"^].
 +
-À partir d' ONTAP 9.18.1, le déchargement de copie NVMe est pris en charge.  La fonction de déchargement de copie NVMe permet à un hôte NVMe de décharger les opérations de copie de son processeur vers le processeur du contrôleur de stockage ONTAP .  L'hôte peut copier des données d'un espace de noms NVMe à un autre tout en réservant ses ressources CPU pour les charges de travail applicatives.
+À partir de ONTAP 9.18.1, ONTAP prend en charge le déchargement de copie NVMe. Le déchargement de copie NVMe permet à un hôte NVMe de décharger les opérations de copie de son CPU vers le CPU du contrôleur de stockage ONTAP. L'hôte peut copier des données d'un namespace NVMe à un autre tout en réservant les ressources de son CPU pour les charges de travail applicatives.
 
 ** link:https://docs.netapp.com/us-en/ontap/san-admin/enable-space-allocation.html["Apprenez-en davantage sur l'allocation d'espace (désallocation) pour NVMe"^].
 +
@@ -201,10 +239,19 @@ link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.ht
 
 
 
+[[data-reduction-rate-drr]]
+=== Taux de réduction des données (DRR)
+
+À partir de ONTAP 9.20.1, le taux de réduction des données (DRR) de l’efficacité du stockage offre une évaluation plus précise des économies d’espace liées à l’efficacité du stockage ONTAP, en ne prenant en compte que les données réductibles. Dans ONTAP 9.19.1 et les versions antérieures, le DRR inclut à la fois les données réductibles et non réductibles.
+
+link:https://docs.netapp.com/us-en/ontap/concepts/capacity-measurements.html["En savoir plus sur la façon dont ONTAP signale le stockage utilisé"^].
+
+
+
 [[global-deduplication]]
 === Déduplication globale
 
-À partir d'ONTAP 9.19.1, la link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["économies d'espace ONTAP grâce à la déduplication existante"^]déduplication globale s'étend du niveau de l'unité de stockage à l'ensemble de la zone de disponibilité de stockage (SAZ). En éliminant les blocs de données dupliqués sur toutes les unités de stockage de la SAZ, l'efficacité du stockage peut être considérablement améliorée et le coût de possession réduit. La déduplication globale ne nécessite aucune licence de fonctionnalité, est activée par défaut, s'intègre parfaitement aux technologies d'efficacité du stockage existantes et fonctionne de manière transparente avec un impact minimal sur les performances et sans nécessiter de configuration administrative.
+À partir de ONTAP 9.19.1, la déduplication globale étend la link:https://docs.netapp.com/us-en/ontap/concepts/deduplication-concept.html["économies d'espace ONTAP grâce à la déduplication existante"^] au niveau de l’unité de stockage à l’ensemble de la zone de disponibilité du stockage (SAZ). En éliminant les blocs de données dupliqués dans toutes les unités de stockage de la SAZ, vous pouvez améliorer considérablement l’efficacité du stockage et réduire le coût de possession total. La déduplication globale ne nécessite aucune licence de fonctionnalité, est activée par défaut, s’intègre parfaitement aux technologies existantes d’efficacité du stockage et fonctionne de manière transparente avec un impact minimal sur les performances et sans nécessiter de configuration administrative.
 
 
 
@@ -214,3 +261,12 @@ link:https://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.ht
 Dans le Gestionnaire système, vous pouvez rechercher diverses actions, objets et sujets d'information. Vous pouvez également rechercher des données de table pour des entrées spécifiques.
 
 link:https://docs.netapp.com/us-en/ontap/task_admin_search_filter_sort.html["Apprenez à rechercher, filtrer et trier les informations dans System Manager"^].
+
+
+
+[[user-password-expiration-alerts]]
+=== Alertes d'expiration du mot de passe utilisateur
+
+À partir d'ONTAP 9.20.1, si le rôle associé à un compte utilisateur est configuré pour les alertes d'expiration de mot de passe, l'utilisateur reçoit une bannière d'alerte en haut de la page dans System Manager immédiatement après sa connexion, à partir de 14 jours avant l'expiration du mot de passe. L'alerte est mise à jour chaque fois que l'utilisateur se connecte pour indiquer le nombre de jours restants avant l'expiration du mot de passe. Vous pouvez configurer les alertes d'expiration lorsque vous ajoutez ou modifiez un rôle d'administrateur.
+
+link:https://docs.netapp.com/us-en/ontap/authentication/configure-password-expiry-alerts.html["Découvrez comment configurer les alertes d'expiration de mot de passe dans System Manager"^].

@@ -16,10 +16,10 @@ En cas de problème avec les opérations de données hôte, vous pouvez utiliser
 .Étapes
 . Dans System Manager, sélectionnez *Host*.
 +
-L'état de la connectivité hôte est indiqué en regard du nom du groupe d'hôtes comme suit :
+System Manager affiche l’état de la connectivité hôte à côté du nom du groupe d’hôtes :
 
 +
-** *OK* : indique que tous les initiateurs sont connectés aux deux nœuds.
+** *OK* : Indique que tous les initiateurs sont connectés aux deux nœuds.
 ** *Connexion partielle* : Indique que certains des initiateurs ne sont pas connectés aux deux nœuds.
 ** *Aucun connecté* : indique qu'aucun initiateur n'est connecté.
 
@@ -27,4 +27,4 @@ L'état de la connectivité hôte est indiqué en regard du nom du groupe d'hôt
 
 
 .Et la suite ?
-Effectuez des mises à jour sur votre hôte pour corriger les problèmes de connectivité. ONTAP revérifie l'état de la connexion toutes les quinze minutes.
+Mettez à jour votre hôte pour corriger les problèmes de connectivité. ONTAP vérifiera l'état de la connexion toutes les 15 minutes.

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapshot-reserve.html 
 keywords: asa r2, snapshot reserve, percentage 
-summary: 'La réserve d"instantanés correspond à l"espace de l"unité de stockage réservé spécifiquement aux instantanés.  Lorsque la réserve d"instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l"espace utilisé par les instantanés dépasse la réserve d"instantanés.' 
+summary: Découvrez comment la réserve de snapshots met de côté de l’espace de l’unité de stockage pour les snapshots et comment la suppression automatique des snapshots supprime les snapshots les plus anciens lorsque l’utilisation dépasse la réserve sur les systèmes ASA r2. 
 ---
 = Découvrez la réserve de snapshots ONTAP sur les systèmes de stockage ASA r2
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: 'La réserve d"instantanés correspond à l"espace de l"unité de stock
 [role="lead"]
 La réserve de snapshots correspond à l'espace de l'unité de stockage réservé spécifiquement aux snapshots.  Lorsque la réserve d'instantanés est configurée avec la suppression automatique des instantanés, les instantanés les plus anciens sont automatiquement supprimés lorsque l'espace utilisé par les instantanés dépasse la réserve d'instantanés.  Cela empêche les instantanés de consommer de l'espace dans votre unité de stockage destiné aux données utilisateur.
 
-La réserve instantanée est définie en pourcentage de la taille totale de l'unité de stockage.  Par exemple, si l'unité de stockage est de 50 Go et que vous définissez la réserve d'instantanés à 10 %, l'espace réservé aux instantanés est de 5 Go.  Lorsque l'espace utilisé par les instantanés atteint 5 Go, les instantanés les plus anciens sont automatiquement supprimés pour faire de la place aux nouveaux.  Si la taille de l'unité de stockage passe à 100 Go, la réserve de snapshots passe à 10 Go.  La réserve maximale de snapshots que vous pouvez définir est de 200 %.  Si votre unité de stockage atteint la taille maximale de 128 To, une réserve de snapshots de 200 % vous permet de prendre 2 snapshots complets.
+L'espace réservé aux instantanés est défini en pourcentage de la taille totale de l'unité de stockage. Par exemple, si l'unité de stockage a une capacité de 50 Go et que vous définissez la réserve d'instantanés à 10 %, l'espace réservé aux instantanés est de 5 Go. Lorsque l'espace utilisé par les instantanés atteint 5 Go, les instantanés les plus anciens sont automatiquement supprimés pour libérer de l'espace pour les nouveaux. Si la taille de l'unité de stockage passe à 100 Go, la réserve d'instantanés passe à 10 Go. La réserve d'instantanés maximale que vous pouvez définir est de 200 %. Si votre unité de stockage atteint sa capacité maximale de 128 To, une réserve d'instantanés de 200 % vous permet de prendre deux instantanés complets.
 
 Par défaut, la réserve de snapshots est fixée à 0 % et la suppression automatique des snapshots n'est pas activée.
 

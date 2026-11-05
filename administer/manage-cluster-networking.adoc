@@ -53,7 +53,7 @@ Vous avez ajouté un nouveau domaine de diffusion.
 [[reassign-ports-to-a-different-broadcast-domain]]
 == Réaffectez des ports à un autre domaine de diffusion
 
-Les ports ne peuvent appartenir qu'à un seul domaine de diffusion. Si vous souhaitez modifier le domaine de diffusion auquel appartient un port, vous devez réaffecter le port de son domaine de diffusion existant à un nouveau domaine de diffusion.
+Un port ne peut appartenir qu'à un seul domaine de diffusion. Pour modifier le domaine de diffusion d'un port, réaffectez le port de son domaine de diffusion actuel à un nouveau.
 
 .Étapes
 . Dans System Manager, sélectionnez *réseau > Présentation*.

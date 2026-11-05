@@ -21,12 +21,12 @@ Ajoutez des disques à un nœud ou à un tiroir pour augmenter la capacité de s
 Avant d'installer un nouveau disque sur un nœud ou une étagère, utilisez NetApp Hardware Universe pour vérifier que le disque que vous souhaitez ajouter est pris en charge par votre système ASA r2 et pour identifier l'emplacement approprié pour le nouveau disque.  Les emplacements appropriés pour l'ajout de disques varient en fonction du modèle du système et de la version ONTAP .  Dans certains cas, il est nécessaire d'ajouter les disques à des emplacements spécifiques, dans l'ordre.
 
 .Étapes
-. Passez à link:https://hwu.netapp.com/["NetApp Hardware Universe"^]l' .
+. Allez à la link:https://hwu.netapp.com/["NetApp Hardware Universe"^].
 . Sous *produits*, sélectionnez vos configurations matérielles.
 . Sélectionnez votre système ASA r2.
 . Sélectionnez votre version ONTAP, puis *Afficher les résultats*.
 . Sous le graphique, sélectionnez *cliquez ici pour voir d'autres vues*, puis choisissez la vue qui correspond à votre configuration.
-. Utilisez l'affichage de votre configuration pour vérifier que votre nouveau lecteur est pris en charge et que le logement approprié est installé.
+. Utilisez la vue de votre configuration pour confirmer que votre nouveau disque est pris en charge et identifier l'emplacement approprié pour l'installation.
 
 
 .Résultat
@@ -40,7 +40,7 @@ Vous avez confirmé que votre nouveau lecteur est pris en charge et que vous con
 Le nombre minimum de disques que vous devez ajouter en une seule procédure est de trois. L'ajout d'un seul disque peut réduire les performances.
 
 .Description de la tâche
-Vous devez répéter les étapes de cette procédure pour chaque lecteur.
+Répétez les étapes de cette procédure pour chaque lecteur.
 
 .Étapes
 . Mettez-vous à la terre.
@@ -64,7 +64,7 @@ Le firmware des disques est automatiquement mis à jour (sans interruption) sur 
 
 
 
-. Si votre nœud est configuré pour l'affectation automatique des disques, vous pouvez attendre que ONTAP attribue automatiquement les nouveaux disques à un nœud. Si votre nœud n'est pas configuré pour l'affectation automatique des disques ou si vous préférez, vous pouvez attribuer les disques manuellement.
+. Si votre nœud est configuré pour l'attribution automatique des disques, attendez qu'ONTAP attribue les nouveaux disques à un nœud. Si votre nœud n'est pas configuré pour l'attribution automatique des disques, ou si vous préférez, attribuez les disques manuellement.
 +
 Les nouveaux disques ne sont pas reconnus tant qu'ils ne sont pas attribués à un nœud.
 

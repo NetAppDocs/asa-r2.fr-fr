@@ -1,0 +1,64 @@
+= Basculer manuellement les clients après une migration de machine virtuelle de stockage
+:allow-uri-read: 
+
+
+Lors d'une migration de machine virtuelle de stockage entre clusters, les E/S client sont transférées vers le cluster de destination et la machine virtuelle de stockage du cluster source est automatiquement supprimée. Si vous choisissez de désactiver le basculement automatique et la suppression de la machine virtuelle de stockage source pendant la migration, vous devrez effectuer ces étapes manuellement une fois que l'état de la migration aura atteint *Ready for source cleanup*.
+
+
+
+[[manually-cut-over-clients-after-a-storage-vm-migration]]
+=== Basculer manuellement les clients après une migration de machine virtuelle de stockage
+
+Si vous désactivez le basculement automatique du client lors de la migration inter-cluster d'une machine virtuelle de stockage, une fois la relation de migration prête pour le basculement, effectuez ce dernier manuellement afin que la machine virtuelle de stockage de destination puisse fournir des données aux clients.
+
+.Description de la tâche
+Effectuez cette tâche à partir du cluster de destination.
+
+.Étapes
+. Exécutez manuellement la bascule client :
++
+[source, cli]
+----
+vserver migrate cutover -vserver <storage_VM_name>
+----
+. Vérifiez que l'opération de basculement est terminée :
++
+[source, cli]
+----
+vserver migrate show
+----
+
+
+.Résultat
+Les données sont fournies à vos clients depuis la machine virtuelle de stockage de votre cluster de destination.
+
+.Et la suite ?
+Vous êtes maintenant prêt à retirer la machine virtuelle de stockage du cluster source.
+
+
+
+[[manually-remove-a-storage-vm-after-migration]]
+=== Supprimer manuellement une machine virtuelle de stockage après la migration
+
+Si vous désactivez le nettoyage automatique de la source lors d'une migration de machine virtuelle de stockage entre clusters, une fois la migration terminée, supprimez la machine virtuelle de stockage du cluster source pour libérer l'espace de stockage.
+
+.Avant de commencer
+Vos clients doivent fournir des données à partir du cluster de destination.
+
+.Étapes
+. À partir du cluster source, vérifiez que l'état de la machine virtuelle de stockage source est *Ready for source cleanup* :
++
+[source, cli]
+----
+vserver migrate show
+----
+. Supprimer la machine virtuelle de stockage source :
++
+[source, cli]
+----
+vserver migrate source-cleanup -vserver <storage_VM_name>
+----
+
+
+.Résultat
+La machine virtuelle de stockage de votre cluster source a été supprimée.

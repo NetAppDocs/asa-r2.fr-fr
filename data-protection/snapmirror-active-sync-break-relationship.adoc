@@ -11,7 +11,7 @@ summary: Dans certaines situations, vous devrez peut-être rompre une relation d
 
 
 [role="lead"]
-Dans certaines situations, vous devrez peut-être rompre une relation de réplication asynchrone.  Par exemple, si vous exécutez ONTAP 9.16.1 et que vous souhaitez augmenter la taille d'un groupe de cohérence qui se trouve dans une relation de réplication asynchrone, vous devez rompre la relation avant de pouvoir modifier la taille du groupe de cohérence.
+Interrompez une relation de réplication asynchrone lorsque vous devez effectuer des modifications qui l’exigent. Par exemple, si vous utilisez ONTAP 9.16.1 et que vous souhaitez augmenter la taille d’un groupe de cohérence dans une relation de réplication asynchrone, interrompez la relation avant de modifier la taille du groupe de cohérence.
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > réplication*.

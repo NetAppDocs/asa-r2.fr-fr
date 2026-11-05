@@ -74,7 +74,7 @@ Une fenêtre de confirmation affiche les informations sur les métadonnées, qui
 . Revenez à la fenêtre de confirmation dans System Manager, puis sélectionnez *J'ai configuré l'IDP avec l'URI hôte ou les métadonnées*.
 . Sélectionnez *Déconnexion* pour activer l'authentification basée sur SAML.
 +
-Le système IDP affiche un écran d'authentification.
+Le système IdP affiche un écran d'authentification.
 
 
 

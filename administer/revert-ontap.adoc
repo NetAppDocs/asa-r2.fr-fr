@@ -13,7 +13,7 @@ summary: 'Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent 
 [role="lead"]
 Les restaurations du logiciel ONTAP pour les systèmes ASA r2 suivent le même processus que les restaurations pour les autres systèmes ONTAP .
 
-La restauration d'un cluster ONTAP est une opération perturbatrice. Vous devez mettre le cluster hors ligne pendant toute la durée de la restauration. Vous ne devez pas restaurer un cluster de production sans l'assistance du support technique. Vous pouvez restaurer un cluster neuf ou de test sans assistance. Si la restauration d'un système neuf ou de test échoue, ou si elle réussit mais que les performances du cluster dans votre environnement de production ne vous satisfont pas, vous devez contacter le support technique pour obtenir de l'assistance.
+La réversion d’un cluster ONTAP est une opération perturbatrice. Vous devez mettre le cluster hors ligne pendant toute la durée de la réversion. Vous ne devez pas effectuer la réversion d’un cluster de production sans l’assistance du support technique. Vous pouvez effectuer la réversion d’un cluster neuf ou de test sans assistance. Si la réversion d’un système neuf ou de test échoue, ou si elle se termine correctement mais que vous n’êtes pas satisfait des performances du cluster dans votre environnement de production, contactez le support technique pour obtenir de l’aide.
 
 Consultez link:https://docs.netapp.com/us-en/ontap/revert/task_reverting_an_ontap_cluster.html["Rétablir un cluster ONTAP"] pour la procédure de rétablissement complète.
 
@@ -32,7 +32,7 @@ Certaines configurations de cluster ASA r2 nécessitent que vous preniez des mes
 Si vous revenez à ONTAP 9.17.1 sur un système ASA r2, vous devez effectuer les actions suivantes avant de commencer la restauration :
 
 
-NOTE: link:space-balancing.html["équilibrage dynamique de l'espace"]est activé par défaut 14 jours après la mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ONTAP 9.17.1 ASA r2.  Vous ne pouvez pas revenir à la version ONTAP 9.17.1 sur votre système ASA r2 après l'activation de l'équilibrage dynamique de l'espace.
+NOTE: link:space-balancing.html["Équilibrage dynamique de l'espace"] est activé par défaut 14 jours après une mise à niveau vers ONTAP 9.17.1 ou l'initialisation d'un nouveau cluster ASA r2 ONTAP 9.17.1. Vous ne pouvez pas revenir à une version antérieure depuis ONTAP 9.17.1 sur votre système ASA r2 une fois l'équilibrage dynamique de l'espace activé.
 
 [cols="2"]
 |===

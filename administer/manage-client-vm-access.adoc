@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/manage-client-vm-access.html 
 keywords: asa r2, client access, host access, virtual machines, storage virtual machines, create, ipspaces, subnets, lifs, network interface, iscsi lif failover, 
-summary: Créez une LIF pour accéder aux données des unités de stockage de votre ASA r2. Utilisation de sous-réseaux pour simplifier la création de LIF et les IPspaces pour une administration et un routage sécurisés. 
+summary: Créez une LIF pour accéder aux données des unités de stockage de votre ASA r2. Utilisez des sous-réseaux pour simplifier la création de LIF et des espaces IP pour assurer une administration et un routage sécurisés. 
 searchtitle: 'Gestion de l"accès client au stockage via ONTAP System Manager | ASA r2' 
 ---
 = Gestion de l'accès client aux machines virtuelles de stockage sur les systèmes de stockage ASA r2
@@ -64,7 +64,7 @@ Maintenant que vous avez créé un IPspace, vous pouvez l'utiliser pour créer u
 [[create-subnets]]
 == Créer des sous-réseaux
 
-Un sous-réseau vous permet d'allouer des blocs spécifiques d'adresses IPv4 ou IPv6 à utiliser lors de la création d'une LIF (interface réseau) . Un sous-réseau simplifie la création de LIF en vous permettant de spécifier le nom de sous-réseau à la place d'une adresse IP et d'un masque réseau spécifiques pour chaque LIF.
+Un sous-réseau permet d'allouer des blocs spécifiques d'adresses IPv4 ou IPv6 lors de la création d'une interface réseau (LIF). Le sous-réseau simplifie la création de LIF en permettant de spécifier le nom du sous-réseau au lieu d'une adresse IP et d'un masque de réseau spécifiques pour chaque LIF.
 
 .Avant de commencer
 * Vous devez être un administrateur de cluster pour effectuer cette tâche.
@@ -95,10 +95,10 @@ Vous avez créé un sous-réseau que vous pouvez utiliser pour simplifier la cr�
 [[create-a-lif-network-interface]]
 == Créer une LIF (interface réseau)
 
-Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder aux données. Les Storage VMs distribuent les données aux clients via une ou plusieurs LIF. Sur un système ASA r2, vous pouvez créer des LIF IP, FC et NVMe/FC. Une LIF de données IP peut gérer par défaut le trafic iSCSI et NVMe/TCP. Des LIF de données distinctes doivent être créées pour le trafic FC et NVMe/FC.
+Une LIF (interface réseau) est une adresse IP associée à un port physique ou logique. Créez des LIF sur les ports que vous souhaitez utiliser pour accéder aux données. Les machines virtuelles de stockage fournissent des données aux clients via une ou plusieurs LIF. Sur un système ASA r2, vous pouvez créer des LIF IP, FC et NVMe/FC. Une LIF de données IP peut gérer par défaut le trafic iSCSI et NVMe/TCP. Vous devez créer des LIF de données distinctes pour le trafic FC et NVMe/FC.
 
 .Basculement de LIF sur les systèmes ASA r2
-En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique, afin que la communication réseau ne soit pas interrompue. À partir de ONTAP 9.19.1, le basculement automatique des LIF IP est pris en charge par défaut. Lorsque le basculement automatique des LIF est activé, si un basculement du stockage se produit, la LIF est automatiquement migrée de son nœud ou port d'origine vers son nœud ou port partenaire HA, puis de nouveau vers son nœud ou port d'origine une fois le basculement terminé. Ou, si le port devient défaillant, la LIF est automatiquement migrée vers un port fonctionnel de son nœud d'origine, puis de nouveau vers son port d'origine une fois que le port est de nouveau opérationnel.
+En cas de défaillance d'un composant, une LIF peut basculer ou être migrée vers un autre port physique afin que les communications réseau ne soient pas interrompues. À partir d'ONTAP 9.19.1, le basculement automatique des LIF IP est pris en charge par défaut. Lorsque le basculement automatique des LIF est activé, si un basculement du stockage se produit, la LIF est automatiquement migrée de son nœud ou port d'origine vers son nœud ou port partenaire HA, puis revient à son nœud ou port d'origine une fois le basculement terminé. De même, si le port devient défaillant, la LIF est automatiquement migrée vers un port sain de son nœud d'origine actuel, puis revient à son port d'origine une fois le port de nouveau opérationnel.
 
 Dans ONTAP 9.18.1 et versions antérieures, le basculement automatique des LIF n'est pas pris en charge pour les LIF IP utilisant à la fois le trafic iSCSI et NVMe/TCP. Lorsque vous créez des LIF uniquement iSCSI, le basculement automatique des LIF est activé par défaut, sauf si la machine virtuelle de stockage possède déjà des LIF iSCSI pour lesquelles le basculement automatique des LIF n'est pas activé. Si la machine virtuelle de stockage possède des LIF iSCSI pour lesquelles le basculement automatique des LIF n'est pas activé, les nouvelles LIF que vous créez ne seront pas activées non plus. Dans ce cas, vous devez d'abord supprimer les LIF iSCSI existantes, puis les recréer avec le basculement automatique des LIF. Découvrez comment link:https://docs.netapp.com/us-en/ontap/san-admin/delete-lif-san-environment-task.html["supprimer une LIF dans un environnement SAN"^].
 
@@ -184,7 +184,7 @@ Vous devez utiliser l'interface de ligne de commandes (CLI) ONTAP pour créer un
 network interface create -vserver <storage_VM_name> -lif <iscsi_lif_name> -service-policy <service_policy_name> -home-node <home_node> -home-port <port_name> -address <ip_address> -netmask <netmask> -failover-policy sfo-partner-only -status-admin up
 ----
 +
-** Il est recommandé de créer deux LIF iSCSI sur chaque nœud, un pour la structure A et l'autre pour la structure B. Cela assure la redondance et l'équilibrage de charge de votre trafic iSCSI. Dans l'exemple suivant, quatre LIF iSCSI sont créés : deux sur chaque nœud et un pour chaque structure.
+** Créez deux interfaces logiques iSCSI (LIF) sur chaque nœud, une pour la fabric A et l'autre pour la fabric B. Cela assure la redondance et l'équilibrage de charge de votre trafic iSCSI. Dans l'exemple suivant, quatre interfaces logiques iSCSI sont créées au total : deux sur chaque nœud, une pour chaque fabric.
 +
 [listing]
 ----
@@ -216,7 +216,7 @@ network interface show -lif iscsi*
 Les LIF peuvent être désactivées ou renommées selon les besoins. Vous pouvez également modifier l'adresse IP et le masque de sous-réseau de la LIF.
 
 .Description de la tâche
-ONTAP utilise le protocole NTP (Network Time Protocol) pour synchroniser l'heure sur le cluster. Après avoir modifié les adresses IP LIF, vous devrez peut-être mettre à jour la configuration NTP pour éviter les échecs de synchronisation. Pour plus d'informations, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-Issues/CONTAP-500629["La synchronisation NTP échoue après le changement d'IP LIF"] .
+ONTAP utilise le protocole NTP (Network Time Protocol) pour synchroniser l'heure au sein du cluster. Après avoir modifié les adresses IP des LIF, il peut être nécessaire de mettre à jour la configuration NTP afin d'éviter les échecs de synchronisation. Pour plus d'informations, consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-Issues/CONTAP-500629["La synchronisation NTP échoue après le changement d'IP LIF"].
 
 .Étapes
 . Sélectionnez *réseau > Présentation*, puis *interfaces réseau*.

@@ -13,7 +13,11 @@ summary: 'Sécurisez vos données à l"aide de snapshots inviolables. Les snapsh
 [role="lead"]
 ONTAP SnapLock est une solution de conformité haute performance pour les organisations utilisant le stockage WORM afin de conserver les fichiers sous forme non modifiée à des fins réglementaires et de gouvernance. Vous pouvez exécuter SnapLock en modes Compliance ou Enterprise, qui offrent différents niveaux de protection des données WORM. Les modes SnapLock Compliance et Enterprise ne sont pas pris en charge sur les clusters principaux dans les environnements SAN, mais vous pouvez activer SnapLock pour SnapVault sur vos systèmes secondaires afin de protéger les snapshots secondaires contre toute suppression accidentelle ou malveillante.
 
-L'horloge de conformité SnapLock doit être initialisée pour protéger les instantanés sur vos systèmes secondaires avec SnapLock pour SnapVault.
+L’horloge de conformité SnapLock doit être initialisée sur link:../data-protection/snapshot-replication.html["Protégez les instantanés sur vos systèmes secondaires avec SnapLock pour SnapVault"].
+
+À partir de ONTAP 9.20.1, vous pouvez configurer le back-end SnapLock pour la réplication SnapVault sur les fabrics FC existants. Pour ce faire, le back-end de votre système ONTAP doit être configuré pour la réplication FC, et le fabric FC ainsi que le réseau IP intercluster doivent être opérationnels. Les données de réplication peuvent transiter par le fabric FC, mais le réseau IP intercluster est requis pour les communications entre clusters et les fonctions de gestion de la réplication.
+
+Apprenez à link:https://docs.netapp.com/us-en/ontap/data-protection/configure-backend-fc-replication.html["Configurez le back-end de votre système ONTAP pour la réplication FC"^].
 
 .Informations associées
 * En savoir plus sur link:https://docs.netapp.com/us-en/ontap/san-admin/configure-backup-vaults-san-environment-concept.html["SnapLock pour SnapVault dans les environnements SAN"^].

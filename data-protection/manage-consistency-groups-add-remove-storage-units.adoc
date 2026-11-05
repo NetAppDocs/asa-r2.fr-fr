@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/manage-consistency-groups-add-remove-storage-units.html 
 keywords: consistency groups, snapshots, data protection, protect data, add, remove, delete, storage units, lun, namespace, increase capacity, shrink 
-summary: Augmentez ou diminuez la taille d’un groupe de cohérence en modifiant le nombre d’unités de stockage dans le groupe de cohérence. 
+summary: 'Augmentez ou diminuez la taille d"un groupe de cohérence en ajoutant des unités de stockage au groupe ou en en retirant.' 
 ---
 = Modifier la taille des groupes de cohérence sur votre système ASA r2
 :allow-uri-read: 
@@ -61,7 +61,7 @@ Si vous utilisez ONTAP 9.16.1 et que le groupe de cohérence que vous souhaitez 
 . Sélectionnez *utilisation de nouvelles unités de stockage*.
 . Entrez le nombre d'unités que vous souhaitez créer et la capacité par unité.
 +
-Si vous créez plusieurs unités, chaque unité sera créée avec la même capacité et le même système d'exploitation hôte.  Pour attribuer une capacité différente à chaque unité, sélectionnez *Ajouter une capacité différente*.
+Si vous créez plusieurs unités, chacune aura la même capacité et le même système d'exploitation hôte. Pour attribuer une capacité différente à chaque unité, sélectionnez *Ajouter une capacité différente*.
 
 . Sélectionnez *développer*.
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/policies-schedules.html 
 keywords: data protection, polices, schedules, protect data, snapshot policies, snapshot schedules, replication policies 
-summary: Utilisez des règles et des calendriers de protection des données pour protéger les données selon un calendrier automatisé. 
+summary: Créez et gérez des politiques de snapshot, des calendriers de politique et des politiques de réplication pour protéger automatiquement les groupes de cohérence sur les systèmes ASA r2. 
 ---
 = Gérez les politiques et les calendriers de protection des données sur les systèmes ASA r2
 :allow-uri-read: 
@@ -18,9 +18,9 @@ Utilisez les règles de snapshot pour protéger les données de vos groupes de c
 [[create-a-new-protection-policy-schedule]]
 == Créez un nouveau planning de stratégie de protection
 
-Une planification de règle de protection définit la fréquence à laquelle une règle de snapshots est exécutée. Vous pouvez créer des horaires à exécuter à intervalles réguliers en fonction d'un certain nombre de jours, d'heures ou de minutes. Par exemple, vous pouvez créer un programme à exécuter toutes les heures ou une seule fois par jour. Vous pouvez également créer des horaires à exécuter à des heures spécifiques sur des jours spécifiques de la semaine ou du mois. Par exemple, vous pouvez créer un programme à exécuter à 12:15 le 20 de chaque mois.
+La planification d'une stratégie de protection définit la fréquence d'exécution d'une stratégie de snapshot. Vous pouvez créer des planifications pour une exécution à intervalles réguliers, en fonction d'un nombre de jours, d'heures ou de minutes. Par exemple, vous pouvez programmer une exécution toutes les heures ou une seule fois par jour. Vous pouvez également programmer une exécution à des heures précises, certains jours de la semaine ou du mois. Par exemple, vous pouvez programmer une exécution à 00h15 le 20 de chaque mois.
 
-La définition de plusieurs plannings de règles de protection vous permet d'augmenter ou de diminuer la fréquence des snapshots pour différentes applications. Vous bénéficiez ainsi d'un niveau de protection supérieur et d'un risque moindre de perte de données pour vos workloads stratégiques par rapport à ce qui pourrait être nécessaire pour les workloads moins stratégiques.
+La définition de différents calendriers de politiques de protection vous offre la flexibilité d’augmenter ou de diminuer la fréquence des snapshots pour différentes applications. Cela vous permet d’offrir une meilleure protection et un risque plus faible de perte de données pour vos workload critiques que pour les workload moins critiques.
 
 .Étapes
 . Sélectionnez *protection > politiques*, puis *Programme*.
@@ -30,7 +30,7 @@ La définition de plusieurs plannings de règles de protection vous permet d'aug
 
 
 .Et la suite ?
-Maintenant que vous avez créé une nouvelle planification de règles, vous pouvez utiliser la nouvelle planification créée au sein de vos règles pour définir le moment où les snapshots sont effectués.
+Maintenant que vous avez créé une planification de stratégie, vous pouvez l'utiliser dans vos stratégies pour définir à quel moment les snapshots sont créés.
 
 
 
@@ -49,7 +49,7 @@ Une règle définit la fréquence de création des snapshots, le nombre maximal 
 
 
 .Et la suite ?
-Une fois que vous avez créé une politique de snapshots, vous pouvez l'appliquer à un groupe de cohérence. Des copies Snapshot du groupe de cohérence seront effectuées en fonction des paramètres définis dans la règle de copie Snapshot.
+Maintenant que vous avez créé une stratégie d'instantané, vous pouvez l'appliquer à un groupe de cohérence. ONTAP prend des instantanés du groupe de cohérence en fonction des paramètres que vous avez définis dans votre stratégie d'instantané.
 
 
 
@@ -73,7 +73,7 @@ Maintenant que vos données sont protégées avec des snapshots, vous devez link
 [[edit-delete-or-disable-a-snapshot-policy]]
 == Modifiez, supprimez ou désactivez une règle de snapshots
 
-Modifiez une règle de snapshot pour modifier le nom de la règle, le nombre maximal de snapshots ou le libellé SnapMirror. Supprimez une règle pour la supprimer du cluster, ainsi que les données de sauvegarde qui y sont associées. Désactivez une règle pour arrêter temporairement la création ou le transfert de snapshots spécifiés par la règle.
+Modifiez une stratégie de snapshots pour en changer le nom, le nombre maximal de snapshots ou l’étiquette SnapMirror. Supprimez une stratégie pour la retirer, ainsi que les données de sauvegarde associées de votre cluster. Désactivez une stratégie pour interrompre temporairement la création ou le transfert des snapshots qu’elle spécifie.
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > stratégies*, puis *règles d'instantanés*.

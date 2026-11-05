@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapmirror-active-sync-prepare.html 
 keywords: asa r2, data protection, business continuity, snapmirror active sync, protocol support, object limits, NVMe protocol limitations, prerequisites, interoperability, limits 
-summary: 'Pour préparer la configuration de SnapMirror Active Sync sur votre système ASA r2, vous devez examiner les conditions préalables de configuration, confirmer la prise en charge des systèmes d"exploitation de vos hôtes et être conscient des limites d"objets susceptibles d"avoir un impact sur une configuration spécifique.' 
+summary: 'Préparez-vous à configurer la synchronisation active SnapMirror sur les systèmes ASA r2 en consultant les prérequis, la prise en charge du système d"exploitation hôte, les limites des objets et les limitations NVMe.' 
 ---
 = Préparez-vous à configurer SnapMirror Active Sync sur les systèmes ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Pour préparer la configuration de SnapMirror Active Sync sur votre sy
 
 
 [role="lead"]
-Pour préparer la configuration de SnapMirror Active Sync sur votre système ASA r2, vous devez examiner les conditions préalables de configuration, confirmer la prise en charge des systèmes d'exploitation de vos hôtes et être conscient des limites d'objets susceptibles d'avoir un impact sur une configuration spécifique.
+Avant de configurer SnapMirror active sync sur votre système ASA r2, consultez les prérequis de configuration, confirmez la prise en charge de vos systèmes d'exploitation hôtes et vérifiez les limites d'objets qui pourraient affecter votre configuration.
 
 .Étapes
 . Revoir la synchronisation active de SnapMirror link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/prerequisites-reference.html["prérequis"^] .
@@ -19,7 +19,7 @@ Pour préparer la configuration de SnapMirror Active Sync sur votre système ASA
 . Passez en revue le link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/limits-reference.html["limites de l'objet"^] cela pourrait avoir un impact sur votre configuration.
 . Vérifiez la prise en charge du protocole hôte pour la synchronisation active SnapMirror sur votre système ASA r2.
 +
-La prise en charge de la synchronisation active SnapMirror sur les systèmes ASA r2 varie en fonction de la version ONTAP et du protocole hôte.
+La prise en charge de la synchronisation active SnapMirror sur les systèmes ASA r2 varie selon la version d'ONTAP et le protocole hôte.
 
 +
 [cols="2,2"]
@@ -49,13 +49,13 @@ La prise en charge de la synchronisation active SnapMirror sur les systèmes ASA
 [[nvme-protocol-limitations-with-snapmirror-active-sync-on-asa-r2-systems]]
 == Limitations du protocole NVMe avec la synchronisation active SnapMirror sur les systèmes ASA r2
 
-Avant de configurer SnapMirror Active Sync sur un système ASA r2 avec des hôtes NVMe, vous devez connaître certaines limitations du protocole NVMe.
+Avant de configurer la synchronisation active SnapMirror sur un système ASA r2 avec des hôtes NVMe, consultez les limitations du protocole NVMe qui s'appliquent.
 
 Toutes les unités de stockage NVMe du sous-système NVMe doivent être membres du même groupe de cohérence et doivent toutes faire partie de la même relation de synchronisation active SnapMirror .
 
 Les protocoles NVMe/FC et NVMe/TCP sont pris en charge avec SnapMirror Active Sync comme suit :
 
-* Uniquement sur les clusters à 2 nœuds
+* Uniquement sur les clusters à deux nœuds
 * Uniquement sur les hôtes ESXi
 * Uniquement avec des configurations symétriques actives/actives
 +
@@ -77,4 +77,4 @@ Un groupe de cohérence peut être mappé avec plusieurs sous-systèmes, mais ch
 
 
 .Et la suite ?
-Après avoir terminé la préparation nécessaire pour activer la synchronisation active de SnapMirror , vous devez link:snapmirror-active-sync-confirm-cluster-configuration.html["confirmer la configuration de votre cluster"] .
+Une fois que vous avez terminé la préparation pour activer SnapMirror active sync, link:snapmirror-active-sync-confirm-cluster-configuration.html["confirmer la configuration de votre cluster"].

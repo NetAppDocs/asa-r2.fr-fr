@@ -16,6 +16,8 @@ summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, 
 
 NOTE: Vous ne pouvez pas migrer une machine virtuelle de stockage d’un ASA MetroCluster vers un cluster ASA r2. Les systèmes ASA r2 ne prennent pas en charge les configurations MetroCluster.
 
+Les systèmes ASA r2 prennent en charge la technologie QuickAssist (QAT). Les systèmes ASA ne prennent pas en charge QAT. À partir de ONTAP 9.20.1, ONTAP réduit la latence de lecture élevée et l'utilisation du processeur qui peuvent survenir après la migration d'une machine virtuelle de stockage (VM) d'un système ASA (non-QAT) vers un système ASA r2 (QAT).
+
 La migration des machines virtuelles de stockage entre les systèmes de stockage ASA et ASA r2 est prise en charge comme suit :
 
 [cols="2"]
@@ -51,7 +53,7 @@ La migration des machines virtuelles de stockage entre les systèmes de stockage
 |===
 Pour obtenir la liste la plus récente des systèmes ASA et ASA r2, consultezlink:https://hwu.netapp.com/["NetApp Hardware Universe"^] .  Les systèmes ASA r2 sont répertoriés dans NetApp Hardware Universe sous le nom de «ASA série A/série C (nouveau) ».
 
-Vous pouvez migrer une machine virtuelle de stockage vers un cluster ASA r2 uniquement à partir d'un cluster ASA .  La migration depuis tout autre type de système ONTAP n'est pas prise en charge.
+Vous pouvez migrer une machine virtuelle de stockage vers un cluster ASA r2 uniquement à partir d’un cluster ASA. La migration à partir de tout autre type de système ONTAP vers un système ASA r2 n’est pas prise en charge.
 
 .Avant de commencer
 Tous les nœuds du cluster ASA r2 et du cluster ASA doivent exécuter ONTAP 9.18.1 ou une version ultérieure.  Les versions des correctifs ONTAP 9.18.1 sur les nœuds du cluster peuvent varier.
@@ -103,6 +105,9 @@ Vous êtes prêt à créer une relation de pair à pair entre vos clusters ASA e
 
 Avant de pouvoir migrer une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2, vous devez créer une relation de pair à pair.  Une relation d'égal à égal définit les connexions réseau qui permettent aux clusters ONTAP et aux machines virtuelles de stockage d'échanger des données en toute sécurité.
 
+.Description de la tâche
+Le cluster ASA est le cluster source à partir duquel la machine virtuelle de stockage sera migrée, et le cluster ASA r2 est le cluster de destination vers lequel la machine virtuelle de stockage sera migrée.
+
 .Avant de commencer
 Vous devez avoir créé des LIF inter-clusters sur chaque nœud des clusters appariés en utilisant l'une des méthodes suivantes.
 
@@ -112,11 +117,11 @@ Vous devez avoir créé des LIF inter-clusters sur chaque nœud des clusters app
 
 
 .Étapes
-. Sur le cluster ASA r2, créez une relation de pair avec le cluster ASA et générez une phrase secrète :
+. Sur le cluster de destination, créez une relation entre clusters avec le cluster source et générez une phrase secrète :
 +
 [source, cli]
 ----
-cluster peer create -peer-addrs <ASA_cluster_LIF_IPs> -generate-passphrase
+cluster peer create -peer-addrs <source_cluster_LIF_IPs> -generate-passphrase
 ----
 +
 L'exemple suivant crée une relation d'homologue entre le cluster 1 et le cluster 2 et crée une phrase secrète générée par le système :
@@ -134,13 +139,13 @@ Warning: make a note of the passphrase - it cannot be displayed again.
 
 ----
 . Copiez la phrase secrète générée.
-. Sur le cluster ASA , créez une relation de pair avec le cluster ASA r2 :
+. Sur le cluster source, créez une relation de peering avec le cluster de destination :
 +
 [source, cli]
 ----
-cluster peer create -peer-addrs <ASA_r2_LIF_IPs>
+cluster peer create -peer-addrs <destination_cluster_LIF_IPs>
 ----
-. Saisissez la phrase secrète générée sur le cluster ASA r2.
+. Saisissez la phrase secrète générée sur le cluster de destination.
 . Vérifiez que la relation entre pairs du cluster est bien créée :
 +
 [source, cli]
@@ -165,24 +170,27 @@ cluster2             1-80-123456             Available      ok
 Les clusters ASA et ASA r2 sont appariés et les données des machines virtuelles de stockage peuvent être transférées en toute sécurité.
 
 .Et la suite ?
-Vous êtes prêt à préparer votre machine virtuelle de stockage ASA pour la migration.
+Vous êtes prêt à exécuter la vérification préalable de la migration.
 
 
 
-[[step-3-prepare-for-storage-vm-migration-from-an-asa-to-an-asa-r2-cluster]]
-== Étape 3 : Préparer la migration des machines virtuelles de stockage d’un ASA vers un cluster ASA r2
+[[step-3-execute-the-migration-pre-check]]
+== Étape 3 : Exécuter la vérification préalable de la migration
 
-Avant de migrer une machine virtuelle de stockage (VM) d'un cluster ASA vers un cluster ASA r2, vous devez effectuer une vérification préalable de la migration et corriger les problèmes éventuels.  Vous ne pouvez pas effectuer la migration tant que la vérification préalable n'a pas été réussie.
+Avant de migrer une VM de stockage d’un cluster ASA vers un cluster ASA r2, vous devez effectuer une vérification préalable de la migration et corriger tous les problèmes requis. Vous ne pouvez pas effectuer la migration tant que la vérification préalable n’a pas réussi.
+
+.Description de la tâche
+Le cluster ASA est le cluster source à partir duquel la machine virtuelle de stockage sera migrée, et le cluster ASA r2 est le cluster de destination vers lequel la machine virtuelle de stockage sera migrée.
 
 .Étape
-. Depuis votre cluster ASA r2, exécutez la vérification préalable de la migration :
+. Depuis votre cluster de destination, exécutez la vérification préalable de la migration :
 +
 [source, cli]
 ----
-vserver migrate start -vserver <storage_VM> -source-cluster <asa_cluster> -check-only true
+vserver migrate start -vserver <storage_VM> -source-cluster <sourcecluster> -check-only true
 ----
 +
-Si vous devez résoudre des problèmes pour préparer votre cluster ASA à la migration, le problème et la mesure corrective s'affichent. Corrigez le problème et répétez la vérification préalable jusqu'à ce qu'elle réussisse.
+Si des problèmes doivent être corrigés en vue de préparer la migration, le problème et l'action corrective s'affichent. Corrigez le problème et répétez la vérification préalable jusqu'à ce qu'elle se termine avec succès.
 
 
 
@@ -199,7 +207,9 @@ Une fois votre cluster ASA préparé et la relation de pair de cluster nécessai
 Lors de la migration d'une machine virtuelle de stockage, il est recommandé de laisser une marge de 30 % sur le processeur, tant sur le cluster ASA que sur le cluster ASA r2, afin de permettre l'exécution de la charge de travail du processeur.
 
 .Description de la tâche
-Après la migration de la machine virtuelle de stockage, les clients sont automatiquement basculés vers le cluster ASA r2 et la machine virtuelle de stockage sur le cluster ASA est automatiquement supprimée.  La bascule automatique et la suppression automatique des machines virtuelles de stockage sont activées par défaut.  Vous pouvez également les désactiver tous les deux et effectuer manuellement la bascule et la suppression de la machine virtuelle de stockage.
+* Après la migration de la machine virtuelle de stockage, les E/S client basculent en toute transparence vers le cluster de destination sans interruption, et la machine virtuelle de stockage sur le cluster ASA r2 est automatiquement supprimée. Le basculement automatique et la suppression automatique de la machine virtuelle de stockage sont activés par défaut. Vous pouvez éventuellement désactiver l’une ou l’autre de ces options, ou les deux, et les exécuter manuellement.
+* Le cluster ASA est le cluster source à partir duquel la machine virtuelle de stockage sera migrée, et le cluster ASA r2 est le cluster de destination vers lequel la machine virtuelle de stockage sera migrée.
+
 
 .Avant de commencer
 * Le cluster ASA r2 doit disposer d'un espace libre suffisant pour accueillir la machine virtuelle de stockage migrée.
@@ -215,14 +225,14 @@ Après la migration de la machine virtuelle de stockage, les clients sont automa
 
 
 .Étapes
-. Depuis le cluster ASA r2, lancez la migration de la machine virtuelle de stockage :
+. Depuis le cluster de destination, démarrez la migration de la machine virtuelle de stockage :
 +
 [source, cli]
 ----
-vserver migrate start -vserver <storage_VM_name> -source-cluster <ASA_cluster>
+vserver migrate start -vserver <storage_VM_name> -source-cluster <source_cluster>
 ----
 +
-Pour désactiver la bascule automatique, utilisez le `-auto-cutover false` paramètre.  Pour désactiver la suppression automatique de la machine virtuelle de stockage ASA , utilisez le `-auto-source-cleanup false` paramètre.
+Pour désactiver la bascule automatique, utilisez le `-auto-cutover false` paramètre. Pour désactiver la suppression automatique de la machine virtuelle de stockage source, utilisez le `-auto-source-cleanup false` paramètre.
 
 . Surveillez l'état de la migration
 +
@@ -231,15 +241,81 @@ Pour désactiver la bascule automatique, utilisez le `-auto-cutover false` param
 vserver migrate show -vserver <storage_VM_name>
 ----
 +
-Une fois la migration terminée, le *statut* s'affiche comme *migration-terminée*.
+Si vous devez suspendre ou annuler la migration avant le début du basculement automatique, utilisez la `vserver migrate pause` et le `vserver migrate abort` commandes.  Vous devez suspendre la migration avant de l'annuler.  Vous ne pouvez pas annuler la migration une fois la transition commencée.
+
++
+Si la bascule automatique est activée, une fois la migration terminée, le *status* s’affiche comme *migration-complete*. Si la bascule automatique est désactivée, le *status* s’affiche comme *Ready for source cleanup*.
 
 
-
-
-NOTE: Si vous devez suspendre ou annuler la migration avant le début du basculement automatique, utilisez la `vserver migrate pause` et le `vserver migrate abort` commandes.  Vous devez suspendre la migration avant de l'annuler.  Vous ne pouvez pas annuler la migration une fois la transition commencée.
 
 .Résultat
 La machine virtuelle de stockage est migrée du cluster ASA vers le cluster ASA r2.  Le nom et l'UUID de la machine virtuelle de stockage, le nom de l'interface logique de données, l'adresse IP et les noms des objets, tels que le nom du volume, restent inchangés.  L'UUID des objets migrés dans la machine virtuelle de stockage est mis à jour.
 
 .Et la suite ?
-Si vous avez désactivé la bascule automatique et la suppression automatique des machines virtuelles de stockage,link:svm-post-migrate-cutover-cleanup.html["Basculez manuellement vos clients ASA vers votre cluster ASA r2 et supprimez la machine virtuelle de stockage du cluster ASA."] .
+Si vous avez désactivé le basculement automatique et la suppression automatique de la machine virtuelle de stockage, effectuez le basculement et le nettoyage post-migration pour basculer manuellement vos clients ASA vers votre cluster de destination et supprimer la machine virtuelle de stockage du cluster ASA.
+
+
+
+[[step-5-post-migration-cutover-and-cleanup]]
+== Étape 5 : Basculement et nettoyage post-migration
+
+Lors d'une migration de machine virtuelle de stockage entre clusters, les E/S client sont transférées vers le cluster de destination et la machine virtuelle de stockage du cluster source est automatiquement supprimée. Si vous choisissez de désactiver le basculement automatique et la suppression de la machine virtuelle de stockage source pendant la migration, vous devrez effectuer ces étapes manuellement une fois que l'état de la migration aura atteint *Ready for source cleanup*.
+
+
+
+[[manually-cut-over-clients-after-a-storage-vm-migration]]
+=== Basculer manuellement les clients après une migration de machine virtuelle de stockage
+
+Si vous désactivez le basculement automatique du client lors de la migration inter-cluster d'une machine virtuelle de stockage, une fois la relation de migration prête pour le basculement, effectuez ce dernier manuellement afin que la machine virtuelle de stockage de destination puisse fournir des données aux clients.
+
+.Description de la tâche
+Effectuez cette tâche à partir du cluster de destination.
+
+.Étapes
+. Exécutez manuellement la bascule client :
++
+[source, cli]
+----
+vserver migrate cutover -vserver <storage_VM_name>
+----
+. Vérifiez que l'opération de basculement est terminée :
++
+[source, cli]
+----
+vserver migrate show
+----
+
+
+.Résultat
+Les données sont fournies à vos clients depuis la machine virtuelle de stockage de votre cluster de destination.
+
+.Et la suite ?
+Vous êtes maintenant prêt à retirer la machine virtuelle de stockage du cluster source.
+
+
+
+[[manually-remove-a-storage-vm-after-migration]]
+=== Supprimer manuellement une machine virtuelle de stockage après la migration
+
+Si vous désactivez le nettoyage automatique de la source lors d'une migration de machine virtuelle de stockage entre clusters, une fois la migration terminée, supprimez la machine virtuelle de stockage du cluster source pour libérer l'espace de stockage.
+
+.Avant de commencer
+Vos clients doivent fournir des données à partir du cluster de destination.
+
+.Étapes
+. À partir du cluster source, vérifiez que l'état de la machine virtuelle de stockage source est *Ready for source cleanup* :
++
+[source, cli]
+----
+vserver migrate show
+----
+. Supprimer la machine virtuelle de stockage source :
++
+[source, cli]
+----
+vserver migrate source-cleanup -vserver <storage_VM_name>
+----
+
+
+.Résultat
+La machine virtuelle de stockage de votre cluster source a été supprimée.

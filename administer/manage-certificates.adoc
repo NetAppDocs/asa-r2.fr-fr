@@ -17,16 +17,36 @@ Le protocole OCSP (Online Certificate Status Protocol) valide le statut des dema
 
 
 
+[[modify-certificate-expiration-alerts]]
+== Modifier les alertes d'expiration des certificats
+
+À partir d'ONTAP 9.20.1, System Manager affiche une alerte d’état de santé du tableau de bord 30 jours avant l’expiration d’un certificat de cluster ou de machine virtuelle de stockage (VM). L’alerte est mise à jour chaque jour pour indiquer le nombre de jours restants avant l’expiration. Vous pouvez modifier le seuil d’alerte par défaut pour le définir sur n’importe quelle valeur de 0 à 90 jours, le désactiver afin qu’aucune alerte ne soit affichée, ou masquer les alertes pour les certificats déjà expirés tout en continuant à recevoir des alertes pour les expirations à venir.
+
+.Étapes
+. Dans System Manager, sélectionnez *Cluster > Paramètres*.
+. Sous *sécurité*, en regard de certificats, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"].
+. Sélectionnez *Certificats client/serveur*.
+. Mettez à jour le seuil d'avertissement d'expiration, désactivez-le ou masquez-le:
++
+** Définissez le *seuil d'alerte* sur un nombre de jours compris entre 0 et 90.
+** Sélectionnez *Désactiver les avertissements d'expiration* pour désactiver l'alerte.
+** Sélectionnez *Masquer les alertes expirées* pour masquer les alertes concernant les certificats déjà expirés tout en continuant à recevoir des alertes sur les expirations à venir.
+
+
+
+
+
+
 [[generate-a-certificate-signing-request]]
 == Générer une demande de signature de certificat
 
-Générez une requête de signature de certificat (CSR) pour créer une clé privée qui peut être utilisée pour générer un certificat public.
+Générez une demande de signature de certificat (CSR) pour créer une clé privée qui peut être utilisée pour générer un certificat public.
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
 . Sous *sécurité*, en regard de *certificats*, sélectionnez image:icon_arrow.gif["flèche bleue pointant vers la droite"]; puis sélectionnez image:icon_generate_csr.png["rectangle bleu contenant un signe plus suivi des mots generate csr"].
 . Saisissez le nom commun du sujet, puis sélectionnez le pays.
-. Si vous souhaitez modifier les valeurs par défaut du GSR, sélectionnez utilisation de la touche étendue ou ajoutez des noms de substitution d'objet, sélectionnez image:icon_more_options.png["deux flèches orientées en diagonale dans les directions opposées, suivies des mots plus d'options"]; puis effectuez les mises à jour souhaitées.
+. Si vous souhaitez modifier les valeurs par défaut du CSR, sélectionner l'utilisation étendue des clés ou ajouter des noms alternatifs du sujet, sélectionnez image:icon_more_options.png["deux flèches orientées en diagonale dans les directions opposées, suivies des mots plus d'options"]; puis effectuez les mises à jour souhaitées.
 . Sélectionnez *generate*.
 
 

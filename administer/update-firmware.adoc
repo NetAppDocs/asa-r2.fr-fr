@@ -64,7 +64,7 @@ Afficher la liste des mises à jour de firmware et de fichiers système qui ont 
 [[edit-automatic-updates]]
 == Modifier les mises à jour automatiques
 
-Vous pouvez choisir de télécharger et d’installer automatiquement les mises à jour recommandées pour le micrologiciel de votre stockage, le micrologiciel SP/BMC et vos fichiers système sur votre cluster, ou de faire en sorte que les mises à jour recommandées soient automatiquement ignorées. Si vous souhaitez contrôler manuellement l’installation ou l’ignorance des mises à jour, sélectionnez l’option pour être notifié lorsqu’une mise à jour recommandée est disponible ; vous pourrez alors choisir manuellement de l’installer ou de l’ignorer.
+Vous pouvez configurer votre cluster pour que les mises à jour recommandées du micrologiciel de stockage, du micrologiciel SP/BMC et des fichiers système soient automatiquement téléchargées et installées, ou automatiquement ignorées. Pour contrôler manuellement l'installation ou l'ignorance, choisissez d'être averti lorsqu'une mise à jour recommandée est disponible, puis installez-la ou ignorez-la vous-même.
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
@@ -81,7 +81,7 @@ Les mises à jour automatiques sont modifiées en fonction de vos sélections.
 [[update-firmware-manually]]
 == Mettre à jour le micrologiciel manuellement
 
-Si vous souhaitez pouvoir afficher les mises à jour recommandées avant de les télécharger et de les installer, vous pouvez désactiver les mises à jour automatiques et mettre à jour votre micrologiciel manuellement.
+Pour consulter les mises à jour recommandées avant leur téléchargement et leur installation, désactivez les mises à jour automatiques et mettez à jour votre micrologiciel manuellement.
 
 .Étapes
 . Téléchargez votre fichier de mise à jour du micrologiciel sur un serveur ou un client local.

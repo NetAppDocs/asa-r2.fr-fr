@@ -20,7 +20,7 @@ Si vous utilisez ONTAP Cloud Mediator, vérifiez que votre système ASA r2 répo
 . Dans le Gestionnaire système, sélectionnez *Protection > Présentation*.
 . Dans le volet de droite, sous *Médiateurs*, sélectionnez *Ajouter un médiateur*.
 . Sélectionnez le *type de médiateur*.
-. Pour un médiateur *Cloud*, saisissez l'ID d'organisation, l'ID client et le secret client. Pour un médiateur *On-premises*, saisissez l'adresse IP, le port, le nom d'utilisateur et le mot de passe du médiateur.
+. Pour un médiateur *Cloud*, saisissez l'ID de l'organisation, l'ID client et le secret client. Pour un médiateur *sur site*, saisissez l'adresse IP, le port, le nom d'utilisateur du médiateur et le mot de passe du médiateur.
 . Sélectionnez le pair de cluster dans la liste des pairs de cluster éligibles ou sélectionnez *Ajouter un pair de cluster* pour en ajouter un nouveau.
 . Ajoutez les informations du certificat
 +
@@ -32,4 +32,4 @@ Si vous utilisez ONTAP Cloud Mediator, vérifiez que votre système ASA r2 répo
 
 
 .Et la suite ?
-Après avoir initialisé le médiateur, vous pouvez link:configure-snapmirror-active-sync.html["configurer la synchronisation active de SnapMirror"] pour créer une copie de vos données sur un site secondaire et permettre à vos applications hôtes de basculer automatiquement et de manière transparente en cas de sinistre.
+Une fois le médiateur initialisé, vous pouvez link:configure-snapmirror-active-sync.html["configurer la synchronisation active de SnapMirror"] pour créer une copie de vos données sur un site secondaire et permettre à vos applications hôtes de basculer automatiquement et de manière transparente en cas de sinistre.

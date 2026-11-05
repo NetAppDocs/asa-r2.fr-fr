@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/restore-data.html 
 keywords: restore data, asa r2, data restoration 
-summary: 'Si les données d"un groupe de cohérence sont corrompues ou perdues, vous pouvez restaurer l"intégralité du groupe de cohérence à partir d"un snapshot distant.' 
+summary: Restaurez un groupe de cohérence ou une unité de stockage à partir d’un snapshot local ou distant en cas de perte ou de corruption de données sur votre système ASA r2. 
 ---
 = Restaurez les données sur les systèmes de stockage ASA r2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Si les données d"un groupe de cohérence sont corrompues ou perdues, 
 
 
 [role="lead"]
-Les données d'un groupe de cohérence ou d'une unité de stockage protégé par des snapshots peuvent être restaurées en cas de perte ou de corruption.
+Si des données d’un groupe de cohérence ou d’une unité de stockage protégée par des snapshots sont perdues ou corrompues, restaurez-les à partir d’un snapshot pour rétablir les données à l’état où elles se trouvaient au moment de la création du snapshot.
 
 
 

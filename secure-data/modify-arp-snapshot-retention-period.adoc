@@ -1,19 +1,69 @@
 ---
 sidebar: sidebar 
 permalink: secure-data/modify-arp-snapshot-retention-period.html 
-keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, ai, alerts, respond, warnings, security 
-summary: Découvrez comment modifier les périodes de conservation des instantanés ARP en fonction de vos besoins de stockage et d’entreprise. 
+keywords: asa r2, secure data, data security, anti-ransomware, autonomous ransomware protection, arp, ai, alerts, respond, warnings, security, snapshot response policy, protection level, alert-only 
+summary: Découvrez comment configurer la politique de réponse aux snapshots ARP/AI et modifier les périodes de conservation des snapshots ARP en fonction de vos exigences de stockage et métier. 
 ---
-= Modifier les périodes de conservation des snapshots ARP/AI sur les systèmes de stockage ASA r2
+= Configurez les politiques de réponse aux instantanés ARP/AI et les périodes de rétention sur les systèmes de stockage ASA r2.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si la protection autonome contre les ransomwares avec intelligence artificielle (ARP/AI) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, elle crée automatiquement un instantané ARP pour protéger les données. En fonction de votre capacité de stockage et de vos besoins métier, vous pouvez augmenter ou diminuer la période de rétention par défaut des instantanés ARP. Par exemple, vous pouvez augmenter la période de rétention pour les applications critiques afin de permettre des fenêtres de restauration des données plus longues, ou la diminuer pour les applications non critiques afin d'économiser de l'espace de stockage.
+Si Autonomous Ransomware Protection with Artificial Intelligence (ARP/AI) détecte une activité anormale sur une ou plusieurs unités de stockage de votre système ASA r2, il peut créer automatiquement un instantané ARP pour protéger les données. À partir de ONTAP 9.20.1, vous pouvez configurer si ARP/AI crée ces instantanés en définissant une stratégie de réponse aux instantanés, indépendamment de la détection et de l’alerte en cas de ransomware par ARP/AI, qui restent toujours actives. En fonction de votre capacité de stockage et de vos exigences métier, vous pouvez également augmenter ou réduire la durée de conservation par défaut des instantanés ARP.
 
-La période de conservation par défaut de l’instantané ARP varie en fonction de l’action que vous entreprenez en réponse à l’activité anormale.
+
+
+[[configure-a-snapshot-response-policy]]
+== Configurer une stratégie de réponse d'instantané
+
+La stratégie de réponse aux instantanés détermine si ARP/AI crée des instantanés périodiques, des instantanés déclenchés par une attaque ou aucun instantané. La détection et l’alerte ARP/AI restent actives quelle que soit la stratégie ; seule la création d’instantanés change. Vous pouvez définir une stratégie par défaut pour une machine virtuelle de stockage, dont héritent les nouvelles unités de stockage de cette machine virtuelle de stockage, et remplacer la stratégie par défaut pour une unité de stockage individuelle.
+
+[cols="1,3"]
+|===
+| Politique | Comportement 
+
+
+| Instantanés périodiques et proactifs (par défaut) | ARP/AI génère des alertes et des journaux d'événements, crée des instantanés à intervalles réguliers et crée un instantané supplémentaire lorsqu'il détecte une attaque. 
+
+
+| Instantanés proactifs uniquement | ARP/AI génère des alertes et des journaux d'événements et crée un instantané uniquement lorsqu'il détecte une attaque. Aucun instantané périodique n'est créé. 
+
+
+| Alerte uniquement | ARP/AI génère uniquement des alertes et des journaux d'événements. Aucune capture instantanée ARP/AI n'est créée. 
+|===
+
+CAUTION: Si vous sélectionnez la stratégie d'alerte uniquement, ARP/AI ne crée aucun instantané. Si une attaque par ransomware est confirmée, aucun instantané ARP/AI n'est disponible pour la restauration des données. Avant de sélectionner cette stratégie, assurez-vous de disposer d'une protection des données externe adéquate, telle que des instantanés planifiés ou une autre solution de sauvegarde.
+
+
+NOTE: Lorsque vous modifiez la stratégie de réponse aux instantanés, les instantanés ARP/AI existants ne sont pas supprimés immédiatement. Ils sont supprimés lorsque leur délai d'expiration programmé est atteint.
+
+.Étapes
+Configurez la stratégie de réponse par défaut pour les instantanés d'une machine virtuelle de stockage :
+
+. Dans le Gestionnaire système, sélectionnez *Cluster > Machines virtuelles de stockage*.
+. Sélectionnez la machine virtuelle de stockage.
+. Dans la section *Sécurité*, à côté de *Anti-ransomware*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis sélectionnez *Modifier les paramètres anti-ransomware*.
+. Sélectionnez la stratégie de réponse aux instantanés par défaut à appliquer aux nouvelles unités de stockage créées sur la machine virtuelle de stockage.
+. Sélectionnez *Enregistrer*.
+
+
+Configurez la stratégie de réponse aux instantanés pour une unité de stockage, en remplaçant la valeur par défaut de la machine virtuelle de stockage :
+
+. Dans System Manager, sélectionnez *Storage*, puis sélectionnez l’unité de stockage.
+. Sélectionnez *Sécurité*.
+. Sous *Anti-ransomware*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis sélectionnez *Modifier les paramètres anti-ransomware*.
+. Sélectionnez la stratégie de réponse aux instantanés à appliquer à l'unité de stockage.
+. Sélectionnez *Enregistrer*.
+
+
+
+
+[[modify-arpai-snapshot-retention-periods]]
+== Modifier les périodes de conservation des instantanés ARP/AI
+
+Si la politique de réponse Snapshot d’une unité de stockage crée des snapshots ARP périodiques ou déclenchés par une attaque, la période de conservation par défaut de ces snapshots varie en fonction de l’action que vous entreprenez en réponse à l’activité anormale.
 
 [cols="2,2"]
 |===

@@ -30,7 +30,7 @@ cluster show
 . link:../manage-data/move-storage-units.html["Déplacer"] ou link:../manage-data/delete-storage-units.html["supprimer"] toutes les unités de stockage du nœud.
 . Si vous avez des unités de stockage SCSI (LUN) sur le nœud à retirer, link:https://docs.netapp.com/us-en/ontap/san-admin/modify-slm-reporting-nodes-task.html["Supprimez le nœud et son partenaire HA de la liste des nœuds de génération de rapports de la Selective LUN Map (SLM)"^].
 +
-Si vous ne supprimez pas le nœud et son partenaire HA de la liste des nœuds de génération de rapports SLM, l'accès aux LUN précédemment sur le nœud peut être perdu, même si les LUN ont été déplacés vers un autre nœud.
+Si vous ne supprimez pas le nœud et son partenaire HA de la liste des nœuds de rapport SLM, vous risquez de perdre l’accès aux LUN qui se trouvaient auparavant sur le nœud, même si les LUN ont été déplacés vers un autre nœud.
 
 . link:https://docs.netapp.com/us-en/ontap/networking/delete_a_lif.html["Supprimer"^] ou link:https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["migrer"^] toutes les interfaces réseau (LIF) du nœud.
 +
@@ -40,7 +40,7 @@ La migration des LIF iSCSI est limitée aux ports du nœud d’origine ou du par
 
 ** Les LIFs intercluster doivent être supprimées.
 +
-Lorsque vous supprimez des LIF d’intercluster, un avertissement s’affiche et vous pouvez l’ignorer.
+Lorsque vous supprimez des LIF intercluster, vous pouvez ignorer l'avertissement qui s'affiche.
 
 ** La LIF de gestion du cluster doit être déplacée vers un autre nœud.
 
@@ -150,7 +150,7 @@ cluster modify -node <node_name> -eligibility true
 ----
 
 
-. Connectez-vous à la LIF de gestion de nœud distant ou à la LIF de gestion de cluster sur un nœud que vous ne retirez pas du cluster.
+. Connectez-vous à la LIF de gestion du nœud distant ou à la LIF de gestion du cluster sur un nœud que vous ne retirez pas du cluster.
 . Utilisez le nom du nœud ou son adresse IP pour le supprimer du cluster :
 +
 Si vous disposez d'un cluster de versions mixtes et que vous supprimez le dernier nœud d'une version antérieure, utilisez le paramètre -skip-last-low-version-node-check avec ces commandes.
@@ -169,7 +169,7 @@ cluster remove-node -node <node_name>
 cluster remove-node -cluster_ip <node_ip>
 ----
 +
-Un message d'échec est généré si vous avez des conditions auxquelles vous devez remédier avant de supprimer le nœud. Dans ce cas, remédiez à ces conditions et exécutez de nouveau la `cluster remove-node` commande.
+ONTAP génère un message d'erreur si certaines conditions doivent être résolues avant de retirer le nœud. Si cela se produit, corrigez ces conditions et réexécutez la `cluster remove-node` commande.
 
 +
 Le nœud redémarre automatiquement après avoir été correctement retiré du cluster.

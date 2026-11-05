@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9201.html 
+keywords: 'what"s new, release notes, 9.20.1, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20' 
+summary: Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.20.1 pour les systèmes ASA r2. 
+---
+= Nouveautés d'ONTAP 9.20.1 pour les systèmes ASA r2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez les nouvelles fonctionnalités disponibles dans ONTAP 9.20.1 pour les systèmes ASA r2.
+
+
+
+[[san-data-migration]]
+== Migration de données SAN
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../manage-data/migrate-svm-from-asa-r2.html["Prise en charge de la migration sans interruption des machines virtuelles de stockage des systèmes ASA r2 vers les systèmes ASA et AFF"] | Vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d'un cluster ASA r2 à 2 nœuds vers un cluster ASA à 2 nœuds ou un cluster AFF à 2 nœuds. Les mappages d'hôtes et les configurations d'unités de stockage existantes pour les LUN et les espaces de noms sont conservés pendant la migration, ce qui réduit les efforts opérationnels et les risques. 
+
+
+| link:../manage-data/migrate-svm.html["Prise en charge de performances améliorées après la migration de VM de stockage d’un système ASA vers un système ASA r2"] | ONTAP réduit la latence de lecture supplémentaire et l'utilisation du processeur qui peuvent survenir après la migration des machines virtuelles de stockage (VM) d'un système ASA vers un système ASA r2. 
+|===
+
+
+[[security]]
+== Sécurité
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#fc-sp-3-authentication-and-encryption["Prise en charge de l’authentification et du chiffrement FC-SP-3 avec les HBA sécurisés Broadcom"] | ONTAP prend en charge l'authentification et le chiffrement Fibre Channel Security Protocol 3 (FC-SP-3) sur les cartes HBA sécurisées Broadcom avec les systèmes ASA r2. La prise en charge de FC-SP-3 permet un chiffrement de bout en bout au niveau matériel et une authentification des périphériques afin de protéger les données en transit entre les hôtes SAN FC et NVMe/FC et les systèmes de stockage ONTAP, tout en respectant les normes de sécurité Fibre Channel T11. 
+
+
+| Prise en charge de la protection de la disponibilité de la gestion Web et des améliorations du pré-cluster | Des améliorations ont été mises en œuvre afin de préserver la disponibilité de l'API de gestion web[1] en cas de surcharge de connexions. La gestion du protocole DHCP (Dynamic Host Configuration Protocol) avant la création du cluster a également été améliorée afin qu'une interface logique de gestion de nœud puisse maintenir et renouveler la connectivité DHCP pendant l'attente de la configuration du cluster. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#external-key-management-for-encryption-at-rest["Prise en charge de la migration automatique des clés de chiffrement des volumes des machines virtuelles de stockage"] | Lorsque vous activez un gestionnaire de clés externe sur une VM de stockage des données, ONTAP migre automatiquement les clés de chiffrement de volume de cette VM de stockage des données du gestionnaire de clés de portée administrateur vers le nouveau gestionnaire de clés de la VM de stockage des données. Cela simplifie la transition vers la gestion externe des clés et supprime la nécessité d’une étape distincte de migration manuelle dans le workflow standard. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#multi-admin-verification-mav["Support des groupes MAV"] | Les groupes d'approbation MAV peuvent inclure des groupes de fournisseur d'identité (IdP), Active Directory (AD) et LDAP (nsswitch) comme approbateurs, en plus des administrateurs individuels. Les types de groupes pris en charge incluent Entra ID, ADFS, les groupes de domaine AD et les groupes LDAP. L'ajout ou la suppression d'utilisateurs dans l'annuaire IdP, AD ou LDAP ne nécessite aucune modification de la configuration MAV. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#snmp["Prise en charge SNMP pour SHA-512"] | ONTAP prend en charge l'authentification SHA-512 pour les utilisateurs SNMPv3. Cette amélioration permet d'utiliser une authentification SNMPv3 plus robuste pour les clients SNMP externes et pour la surveillance des commutateurs, y compris ceux qui requièrent l'authentification SHA-512. 
+|===
+
+
+[[storage-efficiency]]
+== Efficacité du stockage
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#data-reduction-rate-drr["Prise en charge de la création de rapports simplifiés sur le taux de réduction des données de l’efficacité du stockage"] | Le taux de réduction des données (DRR) de l'efficacité du stockage fournit une évaluation plus précise des économies d'espace de l'efficacité du stockage ONTAP en incluant uniquement les données réductibles. Dans ONTAP 9.19.1 et les versions antérieures, le DRR inclut à la fois les données réductibles et non réductibles. 
+
+
+| Prise en charge des améliorations des performances du déchargement de copie SAN | ONTAP améliore les performances du déchargement des copies SAN pour les workloads de copie NVMe et SCSI éligibles. Contactez votre NetApp représentant pour plus d'informations. 
+
+
+| Optimisation du planificateur de déduplication automatique (ADS) | Le planificateur de déduplication automatique (ADS) a été amélioré afin d’autoriser davantage de sessions de déduplication simultanées par nœud, ainsi qu’une limitation plus intelligente et ciblée pour mieux équilibrer les E/S client. L’activité de déduplication sur les volumes DP (issue des transferts SnapMirror) et les sessions de déduplication globales sont gérées de manière plus optimale, parallèlement à la déduplication régulière des volumes, ce qui réduit les conflits et la croissance des métadonnées. Vous pouvez bénéficier de gains d’efficacité du stockage, en particulier dans le cadre de workloads mixtes, sans aucune modification de configuration. Cette fonctionnalité est activée par défaut. 
+|===
+
+
+[[system-manager]]
+== System Manager
+
+[cols="2,4"]
+|===
+| Mise à jour | Description 
+
+
+| link:../administer/manage-certificates.html["Prise en charge des alertes d'expiration de certificat"] | System Manager affiche une alerte d’état de santé sur le tableau de bord 30 jours avant l’expiration d’un certificat de cluster ou de machine virtuelle de stockage (SVM) et la met à jour quotidiennement avec le nombre de jours restants avant l’expiration. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#system-manager["Prise en charge des alertes d'expiration des mots de passe utilisateur"] | Si le rôle associé à un compte utilisateur est configuré pour les alertes d'expiration de mot de passe, l'utilisateur reçoit une bannière d'alerte en haut de la page dans System Manager immédiatement après sa connexion, à partir de 14 jours avant l'expiration du mot de passe. Cette alerte est mise à jour chaque fois que l'utilisateur se connecte pour indiquer le nombre de jours restants avant l'expiration du mot de passe. 
+
+
+| link:../learn-more/additional-supported-ontap-features.html#autosupport["Prise en charge d’alertes AutoSupport supplémentaires"] | System Manager affiche de nouvelles alertes AutoSupport qui peuvent vous aider à résoudre les problèmes de configuration de AutoSupport. 
+|===

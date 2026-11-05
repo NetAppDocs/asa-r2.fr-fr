@@ -22,7 +22,7 @@ Si le groupe d'hôtes du cluster source est répliqué vers le cluster de destin
 
 .Étapes
 . Dans System Manager, sélectionnez *Host*.
-. À côté d'un hôte contenant le groupe d'hôtes dont vous souhaitez arrêter la réplication, sélectionnezimage:icon_kabob.gif["trois points bleus verticaux"] , puis sélectionnez *Modifier*.
+. À côté de l'hôte contenant le groupe d'hôtes dont vous souhaitez arrêter la réplication, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"], puis sélectionnez *Modifier*.
 . Désélectionnez *Répliquer la configuration de l'hôte*, puis sélectionnez *Mettre à jour*.
 
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: data-protection/snapshot-replication.html 
 keywords: snapshot replication, asa r2, protect data, data protection, replication, replicate data, remote cluster, destination cluster, source cluster, replication relationship, asynchronous replication, synchronous replication 
-summary: 'Utilisez ONTAP System Manager pour copier les données vers un site distant à des fins de sauvegarde et de reprise d"activité. La configuration nécessite la création d"une règle de réplication et d"une relation.' 
+summary: Utilisez ONTAP System Manager pour copier les données vers un emplacement distant à des fins de sauvegarde et de reprise après sinistre. Créez une stratégie de réplication et une relation pour configurer la réplication des snapshots. 
 searchtitle: 'Réplication de snapshots sur un cluster distant à l"aide de ONTAP System Manager| ASA r2' 
 ---
 = Répliquez des snapshots sur un cluster distant à partir des systèmes de stockage ASA r2
@@ -17,7 +17,7 @@ La réplication Snapshot est un processus au cours duquel les groupes de cohére
 
 NOTE: La réplication de snapshots pour un système de stockage ASA r2 est uniquement prise en charge vers et depuis un autre système de stockage ASA r2.  Vous ne pouvez pas répliquer des snapshots d'un système ASA r2 vers un système ASA, AFF ou FAS ou d'un système ASA, AFF ou FAS vers un système ASA r2.
 
-Pour configurer la réplication Snapshot, vous devez établir une relation de réplication entre votre système ASA r2 et l'emplacement distant. La relation de réplication est régie par une règle de réplication. Une règle par défaut permettant de répliquer tous les snapshots est créée lors de la configuration du cluster. Vous pouvez utiliser la règle par défaut ou, si vous le souhaitez, créer une nouvelle règle.
+Pour configurer la réplication des snapshots, établissez une relation de réplication entre votre système ASA r2 et le site distant. La relation de réplication est régie par une stratégie de réplication. Une stratégie par défaut permettant de répliquer tous les snapshots est créée lors de la configuration du cluster. Vous pouvez utiliser la stratégie par défaut ou en créer une nouvelle.
 
 À partir d' ONTAP 9.17.1, vous pouvez appliquer des stratégies de réplication asynchrone aux groupes de cohérence dans une relation hiérarchique.  La réplication asynchrone n'est pas prise en charge pour les groupes de cohérence dans les relations hiérarchiques dans ONTAP 9.16.1.
 
@@ -88,12 +88,12 @@ Une relation de réplication de snapshot établit une connexion entre le systèm
 
 Pour une sécurité accrue contre les attaques de ransomware, créez une relation de réplication SnapLock pour SnapVault.
 
+.Description de la tâche
+* Lorsque vous créez une relation de réplication, vous devez sélectionner la stratégie de réplication appropriée pour votre relation de réplication.  Vous pouvez utiliser une politique prédéfinie ou créer une politique personnalisée.
+
+
 .Avant de commencer
-* link:pre-defined-protection-policies.html["En savoir plus sur les politiques de réplication"] .
-+
-Lorsque vous créez une relation de réplication, vous devez sélectionner la stratégie de réplication appropriée pour votre relation de réplication.  Vous pouvez utiliser une politique prédéfinie ou créer une politique personnalisée.
-
-
+À partir de ONTAP 9.20.1, vous pouvez configurer la réplication asynchrone back-end SnapMirror sur les fabrics FC existants. Pour ce faire, le back-end de votre système ONTAP doit être configuré pour la réplication FC, et le fabric FC ainsi que le réseau IP intercluster doivent être opérationnels. Les données de réplication peuvent être transportées sur le fabric FC, mais le réseau IP intercluster est requis pour les communications entre clusters et les fonctions de gestion de la réplication. link:https://docs.netapp.com/us-en/ontap/data-protection/configure-backend-fc-replication.html["Apprenez à configurer le back-end de votre système ONTAP pour la réplication FC"^].
 
 
 
@@ -101,6 +101,13 @@ Lorsque vous créez une relation de réplication, vous devez sélectionner la st
 === Créez une relation pour répliquer les instantanés vers un cluster distant
 
 Protégez vos données en répliquant des instantanés sur un cluster distant. Les instantanés répliqués de vos groupes de cohérence peuvent être utilisés pour la reprise après sinistre ou pour la migration des données.
+
+.Description de la tâche
+Dans ONTAP 9.20.1 et versions ultérieures :
+
+* Pour créer une relation SnapMirror à l’aide de la réplication FC back-end, vous devez utiliser une stratégie prédéfinie et prise en charge de protection des données asynchrone, et sélectionner le protocole de transport FC. La réplication back-end utilise le protocole IP par défaut. link:pre-defined-protection-policies.html["Découvrez quelles politiques de réplication prédéfinies prennent en charge la réplication FC back-end"].
+* Pour modifier le protocole de transport sélectionné après avoir créé une relation de réplication, vous devez link:snapmirror-active-sync-break-relationship.html["rompre"]supprimer la relation, puis la recréer avec le protocole de transport souhaité.
+
 
 .Étapes
 . Dans System Manager, sélectionnez *protection > réplication*.
@@ -129,6 +136,7 @@ Le groupe de cohérence _source_ fait référence au groupe de cohérence de vot
 
 |===
 . Sélectionnez une règle de réplication.
+. Dans ONTAP 9.20.1 et versions ultérieures, sélectionnez le protocole de transport pour la relation de réplication.
 . Pour retarder le début du transfert de données, sélectionnez *Paramètres de destination*, puis désélectionnez *Démarrer le transfert immédiatement*.
 +
 Le transfert de données initial commence immédiatement par défaut.
@@ -154,7 +162,8 @@ Pour assurer une protection contre les attaques de ransomware, lors de la config
 NOTE: Les systèmes ASA r2 ne prennent pas en charge le mode SnapLock Compliance ni le mode SnapLock Enterprise. La création d'une relation de réplication SnapLock pour SnapVault permet uniquement le verrouillage des instantanés de destination. Cela n'active pas le mode SnapLock Compliance ni le mode Enterprise.
 
 .Avant de commencer
-Vous devez link:../secure-data/snaplock.html#initialize-the-snaplock-compliance-clock["initialiser l’horloge de conformité SnapLock"].
+* Vous devez link:../secure-data/snaplock.html#initialize-the-snaplock-compliance-clock["initialiser l’horloge de conformité SnapLock"].
+
 
 .Étapes
 . Dans le Gestionnaire système, sélectionnez *Protection > Groupes de cohérence*, puis sélectionnez un groupe de cohérence.
@@ -162,7 +171,11 @@ Vous devez link:../secure-data/snaplock.html#initialize-the-snaplock-compliance-
 . Sous *protection distante*, sélectionnez *répliquer sur un cluster distant*.
 . Sélectionnez la *règle de réplication*.
 +
-Vous devez sélectionner une règle de réplication _vault_.
+Vous devez sélectionner une stratégie de réplication _vault_. Dans ONTAP 9.20.1 et versions ultérieures, vous devez sélectionner la stratégie _MirrorAndVault_ pour configurer la réplication FC back-end.
+
+. Dans ONTAP 9.20.1 et versions ultérieures, sélectionnez un protocole de transport.
++
+Pour modifier le protocole de transport sélectionné après avoir créé une relation de réplication, vous devez link:snapmirror-active-sync-break-relationship.html["rompre"]supprimer la relation, puis la recréer avec le protocole de transport souhaité.
 
 . Sélectionnez *Paramètres de destination*, puis sélectionnez *Verrouiller les instantanés de destination pour empêcher leur suppression*.
 . Entrez la période de conservation maximale et minimale des données.
@@ -179,6 +192,9 @@ Votre planning de transfert doit être d'au moins 30 minutes pour être pris en 
 
 .Et la suite ?
 Une fois que vous avez créé une relation de réplication, votre transfert de données initial commence comme défini dans votre stratégie de réplication. Vous pouvez éventuellement tester le basculement de la réplication pour vérifier qu’un basculement réussi peut avoir lieu si votre système ASA r2 est mis hors ligne.
+
+.Informations associées
+link:pre-defined-protection-policies.html["En savoir plus sur les politiques de protection prédéfinies"].
 
 
 

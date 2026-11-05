@@ -1,0 +1,27 @@
+= 
+:allow-uri-read: 
+
+
+.Étapes
+. Depuis le cluster de destination, démarrez la migration de la machine virtuelle de stockage :
++
+[source, cli]
+----
+vserver migrate start -vserver <storage_VM_name> -source-cluster <source_cluster>
+----
++
+Pour désactiver la bascule automatique, utilisez le `-auto-cutover false` paramètre. Pour désactiver la suppression automatique de la machine virtuelle de stockage source, utilisez le `-auto-source-cleanup false` paramètre.
+
+. Surveillez l'état de la migration
++
+[source, cli]
+----
+vserver migrate show -vserver <storage_VM_name>
+----
++
+Si vous devez suspendre ou annuler la migration avant le début du basculement automatique, utilisez la `vserver migrate pause` et le `vserver migrate abort` commandes.  Vous devez suspendre la migration avant de l'annuler.  Vous ne pouvez pas annuler la migration une fois la transition commencée.
+
++
+Si la bascule automatique est activée, une fois la migration terminée, le *status* s’affiche comme *migration-complete*. Si la bascule automatique est désactivée, le *status* s’affiche comme *Ready for source cleanup*.
+
+
