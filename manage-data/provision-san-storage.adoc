@@ -29,7 +29,7 @@ Vous ajoutez et associez les initiateurs hôtes à l'unité de stockage dans le 
 
 link:../data-protection/snapshot-reserve.html["Découvrez plus d'informations sur la réserve de snapshots sur les systèmes ASA r2"].
 
-Les unités de stockage sont configurées en allocation dynamique par défaut. L'allocation dynamique permet à l'unité de stockage d'atteindre la taille allouée sans réserver l'espace à l'avance. L'espace est alloué dynamiquement à partir de l'espace libre disponible, selon les besoins. Cela vous permet d'obtenir une plus grande efficacité de stockage en _surprovisionnant_ votre espace disponible. Par exemple, supposons que vous disposiez de 1 To d'espace libre et que vous deviez créer quatre unités de stockage de 1 To. Au lieu d'ajouter immédiatement 3 To de stockage supplémentaire à votre système, vous pouvez créer les unités de stockage, surveiller l'utilisation de l'espace et augmenter votre capacité de stockage au fur et à mesure que les unités de stockage consomment de l'espace réel. En savoir plus sur link:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["provisionnement fin"^].
+Les unités de stockage sont provisionnées de manière fine par défaut. Le provisionnement fin permet à l'unité de stockage d'atteindre la taille allouée sans réserver l'espace à l'avance. L'espace est alloué dynamiquement à partir de l'espace libre disponible, selon les besoins. Cela vous permet d'obtenir une meilleure efficacité du stockage en _surprovisionnant_ votre espace disponible. Par exemple, supposons que vous disposiez de 1 To d'espace libre et que vous deviez créer quatre unités de stockage de 1 To. Au lieu d'ajouter immédiatement 3 To de stockage supplémentaire à votre système, vous pouvez créer les unités de stockage, surveiller l'utilisation de l'espace et augmenter votre capacité de stockage à mesure que les unités de stockage consomment de l'espace réel. En savoir plus sur link:https://docs.netapp.com/us-en/ontap/concepts/thin-provisioning-concept.html["provisionnement fin"^].
 
 .Étapes
 . Dans System Manager, sélectionnez *Storage*, puis sélectionnez image:icon_add_blue_bg.png["icône rectangulaire sur fond bleu et le mot se centre en lettres blanches"].
@@ -44,7 +44,7 @@ Pour optimiser l'équilibrage de la charge de travail dans la zone de disponibil
 . Entrez la capacité de l'unité de stockage, puis sélectionnez le système d'exploitation hôte.
 +
 
-CAUTION: Si vous créez plus d'une unité de stockage, chaque unité est créée avec la même capacité. Multipliez le nombre d'unités de stockage que vous créez par la capacité souhaitée pour vous assurer de disposer de suffisamment d'espace utilisable. Si vous n'avez pas assez d'espace libre et que vous choisissez de surprovisionner, surveillez attentivement l'utilisation afin d'éviter de manquer d'espace et de perdre des données.
+CAUTION: Si vous créez plusieurs unités de stockage, chacune aura la même capacité. Multipliez le nombre d'unités de stockage que vous créez par la capacité souhaitée pour vous assurer de disposer de suffisamment d'espace utilisable. Si vous ne disposez pas de suffisamment d'espace libre et que vous choisissez le surprovisionnement, surveillez attentivement l'utilisation afin d'éviter de manquer d'espace et de perdre des données.
 
 +
 À partir d'ONTAP 9.19.1, si vous créez un LUN AIX que vous prévoyez d'activer pour la protection SnapMirror active sync, sous *Informations sur l’hôte*, sélectionnez *local* pour le *Mode d’accès*. Ceci est nécessaire pour activer le basculement transparent des applications.
@@ -273,7 +273,7 @@ Une fois que vous avez créé vos unités de stockage, ajouté vos initiateurs h
 Utilisez une zone par initiateur et incluez tous les ports cibles dans chaque zone.
 
 . Découvrez la nouvelle unité de stockage.
-. Initialisez l'unité de stockage et un système de création de fichiers.
+. Initialisez l'unité de stockage et créez un système de fichiers.
 . Vérifiez que votre hôte peut lire et écrire des données sur l'unité de stockage.
 
 

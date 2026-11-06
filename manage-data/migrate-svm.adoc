@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/migrate-svm.html 
 keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine 
-summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d"équilibrer l"utilisation du stockage dans le cluster.' 
+summary: Migrer une VM de stockage d’un cluster ASA vers un cluster ASA r2 sans interruption, notamment en vérifiant la VM de stockage, en mettant les clusters en peering, en exécutant la vérification préalable et en effectuant la migration. 
 ---
 = Migrer une machine virtuelle de stockage d'un cluster ASA vers un cluster ASA r2
 :allow-uri-read: 
@@ -16,7 +16,7 @@ summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, 
 
 NOTE: Vous ne pouvez pas migrer une machine virtuelle de stockage d’un ASA MetroCluster vers un cluster ASA r2. Les systèmes ASA r2 ne prennent pas en charge les configurations MetroCluster.
 
-Les systèmes ASA r2 prennent en charge la technologie QuickAssist (QAT). Les systèmes ASA ne prennent pas en charge QAT. À partir de ONTAP 9.20.1, ONTAP réduit la latence de lecture élevée et l'utilisation du processeur qui peuvent survenir après la migration d'une machine virtuelle de stockage (VM) d'un système ASA (non-QAT) vers un système ASA r2 (QAT).
+Les systèmes ASA r2 prennent en charge la technologie QuickAssist (QAT). Les systèmes ASA ne prennent pas en charge QAT. À partir de ONTAP 9.20.1, ONTAP réduit la latence de lecture élevée et l'utilisation du processeur qui peuvent survenir après la migration d'une machine virtuelle de stockage d'un système ASA (sans QAT) vers un système ASA r2 (QAT).
 
 La migration des machines virtuelles de stockage entre les systèmes de stockage ASA et ASA r2 est prise en charge comme suit :
 
@@ -249,7 +249,7 @@ Si la bascule automatique est activée, une fois la migration terminée, le *sta
 
 
 .Résultat
-La machine virtuelle de stockage est migrée du cluster ASA vers le cluster ASA r2.  Le nom et l'UUID de la machine virtuelle de stockage, le nom de l'interface logique de données, l'adresse IP et les noms des objets, tels que le nom du volume, restent inchangés.  L'UUID des objets migrés dans la machine virtuelle de stockage est mis à jour.
+La VM de stockage est migrée du cluster ASA vers le cluster ASA r2. Le nom et l’UUID de la VM de stockage, le nom de la LIF de données, l’adresse IP et les noms des objets, tels que le nom du volume, restent inchangés. L’UUID des objets migrés dans la VM de stockage est mis à jour.
 
 .Et la suite ?
 Si vous avez désactivé le basculement automatique et la suppression automatique de la machine virtuelle de stockage, effectuez le basculement et le nettoyage post-migration pour basculer manuellement vos clients ASA vers votre cluster de destination et supprimer la machine virtuelle de stockage du cluster ASA.

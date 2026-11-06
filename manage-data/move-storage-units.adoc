@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/move-storage-units.html 
 keywords: move lun, lun move, move namespace, move storage unit, asa r2 
-summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d"équilibrer l"utilisation du stockage dans le cluster.' 
+summary: 'Déplacez les unités de stockage vers une autre zone de disponibilité de stockage afin d"équilibrer l"utilisation du stockage sur l"ensemble du cluster lorsqu"une zone manque d"espace.' 
 ---
 = Déplacement des unités de stockage sur les systèmes de stockage ASA r2
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: 'Si l"espace d"une zone de disponibilité du stockage est insuffisant, 
 [role="lead"]
 Si l'espace d'une zone de disponibilité du stockage est insuffisant, vous pouvez déplacer des unités de stockage vers une autre zone de disponibilité du stockage afin d'équilibrer l'utilisation du stockage dans le cluster.
 
-Vous pouvez déplacer une unité de stockage pendant que celle-ci est en ligne et qu'elle assure l'accès aux données. L'opération de déplacement est sans interruption.
+Vous pouvez déplacer une unité de stockage alors qu'elle est en ligne et qu'elle dessert des données. L'opération de déplacement s'effectue sans interruption.
 
 .Avant de commencer
 * Vous devez exécuter ONTAP 9.16.1 ou une version ultérieure.

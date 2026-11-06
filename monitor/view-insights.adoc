@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: monitor/view-insights.html 
 keywords: view, insights, optimize, cluster, performance, best practices, configuration, security 
-summary: 'Consultez des informations exploitables dans ONTAP System Manager pour identifier les bonnes pratiques et modifier la configuration que vous pouvez implémenter sur votre système ASA r2 afin d"optimiser la sécurité et les performances du cluster.' 
+summary: Consultez les informations dans System Manager pour identifier les bonnes pratiques et les modifications de configuration qui optimisent la sécurité et les performances de votre cluster ASA r2. 
 ---
 = Optimisez la sécurité et les performances de votre cluster avec les Insights système ASA r2
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: 'Consultez des informations exploitables dans ONTAP System Manager pour
 [role="lead"]
 Consultez _Insights_ dans ONTAP System Manager pour identifier les meilleures pratiques et les modifications de configuration que vous pouvez implémenter sur votre système ASA r2 afin d'optimiser la sécurité et les performances du cluster.
 
-Par exemple, supposons que vous ayez configuré des serveurs NTP (Network Time Protocol) pour votre cluster. Toutefois, vous ignorez que vous disposez de moins que le nombre recommandé de serveurs NTP nécessaires pour une gestion optimale de l'heure du cluster. Pour vous aider à prévenir les problèmes pouvant survenir lorsque l'heure du cluster est imprécise, Insights vous avertit que vous avez trop peu de serveurs NTP configurés et vous propose des options pour en savoir plus sur le problème, le résoudre ou l'ignorer.
+Par exemple, supposons que vous ayez configuré un nombre de serveurs NTP (Network Time Protocol) inférieur au nombre recommandé pour votre cluster. Afin de vous aider à éviter les problèmes qu'une heure de cluster imprécise peut entraîner, Insights vous avertit qu'un nombre insuffisant de serveurs NTP est configuré et vous propose différentes options : obtenir plus d'informations, résoudre le problème ou l'ignorer.
 
 image:insights.png["capture d'écran de la page d'informations system manager"]
 

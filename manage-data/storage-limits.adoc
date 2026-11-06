@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/storage-limits.html 
 keywords: storage limits, cluster limits, maximum lun size, maximum, nodes per cluster, storage unit size, supported protocols, asa r2, asa a1k, asa a90, asa a70, asa a50, asa a30, asa a20, asa c30 
-summary: Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de ASA r2. 
+summary: 'Consultez les limites de stockage ASA r2 pour votre système et votre version d"ONTAP dans NetApp Hardware Universe afin de garantir des performances, une configuration et une assistance optimales.' 
 ---
 = Déterminez les limites de stockage de votre système ASA r2
 :allow-uri-read: 
@@ -11,12 +11,12 @@ summary: Pour des performances, une configuration et une assistance optimales, v
 
 
 [role="lead"]
-Pour des performances, une configuration et une assistance optimales, vous devez connaître les limites de stockage de l'ASA r2.
+Connaître les limites de stockage de votre système ASA r2 vous permet de le configurer pour des performances et une prise en charge optimales. Vous pouvez consulter les limites de votre système et de votre version d'ONTAP dans NetApp Hardware Universe.
 
-Les limites peuvent varier en fonction de votre système ASA r2 et de votre version ONTAP. Consultez link:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour obtenir la liste complète des limites les plus récentes applicables à votre système spécifique.
+Les limites peuvent varier selon votre système ASA r2 et votre version d'ONTAP. Consultez link:https://hwu.netapp.com/["NetApp Hardware Universe"^] pour obtenir la liste complète des limites les plus récentes pour votre système spécifique.
 
 
-NOTE: Les limites des machines virtuelles (VM) ne sont pas répertoriées dans Hardware Universe. Le nombre maximal recommandé de VM par paire haute disponibilité est de 800 et par cluster de 1 200, conformément aux limites de volume système de l'ASA r2. Cette limite ne s'applique pas aux VM hébergées sur des datastores VMFS. Il n'existe pas de nombre maximal de VM pour les datastores VMFS.
+NOTE: Les limites des machines virtuelles (VM) ne sont pas répertoriées dans Hardware Universe. Le nombre maximal recommandé de VM par paire haute disponibilité est de 800 et par cluster de 1 200, selon les limites de volume système d’ASA r2. Cette limite ne s'applique pas aux VM hébergées dans des datastores VMFS. Il n'existe pas de nombre maximal de VM pour les datastores VMFS.
 
 .Description de la tâche
 Les systèmes ASA r2 sont répertoriés dans NetApp Hardware Universe sous *Products* en tant que plateformes « ASA ».

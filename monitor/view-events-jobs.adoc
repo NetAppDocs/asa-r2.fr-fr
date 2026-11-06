@@ -60,7 +60,7 @@ Configurez votre système pour qu'il envoie une notification à des adresses e-m
 
 .Étapes
 . Dans System Manager, sélectionnez *Cluster > Paramètres*.
-. En regard de *gestion des notifications*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
+. À côté de *Gestion des notifications*, sélectionnez image:icon_kabob.gif["trois points bleus verticaux"].
 . Pour configurer une destination d'événement, sélectionnez *Afficher les destinations d'événement*, puis *destinations d'événement*. Pour configurer une destination de journal d'audit, sélectionnez *Afficher les destinations d'audit*, puis *destinations de journal d'audit*.
 . Sélectionnez image:icon_add_blue_bg.png["rectangle bleu avec signe plus suivi du mot ajouter en lettres blanches"].
 . Entrez les informations de destination, puis sélectionnez *Ajouter*.

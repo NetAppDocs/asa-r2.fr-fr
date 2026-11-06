@@ -2,16 +2,16 @@
 sidebar: sidebar 
 permalink: manage-data/migrate-svm-from-asa-r2.html 
 keywords: move svm, migrate svm, asa, asa r2, storage vm, storage virtual machine 
-summary: 'À partir d"ONTAP 9.20.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d’un cluster ASA r2 à 2 nœuds vers un cluster ASA à 2 nœuds ou un cluster AFF à 2 nœuds.' 
+summary: 'Migrez une machine virtuelle de stockage d"un cluster ASA r2 à 2 nœuds vers un cluster ASA ou AFF à 2 nœuds sans interruption, à partir de ONTAP 9.20.1.' 
 ---
-= Migrer une VM de stockage d’un cluster ASA r2 vers un cluster ASA ou AFF
+= Migrer une machine virtuelle de stockage d'un cluster ASA r2 vers un cluster ASA ou AFF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-À partir de ONTAP 9.20.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d’un cluster ASA r2 à 2 nœuds vers un cluster ASA à 2 nœuds ou un cluster AFF à 2 nœuds. Vous devrez peut-être migrer une VM de stockage pour consolider les charges de travail SAN et NAS, adopter des fonctionnalités ONTAP non disponibles pour les systèmes ASA r2, ou dans le cadre d’un renouvellement matériel de votre environnement. Les mappages hôtes et les configurations des unités de stockage existants pour les LUN et les namespaces sont conservés pendant la migration, ce qui réduit les efforts opérationnels et les risques.
+À partir de ONTAP 9.20.1, vous pouvez migrer sans interruption une machine virtuelle de stockage (VM) d’un cluster ASA r2 à 2 nœuds vers un cluster ASA à 2 nœuds ou un cluster AFF à 2 nœuds. Vous devrez peut-être migrer une VM de stockage pour consolider les workloads SAN et NAS, adopter des fonctionnalités ONTAP non disponibles pour les systèmes ASA r2, ou renouveler votre matériel. Les mappages hôte existants et les configurations des unités de stockage pour les LUN et les espaces de noms sont conservés pendant la migration, ce qui réduit les efforts opérationnels et les risques.
 
 .Avant de commencer
 * Vous devez être administrateur du cluster.
@@ -21,8 +21,8 @@ summary: 'À partir d"ONTAP 9.20.1, vous pouvez migrer sans interruption une mac
 .Description de la tâche
 * Vous pouvez migrer une VM de stockage ASA r2 d’un cluster ASA r2 à 2 nœuds vers un cluster AFF à 2 nœuds uniquement.
 +
-** Vous ne pouvez pas migrer une machine virtuelle de stockage ASA r2 vers un cluster FAS, ni vers un cluster ASA ou AFF comportant plus de 2 nœuds.
-** Vous ne pouvez pas migrer une machine virtuelle de stockage ASA r2 à partir d’un cluster ASA r2 comportant plus de 2 nœuds.
+** Vous ne pouvez pas migrer une machine virtuelle de stockage ASA r2 vers un cluster FAS, ni vers un cluster ASA ou AFF comportant plus de deux nœuds.
+** Vous ne pouvez pas migrer une machine virtuelle de stockage ASA r2 depuis un cluster ASA r2 comportant plus de deux nœuds.
 
 
 * La migration des données d'un cluster ASA r2 vers un cluster AFF n'est pas réversible.
@@ -30,7 +30,7 @@ summary: 'À partir d"ONTAP 9.20.1, vous pouvez migrer sans interruption une mac
 Vous pouvez annuler une migration avant le basculement, mais une fois celui-ci lancé, vous ne pouvez ni l’interrompre ni annuler la migration. Une fois la migration terminée, vous ne pouvez pas migrer des données d’un cluster AFF vers un cluster ASA r2.
 
 +
-Vous pouvez link:migrate-svm.html["migrer une SVM d'un ASA vers un cluster ASA r2"].
+Vous pouvez link:migrate-svm.html["migrer une machine virtuelle de stockage d'un ASA vers un cluster ASA r2"].
 
 * Vous ne pouvez migrer qu'une seule machine virtuelle de stockage à la fois.
 * La machine virtuelle de stockage peut contenir un maximum de 400 unités de stockage.
@@ -120,7 +120,7 @@ Avant de migrer une machine virtuelle de stockage (VM) à partir d’un cluster 
 
 .Étapes
 . link:../data-protection/snapmirror-active-sync-break-relationship.html["Supprimez toutes les relations de réplication existantes"].
-. link:../data-protection/snapmirror-active-sync-delete-relationship.html["Supprimez toutes les relations actives snyc existantes de SnapMirrror"].
+. link:../data-protection/snapmirror-active-sync-delete-relationship.html["Supprimez toutes les relations actives de synchronisation SnapMirror existantes"].
 . Vérifiez si IPsec est activé :
 +
 [source, cli]
@@ -137,22 +137,22 @@ security ipsec config modify -is-enabled -false
 +
 En savoir plus sur la commande link:https://docs.netapp.com/us-en/ontap-cli/security-ipsec-config-show.html["security ipsec config show"^].
 
-.. Vérifiez la présence de LIF IPv6 et de LIF d’IP virtuelles (VIP):
+.. Vérifiez la présence d'interfaces logiques (LIF) IPv6 et d'adresses IP virtuelles (VIP) :
 +
 [source, cli]
 ----
 network interface show -vserver <storage_vm_name> -fields address-family, is-vip
 ----
 +
-Pour les LIF iPv6, le `-address-family` est `ipv6`. Pour les LIF VIP, le `-is-vip` paramètre est `true`.
+Pour les LIF IPv6, le `-address-family` est `ipv6`. Pour les LIF VIP, le `-is-vip` paramètre est `true`.
 
-.. S'il existe des LIF iPv6 ou VIP, supprimez-les:
+.. S'il existe des LIF IPv6 ou VIP, supprimez-les:
 +
 [source, cli]
 ----
 network interface delete -vserver <storage_vm_name> - lif <lif_name>
 ----
-.. Vérifiez qu'il ne reste aucune LIF IPv6 ou VIP sur la VM de stockage :
+.. Vérifiez qu'il ne reste aucune LIF IPv6 ou VIP sur la machine virtuelle de stockage :
 +
 [source, cli]
 ----
@@ -221,7 +221,7 @@ Vous êtes prêt à migrer votre machine virtuelle de stockage depuis votre clus
 
 Une fois que vous avez créé la relation entre clusters nécessaire entre les clusters ASA r2 et ASA ou AFF et que vous avez terminé les étapes de préparation des deux clusters, vous pouvez commencer la migration de la machine virtuelle de stockage.
 
-Lors de la migration d'une machine virtuelle de stockage, il est recommandé, comme bonne pratique, de laisser une marge de 30 % de CPU sur le cluster ASA r2 et le cluster AFF afin de permettre l'exécution du workload CPU de migration.
+Comme bonne pratique, laissez une marge de 30 % de CPU sur le cluster ASA r2 et sur le cluster AFF afin que le workload de migration puisse s'exécuter.
 
 .Description de la tâche
 * Après la migration de la machine virtuelle de stockage, les E/S client basculent en toute transparence vers le cluster de destination sans interruption, et la machine virtuelle de stockage sur le cluster ASA r2 est automatiquement supprimée. Le basculement automatique et la suppression automatique de la machine virtuelle de stockage sont activés par défaut. Vous pouvez éventuellement désactiver l’une ou l’autre de ces options, ou les deux, et les exécuter manuellement.
